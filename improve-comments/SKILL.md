@@ -29,6 +29,7 @@ The comment carries no information beyond what the code itself expresses. Two su
 
 - **Function or type doc that paraphrases the implementation.** "Calls `parse` then `validate` and ...", "iterates the array and ...". The doc rots when the body is rewritten, and worse, callers get a mechanism description instead of the contract they need.
 - **Inline comment that narrates a self-evident statement.** A line above `i++` that says "increment counter".
+- **Type doc that restates the type expression.** Prose like "field is required" or "X is optional" when the type already encodes that fact.
 
 Both fail the same test: the reader gains nothing from reading the comment that they would not get from reading the code.
 
@@ -74,11 +75,12 @@ This pattern is especially common in LLM-assisted coding because the writing ses
 Common forms:
 
 - **Change history.** "previously did X", "new in v2", "replaced Y", "old: ... / now: ...". Code describes the *current* state. History belongs in version control.
-- **Session or instruction provenance.** "Per spec §3.2:", "As agreed:", "Implementation note:", "Following the design discussion:". The reader does not know which spec, which agreement, which discussion.
-- **References to a road not taken.** "Doing B, not A" written purely because the writer was told to do B instead of A. The reader has no idea what A was or why it matters.
+- **Session or instruction provenance.** "Per spec §3.2:", "As agreed:", "Following the design discussion:". The reader does not know which spec, which agreement, which discussion.
+- **Unprompted rationale.** "X is always present because…", "Y is nullable here because…". The same justification is load-bearing where the property would surprise a fresh reader, and noise where the reader takes it for granted. The leaked context is whatever made the writer feel the explanation was needed — usually a recent decision or discussion that made the question feel live. To a future reader who never asked, the rationale only raises a different question: "why is this being explained?"
 - **References to files outside the tracked repository.** "See `notes.md`", "Described in `design.txt`". If the file is gitignored, build-generated, or only on the writer's machine, a fresh clone cannot follow the pointer. A common LLM-coding variant: a local scratch file (session plan, working note) gets cited as if it were a permanent project document.
+- **References to a road not taken.** "Doing B, not A" written purely because the writer was told to do B instead of A. The reader has no idea what A was or why it matters.
 
-**Important nuance for the third form**: "Doing B, not A" is *useful* when A is what a typical reader would expect and B is the surprising choice — least-surprise documentation is contract-bearing. The line to draw: **does the future reader, with no access to the writer's context, benefit from knowing about A?** If yes, keep and explain why B was chosen. If the only reason A is mentioned is that the writer was instructed to deviate from it, delete.
+**Important nuance for the last form**: "Doing B, not A" is *useful* when A is what a typical reader would expect and B is the surprising choice — least-surprise documentation is contract-bearing. The line to draw: **does the future reader, with no access to the writer's context, benefit from knowing about A?** If yes, keep and explain why B was chosen. If the only reason A is mentioned is that the writer was instructed to deviate from it, delete.
 
 **Bad**:
 ```
@@ -201,6 +203,8 @@ The audit is not only subtractive. Adjusting comment density toward the places t
 ### Step 1 — Read
 
 Read the target file in full. Build a mental map of every comment, what it is doing, and which checks it fails.
+
+Comments you wrote in the same session should be audited more skeptically than older ones.
 
 ### Step 2 — Plan and align with the user
 
