@@ -244,6 +244,7 @@ If the project has lint, test, or type-check commands, run them. Comment-only ch
 - Do not refer to the current task, fix, conversation, or callers ("added for X", "used by Y", "as discussed"). That is exactly the context-leak failure of check 3.
 - Match the voice and register of the surrounding file. A terse file stays terse. A descriptive file stays descriptive.
 - Do not restate the function's name in its doc summary.
+- Avoid breaking lines mid-phrase. Wrap at a clause boundary, or leave the sentence on one line. Prefer starting each sentence on its own line, even when the previous one left room.
 
 ## Common failure modes during a comment pass
 
