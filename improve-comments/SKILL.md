@@ -1,13 +1,13 @@
 ---
 name: improve-comments
-description: Use this skill to audit and improve source code comments. Trigger proactively when implementing or reviewing a code change that adds or modifies a substantial number of comments. Comment quality degrades silently in such changes. Running an audit pass before finalizing keeps low-quality comments from landing. Applies to any language and any doc-comment dialect (like C-style block, line comments, Python triple-quoted, JSDoc, Pydoc, Rustdoc).
+description: Use this skill to audit and improve source code comments. Trigger proactively when implementing or reviewing a code change that adds or modifies a substantial number of comments — including refactors, AI-assisted edits, and any time the user asks to clean up, review, or audit comments. Running an audit pass before finalizing keeps low-quality comments from landing. Applies to any language and any doc-comment dialect (like C-style block, line comments, triple-quoted, JSDoc, Pydoc, Rustdoc).
 ---
 
 # Improve Comments
 
 Source code comments are not free decoration. Every comment occupies reader attention and ages alongside the code it sits next to. A comment is worth keeping only when it carries information the code itself cannot express.
 
-This skill is a structured audit-and-fix pass. Default to subtraction. Removing dead-weight comments makes the surviving ones louder.
+This skill is a structured audit-and-fix pass. Default to subtraction. Removing dead-weight comments makes the surviving ones louder. But the audit is not only subtractive. Adjusting comment density toward the places that need it is part of the job.
 
 ## Operating principle
 
@@ -17,24 +17,37 @@ A comment earns its place when it does one of these:
 2. **Why, not what** — captures a non-obvious reason: a workaround, a subtle invariant, surprising behavior, a hidden constraint, a chosen trade-off.
 3. **Existence justification** — explains why a thing exists when its purpose is not obvious from name and signature alone.
 
-Anything else is a candidate for deletion or rewrite.
+Anything else is a candidate for deletion or rewrite. The checklist below enumerates the typical ways comments fail these criteria.
 
 ## The audit checklist
 
 Read the target file end-to-end. For each comment, walk the checks below in order. They are arranged from most fundamental ("does this comment have a reason to exist?") to most escalatory ("is this really a code-structure problem in disguise?"). One comment can hit several; the categories overlap on purpose so a problem caught by any of them gets caught.
 
+**Information failures**
+
 1. The code already says this
 2. The comment lies
+
+**Context leaks**
+
 3. The comment leaks context the future reader does not have
 4. The doc describes the caller's use case instead of the callee's contract
+
+**Form and placement**
+
 5. Wrong location
 6. Wrong abstraction level
 7. Verbose construction
+
+**Escalation**
+
 8. The comment is masking a code-structure problem
 
 ### 1. The code already says this
 
-The comment carries no information beyond what the code itself expresses. Two surface forms:
+The comment carries no information beyond what the code itself expresses.
+
+Common forms:
 
 - **Function or type doc that paraphrases the implementation.** "Calls `parse` then `validate` and ...", "iterates the array and ...". The doc rots when the body is rewritten, and worse, callers get a mechanism description instead of the contract they need.
 - **Inline comment that narrates a self-evident statement.** A line above `i++` that says "increment counter".
@@ -80,6 +93,8 @@ The comment says X but the code does Y. Usually the result of code changing whil
 The comment makes sense only to someone who shared the moment of writing — the writer's instructions, the discussion that led to the design, the previous version of the code. A future reader (or the same person months later) cannot access that context. The comment becomes a riddle, then a misleading riddle, then it rots.
 
 This pattern is especially common in LLM-assisted coding because the writing session is full of context (specs, agreed decisions, alternatives considered) that quietly leaks into the output.
+
+These comments read as plausible during audit because the writer did have reasons. Those reasons do not transfer to a future reader who lacks the context, and a charitable auditor who imputes them on the writer's behalf will keep dead weight. When a comment cites an external referent (spec section, sibling doc, prior agreement), verify the referent is reachable from the repo as a tracked artifact. An unverifiable reference is leaked context by definition.
 
 Common forms:
 
@@ -230,19 +245,18 @@ fn process(d) {
 
 **Fix**: restructure the code so naming and structure carry the meaning. After the restructure, the apology comment is usually unnecessary. This is more work than editing prose. **Always surface the option to the user before doing it**; do not silently expand a comment task into a refactor.
 
-## The inverse: comments that should exist but do not
-
-While auditing, also watch for places where a missing **why** comment would help. Anywhere the code does something non-obvious — a workaround for a specific bug, a subtle invariant the rest of the code depends on, surprising behavior that would trip a reader, a hidden constraint from the environment — deserves a brief why-comment.
-
-The audit is not only subtractive. Adjusting comment density toward the places that need it is part of the job.
-
 ## Workflow
 
 ### Step 1 — Read
 
-Read the target file in full. Build a mental map of every comment, what it is doing, and which checks it fails.
+First, scope the audit. The file(s) to audit depend on how the skill was invoked:
 
-Comments you wrote in the same session should be audited more skeptically than older ones.
+- **Triggered by a code change** that added or modified comments: the files touched by the change.
+- **Explicitly invoked by the user**: whatever the user named. If scope is unclear (single file? PR diff? a directory?), ask before reading.
+
+Within each file in scope, read it end-to-end. The audit covers old comments too — pre-existing low-quality comments that slipped through earlier review are still candidates. Comments touched in the current change deserve extra skepticism, but the audit is not limited to them.
+
+Also watch for places where a missing **why** comment would help. Anywhere the code does something non-obvious — a workaround for a specific bug, a subtle invariant the rest of the code depends on, surprising behavior that would trip a reader, a hidden constraint from the environment — deserves a brief why-comment.
 
 ### Step 2 — Plan and align with the user
 
@@ -275,14 +289,12 @@ After sign-off, apply the changes. Preference order when in doubt:
 
 **Preserve means verbatim.** A comment that clears the audit stays as it was. Same wording, same punctuation, same line breaks. Cosmetic touches are out of scope. They create churn without information gain, and risk turning a survivor into a casualty over multiple audit passes.
 
-When writing replacement prose, do not introduce new long sentences while removing old ones. Apply the same style discipline you are enforcing.
-
-### Step 4 — Verify
-
-If the project has lint, test, or type-check commands, run them. Comment-only changes should not affect runtime, but type-bearing comment dialects (JSDoc-like type annotations, Python type comments, Sphinx directives) can affect static analysis. Skipping this step is how a "harmless" comment edit breaks a type check.
-
-## Style notes for replacement prose
+When writing replacement prose, do not introduce new long sentences while removing old ones. Apply the same style discipline you are enforcing:
 
 - Match the voice and register of the surrounding file. A terse file stays terse. A descriptive file stays descriptive.
 - Do not restate the function's name in its doc summary.
 - Avoid breaking lines mid-phrase. Wrap at a clause boundary, or leave the sentence on one line. Prefer starting each sentence on its own line, even when the previous one left room.
+
+### Step 4 — Verify
+
+If the project has lint or type-check commands, run them. Comment-only changes should not affect runtime, but type-bearing comment dialects (JSDoc-like type annotations, Python type comments, Sphinx directives) can affect static analysis. Skipping this step is how a "harmless" comment edit breaks a type check.
