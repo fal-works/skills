@@ -13,7 +13,7 @@ This skill is a structured audit-and-fix pass. Default to subtraction. Removing 
 
 A comment earns its place when it does one of these:
 
-1. **Contract** — describes what a function, type, or module guarantees to callers, at the right abstraction level.
+1. **Contract** — describes what a function, type, or module guarantees to callers, at the right abstraction level. Not narrower than the code is general; not more granular than the reader needs.
 2. **Why, not what** — captures a non-obvious reason: a workaround, a subtle invariant, surprising behavior, a hidden constraint, a chosen trade-off.
 3. **Existence justification** — explains why a thing exists when its purpose is not obvious from name and signature alone.
 
@@ -21,7 +21,16 @@ Anything else is a candidate for deletion or rewrite.
 
 ## The audit checklist
 
-Read the target file end-to-end. For each comment, walk the seven checks below in order. They are arranged from most fundamental ("does this comment have a reason to exist?") to most escalatory ("is this really a code-structure problem in disguise?"). One comment can hit several; the categories overlap on purpose so a problem caught by any of them gets caught.
+Read the target file end-to-end. For each comment, walk the checks below in order. They are arranged from most fundamental ("does this comment have a reason to exist?") to most escalatory ("is this really a code-structure problem in disguise?"). One comment can hit several; the categories overlap on purpose so a problem caught by any of them gets caught.
+
+1. The code already says this
+2. The comment lies
+3. The comment leaks context the future reader does not have
+4. The doc describes the caller's use case instead of the callee's contract
+5. Wrong location
+6. Wrong abstraction level
+7. Verbose construction
+8. The comment is masking a code-structure problem
 
 ### 1. The code already says this
 
@@ -97,7 +106,36 @@ fn format_slice(text) -> string
 
 **Fix**: delete. If the *current* code has a non-obvious property (e.g., "this looks like a no-op but is load-bearing because callers depend on the side effect"), state that property directly without referencing the change or the conversation that produced it.
 
-### 4. Wrong location
+### 4. The doc describes the caller's use case instead of the callee's contract
+
+A function (or type, or module) is more general than its doc admits. The caller's domain, intent, or precondition has slipped into the doc *as if it were a property of the function itself*. A future caller looking for the right helper may pass it over, and the moment a second caller arrives in a different domain, the doc is actively misleading.
+
+Like check 3, this is a context leak — the writer was thinking about the immediate calling site while writing — but the leaked content is the *caller's perspective* rather than session or instruction provenance.
+
+Common forms:
+
+- **Domain narrowing.** `average(xs)` documented as "calculates the average of monetary amounts" when the function works for any numeric list.
+- **Use-case narrowing.** `parseRange(s)` documented as "parses the page-range input from the print dialog" when the function is a general range parser.
+- **Caller-tied invariants.** Param `text` documented as "the user's bio text" when the function accepts any string.
+- **Class or module scope tied to the current consumer.** `class Cache<K, V>` documented as "stores user sessions" because that is the only consumer today.
+
+**Bad**:
+```
+/// Average price of the items in the user's cart.
+fn average(xs: [Number]) -> Number
+```
+
+**Good**:
+```
+/// Arithmetic mean. Empty input returns 0.
+fn average(xs: [Number]) -> Number
+```
+
+**Important nuance**: caller-side facts are not absolutely banned from a doc. The failure is presenting them *as if they were intrinsic to the function*. A doc that names the relationship explicitly — "Used for X", "Used by Y", "Assumes the input is non-empty because callers check first" — is honest about the asymmetry, and is acceptable when the code itself ought to be reshaped (a narrower function, a stronger type, a relocated helper) but that work is being deferred. Treat such explicit framing as a softer signal, akin to check 8: the doc is doing its job, but the structure may want revisiting.
+
+**Fix**: rewrite at the function's actual level of generality. If the function should *only* be used for one domain, that is a code-level decision — narrow the type, narrow the name, or move it next to its caller — not something the doc should silently impose.
+
+### 5. Wrong location
 
 The comment exists for a real reason but sits in the wrong place. Two surface forms:
 
@@ -122,7 +160,7 @@ fn pick_winner(users: [User]) {
 
 **Fix**: hoist the statement to the most contractual surface that owns it (the type, the module, the function header). Drop the downstream copies.
 
-### 5. Wrong abstraction level
+### 6. Wrong abstraction level
 
 The comment lists specific identifiers, fields, branches, or cases when a single abstract sentence would carry the same content. The list pads volume without adding signal, and breaks when an item renames or moves.
 
@@ -142,7 +180,7 @@ The comment lists specific identifiers, fields, branches, or cases when a single
 
 **Fix**: move up one level of abstraction. Drop the enumeration. If a particular item carries non-obvious meaning of its own, comment it inline at its own location, not in this summary.
 
-### 6. Verbose construction
+### 7. Verbose construction
 
 One sentence that should be three. Heavy use of colons, semicolons, em-dashes, or parentheticals to chain clauses. The reader must parse the connector before extracting the meaning.
 
@@ -166,7 +204,7 @@ One sentence that should be three. Heavy use of colons, semicolons, em-dashes, o
 
 **Fix**: split into short declarative sentences (and paragraphs, too). One thought per sentence. Treat connectors (especially em-dashes) as expensive.
 
-### 7. The comment is masking a code-structure problem
+### 8. The comment is masking a code-structure problem
 
 The code is poorly factored, and the comment apologizes for it. Two layers of low quality compound: the code is hard to read AND the prose compensating for it is hard to read. The reader pays twice.
 
@@ -223,7 +261,7 @@ Also list "leave as is" items briefly so the user sees what is being preserved.
 
 **When no user is reachable** (running unattended, in CI, in an autonomous agent loop): still emit the plan as a visible artifact before the edits — in your output, the commit message, or the PR description — so a reviewer can verify the choices after the fact. Plan-then-edit ordering is not skippable. It applies to both the action sequence and the written report: present the plan first, then the edits-applied summary. Only the wait-for-confirmation step changes shape.
 
-For check 2 (a lying comment whose code is buggy) and check 7 (an apology comment masking a code-structure problem), do not act unilaterally: leave those cases untouched in the file and surface them as separate items for review. "Untouched" extends to any adjacent prose that participates in the same conflict. A docstring or header comment that asserts the same false claim as a flagged inline comment stays as-is. Rewriting it would silently take a side.
+For check 2 (a lying comment whose code is buggy) and check 8 (an apology comment masking a code-structure problem), do not act unilaterally: leave those cases untouched in the file and surface them as separate items for review. "Untouched" extends to any adjacent prose that participates in the same conflict. A docstring or header comment that asserts the same false claim as a flagged inline comment stays as-is. Rewriting it would silently take a side.
 
 ### Step 3 — Edit
 
@@ -231,9 +269,9 @@ After sign-off, apply the changes. Preference order when in doubt:
 
 1. **Delete** — first choice. Removing dead weight is the highest-leverage edit.
 2. **Trim** — second choice. Shorter prose with the same content.
-3. **Move** — when the content is good but in the wrong location (check 4).
+3. **Move** — when the content is good but in the wrong location (check 5).
 4. **Rewrite** — sparingly. Often a sign that the original was right but verbose, or right but at the wrong abstraction.
-5. **Restructure code** — only when check 7 applies and the user has agreed.
+5. **Restructure code** — only when check 8 applies and the user has agreed.
 
 **Preserve means verbatim.** A comment that clears the audit stays as it was. Same wording, same punctuation, same line breaks. Cosmetic touches are out of scope. They create churn without information gain, and risk turning a survivor into a casualty over multiple audit passes.
 
@@ -248,7 +286,8 @@ If the project has lint, test, or type-check commands, run them. Comment-only ch
 - Default to no comment. Add only when it earns its keep.
 - One thought per sentence. Split before chaining.
 - Avoid em-dashes as connectors. Prefer a period (split) or parentheses (subordinate).
-- Do not refer to the current task, fix, conversation, or callers ("added for X", "used by Y", "as discussed"). That is exactly the context-leak failure of check 3.
+- Do not refer to the current task, fix, or conversation ("added for X", "as discussed"). That is the context-leak failure of check 3.
+- Do not let a caller's domain or intent shape the contract sentence as if it were the function's own (check 4). Where it must appear, frame the relationship explicitly — "used for X", "assumes Z" — rather than absorbing it.
 - Match the voice and register of the surrounding file. A terse file stays terse. A descriptive file stays descriptive.
 - Do not restate the function's name in its doc summary.
 - Avoid breaking lines mid-phrase. Wrap at a clause boundary, or leave the sentence on one line. Prefer starting each sentence on its own line, even when the previous one left room.
