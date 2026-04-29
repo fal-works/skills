@@ -283,11 +283,6 @@ If the project has lint, test, or type-check commands, run them. Comment-only ch
 
 ## Style notes for replacement prose
 
-- Default to no comment. Add only when it earns its keep.
-- One thought per sentence. Split before chaining.
-- Avoid em-dashes as connectors. Prefer a period (split) or parentheses (subordinate).
-- Do not refer to the current task, fix, or conversation ("added for X", "as discussed"). That is the context-leak failure of check 3.
-- Do not let a caller's domain or intent shape the contract sentence as if it were the function's own (check 4). Where it must appear, frame the relationship explicitly — "used for X", "assumes Z" — rather than absorbing it.
 - Match the voice and register of the surrounding file. A terse file stays terse. A descriptive file stays descriptive.
 - Do not restate the function's name in its doc summary.
 - Avoid breaking lines mid-phrase. Wrap at a clause boundary, or leave the sentence on one line. Prefer starting each sentence on its own line, even when the previous one left room.
