@@ -1,5 +1,5 @@
 ---
-name: write-docs
+name: fal-write-docs
 description: Principles for writing and editing natural-language documentation in any language, such as Markdown documents, READMEs, design docs, ADRs, and source code comments. Use proactively whenever a task involves writing or modifying a non-trivial amount of prose for future readers, including code changes that ship with substantial new documentation, even when the user never mentions style or quality. Covers what to write, where to put it, how to phrase it, and which terms to use.
 ---
 

@@ -4,9 +4,9 @@ A general-purpose [APM](https://microsoft.github.io/apm/) package for software d
 
 ## Contents
 
-- [design](.apm/skills/design/SKILL.md): Principles for software design decisions. Counters the tendency to patch rather than redesign.
-- [write-docs](.apm/skills/write-docs/SKILL.md): Principles for writing documentation and comments.
-- [improve-docs](.apm/skills/improve-docs/SKILL.md): Audit-and-fix pass for existing documentation and comments. Companion to write-docs.
+- [fal-design](.apm/skills/fal-design/SKILL.md): Principles for software design decisions. Counters the tendency to patch rather than redesign.
+- [fal-write-docs](.apm/skills/fal-write-docs/SKILL.md): Principles for writing documentation and comments.
+- [fal-improve-docs](.apm/skills/fal-improve-docs/SKILL.md): Audit-and-fix pass for existing documentation and comments. Companion to fal-write-docs.
 
 ## Install
 
@@ -18,5 +18,5 @@ apm install fal-works/skills
 To install a single skill:
 
 ```sh
-apm install fal-works/skills --path .apm/skills/write-docs
+apm install fal-works/skills --path .apm/skills/fal-write-docs
 ```

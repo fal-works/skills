@@ -1,11 +1,11 @@
 ---
-name: improve-docs
-description: Audit and fix existing documentation and source code comments against the write-docs principles. Applies to Markdown documents, READMEs, design docs, ADRs, and comments in any language or doc-comment dialect. Trigger proactively after implementing or reviewing a change that adds or modifies a substantial amount of prose or comments, and whenever the user asks to clean up, review, or audit comments or documentation. Companion to the write-docs skill, which defines the target state.
+name: fal-improve-docs
+description: Audit and fix existing documentation and source code comments against the fal-write-docs principles. Applies to Markdown documents, READMEs, design docs, ADRs, and comments in any language or doc-comment dialect. Trigger proactively after implementing or reviewing a change that adds or modifies a substantial amount of prose or comments, and whenever the user asks to clean up, review, or audit comments or documentation. Companion to the fal-write-docs skill, which defines the target state.
 ---
 
 # Improve Docs
 
-This skill is an audit-and-fix pass over existing prose: code comments, doc comments, and Markdown documents. The target state is defined by the write-docs skill; read its SKILL.md before auditing. The checks below reference its sections (§N means a write-docs section) and use vocabulary defined there. What this skill adds is what auditing needs beyond the norms: how violations look in existing text, what fix each one takes, and when a finding is bigger than prose.
+This skill is an audit-and-fix pass over existing prose: code comments, doc comments, and Markdown documents. The target state is defined by the fal-write-docs skill; read its SKILL.md before auditing. The checks below reference its sections (§N means a fal-write-docs section) and use vocabulary defined there. What this skill adds is what auditing needs beyond the norms: how violations look in existing text, what fix each one takes, and when a finding is bigger than prose.
 
 The goal of a pass: every surviving sentence earns its place, and nothing the reader needs is missing. Default to subtraction; removing dead weight makes the survivors louder. But the pass is not only subtractive: move density toward the places that need it, and add the whys that are missing.
 
@@ -27,7 +27,7 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 **Information failures**
 
 1. **The artifact already says it.** Prose paraphrases the implementation, the type, or the name. Delete, or rewrite at the level of what callers can rely on (§1).
-2. **It lies.** The text says X; the artifact does Y. Usually drift. If the text is stale, fix or delete it. If the code may be wrong instead, that is a bug: report the conflict and leave both sides untouched, including any adjacent prose asserting the same claim. This check has no write-docs counterpart; only an audit catches drift.
+2. **It lies.** The text says X; the artifact does Y. Usually drift. If the text is stale, fix or delete it. If the code may be wrong instead, that is a bug: report the conflict and leave both sides untouched, including any adjacent prose asserting the same claim. This check has no fal-write-docs counterpart; only an audit catches drift.
 3. **The why is missing.** Non-obvious code (a workaround, a subtle invariant, surprising behavior) with no explanation. Add a brief why-comment, one or two lines (§1, §6).
 
 **Context leaks**
@@ -65,7 +65,7 @@ Make prose edits on your own judgment: delete, trim, move, and rewrite without a
 
 - Prefer, in order: delete, trim, move, rewrite. Deletion is the highest-leverage edit; rewriting is the easiest to get wrong.
 - Text that passes the audit stays verbatim: same wording, same punctuation, same line breaks. Cosmetic churn creates diff noise and can turn a survivor into a casualty on the next pass.
-- Replacement prose follows write-docs in full, especially sentence discipline (§6) and corpus fit (§7). Do not remove one long sentence and write another.
+- Replacement prose follows fal-write-docs in full, especially sentence discipline (§6) and corpus fit (§7). Do not remove one long sentence and write another.
 
 ## Verify
 

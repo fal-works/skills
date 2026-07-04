@@ -1,5 +1,5 @@
 ---
-name: design
+name: fal-design
 description: Principles for software design decisions in any general-purpose programming language. Use proactively whenever a task involves structural decisions about code, such as planning an approach, adding capabilities, restructuring code, or modifying abstractions, even when the user frames the task as a simple change. Counters the LLM tendency to patch minimally rather than redesign coherently.
 ---
 
