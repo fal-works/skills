@@ -1,9 +1,10 @@
-# fal-works skills
+# fal-works agent skills
 
 A general-purpose [APM](https://microsoft.github.io/apm/) package for software development and documentation.
 
 ## Contents
 
+- [design](.apm/skills/design/SKILL.md): Principles for software design decisions. Counters the tendency to patch rather than redesign.
 - [write-docs](.apm/skills/write-docs/SKILL.md): Principles for writing documentation and comments.
 - [improve-docs](.apm/skills/improve-docs/SKILL.md): Audit-and-fix pass for existing documentation and comments. Companion to write-docs.
 
