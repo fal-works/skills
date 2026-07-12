@@ -1,6 +1,6 @@
 ---
 name: fal-improve-docs
-description: Audit and fix existing documentation and source code comments against the fal-write-docs principles. Applies to Markdown documents, READMEs, design docs, ADRs, and comments in any language or doc-comment dialect. Trigger proactively after implementing or reviewing a change that adds or modifies a substantial amount of prose or comments, and whenever the user asks to clean up, review, or audit comments or documentation. Companion to the fal-write-docs skill, which defines the target state.
+description: Audit and fix existing documentation and source code comments against the fal-write-docs principles. Applies to Markdown documents, READMEs, design docs, ADRs, and comments in any language or doc-comment dialect. Useful after implementing or reviewing a change that adds or modifies a substantial amount of prose or comments, and when the user asks to clean up, review, or audit comments or documentation. Companion to the fal-write-docs skill, which defines the target state.
 ---
 
 # Improve Docs

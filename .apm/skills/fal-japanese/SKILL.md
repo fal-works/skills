@@ -1,6 +1,6 @@
 ---
 name: fal-japanese
-description: Principles for writing natural Japanese in any output, including Markdown documents, code comments, commit messages, and chat responses. Use whenever producing more than a trivial amount of Japanese text, including conversation. Counters the characteristic failures of LLM-generated Japanese, such as words chosen by meaning without real-world usage, calqued English word senses and idioms, invented compound expressions, and English punctuation habits.
+description: Principles for writing natural Japanese in any output, including Markdown documents, code comments, commit messages, and chat responses. Useful when producing more than a trivial amount of Japanese text, including conversation. Counters the characteristic failures of LLM-generated Japanese, such as words chosen by meaning without real-world usage, calqued English word senses and idioms, invented compound expressions, and English punctuation habits.
 ---
 
 # 日本語

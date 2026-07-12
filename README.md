@@ -21,3 +21,7 @@ To install a single skill:
 ```sh
 apm install fal-works/skills --path .apm/skills/fal-write-docs
 ```
+
+## Triggering
+
+Each skill's `description` states what the skill is useful for, not when to trigger it. How eagerly a skill should trigger, and in which contexts, varies by user, model, and project. Set those conditions yourself in your `CLAUDE.md` or `AGENTS.md`.
