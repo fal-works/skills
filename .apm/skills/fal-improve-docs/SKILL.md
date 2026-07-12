@@ -17,7 +17,7 @@ At the same time, do not overshoot. These survive the audit:
 
 - Short doc summaries that look name-redundant but state intent or scope.
 - Implementation details that callers can rely on. "Binary search" in a doc tells callers O(log n); that is contract, not mechanism (§1).
-- Explicit caller-relationship framing ("Used by X", "Assumes callers validated the input"). It is honest about an asymmetry; keep it, and read it as a soft signal that structure work was deferred (check 12).
+- Explicit caller-relationship framing ("Used by X", "Assumes callers validated the input"). It is honest about an asymmetry; keep it, and read it as a soft signal that structure work was deferred (check 13).
 - Rationale placed where the property would surprise a fresh reader. The same "because..." is load-bearing there, and noise where the reader takes the property for granted.
 
 ## The checks
@@ -33,7 +33,7 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 **Context leaks**
 
 4. **The writing session leaked.** Change history, instruction provenance ("as agreed", "per spec §3.2"), references to untracked files, mentions of rejected alternatives. Delete; if the current state has a surprising property, state the property directly (§3). Comparison and negation phrasing ("not X", "instead of", "rather than") is the cue to pause: it marks either this leak or legitimate least-surprise documentation. Apply §3's test, and keep the alternative only when a fresh reader would expect it, saying why the choice was made.
-5. **The consumer leaked.** The current caller's domain or use case posing as a property of the thing itself. Rewrite at the thing's actual generality (§3). If the thing should only ever serve that one caller, that is a structure question, not a doc fix (check 12).
+5. **The consumer leaked.** The current caller's domain or use case posing as a property of the thing itself. Rewrite at the thing's actual generality (§3). If the thing should only ever serve that one caller, that is a structure question, not a doc fix (check 13).
 
 **Placement**
 
@@ -47,19 +47,20 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 **Form**
 
 9. **Ritual and padding.** Meta-narration, throat-clearing introductions, summary closings, sections filled to keep a template symmetric. Mostly a Markdown symptom. Delete (§5).
-10. **Verbose construction.** One sentence doing the work of three, chained with connectors. Split into short declarative sentences (§6).
-11. **Corpus mismatch.** Density, tone, vocabulary, or language diverging from the surrounding sections and sibling documents. Calibrate toward the corpus; calibration is not minimization (§7).
+10. **Pre-emptive defense.** A concession, an edge-case note, or a "this does not mean..." qualifying a claim that is accurate without it. It reads as precision, which is why it survives; its only audience is an objection the writer imagined while writing. Test by deletion: if the claim stays accurate, delete the defense. If it becomes false, the qualification is load-bearing and passes the audit; keep it, or reword the claim to the scope it can honestly carry when that reads cleaner (§1).
+11. **Verbose construction.** One sentence doing the work of three, chained with connectors. Split into short declarative sentences (§6).
+12. **Corpus mismatch.** Density, tone, vocabulary, or language diverging from the surrounding sections and sibling documents. Calibrate toward the corpus; calibration is not minimization (§7).
 
 **Escalation**
 
-12. **The prose apologizes for the structure.** A long explanation whose real job is to compensate for poorly factored code or a tangled document; typically it explains how to read the thing rather than why the thing is the way it is. This is the most valuable finding an audit can produce, and the temptation is to polish the apology and move on. Do not settle for that: sketch the restructure (naming, extraction, reshaping) that would make the prose unnecessary, and include it in your report. Whether to apply it yourself is an authority question; see below.
+13. **The prose apologizes for the structure.** A long explanation whose real job is to compensate for poorly factored code or a tangled document; typically it explains how to read the thing rather than why the thing is the way it is. This is the most valuable finding an audit can produce, and the temptation is to polish the apology and move on. Do not settle for that: sketch the restructure (naming, extraction, reshaping) that would make the prose unnecessary, and include it in your report. Whether to apply it yourself is an authority question; see below.
 
 ## Authority
 
 Make prose edits on your own judgment: delete, trim, move, and rewrite without asking first, then report what you changed and why, grouped by action. Two findings stay outside unilateral action:
 
 - **A lie over possibly-buggy code (check 2).** Taking either side silently corrupts something. Report it.
-- **Restructuring code or documents (check 12).** When the audit is a finishing pass on code work you are already doing, apply the restructure; it is part of the work. When you were asked specifically to audit comments or docs, do not expand into code edits on your own; deliver the audit and propose the restructure concretely.
+- **Restructuring code or documents (check 13).** When the audit is a finishing pass on code work you are already doing, apply the restructure; it is part of the work. When you were asked specifically to audit comments or docs, do not expand into code edits on your own; deliver the audit and propose the restructure concretely.
 
 ## Editing discipline
 
@@ -76,4 +77,6 @@ Make prose edits on your own judgment: delete, trim, move, and rewrite without a
 
 **Comments.** The lie check (2) requires reading the annotated code, not skimming it; verify each claim against what the code does. Contracts live in the doc comment on the declaration; implementation asides live in ordinary comments inside the body (§2).
 
-**Markdown.** Before editing one document, skim its siblings: duplication (check 6) and mismatch (check 11) are corpus-level symptoms that a single-file read cannot catch. Confirm the document still serves its genre; a README that has drifted into a changelog is a placement problem (§2).
+**Markdown.** Before editing one document, skim its siblings: duplication (check 6) and mismatch (check 12) are corpus-level symptoms that a single-file read cannot catch. Confirm the document still serves its genre; a README that has drifted into a changelog is a placement problem (§2).
+
+**Japanese.** Japanese prose has failure modes beyond what the checks above cover: word choice that matches meaning but not usage, calqued idioms, coined kanji compounds, English punctuation habits. The fal-japanese skill owns the target state for these; when the prose under audit is Japanese, read it and audit against its rules as well.

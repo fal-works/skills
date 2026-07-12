@@ -23,7 +23,7 @@ The sections below counter these tendencies. Sections 1-7 follow the sequence of
 - §6 In what sentences
 - §7 How it fits its surroundings
 
-Sections 8 and 9 add Japanese-specific rules and working discipline. A single flaw can break several sections at once; the overlap is intentional. Apply the sections while writing, and once more in a brief revision pass (§9).
+Section 8 points to the Japanese-specific companion skill, and section 9 adds working discipline. A single flaw can break several sections at once; the overlap is intentional. Apply the sections while writing, and once more in a brief revision pass (§9).
 
 ## 1. Write only what earns its place
 
@@ -32,7 +32,9 @@ Every sentence charges the reader attention now and charges the project maintena
 - Do not restate what the artifact already says. Code, type signatures, names, and file structure speak for themselves; prose that paraphrases them adds a drift point, not information.
 - Prose earns its place by carrying what the artifact cannot express: a contract, a non-obvious why, or the reason something exists.
 - State each fact once, in its natural home (§2). The urge to repeat a caveat "to be safe" signals that the caveat sits in the wrong place or that sections overlap.
+- Write each claim at the scope it can honestly carry, then stop. A pre-emptive defense (a concession or a "this does not mean..." aimed at an objection imagined while writing) plants the misreading it fears and serves the writer's anxiety, not the reader.
 
+Brevity comes from selection, not compression. Cut by dropping repetition, needless detail, and sentences that do not earn their place, never by squeezing the wording of the sentences that remain. A packed phrase saves characters, not reading time. Every reader pays to unpack it.
 Minimize the staleness surface: the set of statements that a routine change can silently falsify. Line numbers, item counts, exhaustive enumerations of specifics, copies of directory listings, and version numbers all rot without anyone noticing. Make the point one abstraction level up, and reference code at module or function granularity. A sentence that a rename can turn into a lie is a maintenance trap.
 
 ## 2. Put each fact in its home
@@ -41,6 +43,7 @@ A correct fact in the wrong place still fails: whichever copy or location drifts
 
 - A contract belongs on the thing that owns it (the type, the function's doc comment, the module header), at the most contractual surface. Restating it downstream pays the prose cost N times and creates N drift points; reference the owner instead.
 - A home also fixes an abstraction level. Text attached to a scope describes its subject at the level of that scope: a module header speaks of responsibilities, a function doc of its contract, a type doc of the type's role. Finer detail belongs to a smaller scope, next to what it describes. A common violation is the type doc that explains each property one by one; every one of those explanations belongs on the property's own doc. Stating detail from a higher scope is also what makes enumerations rot (§1).
+- A document set that separates an overview from a detail layer (a skill file and its references/ companion, a README and docs/, a spec and its appendices) has already assigned homes: case inventories, worked examples, and per-item explanations go to the detail layer, and the overview keeps its sections at uniform granularity. An overview section that outgrows its siblings (§7) usually holds detail that belongs in the detail layer; relocate it rather than trimming it.
 - History belongs in version control and ADRs. What changed, what it replaced, and why the migration happened never belong in a document body or a comment.
 - In code, contracts go in doc comments on the declaration; implementation asides go in ordinary comments inside the body.
 - Orientation material (entry points, procedures, project-wide conventions) belongs where a newcomer looks first.
@@ -94,7 +97,7 @@ Structure serves the material, never the reverse.
 
 ## 6. Sentence discipline
 
-- One thought per sentence. Short declarative sentences beat chained clauses.
+- One thought per sentence. Short declarative sentences beat chained clauses. Shortness comes from splitting thoughts, not from packing them into fewer words (§1).
 - Connectors are expensive. An em-dash joining clauses usually marks a sentence that wants to be two. A colon fits the "heading: detail" shape; otherwise prefer separate sentences over semicolons and parentheticals.
 - Keep the register formal, precise, and neutral. Documentation is neither marketing nor conversation.
 - Keep inline rationale comments within one or two lines.
@@ -110,10 +113,7 @@ A document is read alongside its neighbors, and inconsistency taxes the reader.
 
 ## 8. Japanese
 
-For Japanese documentation, additionally:
-
-- Write complete sentences. Avoid 体言止め: 「この選択肢を採用。」ではなく「この選択肢を採用します。」と書く。
-- Mixing English words into Japanese prose is the sharpest case of §4, because an English token in Japanese text reads as a term of art. Use one only when it resolves: it matches a code identifier, is an established technical term, or is defined in the project's documents. Otherwise write natural Japanese: 「login flow を設計する」ではなく「ログイン処理の流れを設計する」と書く。
+Japanese has failure modes of its own beyond what the sections above cover: word choice that matches meaning but not usage, calqued idioms and rhetoric, coined kanji compounds, translationese sentence patterns. The `fal-japanese` skill owns these rules, and it applies to all Japanese output. Apply it together with this skill whenever the text is Japanese.
 
 ## 9. Working discipline
 

@@ -7,6 +7,7 @@ A general-purpose [APM](https://microsoft.github.io/apm/) package for software d
 - [fal-design](.apm/skills/fal-design/SKILL.md): Principles for software design decisions. Counters the tendency to patch rather than redesign.
 - [fal-write-docs](.apm/skills/fal-write-docs/SKILL.md): Principles for writing documentation and comments.
 - [fal-improve-docs](.apm/skills/fal-improve-docs/SKILL.md): Audit-and-fix pass for existing documentation and comments. Companion to fal-write-docs.
+- [fal-japanese](.apm/skills/fal-japanese/SKILL.md): Principles for writing natural Japanese, in documentation and elsewhere. Companion to fal-write-docs.
 
 ## Install
 
