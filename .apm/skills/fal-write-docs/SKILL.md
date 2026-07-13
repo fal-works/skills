@@ -7,11 +7,12 @@ description: Principles for writing and editing natural-language documentation i
 
 Documentation here means any prose written for a future reader inside the repository: Markdown documents, READMEs, design documents, ADRs, code comments, doc comments.
 
-LLM-written documentation fails in predictable ways, driven by three tendencies of the writer:
+LLM-written documentation fails in predictable ways, driven by four tendencies of the writer:
 
 1. **No selection pressure.** Generating text is free, but reading and maintaining it is not. Without deliberate selection, output grows to fill the template.
 2. **Context confusion.** The writing session is full of context (instructions, discussion, the previous version of the code), none of which reaches the future reader. It leaks into the output anyway.
 3. **Optimizing for looking like a document.** Ritual structure, ritual phrases, and impressive-looking terms make text resemble documentation without informing anyone.
+4. **Anchoring to existing structure.** When editing, the existing layout becomes the frame of reference. Structural thinking stops at the level of the immediate change, leaving higher levels unexamined.
 
 The sections below counter these tendencies. Sections 1-7 follow the sequence of decisions made while writing:
 
