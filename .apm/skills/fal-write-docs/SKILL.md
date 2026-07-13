@@ -91,6 +91,7 @@ Rules:
 Structure serves the material, never the reverse.
 
 - Add, merge, and omit sections freely as the material demands. Padding a section so that every heading has a paragraph, or restating similar material to keep a template symmetric, is a typical failure, not thoroughness.
+- Existing structure is not fixed when editing. When new content does not fit the current framework, redesign the structure rather than finding a local slot for the addition. Self-check: would someone writing this document from scratch, knowing all its current content, choose this structure?
 - Long-form prose is paragraphs. Each paragraph groups closely related information and plays one clear role in the surrounding explanation, with blank lines between paragraphs. A stack of loosely joined single sentences is not a paragraph.
 - Treat enumeration as an escalation ladder. First ask whether enumerating adds precision at all; if the items are few and short, keep them inline in a sentence; only then reach for list formatting. Tables are a last resort for short enumerable facts, with explanations in surrounding prose rather than in cells.
 - Skip ritual: meta-narration ("This document describes..."), throat-clearing introductions, and summary closings ("In summary...", 「まとめ」). When the content ends, the document ends.
