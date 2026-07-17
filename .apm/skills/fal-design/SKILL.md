@@ -22,9 +22,17 @@ When a requirement changes the assumptions under existing code, redesign the aff
 
 The characteristic failure is the minimal-diff fix: adding a flag, wrapping with a condition, inserting a special case. Each preserves the old structure at the cost of coherence. A parameter added "just for this case" signals that the abstraction boundary is in the wrong place.
 
-A redesign can name what it makes unnecessary: the functions it replaces, the helpers it generalizes, the special cases it absorbs. Treat the change as one design across old and new elements, deciding which stay, which generalize, and which go, rather than as a new API beside the existing one. A proposal that only adds, leaving everything in place, is a patch however it is described.
+A redesign can name what it makes unnecessary: the functions it replaces, the helpers it generalizes, the special cases it absorbs. Treat the change as one design across old and new elements, deciding which stay, which generalize, and which go, rather than as a new API beside the existing one. When a proposal leaves every existing element in place, suspect that the decision was never made for them; having read the existing code is not the same as having decided what it should become.
 
-Certain signals mean the assumptions have already shifted and local adjustment should stop: entry points multiplying per use site, a new function sharing an existing function's responsibility, a new type enumerating nearly the same cases as an existing one, a use-site-specific constraint aimed at a general module, names in one region differing only by use site (§4). At any of these, or when a critique casts doubt on the classification axis or a premise, do not refine the current proposal; rederive the affected scope from its responsibilities.
+Certain signals mean the assumptions have already shifted and local adjustment should stop:
+
+- Entry points multiplying per use site.
+- A new function sharing an existing function's responsibility.
+- A new type enumerating nearly the same cases as an existing one.
+- A use-site-specific constraint aimed at a general module.
+- A name that will not settle, whatever vocabulary is tried (§4).
+
+At any of these, or when a critique casts doubt on the classification axis or a premise, do not refine the current proposal; rederive the affected scope from its responsibilities.
 
 Self-check: if I had never seen the old design, would I draw the same boundaries and choose the same types?
 
@@ -49,10 +57,10 @@ Model the domain before writing control flow. The data types should make illegal
 
 ## 4. Naming
 
-A name declares what a concept is. It should resolve to the concept's own responsibility, not to one caller's view of it.
+A name declares what a concept is. It should resolve to the concept's own responsibility, not to one caller's view of it. Getting that right is necessary and not sufficient: a name also has to hold its concept apart from the ones beside it, which makes naming structural work rather than vocabulary work.
 
 - Name by what the thing does or represents, at its own level of generality. A utility named by its first consumer's domain becomes incoherent when other consumers arrive.
-- When many names in a region start to look similar, the region likely needs restructuring, not finer naming distinctions.
+- When a name will not settle, the difficulty is evidence about the structure. Similar names crowding a region, a qualifier added only to keep two names apart, a name that resolves only through its use site: each reports a distinction the design does not carry. Restructure the region rather than searching for finer names; the restructure sometimes removes the thing that needed naming.
 - A name coined during implementation is a design claim. Verify that it refers to a real concept in the domain, not a session-local label for "the thing I'm building right now."
 
 ## 5. Abstraction and cohesion

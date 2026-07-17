@@ -36,7 +36,7 @@ Every sentence charges the reader attention now and charges the project maintena
 - Write each claim at the scope it can honestly carry, then stop. A pre-emptive defense (a concession or a "this does not mean..." aimed at an objection imagined while writing) plants the misreading it fears and serves the writer's anxiety, not the reader.
 
 Brevity comes from selection, not compression. Cut by dropping repetition, needless detail, and sentences that do not earn their place, never by squeezing the wording of the sentences that remain. A packed phrase saves characters, not reading time. Every reader pays to unpack it.
-Minimize the staleness surface: the set of statements that a routine change can silently falsify. Line numbers, item counts, exhaustive enumerations of specifics, copies of directory listings, version numbers, and descriptions of who currently calls a thing and what they pass all rot without anyone noticing. Make the point one abstraction level up, and reference code at module or function granularity. A sentence that a rename can turn into a lie is a maintenance trap.
+Minimize the staleness surface: the set of statements that a routine change can silently falsify. Line numbers, item counts, exhaustive enumerations of specifics, copies of directory listings, version numbers, and descriptions of how current callers behave and what they pass all rot without anyone noticing. Make the point one abstraction level up, and reference code at module or function granularity. A sentence that a rename can turn into a lie is a maintenance trap.
 
 ## 2. Put each fact in its home
 
