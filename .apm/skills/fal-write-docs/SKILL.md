@@ -36,6 +36,7 @@ Every sentence charges the reader attention now and charges the project maintena
 - **Write each claim at the scope it can honestly carry, then stop.** A pre-emptive defense (a concession or a "this does not mean..." aimed at an objection imagined while writing) plants the misreading it fears and serves the writer's anxiety, not the reader.
 
 **Brevity comes from selection, not compression.** Cut by dropping repetition, needless detail, and sentences that do not earn their place, never by squeezing the wording of the sentences that remain. A packed phrase saves characters, not reading time. Every reader pays to unpack it.
+
 **Minimize the staleness surface**: the set of statements that a routine change can silently falsify. Line numbers, item counts, exhaustive enumerations of specifics, copies of directory listings, version numbers, and descriptions of how current callers behave and what they pass all rot without anyone noticing. Make the point one abstraction level up, and reference code at module or function granularity. A sentence that a rename can turn into a lie is a maintenance trap.
 
 ## 2. Put each fact in its home
@@ -65,7 +66,9 @@ The rules below apply to documentation of the current system. A document whose p
 
 If the current state has a property that would surprise a fresh reader, state the property directly, without narrating how it came about.
 
-**Mentions of a rejected alternative ("B, not A") deserve particular suspicion.** From inside the session they always look justifiable: A was rejected for a reason, so recording it feels like documentation. The form does have a rare legitimate use, when A is what a fresh reader would expect and the surprise of B needs addressing. But the session biases exactly that judgment; A feels expected mostly because it was just discussed. The test, applied skeptically: does a reader who has never heard of A benefit from being told about it? Usually not. Leave A out, and if the choice needs support, state the property that carries it without staging a comparison.
+**Mentions of a rejected alternative ("B, not A") deserve particular suspicion.** From inside the session they always look justifiable: A was rejected for a reason, so recording it feels like documentation. The form does have a rare legitimate use, when A is what a fresh reader would expect and the surprise of B needs addressing. But the session biases exactly that judgment; A feels expected mostly because it was just discussed.
+
+The test, applied skeptically: does a reader who has never heard of A benefit from being told about it? Usually not. Leave A out, and if the choice needs support, state the property that carries it without staging a comparison.
 
 ## 4. Use words that resolve
 
@@ -96,7 +99,8 @@ Structure exists at more than one level: how a document is sectioned, and how a 
 
 - **Let content shape the structure the document owns.** Add, merge, and omit sections freely as the material demands. Padding a section so that every heading has a paragraph, or restating similar material to keep a template symmetric, is a typical failure, not thoroughness.
 - **Existing structure is not fixed when editing.** When new content does not fit the current framework, redesign the structure rather than finding a local slot for the addition. Self-check: would someone writing this document from scratch, knowing all its current content, choose this structure?
-- **Do not override shared structure locally.** A predictable shape across sibling documents is itself information: readers carry expectations from one document to the next, and a locally better structure breaks them for the whole set (§7 at the structural level). For example, when every module keeps its design notes in docs/design.md, moving one module's notes into its README leaves readers looking in the wrong place, however sensible the local judgment. Conforming is not padding: use the latitude the shared structure itself grants (optional sections, permitted merging). When the material does not fit even then, surface the mismatch instead of deviating silently in one document.
+- **Do not override shared structure locally.** A predictable shape across sibling documents is itself information: readers carry expectations from one document to the next, and a locally better structure breaks them for the whole set (§7 at the structural level). For example, when every module keeps its design notes in docs/design.md, moving one module's notes into its README leaves readers looking in the wrong place, however sensible the local judgment.
+- **Conforming is not padding.** Use the latitude the shared structure itself grants (optional sections, permitted merging). When the material does not fit even then, surface the mismatch instead of deviating silently in one document.
 
 ## 6. Paragraph and sentence discipline
 

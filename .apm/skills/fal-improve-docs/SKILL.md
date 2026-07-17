@@ -11,7 +11,13 @@ The goal of a pass: every surviving sentence earns its place, and nothing the re
 
 ## Auditor's stance
 
-Existing prose deserves less charity than it invites. A leaked-context comment reads as plausible during audit precisely because the writer did have reasons; those reasons do not transfer to a future reader, and an auditor who imputes them on the writer's behalf keeps dead weight. When text cites an external referent, such as a spec section, a sibling doc, or a prior agreement, verify the referent is reachable from the repository. An unverifiable reference is leaked context by definition (§3). The audit itself runs from a compromised position: the auditor reads with the internals fully in view, exactly where boundary leaks (check 5) look natural, and replacement prose written mid-audit is as exposed to them as the original. When practical, run the audit in a fresh context: a new session or subagent that reads only this skill, fal-write-docs, and the files in scope. An auditor that never saw the writing session inherits none of its leaked context, and reads from the position the future reader will occupy.
+Existing prose deserves less charity than it invites. A leaked-context comment reads as plausible during audit precisely because the writer did have reasons; those reasons do not transfer to a future reader, and an auditor who imputes them on the writer's behalf keeps dead weight.
+
+When text cites an external referent, such as a spec section, a sibling doc, or a prior agreement, verify the referent is reachable from the repository. An unverifiable reference is leaked context by definition (§3).
+
+The audit itself runs from a compromised position: the auditor reads with the internals fully in view, exactly where boundary leaks (check 5) look natural, and replacement prose written mid-audit is as exposed to them as the original.
+
+When practical, run the audit in a fresh context: a new session or subagent that reads only this skill, fal-write-docs, and the files in scope. An auditor that never saw the writing session inherits none of its leaked context, and reads from the position the future reader will occupy.
 
 At the same time, do not overshoot. These survive the audit:
 
@@ -32,7 +38,9 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 
 **Context leaks**
 
-4. **The writing session leaked.** Change history, references to untracked files, mentions of rejected alternatives, and instructions the writer was given. Instructions are the form an audit misses: one rarely carries a tell like "as agreed"; more often its content is restated as a fact about the subject. Told to prioritize A while editing, the writer records that the subject prioritizes A. Do not scan for marker phrases. Test each claim by asking whether someone who never sat in the session would still write it. Delete what fails; if the current state has a surprising property, state the property directly (§3). Comparison and negation phrasing ("not X", "instead of", "rather than") is the cue to pause: it marks either this leak or legitimate least-surprise documentation. Apply §3's test, and keep the alternative only when a fresh reader would expect it, saying why the choice was made. This check does not remove history from a document whose purpose is to record a decision or event.
+4. **The writing session leaked.** Change history, references to untracked files, mentions of rejected alternatives, and instructions the writer was given. Do not scan for marker phrases. Test each claim by asking whether someone who never sat in the session would still write it. Delete what fails; if the current state has a surprising property, state the property directly (§3). This check does not remove history from a document whose purpose is to record a decision or event.
+   - Instructions are the form an audit misses: one rarely carries a tell like "as agreed"; more often its content is restated as a fact about the subject. Told to prioritize A while editing, the writer records that the subject prioritizes A.
+   - Comparison and negation phrasing ("not X", "instead of", "rather than") is the cue to pause: it marks either this leak or legitimate least-surprise documentation. Apply §3's test, and keep the alternative only when a fresh reader would expect it, saying why the choice was made.
 5. **The wrong side of the boundary leaked.** In one direction, the current caller's domain, use case, or behavior stated in the thing's own doc; restate it as a contract with the thing as subject, or delete it (§3). In the other, internal concepts addressed to a reader outside the boundary, who cannot see them and would never ask about them; rewrite in terms visible from the reader's position (§3). If the thing should only ever serve that one caller, that is a structure question, not a doc fix (check 14).
 
 **Placement**
