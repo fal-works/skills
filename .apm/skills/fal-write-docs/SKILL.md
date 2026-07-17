@@ -45,7 +45,7 @@ A correct fact in the wrong place still fails: whichever copy or location drifts
 - **A contract belongs on the thing that owns it** (the type, the function's doc comment, the module header), at the most contractual surface. Restating it downstream pays the prose cost N times and creates N drift points; reference the owner instead.
 - **A home also fixes an abstraction level.** Text attached to a scope describes its subject at the level of that scope: a module header speaks of responsibilities, a function doc of its contract, a type doc of the type's role. Finer detail belongs to a smaller scope, next to what it describes. A common violation is the type doc that explains each property one by one; every one of those explanations belongs on the property's own doc. Stating detail from a higher scope is also what makes enumerations rot (§1).
 - **A document set split into overview and detail has already assigned homes.** In such a set (a skill file and its references/ companion, a README and docs/, a spec and its appendices), case inventories, worked examples, and per-item explanations go to the detail layer, and the overview keeps its sections at uniform granularity. An overview section that outgrows its siblings (§7) usually holds detail that belongs in the detail layer; relocate it rather than trimming it.
-- **History never belongs in a document body or a comment.** What changed, what it replaced, and why the migration happened live in version control and ADRs.
+- **History never belongs in documentation or comments that describe the current system.** What changed, what it replaced, and why the migration happened live in version control and documents that exist to record history, such as ADRs.
 - **In code, contracts go in doc comments on the declaration**; implementation asides go in ordinary comments inside the body.
 - **Orientation material belongs where a newcomer looks first**: entry points, procedures, project-wide conventions.
 
@@ -54,6 +54,8 @@ Before writing a fact down, ask what owns it. Write it there, and point to it fr
 ## 3. Write from the reader's position
 
 The reader is a future person, possibly yourself, who has none of the current session: no instructions, no discussion, no memory of the previous version. The reader also stands in a particular position relative to the thing described: outside its boundary, implementing it, or maintaining its internals. Identify that reader before writing (for a function, check where its callers actually live); what earns its place (§1) is judged from that reader's position. The text must be self-contained for that reader.
+
+The rules below apply to documentation of the current system. A document whose purpose is to record a decision or event instead includes the relevant history.
 
 - **Never write conversation-level content**: change narration ("now uses X instead"), instruction provenance ("as agreed", "per the spec discussion"), the reason the task arose, or alternatives mentioned only because you were told to avoid them.
 - **Write in the timeless present**, as if the current design had always been the way it is. Self-check: if I had never seen the old design, would I still write this sentence?

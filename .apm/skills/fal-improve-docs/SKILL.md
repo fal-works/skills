@@ -22,7 +22,7 @@ At the same time, do not overshoot. These survive the audit:
 
 ## The checks
 
-Scope: when triggered by a change, the files it touched; when invoked explicitly, what the user named. Read each file in scope end-to-end before editing anything, because placement and duplication problems are invisible line-by-line. Pre-existing text is in scope, not only what the current change touched; text from the current change deserves extra skepticism.
+Scope: when triggered by a change, the files it touched; when invoked explicitly, what the user named. Read each file in scope end-to-end before editing anything, because placement and duplication problems are invisible line-by-line. Pre-existing text is in scope, not only what the current change touched; text from the current change deserves extra skepticism. Apply each check's remediation immediately unless the Authority section limits the task to reporting findings.
 
 **Information failures**
 
@@ -32,7 +32,7 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 
 **Context leaks**
 
-4. **The writing session leaked.** Change history, instruction provenance ("as agreed", "per spec §3.2"), references to untracked files, mentions of rejected alternatives. Delete; if the current state has a surprising property, state the property directly (§3). Comparison and negation phrasing ("not X", "instead of", "rather than") is the cue to pause: it marks either this leak or legitimate least-surprise documentation. Apply §3's test, and keep the alternative only when a fresh reader would expect it, saying why the choice was made.
+4. **The writing session leaked.** Change history, instruction provenance ("as agreed", "per spec §3.2"), references to untracked files, mentions of rejected alternatives. Delete; if the current state has a surprising property, state the property directly (§3). Comparison and negation phrasing ("not X", "instead of", "rather than") is the cue to pause: it marks either this leak or legitimate least-surprise documentation. Apply §3's test, and keep the alternative only when a fresh reader would expect it, saying why the choice was made. This check does not remove history from a document whose purpose is to record a decision or event.
 5. **The wrong side of the boundary leaked.** In one direction, the current caller's domain, use case, or behavior stated in the thing's own doc; restate it as a contract with the thing as subject, or delete it (§3). In the other, internal concepts addressed to a reader outside the boundary, who cannot see them and would never ask about them; rewrite in terms visible from the reader's position (§3). If the thing should only ever serve that one caller, that is a structure question, not a doc fix (check 13).
 
 **Placement**
@@ -57,7 +57,9 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 
 ## Authority
 
-Make prose edits on your own judgment: delete, trim, move, and rewrite without asking first, then report what you changed and why, grouped by action. Two findings stay outside unilateral action:
+This skill normally fixes the problems it finds. Delete, trim, move, and rewrite on your own judgment, then report what you changed and why, grouped by action. This authority applies when the skill runs as a finishing pass and when the user asks to improve, clean up, proofread, or otherwise correct the prose. Limit the pass to reporting findings when the user explicitly requests review, audit, evaluation, or a report without edits.
+
+Two findings stay outside unilateral action:
 
 - **A lie over possibly-buggy code (check 2).** Taking either side silently corrupts something. Report it.
 - **Restructuring code or documents (check 13).** When the audit is a finishing pass on code work you are already doing, apply the restructure; it is part of the work. When you were asked specifically to audit comments or docs, do not expand into code edits on your own; deliver the audit and propose the restructure concretely.
