@@ -34,7 +34,7 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 
 1. **The artifact already says it.** Prose paraphrases the implementation, the type, or the name. Delete, or rewrite at the level of what callers can rely on (§1).
 2. **It lies.** The text says X; the artifact does Y. Usually drift. If the text is stale, fix or delete it. If the code may be wrong instead, that is a bug: report the conflict and leave both sides untouched, including any adjacent prose asserting the same claim. This check has no fal-write-docs counterpart; only an audit catches drift.
-3. **The why is missing.** Non-obvious code (a workaround, a subtle invariant, surprising behavior) with no explanation. Add a brief why-comment, one or two lines (§1, §6).
+3. **The why is missing.** Non-obvious code (a workaround, a subtle invariant, surprising behavior) with no explanation. Add a brief why-comment, one or two lines (§1, §7).
 
 **Context leaks**
 
@@ -56,8 +56,8 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 
 9. **Padding.** A section filled only because the heading exists, or material restated to keep a template symmetric. Mostly a Markdown symptom. Delete (§5).
 10. **Pre-emptive defense.** A concession, an edge-case note, or a "this does not mean..." qualifying a claim that is accurate without it. It reads as precision, which is why it survives. Test by deletion: if the claim stays accurate, delete the defense. If it becomes false, the qualification is load-bearing and passes the audit; keep it, or reword the claim to the scope it can honestly carry when that reads cleaner (§1).
-11. **Verbose construction.** One sentence doing the work of three, chained with connectors. Split into short declarative sentences (§6).
-12. **Corpus mismatch.** Density, tone, vocabulary, language, or structure diverging from the surrounding sections and sibling documents. Calibrate toward the corpus; calibration is not minimization (§7, §5).
+11. **Verbose construction.** One sentence doing the work of three, chained with connectors. Split into short declarative sentences (§7).
+12. **Corpus mismatch.** Density, tone, vocabulary, language, or structure diverging from the surrounding sections and sibling documents. Calibrate toward the corpus; calibration is not minimization (§8, §5).
 13. **Overlong block.** A paragraph or list item holding more than its one role (§6). Use §6's character guide to find suspects mechanically, then judge each by its roles; a block under the guide with merged roles is the same finding. Remediate per §6, escalating to the list's own structure (§5) when several items run long.
 
 **Escalation**
@@ -76,8 +76,8 @@ Two findings stay outside unilateral action:
 ## Editing discipline
 
 - Prefer, in order: delete, trim, move, rewrite. Deletion is the highest-leverage edit; rewriting is the easiest to get wrong.
-- Text that passes the audit stays verbatim: same wording, same punctuation, same line breaks (§9). Cosmetic churn can turn a survivor into a casualty on the next pass. Passing means no check's purpose finds fault, not that no mechanical trigger fired: the rule bars retouching that serves no check, and an improvement the checks aim at is in scope even where no threshold flagged it.
-- Replacement prose follows fal-write-docs in full, especially sentence discipline (§6) and corpus fit (§7). Do not remove one long sentence and write another. A split counts as replacement: each piece must express its own role and the pieces must read in sequence (§6), which can take more than inserting a break.
+- Text that passes the audit stays verbatim: same wording, same punctuation, same line breaks (§10). Cosmetic churn can turn a survivor into a casualty on the next pass. Passing means no check's purpose finds fault, not that no mechanical trigger fired: the rule bars retouching that serves no check, and an improvement the checks aim at is in scope even where no threshold flagged it.
+- Replacement prose follows fal-write-docs in full, especially sentence discipline (§7) and corpus fit (§8). Do not remove one long sentence and write another. A split counts as replacement: each piece must express its own role and the pieces must read in sequence (§7), which can take more than inserting a break.
 
 ## Verify
 
