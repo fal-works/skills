@@ -43,11 +43,11 @@ Every sentence charges the reader attention now and charges the project maintena
 
 A correct fact in the wrong place still fails: whichever copy or location drifts first starts lying. Each fact has a natural home, determined by its lifecycle and by who looks it up.
 
-- **A contract belongs on the thing that owns it** (the type, the function's doc comment, the module header), at the most contractual surface. Restating it downstream pays the prose cost N times and creates N drift points; reference the owner instead.
+- **A contract belongs on the thing that owns it.** Write it at the most contractual surface: the type, the function's doc comment, the module header. Restating it downstream pays the prose cost N times and creates N drift points; reference the owner instead.
 - **A home also fixes an abstraction level.** Text attached to a scope describes its subject at the level of that scope: a module header speaks of responsibilities, a function doc of its contract, a type doc of the type's role. Finer detail belongs to a smaller scope, next to what it describes. A common violation is the type doc that explains each property one by one; every one of those explanations belongs on the property's own doc. Stating detail from a higher scope is also what makes enumerations rot (§1).
 - **A document set split into overview and detail has already assigned homes.** In such a set (a skill file and its references/ companion, a README and docs/, a spec and its appendices), case inventories, worked examples, and per-item explanations go to the detail layer, and the overview keeps its sections at uniform granularity. An overview section that outgrows its siblings (§7) usually holds detail that belongs in the detail layer; relocate it rather than trimming it.
 - **History never belongs in documentation or comments that describe the current system.** What changed, what it replaced, and why the migration happened live in version control and documents that exist to record history, such as ADRs.
-- **In code, contracts go in doc comments on the declaration**; implementation asides go in ordinary comments inside the body.
+- **In code, contracts go in doc comments on the declaration.** Implementation asides go in ordinary comments inside the body.
 - **Orientation material belongs where a newcomer looks first**: entry points, procedures, project-wide conventions.
 
 Before writing a fact down, ask what owns it. Write it there, and point to it from anywhere else that needs it.
@@ -59,7 +59,7 @@ The reader is a future person, possibly yourself, who has none of the current se
 The rules below apply to documentation of the current system. A document whose purpose is to record a decision or event instead includes the relevant history.
 
 - **Never write conversation-level content**: change narration ("now uses X instead"), the reason the task arose, alternatives mentioned only because you were told to avoid them, or an instruction you were given. An instruction leaks whether you cite it as provenance ("as agreed") or, more easily missed, restate its content as a fact about the subject.
-- **Write in the timeless present**, as if the current design had always been the way it is. Self-check: if I had never seen the old design, would I still write this sentence?
+- **Write in the timeless present.** Describe the current design as if it had always been the way it is. Self-check: if I had never seen the old design, would I still write this sentence?
 - **The current callers are a snapshot, not properties of the thing.** Describe each thing at its own level of generality: facts about the current caller (its domain, its use case, what it passes and how it calls) do not belong in its documentation; placed there, they present themselves as properties of the thing, even when phrased as statements about the caller. Test each such sentence by restating it as a contract with the thing itself as subject, a precondition or a guarantee; keep what restates truthfully, and delete the remainder as the caller's business.
 - **Mention only concepts visible from the reader's position.** A reader outside a boundary does not know the internals exist. For example, a doc comment on a public function that promises to return "the raw value, not the internal representation" contrasts the result with a type its reader has never heard of, answering a question that reader would never ask. Reach across the boundary only to explain behavior observable from outside that would otherwise surprise.
 - **Reference only durable, tracked artifacts.** A pointer to a gitignored scratch file, a session plan, or "the design discussion" is a dead link from day one.
@@ -104,14 +104,16 @@ Structure exists at more than one level: how a document is sectioned, and how a 
 
 ## 6. Paragraph and sentence discipline
 
-- **Long-form prose is paragraphs.** Each paragraph groups closely related information and plays one clear role in the surrounding explanation, with blank lines between paragraphs. A stack of loosely joined single sentences is not a paragraph.
-- **Cap a paragraph at roughly 500 characters, 600 at the outside**, counted as Latin-script text (fewer in denser scripts such as Japanese). Passing the cap usually means two roles have merged into one paragraph, or detail from a smaller scope has been packed in (§2). The cap applies to list items too. When an item runs long, break it into a nested list, or step back and reconsider the list's structure or whether a list is the right form at all (§5).
+- **Long-form prose is paragraphs.** Separate them with blank lines. A stack of loosely joined single sentences is not a paragraph.
+- **Each paragraph plays one clear role in the surrounding explanation.** It groups closely related information.
+- **A paragraph is too long when it holds more than its one role.** Typically two roles have merged, or detail from a smaller scope has been packed in (§2). Roughly 500 characters of Latin-script text (fewer in denser scripts such as Japanese) marks where to suspect this from size alone; the number is a guide, not the criterion, and a shorter paragraph with merged roles still splits.
+- **Judge list items like paragraphs.** When an item runs long, break it into a nested list, or step back and reconsider the list's structure or whether a list is the right form at all (§5).
 - **Enumerate only genuinely parallel items.** Ask first whether enumerating adds precision at all. Explanation and argument belong in paragraphs; recasting connected reasoning as bullets drops the connections and leaves fragments.
 - **Notation escalates from sentence to list to table.** Few short items stay inline in a sentence. List formatting comes when inline stops being readable. A table is a last resort for short enumerable facts, with explanations in surrounding prose rather than in cells.
 - **One thought per sentence.** Short declarative sentences beat chained clauses. Shortness comes from splitting thoughts, not from packing them into fewer words (§1).
 - **Connectors are expensive.** An em-dash joining clauses usually marks a sentence that wants to be two. A colon fits the "heading: detail" shape; otherwise prefer separate sentences over semicolons and parentheticals.
 - **Keep the register formal, precise, and neutral.** Documentation is neither marketing nor conversation.
-- **Keep inline rationale comments within one or two lines.**
+- **Keep inline rationale comments short.** Stay within one or two lines.
 - **When hard-wrapping, break at clause boundaries, never mid-phrase.** Prefer starting each sentence on its own line, even when the previous line has room.
 
 ## 7. Match the surrounding corpus
@@ -120,7 +122,7 @@ A document is read alongside its neighbors, and inconsistency taxes the reader.
 
 - **Match the density, tone, vocabulary, and language of the surrounding sections.** Before editing, check how sibling documents of the same kind handle the same thing, and align with them.
 - **The nearest corpus is the document itself.** When returning to a concept the document has already phrased, reuse the earlier phrasing; a second wording for the same concept reads as a second concept.
-- **Assume the first draft came out wordier than its surroundings**; LLM output runs verbose by default. After writing, compare against the neighbors and adjust.
+- **Assume the first draft came out wordier than its surroundings.** LLM output runs verbose by default. After writing, compare against the neighbors and adjust.
 - **Adjusting means calibrating, not minimizing.** Cut by removing sentences that do not earn their place (§1); do not squeeze the surviving sentences until they turn cryptic. Over-compression that loses the meaning fails the reader as surely as an oversized insertion that ignores its surroundings.
 
 ## 8. Japanese

@@ -15,7 +15,7 @@ Existing prose deserves less charity than it invites. A leaked-context comment r
 
 When text cites an external referent, such as a spec section, a sibling doc, or a prior agreement, verify the referent is reachable from the repository. An unverifiable reference is leaked context by definition (§3).
 
-The audit itself runs from a compromised position: the auditor reads with the internals fully in view, exactly where boundary leaks (check 5) look natural, and replacement prose written mid-audit is as exposed to them as the original.
+The audit itself runs from a compromised position: the auditor reads with the internals fully in view, exactly where boundary leaks (check 5) look natural. Replacement prose written mid-audit is as exposed to them as the original.
 
 When practical, run the audit in a fresh context: a new session or subagent that reads only this skill, fal-write-docs, and the files in scope. An auditor that never saw the writing session inherits none of its leaked context, and reads from the position the future reader will occupy.
 
@@ -58,7 +58,7 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 10. **Pre-emptive defense.** A concession, an edge-case note, or a "this does not mean..." qualifying a claim that is accurate without it. It reads as precision, which is why it survives. Test by deletion: if the claim stays accurate, delete the defense. If it becomes false, the qualification is load-bearing and passes the audit; keep it, or reword the claim to the scope it can honestly carry when that reads cleaner (§1).
 11. **Verbose construction.** One sentence doing the work of three, chained with connectors. Split into short declarative sentences (§6).
 12. **Corpus mismatch.** Density, tone, vocabulary, language, or structure diverging from the surrounding sections and sibling documents. Calibrate toward the corpus; calibration is not minimization (§7, §5).
-13. **Overlong block.** A paragraph or list item past the §6 length cap; here length is a mechanical tell, not a judgment call. Remediate per §6, escalating to the list's own structure (§5) when several items run long.
+13. **Overlong block.** A paragraph or list item holding more than its one role (§6). Use §6's character guide to find suspects mechanically, then judge each by its roles; a block under the guide with merged roles is the same finding. Remediate per §6, escalating to the list's own structure (§5) when several items run long.
 
 **Escalation**
 
@@ -76,8 +76,8 @@ Two findings stay outside unilateral action:
 ## Editing discipline
 
 - Prefer, in order: delete, trim, move, rewrite. Deletion is the highest-leverage edit; rewriting is the easiest to get wrong.
-- Text that passes the audit stays verbatim: same wording, same punctuation, same line breaks (§9). Cosmetic churn can turn a survivor into a casualty on the next pass.
-- Replacement prose follows fal-write-docs in full, especially sentence discipline (§6) and corpus fit (§7). Do not remove one long sentence and write another.
+- Text that passes the audit stays verbatim: same wording, same punctuation, same line breaks (§9). Cosmetic churn can turn a survivor into a casualty on the next pass. Passing means no check's purpose finds fault, not that no mechanical trigger fired: the rule bars retouching that serves no check, and an improvement the checks aim at is in scope even where no threshold flagged it.
+- Replacement prose follows fal-write-docs in full, especially sentence discipline (§6) and corpus fit (§7). Do not remove one long sentence and write another. A split counts as replacement: each piece must express its own role and the pieces must read in sequence (§6), which can take more than inserting a break.
 
 ## Verify
 
