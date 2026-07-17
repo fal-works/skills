@@ -17,7 +17,7 @@ At the same time, do not overshoot. These survive the audit:
 
 - Short doc summaries that look name-redundant but state intent or scope.
 - Implementation details that callers can rely on. "Binary search" in a doc tells callers O(log n); that is contract, not mechanism (§1).
-- Explicit caller-relationship framing, such as "Used by X" or "Assumes callers validated the input". Naming the reference or the obligation is honest about an asymmetry; keep it, and read it as a soft signal that structure work was deferred (check 13). The survivor is the bare reference: details of how X behaves or what it passes are check 5 material.
+- Explicit caller-relationship framing, such as "Used by X" or "Assumes callers validated the input". Naming the reference or the obligation is honest about an asymmetry; keep it, and read it as a soft signal that structure work was deferred (check 14). The survivor is the bare reference: details of how X behaves or what it passes are check 5 material.
 - Rationale placed where the property would surprise a fresh reader. The same "because..." is load-bearing there, and noise where the reader takes the property for granted.
 
 ## The checks
@@ -33,7 +33,7 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 **Context leaks**
 
 4. **The writing session leaked.** Change history, references to untracked files, mentions of rejected alternatives, and instructions the writer was given. Instructions are the form an audit misses: one rarely carries a tell like "as agreed"; more often its content is restated as a fact about the subject. Told to prioritize A while editing, the writer records that the subject prioritizes A. Do not scan for marker phrases. Test each claim by asking whether someone who never sat in the session would still write it. Delete what fails; if the current state has a surprising property, state the property directly (§3). Comparison and negation phrasing ("not X", "instead of", "rather than") is the cue to pause: it marks either this leak or legitimate least-surprise documentation. Apply §3's test, and keep the alternative only when a fresh reader would expect it, saying why the choice was made. This check does not remove history from a document whose purpose is to record a decision or event.
-5. **The wrong side of the boundary leaked.** In one direction, the current caller's domain, use case, or behavior stated in the thing's own doc; restate it as a contract with the thing as subject, or delete it (§3). In the other, internal concepts addressed to a reader outside the boundary, who cannot see them and would never ask about them; rewrite in terms visible from the reader's position (§3). If the thing should only ever serve that one caller, that is a structure question, not a doc fix (check 13).
+5. **The wrong side of the boundary leaked.** In one direction, the current caller's domain, use case, or behavior stated in the thing's own doc; restate it as a contract with the thing as subject, or delete it (§3). In the other, internal concepts addressed to a reader outside the boundary, who cannot see them and would never ask about them; rewrite in terms visible from the reader's position (§3). If the thing should only ever serve that one caller, that is a structure question, not a doc fix (check 14).
 
 **Placement**
 
@@ -50,10 +50,11 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 10. **Pre-emptive defense.** A concession, an edge-case note, or a "this does not mean..." qualifying a claim that is accurate without it. It reads as precision, which is why it survives; its only audience is an objection the writer imagined while writing. Test by deletion: if the claim stays accurate, delete the defense. If it becomes false, the qualification is load-bearing and passes the audit; keep it, or reword the claim to the scope it can honestly carry when that reads cleaner (§1).
 11. **Verbose construction.** One sentence doing the work of three, chained with connectors. Split into short declarative sentences (§6).
 12. **Corpus mismatch.** Density, tone, vocabulary, language, or structure diverging from the surrounding sections and sibling documents. Calibrate toward the corpus; calibration is not minimization (§7, §5).
+13. **Overlong block.** A paragraph or list item past the §6 length cap; here length is a mechanical tell, not a judgment call. Remediate per §6, escalating to the list's own structure (§5) when several items run long.
 
 **Escalation**
 
-13. **The prose apologizes for the structure.** A long explanation whose real job is to compensate for poorly factored code or a tangled document; typically it explains how to read the thing rather than why the thing is the way it is. This is the most valuable finding an audit can produce, and the temptation is to polish the apology and move on. Do not settle for that: sketch the restructure (naming, extraction, reshaping) that would make the prose unnecessary, and include it in your report. Whether to apply it yourself is an authority question; see below.
+14. **The prose apologizes for the structure.** A long explanation whose real job is to compensate for poorly factored code or a tangled document; typically it explains how to read the thing rather than why the thing is the way it is. This is the most valuable finding an audit can produce, and the temptation is to polish the apology and move on. Do not settle for that: sketch the restructure (naming, extraction, reshaping) that would make the prose unnecessary, and include it in your report. Whether to apply it yourself is an authority question; see below.
 
 ## Authority
 
@@ -62,7 +63,7 @@ This skill normally fixes the problems it finds. Delete, trim, move, and rewrite
 Two findings stay outside unilateral action:
 
 - **A lie over possibly-buggy code (check 2).** Taking either side silently corrupts something. Report it.
-- **Restructuring code or documents (check 13).** When the audit is a finishing pass on code work you are already doing, apply the restructure; it is part of the work. When you were asked specifically to audit comments or docs, do not expand into code edits on your own; deliver the audit and propose the restructure concretely.
+- **Restructuring code or documents (check 14).** When the audit is a finishing pass on code work you are already doing, apply the restructure; it is part of the work. When you were asked specifically to audit comments or docs, do not expand into code edits on your own; deliver the audit and propose the restructure concretely.
 
 ## Editing discipline
 

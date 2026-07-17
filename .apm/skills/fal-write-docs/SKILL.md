@@ -101,6 +101,7 @@ Structure exists at more than one level: how a document is sectioned, and how a 
 ## 6. Paragraph and sentence discipline
 
 - **Long-form prose is paragraphs.** Each paragraph groups closely related information and plays one clear role in the surrounding explanation, with blank lines between paragraphs. A stack of loosely joined single sentences is not a paragraph.
+- **Cap a paragraph at roughly 500 characters, 600 at the outside**, counted as Latin-script text (fewer in denser scripts such as Japanese). Passing the cap usually means two roles have merged into one paragraph, or detail from a smaller scope has been packed in (§2). The cap applies to list items too. When an item runs long, break it into a nested list, or step back and reconsider the list's structure or whether a list is the right form at all (§5).
 - **Enumerate only genuinely parallel items.** Ask first whether enumerating adds precision at all. Explanation and argument belong in paragraphs; recasting connected reasoning as bullets drops the connections and leaves fragments.
 - **Notation escalates from sentence to list to table.** Few short items stay inline in a sentence. List formatting comes when inline stops being readable. A table is a last resort for short enumerable facts, with explanations in surrounding prose rather than in cells.
 - **One thought per sentence.** Short declarative sentences beat chained clauses. Shortness comes from splitting thoughts, not from packing them into fewer words (§1).
