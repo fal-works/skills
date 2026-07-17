@@ -38,5 +38,5 @@ Report the outcome honestly. If the session was corrected into a good final stat
 ## Form
 
 - One Markdown file. Save to the current directory unless the user names a location, under a descriptive kebab-case filename that names the skill concerned and the topic.
-- Write in the language of the session unless the user specifies one. Quoted skill text stays in its original language. When the report is Japanese, the fal-japanese skill applies to it.
+- Write in the language of the session unless the user specifies one. Quoted skill text stays in its original language. When the report is Japanese, fal-write-ja applies to it.
 - The report is documentation, so fal-write-docs applies in full. In particular, let the material shape the structure. A multi-case failure analysis, a report built around one improvement proposal, and a log of many small corrections are all valid shapes. Pick whichever fits what actually happened, and drop any of the elements above that the material does not support rather than padding a section to have it.

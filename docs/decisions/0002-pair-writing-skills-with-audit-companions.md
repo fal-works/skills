@@ -18,7 +18,7 @@ Audits are the primary countermeasure for failures the writer cannot see (ADR 00
 
 Chosen option: pair each writing skill with an audit companion, because a skill's description is the only layer that is always resident in context and survives compression. The companion's description ("useful after writing...") is a standing cue matching the moment the draft is done, a second trigger path for the audit. Co-housed material has only one path, an in-body instruction to revise after writing, which loses force under load (ADR 0001) and had already proven unreliable in practice. A companion also allows audit-only invocation and a clean handoff to a fresh-context auditor.
 
-The writing skill keeps the norms and defines the target state; the companion holds the auditor's stance, procedure, and failure examples, with example collections in its references/ layer. Names follow the fal-write-X / fal-improve-X pattern; fal-japanese becomes fal-write-ja with companion fal-improve-ja. A pair exists only where auditing is a real event: fal-design stays unpaired; design failures are countered at decision time, and code review covers the rest.
+The writing skill keeps the norms and defines the target state; the companion holds the auditor's stance, procedure, and failure examples, with example collections in its references/ layer. Names follow the fal-write-X / fal-improve-X pattern, as in fal-write-ja and its companion fal-improve-ja. A pair exists only where auditing is a real event: fal-design stays unpaired; design failures are countered at decision time, and code review covers the rest.
 
 ### Consequences
 
@@ -26,4 +26,3 @@ The writing skill keeps the norms and defines the target state; the companion ho
 * Good, because the collection has one legible shape.
 * Neutral, because a pair typically loads together at write time; accepted, since the checklist is then at hand when writing ends and the example collections stay deferred.
 * Bad, because a companion depends on its writing skill; installing one alone is incomplete.
-* Bad, because the rename breaks existing installs and references to fal-japanese.
