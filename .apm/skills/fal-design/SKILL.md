@@ -43,7 +43,8 @@ Model the domain before writing control flow. The data types should make illegal
 - The domain is usually already modeled in part. Before designing a new type, search for an existing type that represents the same concept, beyond the module being changed. Evaluating an existing type and finding it lacking is a design judgment; not knowing it existed is not, even when the resulting definitions look alike.
 - Prefer a tight model that eliminates invalid combinations over a loose model that checks validity at runtime. An optional field that "should never be null when X is true" is a design gap, not a defensive measure.
 - A constraint has an owner. Before making a state unrepresentable, determine whose contract forbids it: a rule the module itself guarantees belongs in its types; a rule that only one use site imposes belongs in that use site's layer, stated with that owner as its subject.
-- When full enforcement is impractical, keep the impossible state explicit as an assertion, not a silent fallback. Impossible means excluded by a contract or an invariant, so that no path can reach the state without changing the design itself. That nothing reaches a state today (no caller, no dependent module, no input that selects it) is not impossibility; it is ordinary headroom in a general mechanism, and needs no guard.
+- A state is impossible when a contract or an invariant excludes it, so that no path reaches it without changing the design itself. That nothing reaches a state today (no caller, no dependent module, no input that selects it) is not impossibility; it is ordinary headroom in a general mechanism, and needs no guard.
+- When full enforcement of an impossible state is impractical, keep it explicit as an assertion, not a silent fallback.
 - The model shapes the API. If the API is awkward, suspect the model before suspecting the surface.
 
 ## 4. Naming
@@ -60,4 +61,4 @@ A function should read as one clear thought at one level of abstraction.
 
 - Prefer one abstraction level per function. High-level orchestration and low-level manipulation in the same body obscure both.
 - Do not extract a helper merely because a block is long. Extract when the block has its own responsibility and a name that clarifies the parent. A tiny helper that readers must chase to understand the parent's flow is a net loss.
-- When a design change makes existing helpers or layers vestigial, remove them. A vestigial abstraction is not insurance; it is noise that future readers will try to understand. Vestigial means superseded by the current design, not merely unexercised: code that nothing reaches today still belongs when the design gives it a reason to exist and ordinary extension will bring its users.
+- Remove code the current design has left vestigial. Vestigial code is not insurance; it is noise that future readers will try to understand. Vestigial means superseded by the current design, not merely unexercised: code that nothing reaches today still belongs when the design gives it a reason to exist and ordinary extension will bring its users.
