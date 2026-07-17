@@ -79,4 +79,4 @@ Make prose edits on your own judgment: delete, trim, move, and rewrite without a
 
 **Markdown.** Before editing one document, skim its siblings: duplication (check 6) and mismatch (check 12) are corpus-level symptoms that a single-file read cannot catch. Confirm the document still serves its genre; a README that has drifted into a changelog is a placement problem (§2).
 
-**Japanese.** Japanese prose has failure modes beyond what the checks above cover: word choice that matches meaning but not usage, calqued idioms, coined kanji compounds, English punctuation habits. The fal-japanese skill owns the target state for these; when the prose under audit is Japanese, read it and audit against its rules as well.
+**Japanese.** Japanese prose has failure modes beyond what the checks above cover: word choice that matches meaning but not usage, calqued idioms, coined kanji compounds, English punctuation habits. The fal-write-ja skill owns the target state for these, and fal-improve-ja holds the audit procedure and examples; when the prose under audit is Japanese, apply them as well.

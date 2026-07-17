@@ -117,7 +117,7 @@ A document is read alongside its neighbors, and inconsistency taxes the reader.
 
 ## 8. Japanese
 
-Japanese has failure modes of its own beyond what the sections above cover: word choice that matches meaning but not usage, calqued idioms and rhetoric, coined kanji compounds, translationese sentence patterns. The `fal-japanese` skill owns these rules, and it applies to all Japanese output. Apply it together with this skill whenever the text is Japanese.
+Japanese has failure modes of its own beyond what the sections above cover: word choice that matches meaning but not usage, calqued idioms and rhetoric, coined kanji compounds, translationese sentence patterns. The `fal-write-ja` skill owns these rules, and it applies to all Japanese output. Apply it together with this skill whenever the text is Japanese.
 
 ## 9. Working discipline
 
