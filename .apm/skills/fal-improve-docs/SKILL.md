@@ -39,7 +39,7 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 **Context leaks**
 
 4. **The writing session leaked.** Change history, references to untracked files, mentions of rejected alternatives, and instructions the writer was given. Do not scan for marker phrases. Test each claim by asking whether someone who never sat in the session would still write it. Delete what fails; if the current state has a surprising property, state the property directly (§3). This check does not remove history from a document whose purpose is to record a decision or event.
-   - Instructions are the form an audit misses: one rarely carries a tell like "as agreed"; more often its content is restated as a fact about the subject. Told to prioritize A while editing, the writer records that the subject prioritizes A.
+   - Instructions are the form an audit misses: one rarely carries a tell like "as agreed"; more often its content is restated as a fact about the subject (§3). Told to prioritize A while editing, the writer records that the subject prioritizes A.
    - Comparison and negation phrasing ("not X", "instead of", "rather than") is the cue to pause: it marks either this leak or legitimate least-surprise documentation. Apply §3's test, and keep the alternative only when a fresh reader would expect it, saying why the choice was made.
 5. **The wrong side of the boundary leaked.** In one direction, the current caller's domain, use case, or behavior stated in the thing's own doc; restate it as a contract with the thing as subject, or delete it (§3). In the other, internal concepts addressed to a reader outside the boundary, who cannot see them and would never ask about them; rewrite in terms visible from the reader's position (§3). If the thing should only ever serve that one caller, that is a structure question, not a doc fix (check 14).
 
@@ -55,7 +55,7 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 **Form**
 
 9. **Padding.** A section filled only because the heading exists, or material restated to keep a template symmetric. Mostly a Markdown symptom. Delete (§5).
-10. **Pre-emptive defense.** A concession, an edge-case note, or a "this does not mean..." qualifying a claim that is accurate without it. It reads as precision, which is why it survives; its only audience is an objection the writer imagined while writing. Test by deletion: if the claim stays accurate, delete the defense. If it becomes false, the qualification is load-bearing and passes the audit; keep it, or reword the claim to the scope it can honestly carry when that reads cleaner (§1).
+10. **Pre-emptive defense.** A concession, an edge-case note, or a "this does not mean..." qualifying a claim that is accurate without it. It reads as precision, which is why it survives. Test by deletion: if the claim stays accurate, delete the defense. If it becomes false, the qualification is load-bearing and passes the audit; keep it, or reword the claim to the scope it can honestly carry when that reads cleaner (§1).
 11. **Verbose construction.** One sentence doing the work of three, chained with connectors. Split into short declarative sentences (§6).
 12. **Corpus mismatch.** Density, tone, vocabulary, language, or structure diverging from the surrounding sections and sibling documents. Calibrate toward the corpus; calibration is not minimization (§7, §5).
 13. **Overlong block.** A paragraph or list item past the §6 length cap; here length is a mechanical tell, not a judgment call. Remediate per §6, escalating to the list's own structure (§5) when several items run long.
@@ -76,7 +76,7 @@ Two findings stay outside unilateral action:
 ## Editing discipline
 
 - Prefer, in order: delete, trim, move, rewrite. Deletion is the highest-leverage edit; rewriting is the easiest to get wrong.
-- Text that passes the audit stays verbatim: same wording, same punctuation, same line breaks. Cosmetic churn creates diff noise and can turn a survivor into a casualty on the next pass.
+- Text that passes the audit stays verbatim: same wording, same punctuation, same line breaks (§9). Cosmetic churn can turn a survivor into a casualty on the next pass.
 - Replacement prose follows fal-write-docs in full, especially sentence discipline (§6) and corpus fit (§7). Do not remove one long sentence and write another.
 
 ## Verify
@@ -90,4 +90,4 @@ Two findings stay outside unilateral action:
 
 **Markdown.** Before editing one document, skim its siblings: duplication (check 6) and mismatch (check 12) are corpus-level symptoms that a single-file read cannot catch. Confirm the document still serves its genre; a README that has drifted into a changelog is a placement problem (§2).
 
-**Japanese.** Japanese prose has failure modes beyond what the checks above cover: word choice that matches meaning but not usage, calqued idioms, coined kanji compounds, English punctuation habits. The fal-write-ja skill owns the target state for these, and fal-improve-ja holds the audit procedure and examples; when the prose under audit is Japanese, apply them as well.
+**Japanese.** Japanese prose has failure modes beyond what the checks above cover. The fal-write-ja skill owns the target state for these, and fal-improve-ja holds the audit procedure and examples; when the prose under audit is Japanese, apply them as well.
