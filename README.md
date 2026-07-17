@@ -9,6 +9,7 @@ A general-purpose [APM](https://microsoft.github.io/apm/) package for software d
 - [fal-improve-docs](.apm/skills/fal-improve-docs/SKILL.md): Audit-and-fix pass for existing documentation and comments. Companion to fal-write-docs.
 - [fal-write-ja](.apm/skills/fal-write-ja/SKILL.md): Principles for writing natural Japanese, in documentation and elsewhere. Companion to fal-write-docs.
 - [fal-improve-ja](.apm/skills/fal-improve-ja/SKILL.md): Audit-and-fix pass for existing Japanese prose. Companion to fal-write-ja.
+- [fal-feedback](.apm/skills/fal-feedback/SKILL.md): Report a failure of another `fal-*` skill, for use as input when revising it.
 
 ## Install
 
