@@ -21,7 +21,7 @@ The sections below counter these tendencies. Sections 1-7 follow the sequence of
 - §3 For whom it is written
 - §4 In which words
 - §5 In what structure
-- §6 In what sentences
+- §6 In what paragraphs and sentences
 - §7 How it fits its surroundings
 
 Section 8 points to the Japanese-specific companion skill, and section 9 adds working discipline. A single flaw can break several sections at once; the overlap is intentional. Apply the sections while writing, and once more in a brief revision pass (§9).
@@ -88,18 +88,19 @@ Rules:
 - **A name that should outlive the document is a design decision.** Propose it to the user before spreading it into code or other documents; do not mint it silently.
 - **Before adopting an unfamiliar term found in the repository, check that it has a definition site**: a code symbol or an explicit definition in a tracked document. A term that appears only in passing prose is not established vocabulary; it is likely a previous session's coinage. Do not amplify it. A quick check on load-bearing terms suffices; this is not a call for a full audit.
 
-## 5. Let content shape structure
+## 5. Structure has an owner
 
-Structure serves the material, never the reverse.
+Structure exists at more than one level: how a document is sectioned, and how a document set divides into documents and files. At every level, structure serves the material, but the material of one document is not always its owner. A structure invented for this document belongs to its content; a structure shared across documents (a template, an established section convention among siblings, a genre's fixed shape, a division into files that siblings follow) belongs to the set. Identify the owner before reshaping.
 
-- **Add, merge, and omit sections freely as the material demands.** Padding a section so that every heading has a paragraph, or restating similar material to keep a template symmetric, is a typical failure, not thoroughness.
+- **Let content shape the structure the document owns.** Add, merge, and omit sections freely as the material demands. Padding a section so that every heading has a paragraph, or restating similar material to keep a template symmetric, is a typical failure, not thoroughness.
 - **Existing structure is not fixed when editing.** When new content does not fit the current framework, redesign the structure rather than finding a local slot for the addition. Self-check: would someone writing this document from scratch, knowing all its current content, choose this structure?
+- **Do not override shared structure locally.** A predictable shape across sibling documents is itself information: readers carry expectations from one document to the next, and a locally better structure breaks them for the whole set (§7 at the structural level). For example, when every module keeps its design notes in docs/design.md, moving one module's notes into its README leaves readers looking in the wrong place, however sensible the local judgment. Conforming is not padding: use the latitude the shared structure itself grants (optional sections, permitted merging). When the material does not fit even then, surface the mismatch instead of deviating silently in one document.
+
+## 6. Paragraph and sentence discipline
+
 - **Long-form prose is paragraphs.** Each paragraph groups closely related information and plays one clear role in the surrounding explanation, with blank lines between paragraphs. A stack of loosely joined single sentences is not a paragraph.
-- **Treat enumeration as an escalation ladder.** First ask whether enumerating adds precision at all; if the items are few and short, keep them inline in a sentence; only then reach for list formatting. Tables are a last resort for short enumerable facts, with explanations in surrounding prose rather than in cells.
-- **Skip ritual**: meta-narration ("This document describes..."), throat-clearing introductions, and summary closings ("In summary...", 「まとめ」). When the content ends, the document ends.
-
-## 6. Sentence discipline
-
+- **Enumerate only genuinely parallel items.** Ask first whether enumerating adds precision at all. Explanation and argument belong in paragraphs; recasting connected reasoning as bullets drops the connections and leaves fragments.
+- **Notation escalates from sentence to list to table.** Few short items stay inline in a sentence. List formatting comes when inline stops being readable. A table is a last resort for short enumerable facts, with explanations in surrounding prose rather than in cells.
 - **One thought per sentence.** Short declarative sentences beat chained clauses. Shortness comes from splitting thoughts, not from packing them into fewer words (§1).
 - **Connectors are expensive.** An em-dash joining clauses usually marks a sentence that wants to be two. A colon fits the "heading: detail" shape; otherwise prefer separate sentences over semicolons and parentheticals.
 - **Keep the register formal, precise, and neutral.** Documentation is neither marketing nor conversation.

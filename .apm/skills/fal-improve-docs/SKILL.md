@@ -46,10 +46,10 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 
 **Form**
 
-9. **Ritual and padding.** Meta-narration, throat-clearing introductions, summary closings, sections filled to keep a template symmetric. Mostly a Markdown symptom. Delete (§5).
+9. **Padding.** A section filled only because the heading exists, or material restated to keep a template symmetric. Mostly a Markdown symptom. Delete (§5).
 10. **Pre-emptive defense.** A concession, an edge-case note, or a "this does not mean..." qualifying a claim that is accurate without it. It reads as precision, which is why it survives; its only audience is an objection the writer imagined while writing. Test by deletion: if the claim stays accurate, delete the defense. If it becomes false, the qualification is load-bearing and passes the audit; keep it, or reword the claim to the scope it can honestly carry when that reads cleaner (§1).
 11. **Verbose construction.** One sentence doing the work of three, chained with connectors. Split into short declarative sentences (§6).
-12. **Corpus mismatch.** Density, tone, vocabulary, or language diverging from the surrounding sections and sibling documents. Calibrate toward the corpus; calibration is not minimization (§7).
+12. **Corpus mismatch.** Density, tone, vocabulary, language, or structure diverging from the surrounding sections and sibling documents. Calibrate toward the corpus; calibration is not minimization (§7, §5).
 
 **Escalation**
 
