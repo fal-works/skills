@@ -18,9 +18,13 @@ The sections below counter this tendency. They are not steps in a procedure; the
 
 ## 1. Redesign over patching
 
-When a requirement changes the assumptions under existing code, redesign the affected structure to be coherent under the new assumptions. The target is a design that reads as if it had always been this way — no vestigial shapes from the old approach, no names that only make sense in light of what was there before.
+When a requirement changes the assumptions under existing code, redesign the affected structure to be coherent under the new assumptions. The target is a design that reads as if it had always been this way: no vestigial shapes from the old approach, no names that only make sense in light of what was there before.
 
 The characteristic failure is the minimal-diff fix: adding a flag, wrapping with a condition, inserting a special case. Each preserves the old structure at the cost of coherence. A parameter added "just for this case" signals that the abstraction boundary is in the wrong place.
+
+A redesign can name what it makes unnecessary: the functions it replaces, the helpers it generalizes, the special cases it absorbs. Treat the change as one design across old and new elements, deciding which stay, which generalize, and which go, rather than as a new API beside the existing one. A proposal that only adds, leaving everything in place, is a patch however it is described.
+
+Certain signals mean the assumptions have already shifted and local adjustment should stop: entry points multiplying per use site, a new function sharing an existing function's responsibility, a new type enumerating nearly the same cases as an existing one, a use-site-specific constraint aimed at a general module, names in one region differing only by use site (§4). At any of these, or when a critique casts doubt on the classification axis or a premise, do not refine the current proposal; rederive the affected scope from its responsibilities.
 
 Self-check: if I had never seen the old design, would I draw the same boundaries and choose the same types?
 
@@ -28,7 +32,7 @@ Self-check: if I had never seen the old design, would I draw the same boundaries
 
 Every module, type, and function owns one clear responsibility. Derive placement from what a concept *is*, not from who currently uses it.
 
-- A module's classification follows its responsibility, not its current reference graph. That module A is today referenced only by module B does not make A a part of B; a future module C may reference it with equal right.
+- The current state of the code (who calls a thing, what references it, which inputs occur) is a snapshot, not a design property. That module A is today referenced only by module B does not make A a part of B; a future module C may reference it with equal right. Every decision read off the snapshot deserves the same suspicion: classification, placement, and whether code should exist all follow from contracts and invariants.
 - Logic belongs where its subject lives. If a caller must reach into another module's internals, the boundary is drawn wrong.
 - When multiple responsibilities share a location, ask whether they share it for a reason (cohesion) or by accident (convenience). Accidental neighbors become real coupling over time.
 
@@ -36,8 +40,10 @@ Every module, type, and function owns one clear responsibility. Derive placement
 
 Model the domain before writing control flow. The data types should make illegal states unrepresentable; the implementation then follows from what the types permit.
 
+- The domain is usually already modeled in part. Before designing a new type, search for an existing type that represents the same concept, beyond the module being changed. Evaluating an existing type and finding it lacking is a design judgment; not knowing it existed is not, even when the resulting definitions look alike.
 - Prefer a tight model that eliminates invalid combinations over a loose model that checks validity at runtime. An optional field that "should never be null when X is true" is a design gap, not a defensive measure.
-- When full enforcement is impractical, keep the impossible state explicit as an assertion, not a silent fallback.
+- A constraint has an owner. Before making a state unrepresentable, determine whose contract forbids it: a rule the module itself guarantees belongs in its types; a rule that only one use site imposes belongs in that use site's layer, stated with that owner as its subject.
+- When full enforcement is impractical, keep the impossible state explicit as an assertion, not a silent fallback. Impossible means excluded by a contract or an invariant, so that no path can reach the state without changing the design itself. That nothing reaches a state today (no caller, no dependent module, no input that selects it) is not impossibility; it is ordinary headroom in a general mechanism, and needs no guard.
 - The model shapes the API. If the API is awkward, suspect the model before suspecting the surface.
 
 ## 4. Naming
@@ -54,4 +60,4 @@ A function should read as one clear thought at one level of abstraction.
 
 - Prefer one abstraction level per function. High-level orchestration and low-level manipulation in the same body obscure both.
 - Do not extract a helper merely because a block is long. Extract when the block has its own responsibility and a name that clarifies the parent. A tiny helper that readers must chase to understand the parent's flow is a net loss.
-- When a design change makes existing helpers or layers vestigial, remove them. An unused abstraction is not insurance; it is noise that future readers will try to understand.
+- When a design change makes existing helpers or layers vestigial, remove them. A vestigial abstraction is not insurance; it is noise that future readers will try to understand. Vestigial means superseded by the current design, not merely unexercised: code that nothing reaches today still belongs when the design gives it a reason to exist and ordinary extension will bring its users.

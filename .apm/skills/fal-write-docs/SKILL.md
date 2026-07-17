@@ -36,7 +36,7 @@ Every sentence charges the reader attention now and charges the project maintena
 - Write each claim at the scope it can honestly carry, then stop. A pre-emptive defense (a concession or a "this does not mean..." aimed at an objection imagined while writing) plants the misreading it fears and serves the writer's anxiety, not the reader.
 
 Brevity comes from selection, not compression. Cut by dropping repetition, needless detail, and sentences that do not earn their place, never by squeezing the wording of the sentences that remain. A packed phrase saves characters, not reading time. Every reader pays to unpack it.
-Minimize the staleness surface: the set of statements that a routine change can silently falsify. Line numbers, item counts, exhaustive enumerations of specifics, copies of directory listings, and version numbers all rot without anyone noticing. Make the point one abstraction level up, and reference code at module or function granularity. A sentence that a rename can turn into a lie is a maintenance trap.
+Minimize the staleness surface: the set of statements that a routine change can silently falsify. Line numbers, item counts, exhaustive enumerations of specifics, copies of directory listings, version numbers, and descriptions of who currently calls a thing and what they pass all rot without anyone noticing. Make the point one abstraction level up, and reference code at module or function granularity. A sentence that a rename can turn into a lie is a maintenance trap.
 
 ## 2. Put each fact in its home
 
@@ -51,13 +51,14 @@ A correct fact in the wrong place still fails: whichever copy or location drifts
 
 Before writing a fact down, ask what owns it. Write it there, and point to it from anywhere else that needs it.
 
-## 3. Write for a reader with zero session context
+## 3. Write from the reader's position
 
-The reader is a future person, possibly yourself, who has none of the current session: no instructions, no discussion, no memory of the previous version. The text must be self-contained for that reader.
+The reader is a future person, possibly yourself, who has none of the current session: no instructions, no discussion, no memory of the previous version. The reader also stands in a particular position relative to the thing described: outside its boundary, implementing it, or maintaining its internals. Identify that reader before writing (for a function, check where its callers actually live); what earns its place (§1) is judged from that reader's position. The text must be self-contained for that reader.
 
 - Never write conversation-level content: change narration ("now uses X instead"), instruction provenance ("as agreed", "per the spec discussion"), the reason the task arose, or alternatives mentioned only because you were told to avoid them.
 - Write in the timeless present, as if the current design had always been the way it is. Self-check: if I had never seen the old design, would I still write this sentence?
-- Describe each thing at its own level of generality. The current caller's domain or use case must not pose as a property of the thing itself.
+- Describe each thing at its own level of generality. Facts about the current caller (its domain, its use case, what it passes and how it calls) do not belong in the thing's own documentation; placed there, they present themselves as properties of the thing, even when phrased as statements about the caller. Test each such sentence by restating it as a contract with the thing itself as subject, a precondition or a guarantee; keep what restates truthfully, and delete the remainder as the caller's business.
+- Mention only concepts visible from the reader's position. A reader outside a boundary does not know the internals exist. For example, a doc comment on a public function that promises to return "the raw value, not the internal representation" contrasts the result with a type its reader has never heard of, answering a question that reader would never ask. Reach across the boundary only to explain behavior observable from outside that would otherwise surprise.
 - Reference only durable, tracked artifacts. A pointer to a gitignored scratch file, a session plan, or "the design discussion" is a dead link from day one.
 
 If the current state has a property that would surprise a fresh reader, state the property directly, without narrating how it came about.
@@ -110,6 +111,7 @@ Structure serves the material, never the reverse.
 A document is read alongside its neighbors, and inconsistency taxes the reader.
 
 - When extending an existing document, match the density, tone, vocabulary, and language of the surrounding sections. Before editing, check how sibling documents of the same kind handle the same thing, and align with them.
+- The nearest corpus is the document itself. When returning to a concept the document has already phrased, reuse the earlier phrasing; a second wording for the same concept reads as a second concept.
 - Assume the first draft came out wordier than its surroundings; LLM output runs verbose by default. After writing, compare against the neighbors and adjust.
 - Adjusting means calibrating, not minimizing. Cut by removing sentences that do not earn their place (§1); do not squeeze the surviving sentences until they turn cryptic. Over-compression that loses the meaning fails the reader as surely as an oversized insertion that ignores its surroundings.
 
