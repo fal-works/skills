@@ -87,6 +87,8 @@ The characteristic failure is the **unmarked coinage**. While organizing a topic
 
 Typography can strengthen the false claim (backticks suggest a code symbol; quotation marks or capitalization suggest a defined term), but the failure lies in the term choice itself, not in the markup.
 
+The opposite failure is the **catch-all name**. Here the writer makes a general-purpose abstract word, such as layer, element, or component, the fixed name of one specific concept. The word resolves, but only to its broad everyday sense, not to the concept it now names. And because it fits anything, it collides as soon as the document uses it in its plain sense or hangs a second concept on it. Using the word in its plain generic sense, where context fixes the referent, is fine.
+
 Rules:
 
 - Default to plain descriptions built from standard terms and real code symbols. A somewhat longer but precisely-referenced phrase beats a compact invented label. This is not verbosity: a coined shortcut merely exports its cost to every reader, each of whom must reconstruct the referent alone.

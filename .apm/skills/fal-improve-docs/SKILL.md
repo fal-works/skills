@@ -50,7 +50,7 @@ Scope: when triggered by a change, the files it touched; when invoked explicitly
 
 **Words**
 
-8. **A term does not resolve.** A load-bearing term that names nothing in the code, the domain, or the project's defined vocabulary. Likely a previous session's coinage; replace it with a plain description or the real symbol, and do not let it spread (§4).
+8. **A term does not resolve.** A load-bearing term that names nothing in the code, the domain, or the project's defined vocabulary. Likely a previous session's coinage; replace it with a plain description or the real symbol, and do not let it spread. The mirror image is the catch-all name: a general-purpose abstract word (layer, element, component) used as the fixed name of one specific concept. Replace it with a word specific enough to name that concept and no other (§4).
 
 **Form**
 
