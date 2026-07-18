@@ -28,7 +28,9 @@ At the same time, do not overshoot. These survive the audit:
 
 ## The checks
 
-Scope: when triggered by a change, the files it touched; when invoked explicitly, what the user named. Read each file in scope end-to-end before editing anything, because placement and duplication problems are invisible line-by-line. Pre-existing text is in scope, not only what the current change touched; text from the current change deserves extra skepticism. Apply each check's remediation immediately unless the Authority section limits the task to reporting findings.
+Scope: when triggered by a change, the files it touched; when invoked explicitly, what the user named. Read each file in scope end-to-end before editing anything, because placement and duplication problems are invisible line-by-line. Pre-existing text is in scope, not only what the current change touched; text from the current change deserves extra skepticism.
+
+A defect the user points to is the entry point to the sweep, not its scope: run every check over the flagged text and its neighbors, because the block that trips one check usually trips others. Apply each check's remediation immediately unless the Authority section limits the task to reporting findings.
 
 **Information failures**
 

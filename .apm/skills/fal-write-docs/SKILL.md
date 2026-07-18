@@ -109,7 +109,8 @@ Structure exists at more than one level: how a document is sectioned, and how a 
 
 - Long-form prose is paragraphs. Separate them with blank lines. A stack of loosely joined single sentences is not a paragraph.
 - Each paragraph plays one clear role in the surrounding explanation. It groups closely related information.
-- A paragraph is too long when it holds more than its one role. Typically two roles have merged, or detail from a smaller scope has been packed in (§2). Roughly 500 characters of Latin-script text (fewer in denser scripts such as Japanese) marks where to suspect this from size alone; the number is a guide, not the criterion, and a shorter paragraph with merged roles still splits.
+- A paragraph is too long when it holds more than its one role: two roles have merged, or detail from a smaller scope has been packed in (§2). The role, not the character count, is the criterion.
+- Size still flags suspects. Roughly 500 characters of Latin-script text (fewer in denser scripts such as Japanese) is where to start looking, and past about 600 the split is the default. Keep an oversized paragraph whole only for a specific reason. Mere relevance (§1) is not one.
 - Judge list items like paragraphs. When an item runs long, break it into a nested list, or step back and reconsider the list's structure or whether a list is the right form at all (§5).
 - Enumerate only genuinely parallel items. Ask first whether enumerating adds precision at all. Explanation and argument belong in paragraphs; recasting connected reasoning as bullets drops the connections and leaves fragments.
 - Notation escalates from sentence to list to table. Few short items stay inline in a sentence. List formatting comes when inline stops being readable. A table is a last resort for short enumerable facts, with explanations in surrounding prose rather than in cells.
