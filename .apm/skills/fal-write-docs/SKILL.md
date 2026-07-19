@@ -35,6 +35,7 @@ Every sentence charges the reader attention now and charges the project maintena
 - Prose earns its place by carrying what the artifact cannot express: a contract, a non-obvious why, or the reason something exists.
 - State each fact once, in its natural home (§2). The urge to repeat a caveat "to be safe" signals that the caveat sits in the wrong place or that sections overlap.
 - Write each claim at the scope it can honestly carry, then stop. A pre-emptive defense (a concession or a "this does not mean..." aimed at an objection imagined while writing) plants the misreading it fears and serves the writer's anxiety, not the reader.
+- Being told to make something clearer or harder to misread is not a license to add. When the point is already on the page, another explanation, a second example, or a safer hedge lowers the signal instead of raising it. Sharpen the single statement and put it at its home (§2). Add prose only for what a reader genuinely lacks, never to reinforce what is already there.
 
 Brevity comes from selection, not compression. Cut by dropping repetition, needless detail, and sentences that do not earn their place, never by squeezing the wording of the sentences that remain. A packed phrase saves characters, not reading time. Every reader pays to unpack it.
 
