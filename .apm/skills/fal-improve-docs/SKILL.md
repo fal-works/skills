@@ -53,7 +53,10 @@ A defect the user points to is the entry point to the sweep, not its scope: run 
 
 **Words**
 
-8. **A term does not resolve.** A load-bearing term that names nothing in the code, the domain, or the project's defined vocabulary. Likely a previous session's coinage; replace it with a plain description or the real symbol, and do not let it spread. The mirror image is the catch-all name: a general-purpose abstract word (layer, element, component) used as the fixed name of one specific concept. Replace it with a word specific enough to name that concept and no other (§4).
+8. **A term does not resolve.** A load-bearing word the reader cannot follow to one concept in the code, the domain, or the project's defined vocabulary (§4). Three forms:
+   - Unmarked coinage: a term that names nothing, likely a previous session's coinage. Replace it with a plain description or the real symbol, and do not let it spread.
+   - Catch-all name: a general-purpose abstract word (layer, element, component) used as the fixed name of one specific concept. Replace it with a word specific enough to name that concept and no other.
+   - Stripped term: a defined term abbreviated in a later reference to its bare general word (retry budget → budget). Restore the full defined term wherever it names the concept.
 
 **Form**
 

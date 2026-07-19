@@ -97,6 +97,8 @@ Typography can strengthen the false claim (backticks suggest a code symbol; quot
 
 The opposite failure is the **catch-all name**. Here the writer makes a general-purpose abstract word, such as layer, element, or component, the fixed name of one specific concept. The word resolves, but only to its broad everyday sense, not to the concept it now names. And because it fits anything, it collides as soon as the document uses it in its plain sense or hangs a second concept on it. Using the word in its plain generic sense, where context fixes the referent, is fine.
 
+The same harm returns after a good name, through the **stripped term**. A document defines a specific term, then a later reference keeps only the general head: retry budget worn to budget, staging table to table. The bare head resolves to its everyday sense alone. That is the catch-all name's failure, recurring at each mention. Repeat a defined term in full wherever it names its concept, and shorten only where context already fixes the referent.
+
 Rules:
 
 - Default to plain descriptions built from standard terms and real code symbols. A somewhat longer but precisely-referenced phrase beats a compact invented label. This is not verbosity: a coined shortcut merely exports its cost to every reader, each of whom must reconstruct the referent alone.
@@ -136,7 +138,7 @@ Structure exists at more than one level: how a document is sectioned, and how a 
 A document is read alongside its neighbors, and inconsistency taxes the reader.
 
 - Match the density, tone, vocabulary, and language of the surrounding sections. Before editing, check how sibling documents of the same kind handle the same thing, and align with them.
-- The nearest corpus is the document itself. When returning to a concept the document has already phrased, reuse the earlier phrasing; a second wording for the same concept reads as a second concept.
+- The nearest corpus is the document itself. When returning to a concept the document has already phrased, reuse the earlier phrasing; a second wording for the same concept reads as a second concept. For a term the document explicitly defined, the rule is stricter: abbreviating it to the bare general word stops resolving to the concept at all, not merely reading as a second one (§4).
 - Assume the first draft came out wordier than its surroundings. LLM output runs verbose by default. After writing, compare against the neighbors and adjust.
 - Adjusting means **calibrating, not minimizing**. Cut by removing sentences that do not earn their place (§1); do not squeeze the surviving sentences until they turn cryptic. Over-compression that loses the meaning fails the reader as surely as an oversized insertion that ignores its surroundings.
 
