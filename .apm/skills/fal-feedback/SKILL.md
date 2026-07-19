@@ -23,6 +23,8 @@ Good (generalized, still concrete): "The project generates typed accessors from 
 
 Generalize the setting, not the evidence. When the failure lives in a specific artifact, such as a wrong name or a wrong sentence, quote that artifact exactly, with its correction where one exists. A failure report abstracted past its own evidence is unverifiable.
 
+The exception is a session whose own task was editing the `fal-*` skills. There the project is the skills the reader maintains, so its specifics are the subject, not noise; name the skills and their sections directly rather than generalizing them into anonymous roles.
+
 ## What the report establishes
 
 The material is usually already in the session: the failing outputs, the user's corrections, and the discussion around them. Collect the cases from there before writing.
