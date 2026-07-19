@@ -37,7 +37,7 @@ The material is usually already in the session: the failing outputs, the user's 
 - **Cause hypotheses, marked as such.** Why the skill failed to prevent the failure is worth conjecturing, but keep the boundary visible between what was observed in the session and what you infer.
 - **Proposals, optionally.** Concrete candidate wording helps the maintainer, but frame it as input, not as a patch to apply: the final wording and placement depend on the skills' overall structure, which is the maintainer's call. Proposed fixes to the project itself do not belong in the report at all.
 
-Report the outcome honestly. If the session was corrected into a good final state, say so; if it never converged on a trustworthy result, say that instead. A report that smooths the failure into a tidy lesson is worth less than one that shows how far the skill actually fell short.
+The report's subject is the failure, not how it was resolved. When the feedback is written the resolution is usually unsettled: the session may have stopped mid-correction, and any fix still stands to be revised. So do not narrate a resolution or close on a tidy lesson. Presenting a provisional fix as the conclusion misleads the maintainer about how far the skill fell short. Showing a corrected artifact stays right where one exists, since it pins down what was wrong, but that is evidence of the failure, not a report of a good ending.
 
 ## Form
 
