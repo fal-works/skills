@@ -55,14 +55,19 @@ Before writing a fact down, ask what owns it. Write it there, and point to it fr
 
 ## 3. Write from the reader's position
 
-The reader is a future person, possibly yourself, who has none of the current session: no instructions, no discussion, no memory of the previous version. The reader also stands in a particular position relative to the thing described: outside its boundary, implementing it, or maintaining its internals. Identify that reader before writing (for a function, check where its callers actually live); what earns its place (§1) is judged from that reader's position. The text must be self-contained for that reader.
+The reader is a future person, possibly yourself. Two kinds of knowledge separate that reader from the writer, and every failure in this section leaks one of them:
+
+- **The boundary.** The writer sees the thing from every side, its internals and its current callers included. The reader stands at one vantage: outside the boundary, implementing the thing, or maintaining its internals.
+- **The session.** The writer holds its instructions, its discussion, and the previous version of the code. The reader never had any of it.
+
+Identify that reader before writing. For a function, check where its callers actually live. What earns its place (§1) is judged from the reader's position. The text must be self-contained there.
 
 The rules below apply to documentation of the current system. A document whose purpose is to record a decision or event instead includes the relevant history.
 
+- Mention only concepts visible from the reader's position. A reader outside a boundary does not know the internals exist. For example, a doc comment on a public function that promises to return "the raw value, not the internal representation" contrasts the result with a type its reader has never heard of, answering a question that reader would never ask. Reach across the boundary only to explain behavior observable from outside that would otherwise surprise.
+- The current callers are a **snapshot**, not properties of the thing. Facts about the current caller (its domain, its use case, what it passes and how it calls) do not belong in the thing's documentation. Placed there, they present themselves as properties of the thing, even when phrased as statements about the caller. Test each such sentence by restating it as a contract with the thing as subject. Keep what restates truthfully, and delete the remainder as the caller's business.
 - Never write conversation-level content: change narration ("now uses X instead"), the reason the task arose, alternatives mentioned only because you were told to avoid them, or an instruction you were given. An instruction leaks whether you cite it as provenance ("as agreed") or, more easily missed, restate its content as a fact about the subject.
 - Write in the timeless present. Describe the current design as if it had always been the way it is. Self-check: if I had never seen the old design, would I still write this sentence?
-- The current callers are a **snapshot**, not properties of the thing. Describe each thing at its own level of generality: facts about the current caller (its domain, its use case, what it passes and how it calls) do not belong in its documentation; placed there, they present themselves as properties of the thing, even when phrased as statements about the caller. Test each such sentence by restating it as a contract with the thing itself as subject, a precondition or a guarantee; keep what restates truthfully, and delete the remainder as the caller's business.
-- Mention only concepts visible from the reader's position. A reader outside a boundary does not know the internals exist. For example, a doc comment on a public function that promises to return "the raw value, not the internal representation" contrasts the result with a type its reader has never heard of, answering a question that reader would never ask. Reach across the boundary only to explain behavior observable from outside that would otherwise surprise.
 - Reference only durable, tracked artifacts. A pointer to a gitignored scratch file, a session plan, or "the design discussion" is a dead link from day one.
 
 If the current state has a property that would surprise a fresh reader, state the property directly, without narrating how it came about.
