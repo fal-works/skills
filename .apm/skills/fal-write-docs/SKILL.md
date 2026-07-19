@@ -71,6 +71,8 @@ Mentions of a rejected alternative ("B, not A") deserve particular suspicion. Fr
 
 The test, applied skeptically: does a reader who has never heard of A benefit from being told about it? Usually not. Leave A out, and if the choice needs support, state the property that carries it without staging a comparison.
 
+The same bias reaches past what to include, into how much to say and which example to show. When a document is revised to answer one case, that case fills the session but is one of many the reader brings. Its salience inflates the space a point earns and the example reached for. Both slip past a sentence-by-sentence check, because every sentence is individually true. Self-check: would a writer who reached this same understanding without that case give this point this weight and choose this example?
+
 ## 4. Use words that resolve
 
 Every load-bearing term makes an implicit claim: this word has a meaning you can look up. A term resolves when the reader can follow it, without asking the writer, to one of three namespaces:
