@@ -59,7 +59,7 @@ A split need not follow the unit's current seams. Where connected roles resist a
 
 The **"split focus"** antipattern is a unit carrying more than one role or concern. It appears at every structural level, and it is independent of length. A short unit can have split focus, and a unit with a single role can still run too long, a failure named the "overlong block" antipattern.
 
-The principle can be overapplied by splitting what belongs together. Connected reasoning recast as bullet points drops the connections. A tiny helper extracted from a function forces readers to consult it to understand the parent's flow.
+The principle can be overapplied by splitting what belongs together. A connective that states how its clauses relate is part of the content, not a seam. Where such a sentence is split for length, the split is complete only when the resulting sentences still state the relation. Connected reasoning recast as bullet points drops the relations in the same way. A tiny helper extracted from a function forces readers to consult it to understand the parent's flow.
 
 ## What owns the unit
 

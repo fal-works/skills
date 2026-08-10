@@ -220,7 +220,7 @@ In code, any of the following is a cue:
 - A type that has accumulated a second responsibility
 - A name that needs "and"
 
-In comment prose, the cue is a connector joining clauses that each carry their own thought, such as an em dash, a semicolon, or "which also."
+In comment prose, the cue is a connector joining clauses that each carry their own thought, such as an em dash, a semicolon, or "which also." A connective that itself states how the clauses relate, such as "because" or "but," is not this cue: what it states is content. A split made there anyway is complete only when the resulting sentences still state the relation.
 
 Split along the roles. Where the current structure gives them no clean seam, recompose the region instead of cutting the body where it stands.
 

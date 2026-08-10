@@ -193,7 +193,7 @@ In a sentence, the cue is a connector joining clauses that each carry their own 
 
 Split at the role boundary. Where no existing break falls on it, recompose the passage instead of cutting at the nearest seam.
 
-A colon that introduces detail after a label passes.
+A colon that introduces detail after a label passes. A connective that itself states how the clauses relate, such as "because" or "but," also passes: the relation that it states is content. A split made there anyway is complete only when the resulting sentences still state the relation.
 
 ## Unmarked coinage
 

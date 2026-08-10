@@ -58,6 +58,8 @@ Report the findings, whether the pass fixed them or proposes the fix. A finding 
 - Keep each edit proportional to its purpose, and leave everything that is not being fixed verbatim: same wording, same punctuation, same line breaks, same code. Churn creates diff noise and risks damaging what was fine.
 - What is bounded is the reach of the pass, not the size of a fix. Where a check calls for the unit to be rebuilt, rebuild it.
 - Prefer, in order: delete, trim, move, rewrite. Deletion is the most effective edit. Rewriting is the easiest to get wrong.
+- Before a replacement becomes final, set it beside the original: everything the original stated survives unless a check calls for the change. A split counts as a replacement, with its pieces read in place of the original. The usual losses are a dropped qualifier and a dropped relation between clauses. A dropped qualifier leaves a noun phrase stating a broader claim than the original did. Only the original shows what the replacement lost.
+- A replacement keeps the original's notation unless a check calls for the change.
 - A restructure preserves behavior unless a check calls for the change, as the "silent fallback" check does.
 - A comment-only edit is not always inert. Type-bearing dialects, such as JSDoc types and Python type comments, feed static analysis, and a Markdown edit can break links and anchors. Check what the edit could have broken.
 
