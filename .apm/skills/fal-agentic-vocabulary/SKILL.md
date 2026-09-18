@@ -199,11 +199,15 @@ The **"unsolicited history"** antipattern does the opposite. It narrates the cha
 
 ### Principle of Words that resolve
 
-Words that resolve asks that every term and phrase reach a meaning that the reader already has access to. Three namespaces are available: the code symbols of the repository, the established terms of the domain, and the terms explicitly defined in the project's tracked documents. The requirement extends beyond single terms to phrases, where the reader must be able to recover the relationship between the words.
+Words that resolve asks that every term and phrase reach a meaning that the reader already has access to. A meaning is accessible when the reader can reach it through a namespace that the reader already holds, without asking the writer. For the reader of a project's artifacts, such namespaces include the code symbols of the repository, the established terms of the domain, and the terms explicitly defined in the project's tracked documents.
 
-The test is resolution: can the reader reach the meaning of every term and phrase through one of the three namespaces?
+The requirement extends beyond single terms to phrases, where the reader must be able to recover the relationship between the words. It also extends past the phrase, to the relation between adjacent elements and to the status that a statement or an enumeration holds, such as rule or example.
+
+The test is resolution: can the reader reach the meaning of every term and phrase through a namespace that the reader already holds, and recover every relation and status from words on the page?
 
 Two practices keep terms resolvable. A concept that recurs often enough within one document to want a name resolves after it is defined at first use. However, a name intended to persist beyond the document is a design decision that belongs to the user. Conversely, an unfamiliar term already in the repository is worth checking for a definition site before it is adopted. This is because a term appearing only in passing prose is likely an earlier session's coinage that further use establishes as vocabulary.
+
+Relations and statuses resolve by being stated. An enumeration needs its status shown. A closed set is enumerated in full. For an open set, the abstract statement comes first, and the enumeration that follows is explicitly marked as examples. Precision comes from explicit markers, such as which quantifier applies, how far the scope reaches, whether the set is open or closed, and whether a passage defines or illustrates. It does not come from adding items to an enumeration.
 
 In code, a concept that only a general-purpose word names is usually one whose contract or abstraction level is not yet defined. The Structural naming principle routes that case to the Contract and Structural fix principles.
 
@@ -214,6 +218,10 @@ The **"catch-all name"** antipattern makes a general-purpose word the fixed name
 The **"stripped term"** antipattern drops the qualifier from a defined term at a later mention, leaving a bare word that resolves only to its everyday sense. The full term belongs wherever it names its concept, and shortening is safe only where context has already fixed the referent.
 
 The **"packed phrase"** antipattern condenses an expression until the reader can no longer recover how its words relate. Each word can resolve on its own, and what the condensation drops is the relation between them.
+
+The **"unstated relation"** antipattern presents a relation or a status through form alone, such as juxtaposition, a parenthesis, or position in the prose, instead of stating it in words. The relation is known only to the writer, the reader supplies one by inference, and a wrong pairing shows nothing on the page. An unlabeled example or an unmarked enumeration is read in the strongest way, as a rule or a complete classification. One form is a parenthesis whose relation to the preceding term is unstated. Another is a defined name given without the kind of thing that it names. Another is an example sentence placed among rule sentences without a label. Another is an enumeration that does not show whether it lists every member of its set or only some. The "packed phrase" antipattern covers the relation lost inside one phrase, and this failure covers relations and statuses past the phrase.
+
+The **"culture-bound phrase"** antipattern is wording that resolves only through the figurative and idiomatic conventions of the language that it is written in. Those conventions are not a namespace that every reader holds. A translation into another language does not reproduce the meaning. A reader whose native language differs does not reach it either. A reader of the original language recovers the meaning, and the wording therefore passes a check that asks only for a referent. Personification is one form. A figurative chain is another. After one figurative word, the sentences that follow use words from the same figurative system. A literal translation of those words leaves the passage incoherent. A term of figurative origin that the domain has adopted as its own resolves through the established terms of the domain and is not this failure.
 
 ### Principle of Structural naming
 

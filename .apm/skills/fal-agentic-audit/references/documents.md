@@ -221,3 +221,25 @@ Restore the full term wherever the surrounding text has not already fixed the re
 The cue is having to reread a phrase to determine how its words relate.
 
 Unpack into a longer phrase that lets the reader recover the relationship.
+
+## Unstated relation
+
+Any of the following is a cue:
+
+- A parenthesis after a term, such as `X (Y)`, with no stated relation between the two
+- A defined name in parentheses without the kind of thing that it names
+- An example sentence placed in body prose with no label marking it as an example
+- An enumeration, such as "A, B, or C," that does not show whether it lists every member or only some
+
+State the relation in words, or label the status. Enumerate a closed set in full. For an open set, give the abstract statement first and mark the enumeration as examples.
+
+## Culture-bound phrase
+
+Any of the following is a cue:
+
+- A verb of physical action with an abstract noun as its subject or object
+- An inanimate subject given will, speech, or feeling
+- An idiom of general English
+- Successive sentences using words from one figurative system
+
+A term of figurative origin that the domain has established, such as "thread" or "pipeline," resolves as an established term of the domain and passes. A subject such as a document, a section, or a rule taking a verb of stating or requiring is established technical usage and also passes. Replace the rest with the direct statement of the operation or the fact.

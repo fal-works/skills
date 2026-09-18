@@ -250,3 +250,25 @@ Restore the full term at every surface that a reader meets without the enclosing
 The cue is a name or a comment phrase whose words have to be reread to determine how they relate. An identifier stacking three nouns and a qualifier is the usual form.
 
 Unpack it. A name that will not unpack to a readable length is naming more than one thing.
+
+## Unstated relation
+
+In a comment, any of the following is a cue:
+
+- A parenthesis after a term with no stated relation between the two
+- A defined name in parentheses without the kind of thing that it names
+- An example placed beside the rule that it illustrates, with no label marking it as an example
+- An enumeration that does not show whether it lists every member or only some
+
+State the relation in words, or label the status. Enumerate a closed set in full. For an open set, give the abstract statement first and mark the enumeration as examples.
+
+## Culture-bound phrase
+
+In a comment, any of the following is a cue:
+
+- A verb of physical action with an abstract noun as its subject or object
+- An inanimate subject given will, speech, or feeling
+- An idiom of general English
+- Comments in one region using words from one figurative system
+
+A term of figurative origin that the domain has established, such as "thread" or "pipeline," resolves as an established term of the domain and passes. So does a phrase that resolves as a code symbol of the repository. A subject such as a function, a type, or a rule taking a verb of stating or requiring is established technical usage and also passes. Replace the rest with the direct statement of the operation or the fact.
