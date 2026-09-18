@@ -185,7 +185,7 @@ When the rejected alternative is what a fresh reader expects and the surprise of
 
 The **"session leak"** antipattern is a trace of the session in the output: an instruction mixed in, a rejected alternative mentioned, and a pointer to something that exists only for this session.
 
-The **"salience leak"** antipattern is the session increasing the emphasis that a point receives or narrowing the example chosen for it.
+The **"salience leak"** antipattern is the session increasing the emphasis that a point receives or narrowing the example chosen for it. The same pressure also lowers the weight of what the session did not raise. A point can lose its place entirely, not just its emphasis.
 
 ### Principle of Version-blind
 
