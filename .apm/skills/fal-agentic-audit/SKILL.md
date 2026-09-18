@@ -45,7 +45,11 @@ A check that fires is not yet a finding. The cue is a lead. It marks where to su
 
 ### 4. Revise the audit's own edits
 
-The edits are themselves a change and carry the failures that a change carries, so run the checks over what the audit wrote. The scope of this pass is the audit's own edits, not the files again. One failure is the audit's own doing: preserving the content while keeping the edit small packs an existing unit instead of rebuilding it. This failure is the "under-scoped change" antipattern with the audit's own edit as the change.
+The edits are themselves a change and carry the failures that a change carries, so run the checks over what the audit wrote. The scope of this pass is the audit's own edits and what they invalidate, not the files again.
+
+Where a fix changed structure, text that already passed under the old structure has to be checked again. A name that the old structure explains and a description of the part that moved are examples.
+
+One failure is the audit's own doing: preserving the content while keeping the edit small packs an existing unit instead of rebuilding it. This failure is the "under-scoped change" antipattern with the audit's own edit as the change.
 
 ## Authority and reporting
 
