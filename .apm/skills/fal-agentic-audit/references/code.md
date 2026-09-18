@@ -106,9 +106,11 @@ A short doc summary that reads as redundant with the name passes where it states
 
 ## Unsolicited justification
 
-The cue is a comment answering an objection that nobody raised, such as `// This is intentional` or `// Not a bug: we need this because...`.
+The cue is a comment answering an objection that nobody raised, such as `// This is intentional` or `// Not a bug: we need this because...`. A comment that only forbids the opposite of what a neighboring comment requires is also a cue.
 
 Test by deletion: take the comment out and name the surprise left unexplained. A comment that answers one is a why-comment and passes. Delete the defense that leaves none.
+
+A prohibition written as its own sentence earns its place only where the failure that it forbids is one that readers actually make.
 
 Placement decides the case. The same "because..." is essential where the property would surprise a fresh reader, and unnecessary where the reader takes the property for granted.
 
@@ -261,6 +263,19 @@ In a comment, any of the following is a cue:
 - An enumeration that does not show whether it lists every member or only some
 
 State the relation in words, or label the status. Enumerate a closed set in full. For an open set, give the abstract statement first and mark the enumeration as examples.
+
+## Assumed connection
+
+In a comment, any of the following is a cue:
+
+- A demonstrative or a pronoun used in place of a name
+- A noun phrase presented as already known, such as "the items"
+- A reference that locates its target by its place in the file, such as "the call above"
+- A point stated again in wording that differs from the comment that stated it first
+
+Test each reference by naming the target that the reader would reach. It fails where the target is far back, or where more than one candidate fits it. A passage carrying many such references fails as well, because each one costs the reader another search.
+
+Name the target in place of the reference. Where a point returns, repeat the wording that first stated it.
 
 ## Culture-bound phrase
 

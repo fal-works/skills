@@ -90,13 +90,16 @@ An opening line that reads as an echo of its heading passes where it states the 
 
 ## Unsolicited justification
 
-Any of the following is a cue when attached to a claim that is accurate without it:
+Any of the following is a cue when the claim or rule that it accompanies is accurate without it:
 
 - A concession
 - An edge-case note
 - A "this does not mean..."
+- A prohibition that only inverts the rule beside it
 
 Test by deletion: if the claim reads as meant without it, then delete the defense. If removing it leaves a likely misreading standing, then the caveat passes. If the claim turns false, then the qualifier is load-bearing: keep it, or reword the claim to the scope that the claim can honestly carry.
+
+A prohibition written as its own sentence earns its place only where the failure that it forbids is one that readers actually make.
 
 Placement decides the case. The same caveat earns its place beside a claim that a reader is likely to misread, and not beside one that the surrounding text has already bounded.
 
@@ -234,6 +237,19 @@ Any of the following is a cue:
 - An enumeration, such as "A, B, or C," that does not show whether it lists every member or only some
 
 State the relation in words, or label the status. Enumerate a closed set in full. For an open set, give the abstract statement first and mark the enumeration as examples.
+
+## Assumed connection
+
+Any of the following is a cue:
+
+- A demonstrative or a pronoun used in place of a name
+- A noun phrase presented as already known, such as "the items"
+- A reference that locates its target by its place in the text, such as "the items above"
+- A point stated again in wording that differs from the first statement
+
+Test each reference by naming the target that the reader would reach. It fails where the target is far back, or where more than one candidate fits it. A passage carrying many such references fails as well, because each one costs the reader another search.
+
+Name the target in place of the reference. Where a point returns, repeat the wording that first stated it.
 
 ## Culture-bound phrase
 
