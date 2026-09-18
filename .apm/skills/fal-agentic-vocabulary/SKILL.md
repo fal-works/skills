@@ -1,11 +1,11 @@
 ---
 name: fal-agentic-vocabulary
-description: A shared vocabulary between the user and the agent for work performed by LLM agents. The vocabulary is made of named principles and antipatterns covering documentation, comments, and software design decisions. Useful for learning what the user cares about before substantial writing or design work. Useful for reading the intent behind feedback that names or implies one of these concerns. Useful in changes that look simple but affect structure, and where style or quality is not the stated concern. Counters characteristic failures of LLM-generated output.
+description: A shared vocabulary between the user and the agent for work performed by LLM agents. The vocabulary is made of named principles and antipatterns that cover the artifacts of the work, such as documentation, comments, software design decisions, conceptual models, and plans. Useful for learning what the user cares about before substantial writing or design work. Useful for reading the intent behind feedback that names or implies one of these concerns. Useful in changes that look simple but affect structure, and where style or quality is not the stated concern. Counters characteristic failures of LLM-generated output.
 ---
 
 # Agentic vocabulary
 
-This skill names the concerns that recur in documentation, comments, and software design produced by LLM agents. It is a vocabulary rather than a rulebook. Reading it before substantial work shows what the user cares about. Whether a principle governs a particular case remains a judgment, and the vocabulary supplies the terms for making that judgment rather than the answer.
+This skill names the concerns that recur in the artifacts that LLM agents produce. Documentation, code comments, and software design decisions are such artifacts. So are the more abstract structures that the work rests on, such as a conceptual model, a classification, or a plan. The skill is a vocabulary rather than a rulebook. Reading it before substantial work shows what the user cares about. Whether a principle governs a particular case remains a judgment, and the vocabulary supplies the terms for making that judgment rather than the answer.
 
 Five biases of LLM-generated output drive the failures named here. Each bias is a default that the vocabulary works against:
 
