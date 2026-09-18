@@ -37,7 +37,7 @@ Being asked to make something clearer is not a license to add. When the point is
 
 The **"over-documentation"** antipattern is content that does not earn its place. Two of its forms have names of their own.
 
-The **"redundant statement"** antipattern restates what the artifact already says, and the copy becomes inaccurate as the original changes.
+The **"redundant statement"** antipattern restates what the artifact already says, and the copy becomes inaccurate as the original changes. Two passages are copies when either one would answer the same question for the same reader. Sharing a subject does not make two passages copies.
 
 The **"unsolicited justification"** antipattern defends a claim that needs no defense, most often against an objection imagined while writing. The preemptive defense introduces the misreading that it tries to prevent.
 

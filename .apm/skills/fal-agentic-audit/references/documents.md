@@ -65,7 +65,9 @@ Even work that exists to question the current state can rest its claims on that 
 
 Test: does the cited text own the fact, or is it only a place where the fact currently appears? Rederive the claim from its subject, or cite the owner instead.
 
-A spec, a contract, a decision record, and a defined term own what they state, and resting on them is not this failure. Matching the form that the siblings share is what the "sibling mismatch" check asks for, not this failure. Resting a new claim on what a sibling asserts is this failure.
+A text can own what it states, rather than be one more place where it appears. A spec, a contract, a decision record, and a defined term are examples. Such a text owns its statement about the case that it was written for, so resting on it for that case is not this failure. Applying that statement to another case is this failure unless the reasons that produced it hold in the new case as well. That the new case would reach a similar conclusion is not such a reason.
+
+Matching the form that the siblings share is what the "sibling mismatch" check asks for, not this failure. Resting a new claim on what a sibling asserts is this failure.
 
 ## Over-documentation
 
