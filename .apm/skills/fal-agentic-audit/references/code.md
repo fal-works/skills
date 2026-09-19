@@ -88,6 +88,14 @@ Even work that exists to question the current shape of the code can rest its jud
 
 Test: would the judgment hold if the callers changed? Rederive the judgment from what the thing itself guarantees, or move the constraint to the use site that imposes it.
 
+## False analogy
+
+The cue is a construct, such as a lock, a guard, or a retry, copied from code that looks similar.
+
+Test: does the reason that the construct had at its source hold at the destination? Remove the construct where the reason does not hold. Where the reason is not known, report the construct and leave the code untouched.
+
+Matching the naming, the argument order, and the layout of the siblings is what the "sibling mismatch" check asks for, not this failure.
+
 ## Over-documentation
 
 This check has no cue, and every comment in focus is a candidate. A comment that does not earn its place reads like one that does, so nothing on the surface separates them.

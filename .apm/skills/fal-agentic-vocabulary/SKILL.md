@@ -23,6 +23,8 @@ A difficulty met in the work is one occasion when the vocabulary surfaces. What 
 
 Feedback from the user is another occasion when the vocabulary surfaces. A remark can name a concern directly, or describe only its symptom. For example, a complaint about a name is usually about the structure that the name is asked to express, a case that the Structural naming principle governs. Any concern in the vocabulary can arrive this way.
 
+The name of an antipattern applies to a case when the failure that its definition describes occurs there. Resemblance to a form that the definition mentions does not decide whether the name applies, a case that the Applicability principle governs. A failure that no definition describes is reported in plain words, and whether it receives a name is a decision that belongs to the user.
+
 ## What the unit contains
 
 ### Principle of Necessity
@@ -106,6 +108,16 @@ The **"under-scoped change"** antipattern lets the old structure, rather than th
 The **"vestige"** antipattern is a remnant, such as dead code, superseded structure, or an assumption no longer in force, that the current design has made unnecessary. It is an under-scoped change seen from its result: some edit omitted the deletions that the design required, and that edit need not be the change in hand. "Vestigial" means superseded, not merely unexercised: code that nothing reaches today still belongs when the design gives it a reason to exist.
 
 When the change called for replacement, the **"needless backward compatibility"** antipattern keeps the old interface alongside the new one. It is an under-scoped change made deliberately: where a vestige remains because it was overlooked, here the old interface is kept on purpose. The trigger is the writer's own thought that the callers must not break, substituting for a decision that was not made. Whether the old interface survives belongs to the user, and a request for the change that says nothing about keeping it has already answered.
+
+### Principle of Applicability
+
+Applicability asks that what is already established be applied to a case according to the reason for which it was established. Examples of what is established are a rule, a decision, a criterion, and a named concept. Neither the wording of what is established nor the appearance of the case decides which cases it covers.
+
+The test is to state the reason, and then to show that the reason holds in the case. Where the reason cannot be stated, what is established is not yet understood well enough to be applied.
+
+A case can resemble the established wording, or resemble a case that is already covered. Either resemblance is weak evidence that the reason holds. Described abstractly enough, any two things share a description. The writer also describes the case while reading the established wording, so the description adopts that wording. The case is therefore first described without the established wording.
+
+The **"false analogy"** antipattern applies what is established to a case on the ground of resemblance, without checking that the reason holds there. What is established can be correct and exactly quoted, so nothing on the page marks the error.
 
 ## What is already there
 

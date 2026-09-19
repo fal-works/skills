@@ -67,6 +67,18 @@ Test: does the cited text own the fact, or is it only a place where the fact cur
 
 Matching the form that the siblings share is what the "sibling mismatch" check asks for, not this failure. Resting a new claim on what a sibling asserts is this failure.
 
+## False analogy
+
+Any of the following is a cue:
+
+- A conclusion that cites what is established, such as a rule or an earlier decision, and does not state why that was established
+- Wording that claims sameness, such as "the same as," "likewise," or "a kind of"
+- A criterion applied to an artifact other than the one for which it was set
+
+Test: does the reason behind what is established hold where the text applies it? Where the reason holds, state it. Where it does not, rederive the conclusion from the case. Where the reason is not known, report the passage and leave it untouched.
+
+Where the cited text does not own the fact, the "snapshot reasoning" check applies instead.
+
 ## Over-documentation
 
 This check has no cue, and every passage in focus is a candidate. Prose that does not earn its place reads like prose that does, so nothing on the surface separates them.
