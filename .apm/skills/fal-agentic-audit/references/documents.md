@@ -65,8 +65,6 @@ Even work that exists to question the current state can rest its claims on that 
 
 Test: does the cited text own the fact, or is it only a place where the fact currently appears? Rederive the claim from its subject, or cite the owner instead.
 
-A text can own what it states, rather than be one more place where it appears. A spec, a contract, a decision record, and a defined term are examples. Such a text owns its statement about the case that it was written for, so resting on it for that case is not this failure. Applying that statement to another case is this failure unless the reasons that produced it hold in the new case as well. That the new case would reach a similar conclusion is not such a reason.
-
 Matching the form that the siblings share is what the "sibling mismatch" check asks for, not this failure. Resting a new claim on what a sibling asserts is this failure.
 
 ## Over-documentation
@@ -142,6 +140,18 @@ No phrasing marks this failure. The cue is disproportion, and any of the followi
 
 A sentence-by-sentence pass will not catch it, so compare each point's emphasis to the section as a whole. Adjust the emphasis or remove the excess.
 
+## Context-bound statement
+
+No phrasing marks this failure, and the document alone seldom shows whether the failure is present. Any of the following is a cue:
+
+- A rule, a decision, or a prohibition worded without limit, where the reader cannot recover its reason or the scope that was meant
+- A verdict stated as a general fact, where the document states neither the question nor the conditions
+- An expression whose reading is not obvious, where nothing nearby settles how it was meant
+
+Where the context in which the statement was made is known, reword the statement or delete it. The rewording gives a reader outside that context the meaning that the statement had inside it. It can be a narrower claim or a different claim.
+
+Where that context is not known, leave the statement untouched, because a rewording would replace the writer's meaning with the auditor's guess. Report the statement and the meaning taken from the document, for someone who holds the context to compare.
+
 ## History leak
 
 The cue is a qualifier that depends on the old version, such as "the new pipeline," "the refactored module," or "the current approach."
@@ -204,10 +214,10 @@ A colon that introduces detail after a label passes. A connective that itself st
 
 Any of the following is a cue:
 
-- A natural-looking compound label with no definition site
+- A natural-looking compound label that no document defines
 - Capitalization suggesting a defined term that no document defines
 
-Search the repository for a definition site before judging: a term appearing only in passing prose is likely a previous session's coinage, not established vocabulary. Replace it with a plain description or the real symbol, and do not propagate the coined term. Where the concept genuinely recurs in the document, define it at first use instead.
+Search the repository for a definition before judging. A term that the repository uses and nowhere defines is likely a previous session's coinage, not established vocabulary. Replace it with a plain description or the real symbol, and do not propagate the coined term. Where the concept genuinely recurs in the document, define it at first use instead.
 
 ## Catch-all name
 

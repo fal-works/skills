@@ -19,6 +19,8 @@ The fresh context still needs the change itself: which files and regions it touc
 
 Losing the session removes one kind of detection and supplies another. Some cues speak of the session, such as an instruction restated or the case that the session raised. Only an auditor who holds that knowledge can check them as written. A fresh auditor holds a counterpart of each: the question of why the artifact says this at all. It arises at a reference that nothing resolves, an element that nothing in scope motivates, and emphasis that the material itself does not explain. Neither position sees every leak, so someone who held the session reviews what the fresh pass reports.
 
+Whoever held the session is subject to the defensive bias toward keeping the work as it was written. For them, a reported finding is a lead, as a cue is for the auditor in step 3. A finding whose explanation is wrong can still mark a real problem. A reason for rejecting a finding is itself a claim, and it is verified before the finding is rejected.
+
 ## Run the audit
 
 ### 1. Set the scope and the focus

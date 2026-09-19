@@ -11,7 +11,7 @@ Five biases of LLM-generated output drive the failures named here. Each bias is 
 
 - **Anchoring bias.** The existing visible structure over-determines the output. Work stays on the immediate change, and the surrounding content goes unexamined.
 - **Additive bias.** Generating costs nothing. Reading and maintaining cost everything. The writer adds material without the selection, search, reuse, and reduction that would come first.
-- **Contextual bias.** The context that the writer works in, which the reader does not share, reaches the output anyway.
+- **Contextual bias.** The writer writes from the working context without rebuilding the content for a reader who does not share that context. What the context made prominent is written even where the reader has no use for it. What the context made obvious is treated as known to the reader.
 - **Compression bias.** The writer pursues brevity by condensing the expression rather than by selecting what to keep.
 - **Defensive bias.** The writer avoids breaking, removing, dropping, and admitting error in favor of adding, keeping, accepting without reporting, and defending in advance.
 
@@ -149,7 +149,7 @@ The **"silent contradiction"** antipattern is a disagreement between a descripti
 
 ### Principle of Reader's position
 
-Reader's position asks that output start from what the reader can see rather than from what the writer knows. The first judgment is who the reader is and where they stand, because everything that follows is weighed from that position. The writer holds three things that the reader does not, and each enters the output in its own way:
+Reader's position asks that output start from what the reader can see rather than from what the writer knows. The first judgment is who the reader is and where they stand, because everything that follows is weighed from that position. The writer holds three things that the reader does not, and each affects the output in its own way:
 
 - **Boundary.** The writer sees internals and current callers. The reader has only what the boundary exposes. The Contract principle governs this concern.
 - **Session.** The writer holds instructions, discussion, and the previous version. The reader has none of it. The Session-blind principle governs this concern.
@@ -173,9 +173,9 @@ The **"caller-bound framing"** antipattern names or describes a thing from its c
 
 ### Principle of Session-blind
 
-Session-blind asks that the work read as though this session had never happened.
+Session-blind asks that the work be composed for a reader who never saw this session. Its material is what the session led the writer to understand, not the session itself. A work composed from the session itself keeps what the session made prominent and relies on what the session made obvious.
 
-The test is whether a writer who reached the same understanding without this session would state this fact, use this framing, give this point this weight, and reach for this example.
+The test is whether a writer who reached the same understanding without this session would state this fact, use this framing, give this point this weight, reach for this example, and choose these words.
 
 The session is not only what is visible in the conversation. A line of reasoning that occurred only in the writer's own thinking counts too. A test limited to "was this discussed?" misses exactly that part.
 
@@ -186,6 +186,8 @@ When the rejected alternative is what a fresh reader expects and the surprise of
 The **"session leak"** antipattern is a trace of the session in the output: an instruction mixed in, a rejected alternative mentioned, and a pointer to something that exists only for this session.
 
 The **"salience leak"** antipattern is the session increasing the emphasis that a point receives or narrowing the example chosen for it. The same pressure also lowers the weight of what the session did not raise. A point can lose its place entirely, not just its emphasis.
+
+The **"context-bound statement"** antipattern is a statement that takes its meaning from the context in which it was made. It is written for a reader who does not have that context. Examples of such a context are the question that a remark answered, the case that a decision settled, and the conditions under which a result was obtained. The reader takes the statement to mean something else, usually something more general or more certain, and nothing on the page shows the difference. What repairs the statement is wording that gives a reader outside the context the meaning that the statement had inside it. That wording can be a narrower claim or a different claim, and sometimes the repair is to drop the statement.
 
 ### Principle of Version-blind
 
@@ -205,7 +207,9 @@ The requirement extends beyond single terms to phrases, where the reader must be
 
 The test is resolution: can the reader reach the meaning of every term and phrase through a namespace that the reader already holds, and recover every relation and status from words on the page?
 
-Two practices keep terms resolvable. A concept that recurs often enough within one document to want a name resolves after it is defined at first use. However, a name intended to persist beyond the document is a design decision that belongs to the user. Conversely, an unfamiliar term already in the repository is worth checking for a definition site before it is adopted. This is because a term appearing only in passing prose is likely an earlier session's coinage that further use establishes as vocabulary.
+Two practices keep terms resolvable. A concept that recurs often enough within one document to want a name resolves after it is defined at first use. However, a name intended to persist beyond the document is a design decision that belongs to the user.
+
+Conversely, an unfamiliar term already in the repository is worth checking for a definition before it is adopted. In a document, a term is defined where a passage states what it means. Any other appearance is a use, and a prominent use, such as a heading or a section topic, is still a use. That existing text uses a term is a weak reason to adopt the term. This is because the term is often an earlier session's coinage that further use establishes as vocabulary.
 
 Relations and statuses resolve by being stated. An enumeration needs its status shown. A closed set is enumerated in full. For an open set, the abstract statement comes first, and the enumeration that follows is explicitly marked as examples. Precision comes from explicit markers, such as which quantifier applies, how far the scope reaches, whether the set is open or closed, and whether a passage defines or illustrates. It does not come from adding items to an enumeration.
 

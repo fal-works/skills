@@ -165,6 +165,18 @@ No phrasing marks this failure. The cue is disproportion, and any of the followi
 
 A line-by-line pass will not catch it, so compare what each part received against the region as a whole. Adjust the emphasis, or absorb the special case back into the general one.
 
+## Context-bound statement
+
+No phrasing marks this failure, and the code alone seldom shows whether the failure is present. Any of the following is a cue:
+
+- A comment stating a constraint or a prohibition without limit, where the reader cannot recover its reason or the scope that was meant
+- A comment stating a verdict as a general fact, where neither the code nor the comment states the conditions
+- A comment whose reading is not obvious, where neither the code nor the nearby comments settle how it was meant
+
+Where the context in which the comment was written is known, reword the comment or delete it. The rewording gives a reader outside that context the meaning that the comment had inside it. It can be a narrower claim or a different claim.
+
+Where that context is not known, leave the comment untouched, because a rewording would replace the writer's meaning with the auditor's guess. Report the comment and the meaning taken from the code and the comment, for someone who holds the context to compare.
+
 ## History leak
 
 The cue is an identifier carrying a qualifier that means something only against the old version, such as `newParser`, `parserV2`, or `legacyHandler`. The same qualifier can appear in a comment, such as "the refactored path."
@@ -233,7 +245,7 @@ Any of the following is a cue:
 - A comment using a term in backticks that names no symbol
 - A compound label that the reader cannot follow to any declaration
 
-Search the repository before judging: a term appearing only in passing comments is likely a previous session's coinage, not established vocabulary. Replace it with a plain description or the real symbol, and do not propagate the coined term. A concept that keeps needing a coined label usually wants a declaration of its own.
+Search the repository before judging. A term that appears in comments, and that the repository neither declares nor defines, is likely a previous session's coinage, not established vocabulary. Replace it with a plain description or the real symbol, and do not propagate the coined term. A concept that keeps needing a coined label usually wants a declaration of its own.
 
 ## Catch-all name
 
