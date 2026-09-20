@@ -5,7 +5,7 @@ description: A shared vocabulary between the user and the agent for work perform
 
 # Agentic vocabulary
 
-This skill names the concerns that recur in the artifacts that LLM agents produce. Documentation, code comments, and software design decisions are such artifacts. So are the more abstract structures that the work rests on, such as a conceptual model, a classification, or a plan. The skill is a vocabulary rather than a rulebook. Reading it before substantial work shows what the user cares about. Whether a principle governs a particular case remains a judgment, and the vocabulary supplies the terms for making that judgment rather than the answer.
+This skill names the concerns that recur in the artifacts that LLM agents produce. Documentation, code comments, and software design decisions are such artifacts. So are the more abstract structures that the work rests on, such as a conceptual model, a classification, or a plan. The vocabulary supplies terms for judging whether a principle governs a particular case, rather than rules that decide it.
 
 Five biases of LLM-generated output drive the failures named here. Each bias is a default that the vocabulary works against:
 
@@ -19,11 +19,11 @@ Each principle has a section of its own. The section states the principle and wh
 
 The vocabulary is in force throughout the work, whether or not anything invokes it.
 
-A difficulty met in the work is one occasion when the vocabulary surfaces. What resists local adjustment is usually a sign of one of the failures named in the sections that follow. Examples include a name that remains unsatisfactory, content that does not fit the structure, and an urge to hedge or to keep. The response is to consult the definition rather than to force the adjustment. A critique that questions one of the work's premises counts as the same kind of signal. So does a critique that questions the criterion on which one of the work's classifications rests.
+A difficulty met in the work is one occasion when the vocabulary surfaces. What resists local adjustment is usually a sign of one of the failures named in the sections that follow. Examples include a name that remains unsatisfactory, content that does not fit the structure, and an urge to hedge or to keep. The response is to consult the definition rather than to force the adjustment. A critique that questions one of the work's premises counts as the same kind of signal.
 
 Feedback from the user is another occasion when the vocabulary surfaces. A remark can name a concern directly, or describe only its symptom. For example, a complaint about a name is usually about the structure that the name is asked to express, a case that the Structural naming principle governs. Any concern in the vocabulary can arrive this way.
 
-The name of an antipattern applies to a case when the failure that its definition describes occurs there. Resemblance to a form that the definition mentions does not decide whether the name applies, a case that the Applicability principle governs. A failure that no definition describes is reported in plain words, and whether it receives a name is a decision that belongs to the user.
+Under the Applicability principle, an antipattern name applies when the defined failure occurs, not merely when the case resembles a form mentioned in the definition. A failure that no definition describes is reported in plain words, and whether it receives a name is a decision that belongs to the user.
 
 ## What the unit contains
 
@@ -33,11 +33,11 @@ Necessity asks that anything added earn its place, weighed against two costs: th
 
 The test is removal: take the content out, and name what the reader then loses.
 
-Brevity comes from selection, not compression. What does not earn its place is dropped, not condensed.
+Brevity comes from dropping what does not earn its place, not condensing it.
 
 Being asked to make something clearer is not a license to add. When the point is already on the page, an addition more often buries it than sharpens it, and the first answer is rewriting what is there.
 
-The **"over-documentation"** antipattern is content that does not earn its place. Two of its forms have names of their own.
+The **"over-documentation"** antipattern is content that does not earn its place. Two of its forms have names of their own: the "redundant statement" antipattern and the "unsolicited justification" antipattern.
 
 The **"redundant statement"** antipattern restates what the artifact already says, and the copy becomes inaccurate as the original changes. Two passages are copies when either one would answer the same question for the same reader. Sharing a subject does not make two passages copies.
 
@@ -51,7 +51,7 @@ The principle can be overapplied. A statement that carries what the reader genui
 
 ### Principle of Unit focus
 
-Unit focus asks that a unit carry one role, at whatever level the unit sits: a sentence, a paragraph, a list, a function, a type. Units come to carry more than one role because the structure chosen while the unit was small stays fixed as content accumulates inside it. The principle asks for a composition of focused parts, not a larger unit.
+Unit focus asks that a unit carry one role, at whatever level the unit sits: a sentence, a paragraph, a list, a function, a type. Units come to carry more than one role because the structure chosen while the unit was small stays fixed as content accumulates inside it.
 
 The test is naming: can the unit's role be stated in one phrase, without an "and" joining two roles?
 
@@ -59,7 +59,7 @@ Notation follows from the role. A sentence carrying two thoughts becomes two sen
 
 A split need not follow the unit's current seams. Where connected roles resist a cut in place, the surrounding region is recomposed from its roles, and the unit's boundaries move with it.
 
-The **"split focus"** antipattern is a unit carrying more than one role or concern. It appears at every structural level, and it is independent of length. A short unit can have split focus, and a unit with a single role can still run too long, a failure named the "overlong block" antipattern.
+The **"split focus"** antipattern is a unit carrying more than one role or concern. It is independent of length. A unit with a single role can still run too long, a failure named the "overlong block" antipattern.
 
 The principle can be overapplied by splitting what belongs together. A connective that states how its clauses relate is part of the content, not a seam. Where such a sentence is split for length, the split is complete only when the resulting sentences still state the relation. Connected reasoning recast as bullet points drops the relations in the same way. A tiny helper extracted from a function forces readers to consult it to understand the parent's flow.
 
@@ -71,7 +71,7 @@ Owner asks that placement, classification, and abstraction level be derived from
 
 The test is to name what can make the unit wrong. Whatever can make it wrong owns it, and the unit belongs in that owner's scope. If the owner cannot be determined, then the assignment is a decision that belongs to the user.
 
-"Home," the place where a unit belongs, follows from the owner. A home fixes an abstraction level as well as a location. A module header states its responsibilities, a function doc states its contract, and a type doc states its role. Orientation material belongs where a newcomer looks first.
+"Home," the place where a unit belongs, follows from the owner. A module header states its responsibilities, a function doc states its contract, and a type doc states its role. Orientation material belongs where a newcomer looks first.
 
 In documentation, a document set split into overview and detail, such as a skill file and its references or a README and `docs/`, has already assigned homes. Worked examples and per-item explanations belong to the detail layer.
 
@@ -81,7 +81,7 @@ A constraint belongs to whoever guarantees it. A rule that the module itself gua
 
 Where structure and content conflict, the Owner principle decides which of the two is adjusted. If the sibling set owns the structure, then the unit conforms, a case that the Sibling consistency principle governs. If the content owns it, then the structure is revised, a case that the Structural fix principle governs.
 
-The **"wrong home"** antipattern is a unit placed outside the scope that owns it. The displacement can be horizontal or vertical. A horizontal displacement is a wrong location, and a vertical displacement is a wrong abstraction level. The urge to repeat a caveat "to be safe" is usually this antipattern: the caveat sits outside its home, or two scopes overlap.
+The **"wrong home"** antipattern is a unit placed outside the scope that owns it. This includes both a wrong location and a wrong abstraction level. The urge to repeat a caveat "to be safe" is usually this antipattern: the caveat sits outside its home, or two scopes overlap.
 
 The **"snapshot reasoning"** antipattern reads the current state of usage as a design property. That state includes who calls a thing, what references it, and which inputs occur. The property is only a snapshot, and the next change might invalidate it.
 
@@ -89,7 +89,7 @@ The **"snapshot reasoning"** antipattern reads the current state of usage as a d
 
 Structural fix asks that a difficulty be traced to its cause before it is addressed. Difficulty in writing, naming, or fitting content into a structure is a symptom, and the cause usually sits one level of structure above. An awkward API indicates a problem in the model behind it rather than in the surface.
 
-The test is to ask what would have to be different one level up for the difficulty to disappear. A concrete answer is a lead rather than a verdict, because some change one level up can always absorb a difficulty. What marks the cause is that the difficulty dissolves rather than moves.
+The test is to ask what would have to be different one level up for the difficulty to disappear. A concrete answer is a lead rather than a verdict.
 
 The **"wrong-layer patch"** antipattern works at the symptom layer and leaves the structural cause untouched. Each of the following substitutes for the structural fix: padding an empty section so that every heading has a paragraph, adding a run-time check for a state that the types could have excluded, and writing prose to compensate for a structural awkwardness.
 
@@ -115,7 +115,7 @@ Applicability asks that what is already established be applied to a case accordi
 
 The test is to state the reason, and then to show that the reason holds in the case. Where the reason cannot be stated, what is established is not yet understood well enough to be applied.
 
-A case can resemble the established wording, or resemble a case that is already covered. Either resemblance is weak evidence that the reason holds. Described abstractly enough, any two things share a description. The writer also describes the case while reading the established wording, so the description adopts that wording. The case is therefore first described without the established wording.
+A case can resemble the established wording, or resemble a case that is already covered. Either resemblance is weak evidence that the reason holds. The writer describes the case while reading the established wording, so the description adopts that wording. The case is therefore first described without the established wording.
 
 The **"false analogy"** antipattern applies what is established to a case on the ground of resemblance, without checking that the reason holds there. What is established can be correct and exactly quoted, so nothing on the page marks the error.
 
@@ -127,13 +127,11 @@ Sibling consistency asks that a unit match the form that its siblings already sh
 
 The test is to state the form that the siblings share before writing the unit. A unit written without that statement conforms only by accident.
 
-Where the shared structure allows variation, such as optional sections or permitted merging, using that flexibility is conforming rather than padding. Where the material does not fit even then, the mismatch is reported rather than resolved silently in one place, a case that the Visible conflict principle governs.
-
-Consistency also decays through editing. A change made in one place while its linked copies and callers go unvisited leaves the set consistent today and mismatched later.
+Where the shared structure allows variation, such as optional sections or permitted merging, using that flexibility is conforming. Where the material does not fit even then, the mismatch is reported rather than resolved silently in one place, a case that the Visible conflict principle governs.
 
 The **"sibling mismatch"** antipattern is a unit whose form departs from its siblings. The usual forms are a list item several times the length of those around it, a passage written in a different language from the document, and a module laid out unlike its neighbors. The nearest sibling set is the document itself, and the terms that it has already used are part of the form that it shares. A second term for a concept that the document has already named reads as a second concept.
 
-The principle can be overapplied. When a unit is adjusted to match sparser siblings, the calibration comes from removing what does not earn its place, a case that the Necessity principle governs. It does not come from condensing the remaining text.
+The principle can be overapplied by condensing text to match sparser siblings instead of removing what does not earn its place under the Necessity principle.
 
 ### Principle of Discovery
 
@@ -141,17 +139,15 @@ Discovery asks that what already exists be found first, and that the addition be
 
 The test is to name what the addition relates to: the element that it extends, specializes, replaces, or deliberately sits beside. When the addition can name none of these, the writer has usually not searched.
 
-What the search protects is the relation. Without that relation, improvements to the existing element never propagate to the new one, and readers are left to determine for themselves how the two relate.
-
-Judging an existing element and finding it lacking is a decision. Not knowing that it exists is not a decision.
+Without a relation between the existing element and the addition, improvements never propagate from one to the other. Readers are left to determine for themselves how the two relate.
 
 The **"unintegrated addition"** antipattern is a new element placed without being related to the existing model. It takes several forms: something that overlaps what is already there, a specialization of an existing general type defined as though unrelated, and a section written in its own vocabulary and classification rather than the one already in use. The degree of overlap is not the point, and an exact duplicate is only the most extreme case.
 
 ### Principle of Visible conflict
 
-Visible conflict asks that a mismatch between two things that must correspond be reported rather than hidden. In code, an invariant that the type system cannot enforce is asserted rather than hidden by a default, a suppressed error, or a substituted null. That is the established fail-fast principle. In documentation, when a description and the thing that it describes disagree, the conflict is reported rather than resolved by quietly moving one side to match the other.
+Visible conflict asks that a mismatch between two things that must correspond be reported rather than hidden. In code, an invariant that the type system cannot enforce is asserted rather than hidden. That is the established fail-fast principle. In documentation, when a description and the thing that it describes disagree, the conflict is reported rather than resolved by quietly moving one side to match the other.
 
-The test is whether a violation would reach someone who can act on it. Absorbing it, whether by a default value or by an edit that makes a disagreement invisible, defeats the principle.
+The test is whether a violation would reach someone who can act on it.
 
 The **"silent fallback"** antipattern hides a violation of an invariant that should have held, such as returning a default, suppressing an error, or substituting null. It then proceeds as though nothing happened.
 
@@ -173,15 +169,15 @@ A symbol name and a doc comment are addressed to the same reader, and the same t
 
 Contract asks that a name or a description say what its boundary promises to the outside, and nothing besides. Placement decides which boundary applies. A public function's name and doc comment stand at the public boundary, a comment inside the body stands within it, and a design note inside a module stands at the module's edge. The Contract and Owner principles converge here: the owner fixes the home, and the home fixes the boundary.
 
-The test is ownership: can the name or the description be restated as a promise with the thing itself as its subject? A mechanism enters the promise only by being fixed there: stated at the boundary, it stops being free to change, and so stops being internal. What is meant to stay replaceable cannot be promised. Facts about current callers are observable from outside but are not owned.
-
-The vocabulary of the promise is bound the same way. This is because a promise stated in terms visible only from inside is not usable by the reader to whom it is addressed.
+The test is ownership: can the name or the description be restated as a promise with the thing itself as its subject? A mechanism enters the promise only by being fixed at the boundary, where it stops being free to change and so stops being internal. Facts about current callers are observable from outside but are not owned.
 
 Names and descriptions addressed to internal readers are outside this principle. Where an implementation note belongs is a question for the Owner principle. Crossing the boundary outward has one use: explaining behavior that is observable from outside and otherwise surprises.
 
+Two antipatterns cross this boundary in opposite directions.
+
 The **"exposed internals"** antipattern carries implementation concepts across the boundary to a reader who cannot see them and never asks about them.
 
-The **"caller-bound framing"** antipattern names or describes a thing from its current caller's viewpoint rather than by what the thing promises. The two are opposite forms of the same boundary violation: one carries inward material out, and the other brings outward material in.
+The **"caller-bound framing"** antipattern names or describes a thing from its current caller's viewpoint rather than by what the thing promises.
 
 ### Principle of Session-blind
 
@@ -189,11 +185,9 @@ Session-blind asks that the work be composed for a reader who never saw this ses
 
 The test is whether a writer who reached the same understanding without this session would state this fact, use this framing, give this point this weight, reach for this example, and choose these words.
 
-The session is not only what is visible in the conversation. A line of reasoning that occurred only in the writer's own thinking counts too. A test limited to "was this discussed?" misses exactly that part.
+The session is not only what is visible in the conversation. A line of reasoning that occurred only in the writer's own thinking counts too.
 
-A rejected alternative deserves particular suspicion, because from inside the session it always looks justifiable. The alternative was rejected for a reason, so recording it feels like documentation.
-
-When the rejected alternative is what a fresh reader expects and the surprise of the choice needs addressing, mentioning the alternative has a rare legitimate use. The session biases that very judgment, though: the alternative feels expected mostly because it was recently discussed. What decides the case is whether a reader who has never heard of the alternative gains anything from being told about it.
+Mentioning a rejected alternative always looks justifiable from inside the session. It earns a place only when a fresh reader would expect that alternative and the choice needs explaining. The test is whether a reader who has never heard of the alternative benefits from being told about it.
 
 The **"session leak"** antipattern is a trace of the session in the output: an instruction mixed in, a rejected alternative mentioned, and a pointer to something that exists only for this session.
 
@@ -217,7 +211,7 @@ Words that resolve asks that every term and phrase reach a meaning that the read
 
 The requirement extends beyond single terms to phrases, where the reader must be able to recover the relationship between the words. It also extends past the phrase, to the relation between adjacent elements and to the status that a statement or an enumeration holds, such as rule or example.
 
-The test is resolution: can the reader reach the meaning of every term and phrase through a namespace that the reader already holds, and recover every relation and status from words on the page?
+The test is whether the reader can recover every meaning, relation, and status without asking the writer.
 
 Two practices keep terms resolvable. A concept that recurs often enough within one document to want a name resolves after it is defined at first use. However, a name intended to persist beyond the document is a design decision that belongs to the user.
 
@@ -225,9 +219,9 @@ Conversely, an unfamiliar term already in the repository is worth checking for a
 
 Relations and statuses resolve by being stated. An enumeration needs its status shown. A closed set is enumerated in full. For an open set, the abstract statement comes first, and the enumeration that follows is explicitly marked as examples. Precision comes from explicit markers, such as which quantifier applies, how far the scope reaches, whether the set is open or closed, and whether a passage defines or illustrates. It does not come from adding items to an enumeration.
 
-In code, a concept that only a general-purpose word names is usually one whose contract or abstraction level is not yet defined. The Structural naming principle routes that case to the Contract and Structural fix principles.
+In code, a concept that only a general-purpose word names is usually one whose contract or abstraction level is not yet defined. The Structural naming principle governs this case.
 
-The **"unmarked coinage"** antipattern is a term that the reader cannot follow to any referent. It usually arrives in one of two ways: a private label from the session enters the output, or condensing an expression produces a compound that the writer can understand only because they already know the meaning. Typography can strengthen the false claim, because backticks suggest a code symbol and capitalization suggests a defined term. However, the failure lies in the term rather than the markup.
+The **"unmarked coinage"** antipattern is a term that the reader cannot follow to any referent. It usually arrives in one of two ways: a private label from the session enters the output, or condensing an expression produces a compound that the writer can understand only because they already know the meaning. Typography can strengthen the impression that the term has a referent, because backticks suggest a code symbol and capitalization suggests a defined term. However, the failure lies in the term rather than the markup.
 
 The **"catch-all name"** antipattern makes a general-purpose word the fixed name of one specific concept. The name then resolves only to the word's broad everyday sense, and the reader cannot distinguish it from its neighbors. Using such a word in its plain generic sense, where context fixes the referent, is not this failure.
 
@@ -235,26 +229,24 @@ The **"stripped term"** antipattern drops the qualifier from a defined term at a
 
 The **"packed phrase"** antipattern condenses an expression until the reader can no longer recover how its words relate. Each word can resolve on its own, and what the condensation drops is the relation between them.
 
-The **"unstated relation"** antipattern presents a relation or a status through form alone, such as juxtaposition, a parenthesis, or position in the prose, instead of stating it in words. The relation is known only to the writer, the reader supplies one by inference, and a wrong pairing shows nothing on the page. An unlabeled example or an unmarked enumeration is read in the strongest way, as a rule or a complete classification. One form is a parenthesis whose relation to the preceding term is unstated. Another is a defined name given without the kind of thing that it names. Another is an example sentence placed among rule sentences without a label. Another is an enumeration that does not show whether it lists every member of its set or only some. The "packed phrase" antipattern covers the relation lost inside one phrase, and this failure covers relations and statuses past the phrase.
+The **"unstated relation"** antipattern presents a relation or a status through form alone, such as juxtaposition, a parenthesis, or position in the prose, instead of stating it in words. The relation is known only to the writer, the reader supplies one by inference, and a wrong inference shows nothing on the page. An unlabeled example or an unmarked enumeration is read in the strongest way, as a rule or a complete classification. Forms include parentheses with unstated relations, defined names without the kind of thing they name, unlabeled example sentences, and enumerations that do not show whether they are complete.
 
-The **"assumed connection"** antipattern refers to something elsewhere in the text as though the reader already had it in view. The writer holds the whole text at once, so the target is present to them as they write. The reader has only what the words identify. The target is reachable only where the wording, the distance, and the number of candidates leave one reading. Every text refers to what it has already said, so the failure is not the short reference itself. It is the missing judgment about whether the reader, at that point in the text, can determine what is meant.
+The **"assumed connection"** antipattern refers to something elsewhere in the text as though the reader already had it in view. The writer holds the whole text at once, while the reader has only what the words identify. The target is reachable only where the wording, the distance, and the number of candidates leave one reading. A short reference is not itself a failure when the reader can determine what it means at that point.
 
-The **"culture-bound phrase"** antipattern is wording that resolves only through the figurative and idiomatic conventions of the language that it is written in. Those conventions are not a namespace that every reader holds. A translation into another language does not reproduce the meaning. A reader whose native language differs does not reach it either. A reader of the original language recovers the meaning, and the wording therefore passes a check that asks only for a referent. Personification is one form. A figurative chain is another. After one figurative word, the sentences that follow use words from the same figurative system. A literal translation of those words leaves the passage incoherent. A term of figurative origin that the domain has adopted as its own resolves through the established terms of the domain and is not this failure.
+The **"culture-bound phrase"** antipattern is wording that resolves only through its language's figurative and idiomatic conventions. Those conventions are not a namespace that every reader holds. The meaning does not survive translation or reach readers whose native language differs. A reader of the original language recovers the meaning, and the wording therefore passes a check that asks only for a referent. Personification is one form. Another is a figurative chain, where successive sentences use words from one figurative system. A figurative term established in the domain resolves through that domain's vocabulary and is not this failure.
 
 ### Principle of Structural naming
 
 Structural naming asks that a name be treated as a claim about the structure rather than as a label to swap. A name declares what a concept presents to its scope, and it also has to distinguish that concept from the ones beside it. A bad name is a symptom of one of three causes, worth suspecting in this order:
 
 1. The concept is not sufficiently defined, a case that the Structural fix principle governs. The name is being asked to carry a distinction that the design does not express. Restructuring the region sometimes removes the thing that needed naming.
-2. The name does not state what the thing promises, a case that the Contract principle governs. In its place stands either the caller's viewpoint, named the "caller-bound framing" antipattern, or an internal fact, named the "exposed internals" antipattern. A third possibility is what the thing is in itself. Such a name is true, and it still does not fix the role that the thing plays for its scope.
+2. The name does not state what the thing promises, a case that the Contract principle governs. In its place stands either the caller's viewpoint, named the "caller-bound framing" antipattern, or an internal fact, named the "exposed internals" antipattern. A third possibility is a name that states only what the thing is in itself. Such a name is true, and it still does not fix the role that the thing plays for its scope.
 3. The name does not identify its referent, a case that the Words that resolve principle governs. It is either too broad, named the "catch-all name" antipattern, or opaque, named the "unmarked coinage" antipattern.
 
-Which cause is most common depends on the medium. In code, causes 1 and 2 come first, and a simple rename rarely suffices. In documentation, the surface fix at cause 3 is often enough.
-
-Using a name consistently after it is chosen is a separate concern. The "stripped term" antipattern belongs to the Words that resolve principle rather than here.
+In code, causes 1 and 2 come first, and a simple rename rarely suffices. In documentation, the surface fix at cause 3 is often enough.
 
 ## Companion skills
 
 Japanese has failure modes beyond what the preceding sections cover. The `fal-write-ja` skill owns these failure modes. Whenever the output is Japanese, that skill applies together with this one.
 
-Having applied these concepts while writing does not make checking the finished work redundant. Believing otherwise is itself a self-evaluation from the writer's position, which the Reader's position principle warns about. The `fal-agentic-audit` skill supplies that separate process: check-by-check cues for how each failure shows in a finished change, and the discipline for fixing what the checks find.
+Having applied these concepts while writing does not make checking the finished work redundant. Believing otherwise is itself a self-evaluation from the writer's position, which the Reader's position principle warns about. The `fal-agentic-audit` skill supplies that separate process.

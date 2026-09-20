@@ -13,11 +13,11 @@ The checks live in [code and comments](./references/code.md) and [documents](./r
 
 ## Set up a fresh context
 
-By default, the auditor stands where the writer stood rather than where the reader will stand. Existing prose therefore deserves stricter judgment than a first impression suggests. When practical, run the audit in a new session or subagent whose input carries only this skill, the `fal-agentic-vocabulary` skill, and the files in scope. An auditor that never saw the writing session reads from the position that the future reader will occupy.
+By default, the auditor stands where the writer stood rather than where the reader will stand. The prose in scope therefore deserves stricter judgment than a first impression suggests. When practical, run the audit in a new session or subagent whose input carries only this skill, the `fal-agentic-vocabulary` skill, and the files in scope.
 
 The fresh context still needs the change itself: which files and regions it touched, and what it did to them. Step 1 reads the focus of the pass from that description. A diff serves. The reasons, the discussion, the rejected alternatives, and the wording of the instructions do not belong in that description. Passing them rebuilds the position that the fresh context exists to leave.
 
-Losing the session removes one kind of detection and supplies another. Some cues speak of the session, such as an instruction restated or the case that the session raised. Only an auditor who holds that knowledge can check them as written. A fresh auditor holds a counterpart of each: the question of why the artifact says this at all. It arises at a reference that nothing resolves, an element that nothing in scope motivates, and emphasis that the material itself does not explain. Neither position sees every leak, so someone who held the session reviews what the fresh pass reports.
+Some cues speak of the session, such as an instruction restated or the case that the session raised. Only an auditor who holds that knowledge can check them as written. A fresh auditor holds a counterpart of each: the question of why the artifact says this at all. It arises at a reference that nothing resolves, an element that nothing in scope motivates, and emphasis that the material itself does not explain. Neither position sees every leak, so someone who held the session reviews what the fresh pass reports.
 
 Whoever held the session is subject to the defensive bias toward keeping the work as it was written. For them, a reported finding is a lead, as a cue is for the auditor in step 3. A finding whose explanation is wrong can still mark a real problem. A reason for rejecting a finding is itself a claim, and it is verified before the finding is rejected.
 
@@ -27,7 +27,7 @@ Whoever held the session is subject to the defensive bias toward keeping the wor
 
 Scope starts with the files that a just-finished change touched or the files that the user names. It follows relevant relationships beyond them as the checks require. Preexisting text is in scope, not only the text that the current change touched.
 
-Within that scope, the regions do not carry equal risk. A change in hand puts the risk in the changed text and in the seams where it meets what was already there. A reading of the change alone misses the seam risk. A defect that the user points to is the starting point of the pass and not its scope, because text that fails one check usually fails others. Take its neighbors with it. With neither a change nor a pointer, the focus rests on the end-to-end read of step 2.
+Within that scope, the regions do not carry equal risk. A change in hand puts the risk in the changed text and in the seams where it meets what was already there. A reading of the change alone misses the seam risk. A defect that the user points to is the starting point of the pass and not its scope, because text that fails one check usually fails others. Take its neighbors with it. Without a change or a defect that the user points to, this step sets no focus. The end-to-end read of step 2 shows where to look.
 
 The checks narrow as well, because running every one of them over every region in focus is expensive. Most checks are about the state of the text and do run everywhere in focus. The rest are recognizable by their cues, which speak of something added, removed, or replaced. Each applies where the change did that thing and is set aside where it did not. Without a change in hand, these checks run like the others.
 
@@ -55,7 +55,7 @@ One failure is the audit's own doing: preserving the content while keeping the e
 
 ## Authority and reporting
 
-This skill fixes the problems that it finds. It deletes, trims, moves, and rewrites on its own judgment. When the request excludes edits, whether by asking for a report, a list, or an evaluation, limit the pass to reporting. When the request says not to change anything, the same limit applies. The words "audit" and "review" do not by themselves impose that limit, because they are what this skill is called.
+This skill fixes the problems that it finds. It deletes, trims, moves, and rewrites on its own judgment. When the request excludes edits, such as by asking only for a report, a list, or an evaluation, limit the pass to reporting. The words "audit" and "review" alone do not exclude edits.
 
 Report the findings, whether the pass fixed them or proposes the fix. A finding carries four things: where it is, which check fired, what made it fire there, and what the pass did about it or proposes to do. Also state how the pass was narrowed, in scope and in checks, because a pass that narrows silently reads as one that covered everything.
 
@@ -64,7 +64,7 @@ Report the findings, whether the pass fixed them or proposes the fix. A finding 
 - Keep each edit proportional to its purpose, and leave everything that is not being fixed verbatim: same wording, same punctuation, same line breaks, same code. Churn creates diff noise and risks damaging what was fine.
 - What is bounded is the reach of the pass, not the size of a fix. Where a check calls for the unit to be rebuilt, rebuild it.
 - Prefer, in order: delete, trim, move, rewrite. Deletion is the most effective edit. Rewriting is the easiest to get wrong.
-- Before a replacement becomes final, set it beside the original: everything the original stated survives unless a check calls for the change. A split counts as a replacement, with its pieces read in place of the original. The usual losses are a dropped qualifier and a dropped relation between clauses. A dropped qualifier leaves a noun phrase stating a broader claim than the original did. Only the original shows what the replacement lost.
+- Before a replacement becomes final, set it beside the original: everything the original stated survives unless a check calls for the change. A split counts as a replacement, with its pieces read in place of the original. The usual losses are a dropped qualifier and a dropped relation between clauses. A dropped qualifier leaves a noun phrase stating a broader claim than the original did.
 - A replacement keeps the original's notation unless a check calls for the change.
 - A restructure preserves behavior unless a check calls for the change, as the "silent fallback" check does.
 - A comment-only edit is not always inert. Type-bearing dialects, such as JSDoc types and Python type comments, feed static analysis, and a Markdown edit can break links and anchors. Check what the edit could have broken.

@@ -9,7 +9,7 @@ Any of the following is an addition placed where the old outline allowed inserti
 - A spec that accumulated clauses one requirement at a time
 - A description modified sentence by sentence as behavior changed
 
-The fix is reshaping the affected sections, not a better insertion. Sketch it before editing.
+The fix is reshaping the affected sections, not a better insertion.
 
 ## Vestige
 
@@ -50,13 +50,13 @@ The cue is a long explanation compensating for structure. It tells the reader ho
 
 Padding is the other form: a section written only because the heading exists.
 
-Do not settle for refining the compensating text. Sketch the restructure that would make the prose unnecessary. Delete the padding or revise the headings.
+Sketch the restructure that would make the prose unnecessary instead of refining the compensating text. Delete the padding or revise the headings.
 
 When a shared template owns the structure, filling its sections is conforming, not padding.
 
 ## Snapshot reasoning
 
-Even work that exists to question the current state can rest its claims on that state, so it is not exempt. Any of the following is a cue:
+Any of the following is a cue:
 
 - A new claim grounded in what an existing document already says
 - A classification or a boundary kept because the current outline has it
@@ -64,8 +64,6 @@ Even work that exists to question the current state can rest its claims on that 
 - The subject's present state offered as the reason to keep the current description
 
 Test: does the cited text own the fact, or is it only a place where the fact currently appears? Rederive the claim from its subject, or cite the owner instead.
-
-Matching the form that the siblings share is what the "sibling mismatch" check asks for, not this failure. Resting a new claim on what a sibling asserts is this failure.
 
 ## False analogy
 
@@ -77,11 +75,9 @@ Any of the following is a cue:
 
 Test: does the reason behind what is established hold where the text applies it? Where the reason holds, state it. Where it does not, rederive the conclusion from the case. Where the reason is not known, report the passage and leave it untouched.
 
-Where the cited text does not own the fact, the "snapshot reasoning" check applies instead.
-
 ## Over-documentation
 
-This check has no cue, and every passage in focus is a candidate. Prose that does not earn its place reads like prose that does, so nothing on the surface separates them.
+This check has no cue, and every passage in focus is a candidate.
 
 Test by removal: take the passage out and name what the reader then lacks. An answer names something that the subject does not show on its own. That the passage is true, relevant, or well written is not an answer.
 
@@ -109,9 +105,7 @@ Any of the following is a cue when the claim or rule that it accompanies is accu
 
 Test by deletion: if the claim reads as meant without it, then delete the defense. If removing it leaves a likely misreading standing, then the caveat passes. If the claim turns false, then the qualifier is load-bearing: keep it, or reword the claim to the scope that the claim can honestly carry.
 
-A prohibition written as its own sentence earns its place only where the failure that it forbids is one that readers actually make.
-
-Placement decides the case. The same caveat earns its place beside a claim that a reader is likely to misread, and not beside one that the surrounding text has already bounded.
+A negation or prohibition written as its own sentence earns its place only when its benefit to the reader is substantial enough to justify it.
 
 ## Staleness surface
 
@@ -119,15 +113,13 @@ Any of the following is a cue:
 
 - A line count
 - A version number
-- An exhaustive enumeration of specifics
-- A description of what current callers pass
-- A closed list representing an open set
+- An enumeration, whether written as a list or as "A, B, or C"
 
 Restate one abstraction level up, or delete when the document is clear without it.
 
 ## Silent contradiction
 
-The description disagrees with the thing that it describes. Unlike a comment's code, the described thing is not adjacent: find it and read it.
+The description disagrees with the thing that it describes. The described thing is not adjacent: find it and read it.
 
 If the description is stale, then fix or delete it. If the thing might be wrong instead, then report the conflict and leave both sides untouched.
 
@@ -137,7 +129,7 @@ Any of the following is a cue:
 
 - A reference that neither the repository nor a public source resolves
 - Comparison and negation phrasing, such as "not X," "instead of," or "rather than"
-- The content of an instruction restated as a fact about the subject, with no marker like "as agreed"
+- The content of an instruction restated as a fact about the subject, even with no marker like "as agreed"
 
 Test each claim: would someone who never sat in the session still write it? Delete what fails. If the current state has a surprising property, then state the property directly.
 
@@ -150,7 +142,7 @@ No phrasing marks this failure. The cue is disproportion, and any of the followi
 - An exception given more room than its rule
 - An example narrower than the point that it illustrates
 
-A sentence-by-sentence pass will not catch it, so compare each point's emphasis to the section as a whole. Adjust the emphasis or remove the excess.
+Compare each point's emphasis to the section as a whole. Adjust the emphasis or remove the excess.
 
 ## Context-bound statement
 
@@ -160,7 +152,7 @@ No phrasing marks this failure, and the document alone seldom shows whether the 
 - A verdict stated as a general fact, where the document states neither the question nor the conditions
 - An expression whose reading is not obvious, where nothing nearby settles how it was meant
 
-Where the context in which the statement was made is known, reword the statement or delete it. The rewording gives a reader outside that context the meaning that the statement had inside it. It can be a narrower claim or a different claim.
+Where the context in which the statement was made is known, reword the statement or delete it.
 
 Where that context is not known, leave the statement untouched, because a rewording would replace the writer's meaning with the auditor's guess. Report the statement and the meaning taken from the document, for someone who holds the context to compare.
 
@@ -212,7 +204,7 @@ Calibration is not minimization.
 
 The cue is size: roughly 500 characters of Latin-script text in a paragraph or list item, and fewer in denser scripts.
 
-Judge each suspect by role, not by the trigger. The content question comes first: does everything in it earn its place? A split follows only when the focus has genuinely split.
+Judge each suspect by role, not by size alone. The content question comes first: does everything in it earn its place? A split follows only when the focus has genuinely split.
 
 ## Split focus
 
@@ -258,7 +250,7 @@ Any of the following is a cue:
 - An example sentence placed in body prose with no label marking it as an example
 - An enumeration, such as "A, B, or C," that does not show whether it lists every member or only some
 
-State the relation in words, or label the status. Enumerate a closed set in full. For an open set, give the abstract statement first and mark the enumeration as examples.
+State the relation in words, or label the status, marking a partial enumeration as examples.
 
 ## Assumed connection
 
@@ -269,7 +261,7 @@ Any of the following is a cue:
 - A reference that locates its target by its place in the text, such as "the items above"
 - A point stated again in wording that differs from the first statement
 
-Test each reference by naming the target that the reader would reach. It fails where the target is far back, or where more than one candidate fits it. A passage carrying many such references fails as well, because each one costs the reader another search.
+Test each reference by naming the target that the reader would reach. It fails where the target is far back, or where more than one candidate fits it. Each reference carries some risk of a failed lookup, so many references in one passage increase that risk.
 
 Name the target in place of the reference. Where a point returns, repeat the wording that first stated it.
 

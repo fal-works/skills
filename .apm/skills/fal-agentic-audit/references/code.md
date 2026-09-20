@@ -16,7 +16,7 @@ In the result, any of the following is a cue:
 - A new type enumerating nearly the same cases as an existing one
 - A general module given a constraint that only one use site imposes
 
-The fix is a redesign of the affected scope, not a better insertion. Sketch it before editing.
+The fix is a redesign of the affected scope, not a better insertion.
 
 ## Vestige
 
@@ -37,7 +37,7 @@ Any of the following keeps the old interface alongside its replacement:
 - A parameter preserved "so callers do not break"
 - Both code paths behind a flag
 
-Test each kept interface: did the request keep it, or only the writer's caution? Keep what the request kept. Replace the rest, and migrate the callers.
+Test each kept interface: did the request keep it, or only the writer's caution? Keep what the request kept. Replace the rest, and migrate the callers. Where it cannot be determined which, leave the interface and report it.
 
 ## Unintegrated addition
 
@@ -79,7 +79,7 @@ Sketch the fix one structural level up instead of refining the workaround. Each 
 
 ## Snapshot reasoning
 
-Even work that exists to question the current shape of the code can rest its judgments on that shape, so it is not exempt. The cue is placement, classification, or existence justified by any of the following:
+The cue is placement, classification, or existence justified by any of the following:
 
 - Who currently calls the thing
 - What they pass
@@ -94,11 +94,9 @@ The cue is a construct, such as a lock, a guard, or a retry, copied from code th
 
 Test: does the reason that the construct had at its source hold at the destination? Remove the construct where the reason does not hold. Where the reason is not known, report the construct and leave the code untouched.
 
-Matching the naming, the argument order, and the layout of the siblings is what the "sibling mismatch" check asks for, not this failure.
-
 ## Over-documentation
 
-This check has no cue, and every comment in focus is a candidate. A comment that does not earn its place reads like one that does, so nothing on the surface separates them.
+This check has no cue, and every comment in focus is a candidate.
 
 Test by removal: take the comment out and name what the reader of the code then lacks. An answer names a contract or a why that the code does not show. That the comment is accurate is not an answer.
 
@@ -118,17 +116,11 @@ The cue is a comment answering an objection that nobody raised, such as `// This
 
 Test by deletion: take the comment out and name the surprise left unexplained. A comment that answers one is a why-comment and passes. Delete the defense that leaves none.
 
-A prohibition written as its own sentence earns its place only where the failure that it forbids is one that readers actually make.
-
-Placement decides the case. The same "because..." is essential where the property would surprise a fresh reader, and unnecessary where the reader takes the property for granted.
+A negation or prohibition written as its own sentence earns its place only when its benefit to the reader is substantial enough to justify it.
 
 ## Staleness surface
 
-In a comment, a routine change elsewhere can falsify any of the following without touching the comment's file:
-
-- An enumeration of current callers
-- A count of cases handled
-- A list of the fields that a function reads
+In a comment, the cue is an enumeration, whether written as a list or as "A, B, or C." A routine change elsewhere can falsify it without touching the comment's file.
 
 In code, the cue is a constant or a branch enumerating what another module currently defines.
 
@@ -171,7 +163,7 @@ No phrasing marks this failure. The cue is disproportion, and any of the followi
 - A helper extracted for that one case
 - A parameter or branch covering only the dimension that was discussed
 
-A line-by-line pass will not catch it, so compare what each part received against the region as a whole. Adjust the emphasis, or absorb the special case back into the general one.
+Compare what each part received against the region as a whole. Adjust the emphasis, or absorb the special case back into the general one.
 
 ## Context-bound statement
 
@@ -181,7 +173,7 @@ No phrasing marks this failure, and the code alone seldom shows whether the fail
 - A comment stating a verdict as a general fact, where neither the code nor the comment states the conditions
 - A comment whose reading is not obvious, where neither the code nor the nearby comments settle how it was meant
 
-Where the context in which the comment was written is known, reword the comment or delete it. The rewording gives a reader outside that context the meaning that the comment had inside it. It can be a narrower claim or a different claim.
+Where the context in which the comment was written is known, reword the comment or delete it.
 
 Where that context is not known, leave the comment untouched, because a rewording would replace the writer's meaning with the auditor's guess. Report the comment and the meaning taken from the code and the comment, for someone who holds the context to compare.
 
@@ -215,16 +207,16 @@ Any of the following is a cue:
 - A symbol named for the caller that happens to use it
 - A doc comment describing the thing in the caller's domain, use case, or terminology
 
-Restate the description as a contract with the thing as its subject. For a name, inspect the structure before renaming, because the name is usually carrying a distinction that the design does not express.
+Restate the description as a contract with the thing as its subject. For a name, inspect the structure before renaming.
 
-The bare caller reference is a borderline case, not a clean pass. "Used by X" and "Assumes callers validated the input" are honest about an asymmetry, and the reference stays within the boundary. Keep it, and read it as a signal that structure work was deferred. Where the thing is meant to serve only that one caller, the boundary is what needs fixing rather than the description. Elaborating on how X behaves or what it passes crosses the boundary and turns a caller-specific fact into an intrinsic property.
+The bare caller reference is a borderline case, not a clean pass. "Used by X" and "Assumes callers validated the input" strictly fall under this antipattern. Such a comment may remain because the refactoring is unfinished or is not worth its cost, so it need not be fixed at once. Keep it, and read it as a signal that structure work was deferred. Where the thing is meant to serve only that one caller, the boundary is what needs fixing rather than the description. Elaborating on how X behaves or what it passes crosses the boundary and turns a caller-specific fact into an intrinsic property.
 
 ## Sibling mismatch
 
 Any of the following is a cue:
 
 - Naming convention, argument order, or layout departing from the sibling set
-- Linked copies and callers left unvisited by a change
+- A change applied to one unit while its siblings keep the old form
 
 Read the siblings before judging one member. Conform, or report the mismatch when the material genuinely does not fit.
 
@@ -259,7 +251,7 @@ Search the repository before judging. A term that appears in comments, and that 
 
 The cue is a general-purpose word as the name of a type, function, field, or module, such as "layer," "element," "component," "manager," or "handler."
 
-Test: does the name distinguish this concept from its neighbors? Treat the name as a symptom first. It often indicates a contract or an abstraction level that the design has not fixed, and renaming then hides the cause. The Structural naming principle governs this case.
+Test: does the name distinguish this concept from its neighbors? Treat the name as a symptom first, a case that the Structural naming principle governs.
 
 ## Stripped term
 
@@ -282,7 +274,7 @@ In a comment, any of the following is a cue:
 - An example placed beside the rule that it illustrates, with no label marking it as an example
 - An enumeration that does not show whether it lists every member or only some
 
-State the relation in words, or label the status. Enumerate a closed set in full. For an open set, give the abstract statement first and mark the enumeration as examples.
+State the relation in words, or label the status, marking a partial enumeration as examples.
 
 ## Assumed connection
 
@@ -293,7 +285,7 @@ In a comment, any of the following is a cue:
 - A reference that locates its target by its place in the file, such as "the call above"
 - A point stated again in wording that differs from the comment that stated it first
 
-Test each reference by naming the target that the reader would reach. It fails where the target is far back, or where more than one candidate fits it. A passage carrying many such references fails as well, because each one costs the reader another search.
+Test each reference by naming the target that the reader would reach. It fails where the target is far back, or where more than one candidate fits it. Each reference carries some risk of a failed lookup, so many references in one passage increase that risk.
 
 Name the target in place of the reference. Where a point returns, repeat the wording that first stated it.
 
