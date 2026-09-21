@@ -249,6 +249,7 @@ Any of the following is a cue:
 - A defined name in parentheses without the kind of thing that it names
 - An example sentence placed in body prose with no label marking it as an example
 - An enumeration, such as "A, B, or C," that does not show whether it lists every member or only some
+- A list where neither the sentence that introduces it nor the heading above it states what it enumerates
 
 State the relation in words, or label the status, marking a partial enumeration as examples.
 

@@ -273,6 +273,7 @@ In a comment, any of the following is a cue:
 - A defined name in parentheses without the kind of thing that it names
 - An example placed beside the rule that it illustrates, with no label marking it as an example
 - An enumeration that does not show whether it lists every member or only some
+- A list where the text that introduces it does not state what it enumerates
 
 State the relation in words, or label the status, marking a partial enumeration as examples.
 

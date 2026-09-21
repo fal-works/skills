@@ -47,7 +47,11 @@ The **"staleness surface"** antipattern is a statement that a routine change can
 
 The **"overlong block"** antipattern is a paragraph, list item, function, or code block that runs longer than its role needs. Length is what shows, and the cause lies elsewhere: content that does not earn its place, a focus that has split, or detail whose home is a smaller scope. The content question comes first, because splitting content that should have been dropped is wasted work.
 
-The principle can be overapplied. A statement that carries what the reader genuinely lacks earns its place, however short the text would be without it. A qualifier that would make the statement false if removed is necessary. This practice is calibration, not minimization.
+Applying the principle too little is the more frequent failure. The principle can also be overapplied. Applying it is calibration, not minimization. Overapplication removes content that earns its place, such as the following:
+
+- A statement that carries what the reader genuinely lacks, however short the text would be without it
+- A qualifier that would make the statement false if removed
+- A sentence that adds no new fact but prevents the "unstated relation" antipattern by stating a relation or a status where the reader needs it
 
 ### Principle of Unit focus
 
@@ -217,7 +221,7 @@ Two practices keep terms resolvable. A concept that recurs often enough within o
 
 Conversely, an unfamiliar term already in the repository is worth checking for a definition before it is adopted. In a document, a term is defined where a passage states what it means. Any other appearance is a use, and a prominent use, such as a heading or a section topic, is still a use. That existing text uses a term is a weak reason to adopt the term. This is because the term is often an earlier session's coinage that further use establishes as vocabulary.
 
-Relations and statuses resolve by being stated. An enumeration needs its status shown. A closed set is enumerated in full. For an open set, the abstract statement comes first, and the enumeration that follows is explicitly marked as examples. Precision comes from explicit markers, such as which quantifier applies, how far the scope reaches, whether the set is open or closed, and whether a passage defines or illustrates. It does not come from adding items to an enumeration.
+Relations and statuses resolve by being stated. An enumeration needs the text around it to show what it enumerates, usually in the sentence that introduces it or contains it. An enumeration also needs its status shown. A closed set is enumerated in full. For an open set, the abstract statement comes first, and the enumeration that follows is explicitly marked as examples. Precision comes from explicit markers, such as which quantifier applies, how far the scope reaches, whether the set is open or closed, and whether a passage defines or illustrates. It does not come from adding items to an enumeration.
 
 In code, a concept that only a general-purpose word names is usually one whose contract or abstraction level is not yet defined. The Structural naming principle governs this case.
 

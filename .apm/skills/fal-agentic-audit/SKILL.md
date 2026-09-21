@@ -47,7 +47,7 @@ A check that fires is not yet a finding. The cue is a lead. It marks where to su
 
 ### 4. Revise the audit's own edits
 
-The edits are themselves a change and carry the failures that a change carries, so run the checks over what the audit wrote. The scope of this pass is the audit's own edits and what they invalidate, not the files again.
+The edits are themselves a change and carry the failures that a change carries, so run the checks over what the audit wrote. The scope of this pass is the audit's own edits and what they invalidate, not the files again. A deletion writes nothing, but it makes the text before it and the text after it adjacent. Read both again from the reader's position.
 
 Where a fix changed structure, text that already passed under the old structure has to be checked again. A name that the old structure explains and a description of the part that moved are examples.
 
@@ -63,7 +63,8 @@ Report the findings, whether the pass fixed them or proposes the fix. A finding 
 
 - Keep each edit proportional to its purpose, and leave everything that is not being fixed verbatim: same wording, same punctuation, same line breaks, same code. Churn creates diff noise and risks damaging what was fine.
 - What is bounded is the reach of the pass, not the size of a fix. Where a check calls for the unit to be rebuilt, rebuild it.
-- Prefer, in order: delete, trim, move, rewrite. Deletion is the most effective edit. Rewriting is the easiest to get wrong.
+- Because of the additive bias, the auditor tends to fix a problem by adding text, which is often not the best fix. Before adding text, consider whether rewriting the existing text fixes the problem.
+- Because of the defensive bias, the auditor avoids judging a passage unnecessary. The auditor can also make that judgment and then rewrite the passage instead of removing it. Where a check finds a passage unnecessary, remove it.
 - Before a replacement becomes final, set it beside the original: everything the original stated survives unless a check calls for the change. A split counts as a replacement, with its pieces read in place of the original. The usual losses are a dropped qualifier and a dropped relation between clauses. A dropped qualifier leaves a noun phrase stating a broader claim than the original did.
 - A replacement keeps the original's notation unless a check calls for the change.
 - A restructure preserves behavior unless a check calls for the change, as the "silent fallback" check does.
