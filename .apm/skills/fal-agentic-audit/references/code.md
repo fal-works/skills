@@ -114,11 +114,16 @@ Delete, or rewrite at the level of what callers can rely on.
 
 A short doc summary that reads as redundant with the name passes where it states the intent or the scope that the name leaves open.
 
-## Unsolicited justification
+## Unsolicited clarification
 
-The cue is a comment answering an objection that nobody raised, such as `// This is intentional` or `// Not a bug: we need this because...`. A comment that only forbids the opposite of what a neighboring comment requires is also a cue.
+Any of the following is a cue:
 
-Test by deletion: take the comment out and name the surprise left unexplained. A comment that answers one is a why-comment and passes. Delete the defense that leaves none.
+- A comment answering an objection that nobody raised, such as `// This is intentional` or `// Not a bug: we need this because...`
+- A comment negating an alternative that nothing in the code suggests, such as `// no retry here`
+- A comment stating what the code does not handle, where nothing in the code suggests that it would
+- A comment that only forbids the opposite of what a neighboring comment requires
+
+Test by deletion: take the comment out and name the question that the reader would then have, such as a surprise left unexplained or a contract that the code does not show. A comment that answers one passes. Delete the clarification that answers none.
 
 A negation or prohibition written as its own sentence earns its place only when its benefit to the reader is substantial enough to justify it.
 

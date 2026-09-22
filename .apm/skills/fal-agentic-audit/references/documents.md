@@ -95,16 +95,19 @@ Keep the statement at its home, delete the copies, and reference the home where 
 
 An opening line that reads as an echo of its heading passes where it states the scope that the heading leaves open.
 
-## Unsolicited justification
+## Unsolicited clarification
 
-Any of the following is a cue when the claim or rule that it accompanies is accurate without it:
+Any of the following is a cue when the statement that it accompanies is accurate without it:
 
 - A concession
 - An edge-case note
 - A "this does not mean..."
+- A negation of an alternative, such as "A, not B" or "A rather than B"
+- A statement of what is out of scope
+- A justification of a claim or a choice that nobody questioned
 - A prohibition that only inverts the rule beside it
 
-Test by deletion: if the claim reads as meant without it, then delete the defense. If removing it leaves a likely misreading standing, then the caveat passes. If the claim turns false, then the qualifier is load-bearing: keep it, or reword the claim to the scope that the claim can honestly carry.
+Test by deletion: if the claim reads as meant without it, then delete the clarification. If removing it leaves standing a misreading or a question that the reader would have, then the clarification passes. If the claim turns false, then the qualifier is load-bearing: keep it, or reword the claim to the scope that the claim can honestly carry.
 
 A negation or prohibition written as its own sentence earns its place only when its benefit to the reader is substantial enough to justify it.
 

@@ -38,11 +38,11 @@ Brevity comes from dropping what does not earn its place, not condensing it.
 
 Being asked to make something clearer is not a license to add. When the point is already on the page, an addition more often buries it than sharpens it, and the first answer is rewriting what is there.
 
-The **"over-documentation"** antipattern is content, in a document or a comment, that does not earn its place. Two of its forms have names of their own: the "redundant statement" antipattern and the "unsolicited justification" antipattern.
+The **"over-documentation"** antipattern is content, in a document or a comment, that does not earn its place. Two of its forms have names of their own: the "redundant statement" antipattern and the "unsolicited clarification" antipattern.
 
 The **"redundant statement"** antipattern restates what the artifact already says, and the copy becomes inaccurate as the original changes. Two passages are copies when either one would answer the same question for the same reader. Sharing a subject does not make two passages copies.
 
-The **"unsolicited justification"** antipattern defends a claim that needs no defense, most often against an objection imagined while writing. The preemptive defense introduces the misreading that it tries to prevent.
+The **"unsolicited clarification"** antipattern guards against a misreading, an objection, or a doubt, none of which the reader would otherwise have. Its forms include a justification, a negation of an alternative, a statement of what is out of scope, a caveat, and a concession. The clarification introduces what it is meant to prevent.
 
 The **"staleness surface"** antipattern is content that a routine change can silently falsify. Where the same point can be made one abstraction level up, that form remains accurate after the change.
 
