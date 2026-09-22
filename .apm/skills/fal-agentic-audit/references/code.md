@@ -50,19 +50,22 @@ Relate the addition: reuse, extend, or replace the existing element.
 
 Types and functions that model different concepts might look duplicated and still need to diverge freely. The check aims at the addition that was never judged.
 
-## Wrong home
+## Misplacement
 
 Any of the following is a cue:
 
 - A caller accessing another module's internals
 - Logic placed away from its subject
 - A constraint enforced far from the party that guarantees it
-- An enumeration in a comment, whether written as a list or as "A, B, or C"
 - A constant or a branch enumerating what another module defines
 
-An enumeration in a comment is suspected of being detail below the level of the thing that the comment documents. The question is whether that level calls for the items themselves, or only for what they have in common.
+Move each to the place that covers its subject. A rule that the module guarantees belongs in its own types, and a rule that one use site imposes belongs in that use site's layer.
 
-Move each to the place that covers its subject. A rule that the module guarantees belongs in its own types, and a rule that one use site imposes belongs in that use site's layer. Restate an enumeration at the level of the place where it sits. What the restatement drops is often unnecessary, and what is still needed belongs next to the item that it describes.
+## Unabstracted detail
+
+The cue is an enumeration in a comment, whether written as a list or as "A, B, or C." It is suspected of being detail below the level of the thing that the comment documents. The question is whether that level calls for the items themselves, or only for what they have in common.
+
+Restate the enumeration at the level of the place where it sits. What the restatement drops is often unnecessary, and what is still needed belongs next to the item that it describes.
 
 ## Wrong-layer patch
 
@@ -186,7 +189,7 @@ Where the context in which the comment was written is known, reword the comment 
 
 Where that context is not known, leave the comment untouched, because a rewording would replace the writer's meaning with the auditor's guess. Report the comment and the meaning taken from the code and the comment, for someone who holds the context to compare.
 
-## History leak
+## Version-bound description
 
 The cue is an identifier carrying a qualifier that means something only against the old version, such as `newParser`, `parserV2`, or `legacyHandler`. The same qualifier can appear in a comment, such as "the refactored path."
 
@@ -287,7 +290,7 @@ In a comment, any of the following is a cue:
 
 State the relation in words, or label the status, marking a partial enumeration as examples.
 
-## Assumed connection
+## Unclear reference
 
 In a comment, any of the following is a cue:
 

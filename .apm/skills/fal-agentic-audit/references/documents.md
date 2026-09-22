@@ -32,20 +32,24 @@ Relate the addition to the existing structure, or merge it.
 
 Sections that model different concepts might look duplicated and still need to diverge freely. The check aims at the addition that was never judged.
 
-## Wrong home
+## Misplacement
+
+The cue is a fact in a section that covers a different subject.
+
+A fact stated in only one place can still be in the wrong one. The check runs at document scale too. A document that has departed from its genre holds material that belongs in another document. A README that has accumulated changelog entries is the usual form.
+
+Move the fact to the place that covers its subject.
+
+## Unabstracted detail
 
 Any of the following is a cue:
 
-- A fact in a section that covers a different subject
-- Detail below the scope's level
 - An enumeration, whether written as a list or as "A, B, or C"
 - An overview section that runs longer than its siblings because it holds material belonging to the detail layer
 
 An enumeration is suspected of being detail below the scope's level. The question is whether that level calls for the items themselves, or only for what they have in common.
 
-A fact stated in only one place can still be in the wrong one. The check runs at document scale too. A document that has departed from its genre holds material whose home is another document. A README that has accumulated changelog entries is the usual form.
-
-Move the fact to the place that covers its subject. Restate detail below the scope's level at the level of the place where it sits. What the restatement drops is often unnecessary.
+Restate the detail at the level of the place where it sits. What the restatement drops is often unnecessary.
 
 ## Wrong-layer patch
 
@@ -88,10 +92,10 @@ Delete what has no answer. Where the answer covers only part of a passage, keep 
 
 Any of the following is a cue:
 
-- The same fact at its home and again downstream
+- The same fact at the place that covers its subject and again downstream
 - Earlier prose of the same document rephrased
 
-Keep the statement at its home, delete the copies, and reference the home where a pointer is needed.
+Keep the statement at the place that covers its subject, delete the copies, and reference that place where a pointer is needed.
 
 An opening line that reads as an echo of its heading passes where it states the scope that the heading leaves open.
 
@@ -160,7 +164,7 @@ Where the context in which the statement was made is known, reword the statement
 
 Where that context is not known, leave the statement untouched, because a rewording would replace the writer's meaning with the auditor's guess. Report the statement and the meaning taken from the document, for someone who holds the context to compare.
 
-## History leak
+## Version-bound description
 
 The cue is a qualifier that depends on the old version, such as "the new pipeline," "the refactored module," or "the current approach."
 
@@ -257,7 +261,7 @@ Any of the following is a cue:
 
 State the relation in words, or label the status, marking a partial enumeration as examples.
 
-## Assumed connection
+## Unclear reference
 
 Any of the following is a cue:
 

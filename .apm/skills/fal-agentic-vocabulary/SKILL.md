@@ -46,7 +46,7 @@ The **"unsolicited clarification"** antipattern guards against a misreading, an 
 
 The **"staleness surface"** antipattern is content that a routine change can silently falsify. Where the same point can be made one abstraction level up, that form remains accurate after the change.
 
-The **"overlong block"** antipattern is a paragraph, list item, function, or code block that runs longer than its role needs. Length is what shows, and the cause lies elsewhere: content that does not earn its place, a focus that has split, or detail whose home is a smaller scope. The content question comes first, because splitting content that should have been dropped is wasted work.
+The **"overlong block"** antipattern is a paragraph, list item, function, or code block that runs longer than its role needs. Length is what shows, and the cause lies elsewhere: content that does not earn its place, a focus that has split, or detail that belongs in a smaller scope. The content question comes first, because splitting content that should have been dropped is wasted work.
 
 Applying the principle too little is the more frequent failure. The principle can also be overapplied. Applying it is calibration, not minimization. Overapplication removes content that earns its place, such as the following:
 
@@ -76,15 +76,17 @@ Placement asks that a unit sit in the place that covers its subject, at the abst
 
 The test is to name what the unit is about, and then to name what the place covers. The unit belongs where the two match.
 
-The place where a unit belongs is its "home." A home also fixes an abstraction level. A module header states its responsibilities, a function doc states its contract, and a type doc states its role. Detail about a smaller thing belongs in the smaller scope, next to that thing. Orientation material belongs where a newcomer looks first.
+The place that covers a unit's subject also fixes an abstraction level. A module header states its responsibilities, a function doc states its contract, and a type doc states its role. Detail about a smaller thing belongs in the smaller scope, next to that thing. Orientation material belongs where a newcomer looks first.
 
-In documentation, a document set split into overview and detail, such as a skill file and its references or a README and `docs/`, has already assigned homes. Worked examples and per-item explanations belong to the detail layer.
+In documentation, a document set split into overview and detail, such as a skill file and its references or a README and `docs/`, has already assigned a place to each kind of material. Worked examples and per-item explanations belong to the detail layer.
 
 The same matching applies in code. Logic belongs where its subject lives, and a caller that has to access another module's internals indicates a boundary drawn in the wrong place. When responsibilities share a location, the question is whether they share a subject or only a place: an accidental neighbor reads as a deliberate one.
 
 The subject of a constraint is whoever guarantees it. A rule that the module itself guarantees belongs in its own types. By contrast, a rule that only one use site imposes belongs in that use site's layer, stated with that use site as its subject.
 
-The **"wrong home"** antipattern is a unit placed where its subject is not covered. This includes both a wrong location and a wrong abstraction level. The urge to repeat a caveat "to be safe" is usually this antipattern: the caveat sits outside its home, or two scopes overlap.
+The **"misplacement"** antipattern is a unit that does not sit in the place that covers its subject, at the abstraction level of that place. The urge to repeat a caveat "to be safe" is usually this antipattern: the caveat sits outside the place that covers its subject, or two scopes overlap.
+
+The **"unabstracted detail"** antipattern is a misplacement by abstraction level. The unit's subject falls within what the place covers, but the unit states it in finer detail than the level of that place.
 
 ### Principle of Structural fix
 
@@ -118,7 +120,7 @@ The test is to name what the judgment takes as given, and then to state why it c
 
 Where structure and content conflict, the same test decides which of the two is adjusted. Where the structure can be taken as given, the unit conforms, a case that the Sibling consistency principle governs. Where it cannot, the structure is revised, a case that the Structural fix principle governs.
 
-A judgment that fails the test shows in its result. For example, a judgment about placement results in the "wrong home" antipattern. A judgment about a name or a description results in the "caller-bound framing" antipattern, and a judgment about the scope of an edit results in the "under-scoped change" antipattern.
+A judgment that fails the test shows in its result. For example, a judgment about placement results in the "misplacement" antipattern. A judgment about a name or a description results in the "caller-bound framing" antipattern, and a judgment about the scope of an edit results in the "under-scoped change" antipattern.
 
 The **"snapshot reasoning"** antipattern is a judgment that takes the current state as fixed, although that state can change. Examples of such a state are who calls a thing, what references it, which inputs occur, and how a document under review is currently divided. The work itself can change the state, and so can a later change that the result has to survive. In the clearest case, work on a thing takes the current form of that same thing as its ground.
 
@@ -180,7 +182,7 @@ A symbol name and a doc comment are addressed to the same reader, and the same t
 
 ### Principle of Contract
 
-Contract asks that a name or a description say what its boundary promises to the outside, and nothing besides. The placement of the name or the description decides which boundary applies. A public function's name and doc comment stand at the public boundary, a comment inside the body stands within it, and a design note inside a module stands at the module's edge. The Contract and Placement principles converge here: the subject fixes the home, and the home fixes the boundary.
+Contract asks that a name or a description say what its boundary promises to the outside, and nothing besides. The placement of the name or the description decides which boundary applies. A public function's name and doc comment stand at the public boundary, a comment inside the body stands within it, and a design note inside a module stands at the module's edge. The Contract and Placement principles converge here: the subject fixes the place, and the place fixes the boundary.
 
 The test is whether the name or the description can be restated as a promise with the thing itself as its subject. A mechanism enters the promise only by being fixed at the boundary, where it stops being free to change and so stops being internal. Facts about current callers are observable from outside but are not what the thing promises.
 
@@ -214,7 +216,7 @@ Version-blind asks that the current state be described by a writer who never saw
 
 Two failures take opposite forms, and writing as though the old version had never existed prevents both.
 
-The **"history leak"** antipattern writes as though the reader shares the old version. A qualifier that describes the current state relative to a previous one is not empty, which is what lets it survive: the change is still vivid to the writer, and even a fresh audit can rate the comparison informative. The failure is on the reader's side, because a reader who is not reading for history wants the current state alone.
+The **"version-bound description"** antipattern describes the current state relative to a previous one, as though the reader shares that previous version. Such a description is not empty, which is what lets it survive: the change is still vivid to the writer, and even a fresh audit can rate the comparison informative. The failure is on the reader's side, because a reader who is not reading for history wants the current state alone.
 
 The **"unsolicited history"** antipattern does the opposite. It narrates the change for a reader assumed not to know it: what replaced what, what a thing used to be called. It is typically well-intentioned. It also fails the Necessity principle, because the added history does not earn its place.
 
@@ -244,7 +246,7 @@ The **"packed phrase"** antipattern condenses an expression until the reader can
 
 The **"unstated relation"** antipattern presents a relation or a status through form alone, such as juxtaposition, a parenthesis, or position in the prose, instead of stating it in words. The relation is known only to the writer, the reader supplies one by inference, and a wrong inference shows nothing on the page. An unlabeled example or an unmarked enumeration is read in the strongest way, as a rule or a complete classification. Forms include parentheses with unstated relations, defined names without the kind of thing they name, unlabeled example sentences, and enumerations that do not show whether they are complete.
 
-The **"assumed connection"** antipattern refers to something elsewhere in the text as though the reader already had it in view. A point restated in different wording is such a reference when the reader cannot recognize it as the same point. The writer holds the whole text at once, while the reader has only what the words identify. The target is reachable only where the wording, the distance, and the number of candidates leave one reading. A short reference is not itself a failure when the reader can determine what it means at that point.
+The **"unclear reference"** antipattern refers to something elsewhere in the text as though the reader already had it in view. A point restated in different wording is such a reference when the reader cannot recognize it as the same point. The writer holds the whole text at once, while the reader has only what the words identify. The target is reachable only where the wording, the distance, and the number of candidates leave one reading. A short reference is not itself a failure when the reader can determine what it means at that point.
 
 The **"culture-bound phrase"** antipattern is wording that resolves only through its language's figurative and idiomatic conventions. Those conventions are not a namespace that every reader holds. The meaning does not survive translation or reach readers whose native language differs. A reader of the original language recovers the meaning, and the wording therefore passes a check that asks only for a referent. Personification is one form. Another is a figurative chain, where successive sentences use words from one figurative system. A figurative term established in the domain resolves through that domain's vocabulary and is not this failure.
 
