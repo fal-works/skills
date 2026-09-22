@@ -38,7 +38,7 @@ Brevity comes from dropping what does not earn its place, not condensing it.
 
 Being asked to make something clearer is not a license to add. When the point is already on the page, an addition more often buries it than sharpens it, and the first answer is rewriting what is there.
 
-The **"over-documentation"** antipattern is content that does not earn its place. Two of its forms have names of their own: the "redundant statement" antipattern and the "unsolicited justification" antipattern.
+The **"over-documentation"** antipattern is content, in a document or a comment, that does not earn its place. Two of its forms have names of their own: the "redundant statement" antipattern and the "unsolicited justification" antipattern.
 
 The **"redundant statement"** antipattern restates what the artifact already says, and the copy becomes inaccurate as the original changes. Two passages are copies when either one would answer the same question for the same reader. Sharing a subject does not make two passages copies.
 
