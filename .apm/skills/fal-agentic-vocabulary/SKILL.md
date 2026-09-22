@@ -7,10 +7,11 @@ description: A shared vocabulary between the user and the agent for work perform
 
 This skill names the concerns that recur in the artifacts that LLM agents produce. Documentation, code comments, and software design decisions are such artifacts. So are the more abstract structures that the work rests on, such as a conceptual model, a classification, or a plan. The vocabulary supplies terms for judging whether a principle governs a particular case, rather than rules that decide it.
 
-Five biases of LLM-generated output drive the failures named here. Each bias is a default that the vocabulary works against:
+Six biases of LLM-generated output drive the failures named here. Each bias is a default that the vocabulary works against:
 
-- **Anchoring bias.** The existing visible structure over-determines the output. Work stays on the immediate change, and the surrounding content goes unexamined.
-- **Additive bias.** Generating costs nothing. Reading and maintaining cost everything. The writer adds material without the selection, search, reuse, and reduction that would come first.
+- **Anchoring bias.** The existing visible structure and state over-determine the output. They are taken as given, and the output is fitted to them.
+- **Local bias.** The writer examines only the unit under edit. The writer does not consult anything outside that unit, such as its siblings, the structure above it, and the thing that it must correspond to.
+- **Additive bias.** Generating costs nothing. Reading and maintaining cost everything. The writer adds material without the selection, reuse, and reduction that would come first.
 - **Contextual bias.** The writer writes from the working context without rebuilding the content for a reader who does not share that context. What the context made prominent is written even where the reader has no use for it. What the context made obvious is treated as known to the reader.
 - **Compression bias.** The writer pursues brevity by condensing the expression rather than by selecting what to keep.
 - **Defensive bias.** The writer avoids breaking, removing, dropping, and admitting error in favor of adding, keeping, accepting without reporting, and defending in advance.
@@ -147,7 +148,7 @@ The principle can be overapplied by condensing text to match sparser siblings in
 
 ### Principle of Discovery
 
-Discovery asks that what already exists be found first, and that the addition be related to it. The search extends beyond the unit being changed. This is because an existing type for the same concept usually lives in another module. An existing statement of the same fact usually lives in another document.
+Discovery asks that what already exists be found first, and that the addition be related to it. The search extends beyond the unit under edit. This is because an existing type for the same concept usually lives in another module. An existing statement of the same fact usually lives in another document.
 
 The test is to name what the addition relates to: the element that it extends, specializes, replaces, or deliberately sits beside. When the addition can name none of these, the writer has usually not searched.
 
@@ -163,7 +164,7 @@ The test is whether a violation would reach someone who can act on it.
 
 The **"silent fallback"** antipattern hides a violation of an invariant that should have held, such as returning a default, suppressing an error, or substituting null. It then proceeds as though nothing happened.
 
-The **"silent contradiction"** antipattern is a disagreement between a description and the thing that it describes, one that remains undetected because neither side was checked against the other.
+The **"silent contradiction"** antipattern is an unreported disagreement between a description and the thing that it describes.
 
 ## What lies outside the boundary
 
@@ -243,7 +244,7 @@ The **"packed phrase"** antipattern condenses an expression until the reader can
 
 The **"unstated relation"** antipattern presents a relation or a status through form alone, such as juxtaposition, a parenthesis, or position in the prose, instead of stating it in words. The relation is known only to the writer, the reader supplies one by inference, and a wrong inference shows nothing on the page. An unlabeled example or an unmarked enumeration is read in the strongest way, as a rule or a complete classification. Forms include parentheses with unstated relations, defined names without the kind of thing they name, unlabeled example sentences, and enumerations that do not show whether they are complete.
 
-The **"assumed connection"** antipattern refers to something elsewhere in the text as though the reader already had it in view. The writer holds the whole text at once, while the reader has only what the words identify. The target is reachable only where the wording, the distance, and the number of candidates leave one reading. A short reference is not itself a failure when the reader can determine what it means at that point.
+The **"assumed connection"** antipattern refers to something elsewhere in the text as though the reader already had it in view. A point restated in different wording is such a reference when the reader cannot recognize it as the same point. The writer holds the whole text at once, while the reader has only what the words identify. The target is reachable only where the wording, the distance, and the number of candidates leave one reading. A short reference is not itself a failure when the reader can determine what it means at that point.
 
 The **"culture-bound phrase"** antipattern is wording that resolves only through its language's figurative and idiomatic conventions. Those conventions are not a namespace that every reader holds. The meaning does not survive translation or reach readers whose native language differs. A reader of the original language recovers the meaning, and the wording therefore passes a check that asks only for a referent. Personification is one form. Another is a figurative chain, where successive sentences use words from one figurative system. A figurative term established in the domain resolves through that domain's vocabulary and is not this failure.
 
