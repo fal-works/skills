@@ -67,27 +67,23 @@ The **"split focus"** antipattern is a unit carrying more than one role or conce
 
 The principle can be overapplied by splitting what belongs together. A connective that states how its clauses relate is part of the content, not a seam. Where such a sentence is split for length, the split is complete only when the resulting sentences still state the relation. Connected reasoning recast as bullet points drops the relations in the same way. A tiny helper extracted from a function forces readers to consult it to understand the parent's flow.
 
-## What owns the unit
+## What determines the unit
 
-### Principle of Owner
+### Principle of Placement
 
-Owner asks that placement, classification, and abstraction level be derived from the thing that governs a unit rather than from the current arrangement. The owner can be a boundary, a module, the party that guarantees a constraint, or a pattern shared across siblings. It need not be a tangible entity. When the owner is a shared pattern, that pattern is usually undocumented, and departing from it still breaks the consistency that it holds.
+Placement asks that a unit sit in the place that covers its subject, at the abstraction level of that place. A unit is about something, and a place covers something. For example, a comment covers the declaration that it is attached to, a section covers its topic, and a module covers its responsibility. A unit outside the place that covers its subject fails in two ways. The change that falsifies the unit happens elsewhere, so nothing prompts its update. The reader looks for the unit elsewhere, or takes it as a property of the place where it sits.
 
-The test is to name what can make the unit wrong. Whatever can make it wrong owns it, and the unit belongs in that owner's scope. If the owner cannot be determined, then the assignment is a decision that belongs to the user.
+The test is to name what the unit is about, and then to name what the place covers. The unit belongs where the two match.
 
-"Home," the place where a unit belongs, follows from the owner. A module header states its responsibilities, a function doc states its contract, and a type doc states its role. Orientation material belongs where a newcomer looks first.
+The place where a unit belongs is its "home." A home also fixes an abstraction level. A module header states its responsibilities, a function doc states its contract, and a type doc states its role. Detail about a smaller thing belongs in the smaller scope, next to that thing. Orientation material belongs where a newcomer looks first.
 
 In documentation, a document set split into overview and detail, such as a skill file and its references or a README and `docs/`, has already assigned homes. Worked examples and per-item explanations belong to the detail layer.
 
-The same derivation runs in code. Logic belongs where its subject lives, and a caller that has to access another module's internals indicates a boundary drawn in the wrong place. When responsibilities share a location, the question is whether they share an owner or only a place: an accidental neighbor reads as a deliberate one.
+The same matching applies in code. Logic belongs where its subject lives, and a caller that has to access another module's internals indicates a boundary drawn in the wrong place. When responsibilities share a location, the question is whether they share a subject or only a place: an accidental neighbor reads as a deliberate one.
 
-A constraint belongs to whoever guarantees it. A rule that the module itself guarantees belongs in its own types. By contrast, a rule that only one use site imposes belongs in that use site's layer, stated with that owner as its subject.
+The subject of a constraint is whoever guarantees it. A rule that the module itself guarantees belongs in its own types. By contrast, a rule that only one use site imposes belongs in that use site's layer, stated with that use site as its subject.
 
-Where structure and content conflict, the Owner principle decides which of the two is adjusted. If the sibling set owns the structure, then the unit conforms, a case that the Sibling consistency principle governs. If the content owns it, then the structure is revised, a case that the Structural fix principle governs.
-
-The **"wrong home"** antipattern is a unit placed outside the scope that owns it. This includes both a wrong location and a wrong abstraction level. The urge to repeat a caveat "to be safe" is usually this antipattern: the caveat sits outside its home, or two scopes overlap.
-
-The **"snapshot reasoning"** antipattern reads the current state of usage as a design property. That state includes who calls a thing, what references it, and which inputs occur. The property is only a snapshot, and the next change might invalidate it.
+The **"wrong home"** antipattern is a unit placed where its subject is not covered. This includes both a wrong location and a wrong abstraction level. The urge to repeat a caveat "to be safe" is usually this antipattern: the caveat sits outside its home, or two scopes overlap.
 
 ### Principle of Structural fix
 
@@ -112,6 +108,18 @@ The **"under-scoped change"** antipattern lets the old structure, rather than th
 The **"vestige"** antipattern is a remnant, such as dead code, superseded structure, or an assumption no longer in force, that the current design has made unnecessary. It is an under-scoped change seen from its result: some edit omitted the deletions that the design required, and that edit need not be the change in hand. "Vestigial" means superseded, not merely unexercised: code that nothing reaches today still belongs when the design gives it a reason to exist.
 
 When the change called for replacement, the **"needless backward compatibility"** antipattern keeps the old interface alongside the new one. It is an under-scoped change made deliberately: where a vestige remains because it was overlooked, here the old interface is kept on purpose. The trigger is the writer's own thought that the callers must not break, substituting for a decision that was not made. Whether the old interface survives belongs to the user, and a request for the change that says nothing about keeping it has already answered.
+
+### Principle of Examined assumptions
+
+Examined assumptions asks that a judgment take the current state as given only where there is a reason to do so. What a judgment takes as given is its assumption. Such judgments include those about placement, classification, naming, scope, and whether something should exist. The current state includes who uses a thing, what the existing text says, and how the existing structure divides its subject. The current state is what has accumulated so far, and much of it is neither guaranteed nor decided.
+
+The test is to name what the judgment takes as given, and then to state why it can be taken as given. That it is the current state is not a reason. Examples of a reason are a contract, an invariant, and readers who rely on a shared form.
+
+Where structure and content conflict, the same test decides which of the two is adjusted. Where the structure can be taken as given, the unit conforms, a case that the Sibling consistency principle governs. Where it cannot, the structure is revised, a case that the Structural fix principle governs.
+
+A judgment that fails the test shows in its result. For example, a judgment about placement results in the "wrong home" antipattern. A judgment about a name or a description results in the "caller-bound framing" antipattern, and a judgment about the scope of an edit results in the "under-scoped change" antipattern.
+
+The **"snapshot reasoning"** antipattern is a judgment that takes the current state as fixed, although that state can change. Examples of such a state are who calls a thing, what references it, which inputs occur, and how a document under review is currently divided. The work itself can change the state, and so can a later change that the result has to survive. In the clearest case, work on a thing takes the current form of that same thing as its ground.
 
 ### Principle of Applicability
 
@@ -171,11 +179,11 @@ A symbol name and a doc comment are addressed to the same reader, and the same t
 
 ### Principle of Contract
 
-Contract asks that a name or a description say what its boundary promises to the outside, and nothing besides. Placement decides which boundary applies. A public function's name and doc comment stand at the public boundary, a comment inside the body stands within it, and a design note inside a module stands at the module's edge. The Contract and Owner principles converge here: the owner fixes the home, and the home fixes the boundary.
+Contract asks that a name or a description say what its boundary promises to the outside, and nothing besides. The placement of the name or the description decides which boundary applies. A public function's name and doc comment stand at the public boundary, a comment inside the body stands within it, and a design note inside a module stands at the module's edge. The Contract and Placement principles converge here: the subject fixes the home, and the home fixes the boundary.
 
-The test is ownership: can the name or the description be restated as a promise with the thing itself as its subject? A mechanism enters the promise only by being fixed at the boundary, where it stops being free to change and so stops being internal. Facts about current callers are observable from outside but are not owned.
+The test is whether the name or the description can be restated as a promise with the thing itself as its subject. A mechanism enters the promise only by being fixed at the boundary, where it stops being free to change and so stops being internal. Facts about current callers are observable from outside but are not what the thing promises.
 
-Names and descriptions addressed to internal readers are outside this principle. Where an implementation note belongs is a question for the Owner principle. Crossing the boundary outward has one use: explaining behavior that is observable from outside and otherwise surprises.
+Names and descriptions addressed to internal readers are outside this principle. Where an implementation note belongs is a question for the Placement principle. Crossing the boundary outward has one use: explaining behavior that is observable from outside and otherwise surprises.
 
 Two antipatterns cross this boundary in opposite directions.
 

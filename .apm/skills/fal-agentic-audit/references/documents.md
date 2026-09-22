@@ -36,13 +36,13 @@ Sections that model different concepts might look duplicated and still need to d
 
 Any of the following is a cue:
 
-- A fact in a section whose subject does not own it
+- A fact in a section that covers a different subject
 - Detail below the scope's level
 - An overview section that runs longer than its siblings because it holds material belonging to the detail layer
 
 A fact stated in only one place can still be in the wrong one. The check runs at document scale too. A document that has departed from its genre holds material whose home is another document. A README that has accumulated changelog entries is the usual form.
 
-Move the fact to the scope that owns it.
+Move the fact to the place that covers its subject.
 
 ## Wrong-layer patch
 
@@ -52,18 +52,16 @@ Padding is the other form: a section written only because the heading exists.
 
 Sketch the restructure that would make the prose unnecessary instead of refining the compensating text. Delete the padding or revise the headings.
 
-When a shared template owns the structure, filling its sections is conforming, not padding.
+When a shared template defines the structure, filling its sections is conforming, not padding.
 
 ## Snapshot reasoning
 
 Any of the following is a cue:
 
-- A new claim grounded in what an existing document already says
 - A classification or a boundary kept because the current outline has it
-- A name chosen because the existing text already uses it
 - The subject's present state offered as the reason to keep the current description
 
-Test: does the cited text own the fact, or is it only a place where the fact currently appears? Rederive the claim from its subject, or cite the owner instead.
+Test: why can the cited state be taken as given? That it is the current state is not an answer. Where no reason holds, rederive the judgment from the purpose of the document and from what its subject guarantees.
 
 ## False analogy
 
@@ -87,10 +85,10 @@ Delete what has no answer. Where the answer covers only part of a passage, keep 
 
 Any of the following is a cue:
 
-- The same fact at its owner and again downstream
+- The same fact at its home and again downstream
 - Earlier prose of the same document rephrased
 
-Keep the statement at its owner, delete the copies, and reference the owner where a pointer is needed.
+Keep the statement at its home, delete the copies, and reference the home where a pointer is needed.
 
 An opening line that reads as an echo of its heading passes where it states the scope that the heading leaves open.
 

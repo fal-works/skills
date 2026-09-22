@@ -58,7 +58,7 @@ Any of the following is a cue:
 - Logic placed away from its subject
 - A constraint enforced far from the party that guarantees it
 
-Move each to its owner. A rule that the module guarantees belongs in its own types, and a rule that one use site imposes belongs in that use site's layer.
+Move each to the place that covers its subject. A rule that the module guarantees belongs in its own types, and a rule that one use site imposes belongs in that use site's layer.
 
 ## Wrong-layer patch
 
@@ -86,7 +86,7 @@ The cue is placement, classification, or existence justified by any of the follo
 - Which inputs occur
 - The code's present shape
 
-Test: would the judgment hold if the callers changed? Rederive the judgment from what the thing itself guarantees, or move the constraint to the use site that imposes it.
+Test: why can the cited state be taken as given? That it is the current state is not an answer. Where no reason holds, rederive the judgment from what the thing itself guarantees, or move the constraint to the use site that imposes it.
 
 ## False analogy
 
