@@ -212,9 +212,9 @@ Judge each suspect by role, not by size alone. The content question comes first:
 
 ## Split focus
 
-In a sentence, the cue is a connector joining clauses that each carry their own thought: an em dash, a semicolon, or "which also." In a paragraph, the cue is a role change midway.
+In a sentence, the cue is a connector joining clauses that each carry their own thought: an em dash, a semicolon, or "which also." In a paragraph, the cue is a role change midway. In a list, the cue is items of different kinds under the sentence that introduces them. In a section, the cue is a heading that needs "and" to cover its body. At document scale, the cue is a document serving two roles, such as a tutorial that also serves as a reference.
 
-Split at the role boundary. Where no existing break falls on it, recompose the passage instead of cutting at the nearest seam.
+Split at the role boundary. Where no existing break falls on it, recompose the region instead of cutting at the nearest seam.
 
 A colon that introduces detail after a label passes. A connective that itself states how the clauses relate, such as "because" or "but," also passes: the relation that it states is content. A split made there anyway is complete only when the resulting sentences still state the relation.
 

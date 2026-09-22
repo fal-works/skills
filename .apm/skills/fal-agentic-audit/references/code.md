@@ -241,6 +241,7 @@ In code, any of the following is a cue:
 
 - Orchestration and low-level manipulation in one body
 - A type that has accumulated a second responsibility
+- A module that can be described only by listing its contents
 - A name that needs "and"
 
 In comment prose, the cue is a connector joining clauses that each carry their own thought, such as an em dash, a semicolon, or "which also." A connective that itself states how the clauses relate, such as "because" or "but," is not this cue: what it states is content. A split made there anyway is complete only when the resulting sentences still state the relation.

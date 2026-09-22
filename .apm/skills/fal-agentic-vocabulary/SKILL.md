@@ -56,7 +56,7 @@ Applying the principle too little is the more frequent failure. The principle ca
 
 ### Principle of Unit focus
 
-Unit focus asks that a unit carry one role, at whatever level the unit sits: a sentence, a paragraph, a list, a function, a type. Units come to carry more than one role because the structure chosen while the unit was small stays fixed as content accumulates inside it.
+Unit focus asks that a unit carry one role, at whatever level the unit sits. In documentation, examples of units are a sentence, a paragraph, a list, a section, and a document. In code, examples are a function, a type, and a module. Units come to carry more than one role in two ways. In one, the structure chosen while the unit was small stays fixed as content accumulates inside it. In the other, content that would fill two units is condensed into one for brevity.
 
 The test is naming: can the unit's role be stated in one phrase, without an "and" joining two roles?
 
