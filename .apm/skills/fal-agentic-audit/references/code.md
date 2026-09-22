@@ -57,8 +57,12 @@ Any of the following is a cue:
 - A caller accessing another module's internals
 - Logic placed away from its subject
 - A constraint enforced far from the party that guarantees it
+- An enumeration in a comment, whether written as a list or as "A, B, or C"
+- A constant or a branch enumerating what another module defines
 
-Move each to the place that covers its subject. A rule that the module guarantees belongs in its own types, and a rule that one use site imposes belongs in that use site's layer.
+An enumeration in a comment is suspected of being detail below the level of the thing that the comment documents. The question is whether that level calls for the items themselves, or only for what they have in common.
+
+Move each to the place that covers its subject. A rule that the module guarantees belongs in its own types, and a rule that one use site imposes belongs in that use site's layer. Restate an enumeration at the level of the place where it sits. What the restatement drops is often unnecessary, and what is still needed belongs next to the item that it describes.
 
 ## Wrong-layer patch
 
@@ -122,9 +126,9 @@ A negation or prohibition written as its own sentence earns its place only when 
 
 In a comment, the cue is an enumeration, whether written as a list or as "A, B, or C." A routine change elsewhere can falsify it without touching the comment's file.
 
-In code, the cue is a constant or a branch enumerating what another module currently defines.
+In code, the cue is a constant or a branch that repeats what another module defines. A change to that module does not reach it.
 
-Restate one abstraction level up, or delete when the code is clear without it.
+For a comment, restate one abstraction level up, or delete when the code is clear without it. For code, the fixes vary with the case, and each makes a change at the source reach this place or fail visibly.
 
 ## Silent contradiction
 

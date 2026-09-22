@@ -38,11 +38,14 @@ Any of the following is a cue:
 
 - A fact in a section that covers a different subject
 - Detail below the scope's level
+- An enumeration, whether written as a list or as "A, B, or C"
 - An overview section that runs longer than its siblings because it holds material belonging to the detail layer
+
+An enumeration is suspected of being detail below the scope's level. The question is whether that level calls for the items themselves, or only for what they have in common.
 
 A fact stated in only one place can still be in the wrong one. The check runs at document scale too. A document that has departed from its genre holds material whose home is another document. A README that has accumulated changelog entries is the usual form.
 
-Move the fact to the place that covers its subject.
+Move the fact to the place that covers its subject. Restate detail below the scope's level at the level of the place where it sits. What the restatement drops is often unnecessary.
 
 ## Wrong-layer patch
 

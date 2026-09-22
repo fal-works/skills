@@ -44,7 +44,7 @@ The **"redundant statement"** antipattern restates what the artifact already say
 
 The **"unsolicited justification"** antipattern defends a claim that needs no defense, most often against an objection imagined while writing. The preemptive defense introduces the misreading that it tries to prevent.
 
-The **"staleness surface"** antipattern is a statement that a routine change can silently falsify. Where the same point can be made one abstraction level up, that form remains accurate after the change.
+The **"staleness surface"** antipattern is content that a routine change can silently falsify. Where the same point can be made one abstraction level up, that form remains accurate after the change.
 
 The **"overlong block"** antipattern is a paragraph, list item, function, or code block that runs longer than its role needs. Length is what shows, and the cause lies elsewhere: content that does not earn its place, a focus that has split, or detail whose home is a smaller scope. The content question comes first, because splitting content that should have been dropped is wasted work.
 
