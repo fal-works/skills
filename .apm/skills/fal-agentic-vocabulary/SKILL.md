@@ -30,7 +30,7 @@ Under the Applicability principle, an antipattern name applies when the defined 
 
 ### Principle of Necessity
 
-Necessity asks that anything added earn its place, weighed against two costs: the reader's attention now and the project's maintenance later. The default is to leave it out. What earns a place is what the reader needs and cannot get from what is already there, not merely what has not been said yet. In documentation, that is most often a contract or a non-obvious why.
+Necessity asks that anything added earn its place, weighed against two costs: the reader's attention now and the project's maintenance later. The default is to leave it out. What earns a place is what the reader needs and cannot get from what is already there. That content is true, relevant, or not yet said does not earn it a place. In documentation, that is most often a contract or a non-obvious why.
 
 The test is removal: take the content out, and name what the reader then loses.
 
@@ -156,7 +156,7 @@ The test is to name what the addition relates to: the element that it extends, s
 
 Without a relation between the existing element and the addition, improvements never propagate from one to the other. Readers are left to determine for themselves how the two relate.
 
-The **"unintegrated addition"** antipattern is a new element placed without being related to the existing model. It takes several forms: something that overlaps what is already there, a specialization of an existing general type defined as though unrelated, and a section written in its own vocabulary and classification rather than the one already in use. The degree of overlap is not the point, and an exact duplicate is only the most extreme case.
+The **"unintegrated addition"** antipattern is a new element placed without being related to the existing model. It takes several forms: something that overlaps what is already there, a specialization of an existing general type defined as though unrelated, and a section written in its own vocabulary and classification rather than the one already in use. The degree of overlap is not the point. An exact duplicate is only the most extreme case, and elements that model different concepts can look alike and still diverge once their relation is decided.
 
 ### Principle of Visible conflict
 
