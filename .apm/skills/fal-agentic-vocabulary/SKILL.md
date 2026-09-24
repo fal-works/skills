@@ -232,7 +232,7 @@ Two practices keep terms resolvable. A concept that recurs often enough within o
 
 Conversely, an unfamiliar term already in the repository is worth checking for a definition before it is adopted. In a document, a term is defined where a passage states what it means. Any other appearance is a use, and a prominent use, such as a heading or a section topic, is still a use. That existing text uses a term is a weak reason to adopt the term. This is because the term is often an earlier session's coinage that further use establishes as vocabulary.
 
-Relations and statuses resolve by being stated. An enumeration needs the text around it to show what it enumerates, usually in the sentence that introduces it or contains it. An enumeration also needs its status shown. A closed set is enumerated in full. For an open set, the abstract statement comes first, and the enumeration that follows is explicitly marked as examples. Precision comes from explicit markers, such as which quantifier applies, how far the scope reaches, whether the set is open or closed, and whether a passage defines or illustrates. It does not come from adding items to an enumeration.
+For relations and statuses, the default is to use short connective phrases or labels. Examples follow the general statement that they illustrate and are marked as examples. The sentence that introduces or contains an enumeration states what is being listed. It also shows whether the writer intends to list all members or give examples.
 
 In code, a concept that only a general-purpose word names is usually one whose contract or abstraction level is not yet defined. The Structural naming principle governs this case.
 
@@ -244,7 +244,7 @@ The **"stripped term"** antipattern drops the qualifier from a defined term at a
 
 The **"packed phrase"** antipattern condenses an expression until the reader can no longer recover how its words relate. Each word can resolve on its own, and what the condensation drops is the relation between them.
 
-The **"unstated relation"** antipattern presents a relation or a status through form alone, such as juxtaposition, a parenthesis, or position in the prose, instead of stating it in words. The relation is known only to the writer, the reader supplies one by inference, and a wrong inference shows nothing on the page. An unlabeled example or an unmarked enumeration is read in the strongest way, as a rule or a complete classification. Forms include parentheses with unstated relations, defined names without the kind of thing they name, unlabeled example sentences, and enumerations that do not show whether they are complete.
+The **"unstated relation"** antipattern relies on form to convey a relation or status that the intended reader's context and conventions do not establish. Such forms include juxtaposition, parentheses, and position in prose.
 
 The **"unclear reference"** antipattern refers to something elsewhere in the text as though the reader already had it in view. A point restated in different wording is such a reference when the reader cannot recognize it as the same point. The writer holds the whole text at once, while the reader has only what the words identify. The target is reachable only where the wording, the distance, and the number of candidates leave one reading. A short reference is not itself a failure when the reader can determine what it means at that point.
 
