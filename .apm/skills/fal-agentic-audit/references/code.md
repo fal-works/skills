@@ -1,315 +1,155 @@
-# Checks for code and comments
+# Cues and judgment notes for code and comments
 
-These are the checks for code structure, code comments, and doc comments. The `fal-agentic-audit` skill states how to run them.
+This file holds the cues and the judgment notes for code structure, code comments, and doc comments. The `fal-agentic-audit` skill states how to use them.
 
-## Under-scoped change
+## Cues
 
-In the edit, any of the following is a cue:
+A cue marks where to suspect an antipattern. Each cue ends by naming the antipatterns to suspect. The `fal-agentic-vocabulary` skill decides whether the suspicion holds. The material for that judgment is the definition of the antipattern and the rest of the section that holds it, including the principle's test and the paragraph on its overapplication. Where the antipattern has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
 
-- A flag or special case inserted throughout the old structure
-- A change that leaves every existing element in place
+### Comment phrasing
 
-In the result, any of the following is a cue:
+- Negation or comparison phrasing, such as "not X," "rather than," or "instead of." Suspect "unsolicited clarification," "session leak," and "unsolicited history."
+- A comment that defends a claim or a choice against a doubt or an objection, such as `// This is intentional` or `// Not a bug`. Suspect "unsolicited clarification" and "session leak."
+- A caveat or a concession beside a claim. Suspect "unsolicited clarification."
+- A comment stating a prohibition. Suspect "unsolicited clarification" and "context-bound statement."
+- A comment stating what the code does not handle. Suspect "unsolicited clarification" and "context-bound statement."
+- Narration of what the change replaced, such as `// renamed from Z` or `// previously returned Y`. Suspect "unsolicited history."
+- A qualifier that refers to a previous version, such as "the refactored path." Suspect "version-bound description."
+- A comment that paraphrases the name, the signature, or the code beside it. Suspect "redundant statement."
+- A comment that tells the reader how to read the code rather than why the code is as it is. Suspect "wrong-layer patch."
+- A comment that names the current callers or what they are assumed to have done, such as "Used by X" or "Assumes callers validated the input." Suspect "caller-bound framing" and "snapshot reasoning."
+- A doc comment that describes the thing in the caller's domain, use case, or terminology. Suspect "caller-bound framing."
+- A justification that cites who currently calls the thing, which inputs occur, or the present shape or placement of the code. Suspect "snapshot reasoning."
+- Wording that claims sameness, such as "same as X" or "as in X." Suspect "false analogy."
+- A comment on an optional field stating that the value is present under some condition, such as "should never be null when X." Suspect "wrong-layer patch."
+- A doc comment on a public surface naming types, mechanisms, or steps that its reader cannot see. Suspect "exposed internals" and "unabstracted detail."
+- A doc comment on a declaration that details one of its members, such as a type doc describing the behavior of one field. Suspect "unabstracted detail."
+- A connector that joins clauses without stating how they relate, such as an em dash, a semicolon, or "which also." Suspect "split focus" and "unstated relation."
+- A verb of physical action with an abstract noun as its subject or object. Suspect "culture-bound phrase."
+- An inanimate subject given will, speech, or feeling. Suspect "culture-bound phrase."
+- An idiom of general English. Suspect "culture-bound phrase."
+- Comments in one region drawing words from one figurative system. Suspect "culture-bound phrase."
 
-- Entry points multiplied per use site
-- A new function beside one with the same responsibility
-- A new type enumerating nearly the same cases as an existing one
-- A general module given a constraint that only one use site imposes
+### Enumerations, references, and terms in comments
 
-The fix is a redesign of the affected scope, not a better insertion.
+- A list or an enumeration, in list notation or inline, such as "A, B, or C" or "A, B, and C." Ask what the surrounding text says it lists, whether other plausible items could also belong, and whether the wording presents a complete set or examples. Suspect "unabstracted detail," "staleness surface," and "unstated relation."
+- A parenthesis after a term, such as `X (Y)`, whose relation to the term is not stated. Suspect "unstated relation."
+- A defined name in parentheses without the kind of thing that it names. Suspect "unstated relation."
+- An example placed beside the rule that it illustrates, with no label marking it as an example. Suspect "unstated relation."
+- A concrete value or identifier, such as a count, a path, a line number, a version, or a date. Suspect "staleness surface."
+- A reference that locates its target by position, such as "the call above." Suspect "unclear reference" and "staleness surface."
+- A demonstrative, a pronoun, or a noun phrase presented as already known, such as "the items," standing in place of a name. Suspect "unclear reference."
+- A point stated again, in the same or in different wording. Suspect "redundant statement" and "unclear reference."
+- A reference that neither the repository nor a public source resolves, such as "as discussed" or "as agreed." Suspect "vestige" and "session leak."
+- A term in backticks that names no symbol. Search the repository first. Suspect "unmarked coinage."
+- A compound label that leads to no declaration. Search the repository first. Suspect "unmarked coinage."
+- A phrase that has to be reread to determine how its words relate. Suspect "packed phrase."
+- A bare general word for a qualified concept, such as "budget" for a retry budget. Suspect "stripped term."
 
-## Vestige
+### Names
 
-Any of the following is a cue:
+- A qualifier that refers to a previous version, such as `newParser`, `parserV2`, or `legacyHandler`. Suspect "version-bound description" and "needless backward compatibility."
+- An identifier that has to be reread to determine how its words relate, such as one stacking three nouns and a qualifier. Suspect "packed phrase."
+- An identifier that is a bare general word, such as a `budget` field that holds a retry budget or a type named `Handler`. Suspect "stripped term," and suspect "catch-all name" as a case that the Structural naming principle governs.
+- Several similar names in one region. Suspect "wrong-layer patch," as the first of the causes that the Structural naming principle lists.
+- A qualifier that only tells two names apart. Suspect "wrong-layer patch," as the first of the causes that the Structural naming principle lists.
+- A symbol named for its caller. Suspect "caller-bound framing," as the second of the causes that the Structural naming principle lists.
+- A public symbol named for its representation or mechanism. Suspect "exposed internals," as the second of the causes that the Structural naming principle lists.
+- A name that needs "and." Suspect "split focus."
 
-- A helper that has no caller left
-- A branch for a state that the current design excludes
-- A guard for an assumption no longer in force
+### Structure
 
-Test against the current design, not the old one: does it give the element a reason to exist? Delete what fails the test.
+- A function or a block too large to understand in one reading. Suspect "overlong block."
+- A body that mixes orchestration with low-level manipulation. Suspect "split focus."
+- A caller that reaches into another module's internals. Suspect "misplacement."
+- A flag or a special case that the change in hand inserted into the existing structure. Suspect "under-scoped change."
+- A change that only adds, leaving every existing element in place. Suspect "under-scoped change."
+- Entry points or wrappers multiplied per use site. Suspect "under-scoped change."
+- The old interface kept beside its replacement, such as an alias, a deprecated wrapper, a parameter kept so that callers do not break, or both paths behind a flag. Suspect "needless backward compatibility."
+- A null check or a guard. Suspect "vestige" and "wrong-layer patch."
+- A branch that returns a default, substitutes a null or an empty value, or ignores an error. Suspect "silent fallback."
 
-## Needless backward compatibility
+### Units questioned or compared
 
-Any of the following keeps the old interface alongside its replacement:
+A word or a form does not mark these cues. Each is found by examining the units that the cue names, as the cue states.
 
-- A kept alias
-- A deprecated wrapper nobody requested
-- A parameter preserved "so callers do not break"
-- Both code paths behind a flag
+- A departure from the form shared by siblings, such as in naming convention, argument order, layout, or language. Read the siblings first. Suspect "sibling mismatch."
+- A change applied to one unit whose siblings keep the old form. Suspect "sibling mismatch" and "under-scoped change."
+- Explanation or code devoted to one case, such as a comment, a helper, a parameter, or a branch, where neighboring cases receive less or none. Compare what each case received with the region as a whole. Suspect "salience leak."
+- An element or a claim that nothing in scope requires or supports, such as a helper, a type, or a parameter that nothing uses. Ask what in scope motivates it. Suspect "session leak" and "vestige."
+- A rule or a verdict stated without limit or conditions. Ask whether a reader can recover its scope from the code and comment, taking any stated reason into account. Suspect "context-bound statement."
+- A comment whose reading is not obvious, where neither the code nor the nearby comments settle how it was meant. Suspect "context-bound statement."
+- A function or a block. Ask what subject its logic is about, judging by the data that it reads and writes, and whether the module that holds it covers that subject. Suspect "misplacement."
+- A code element, such as a constant or a branch, that repeats a definition from elsewhere. Suspect "staleness surface" and "misplacement."
+- A constraint that the code enforces, such as a validation or an assertion. Ask which party guarantees or imposes it, and whether the enforcement sits with that party. Suspect "misplacement" and "under-scoped change."
+- A unit of code, such as a function, a block, a type, or a module. Ask what its parts do and how they relate to one another. Suspect "split focus" and "misplacement."
+- A new code element, such as a function, type, or module, that overlaps an existing element in responsibility or in the cases that it enumerates. Search beyond the module under edit. Suspect "unintegrated addition" and "under-scoped change."
+- A specialization of an existing general type defined as though unrelated. Suspect "unintegrated addition."
+- A construct that also appears in code that looks similar, such as a guard, a lock, a retry, or a cache. Suspect "false analogy."
+- A name at its declaration. Ask whether a reader who has not seen its use sites can tell what it names. Suspect "caller-bound framing" and "wrong-layer patch."
+- A comment that states what the code does or guarantees. Read the code and verify each claim. Suspect "silent contradiction."
+- Every comment in focus, and every part of one. Suspect "over-documentation."
 
-Test each kept interface: did the request keep it, or only the writer's caution? Keep what the request kept. Replace the rest, and migrate the callers. Where it cannot be determined which, leave the interface and report it.
+## Judgment notes
 
-## Unintegrated addition
+The `fal-agentic-vocabulary` skill decides whether a suspected antipattern holds and what the fix is. The notes here cover only what that skill does not settle. Examples are what to do when the judgment cannot be made, a fix that the auditor might not think of, a weighting that the definition does not carry, and a case that this medium handles in its own way.
 
-Any of the following is a cue:
-
-- A new type, function, or module overlapping what already exists
-- A specialization of an existing general type defined as though unrelated
-
-Relate the addition: reuse, extend, or replace the existing element.
-
-Types and functions that model different concepts might look duplicated and still need to diverge freely. The check aims at the addition that was never judged.
-
-## Misplacement
-
-Any of the following is a cue:
-
-- A caller accessing another module's internals
-- Logic placed away from its subject
-- A constraint enforced far from the party that guarantees it
-- A constant or a branch enumerating what another module defines
-
-Move each to the place that covers its subject. A rule that the module guarantees belongs in its own types, and a rule that one use site imposes belongs in that use site's layer.
-
-## Unabstracted detail
-
-The cue is an enumeration in a comment, whether written as a list or as "A, B, or C." It is suspected of being detail below the level of the thing that the comment documents. The question is whether that level calls for the items themselves, or only for what they have in common.
-
-Restate the enumeration at the level of the place where it sits. What the restatement drops is often unnecessary, and what is still needed belongs next to the item that it describes.
-
-## Wrong-layer patch
-
-In code, any of the following is a cue:
-
-- A run-time check for a state that the types could exclude
-- An optional field annotated "should never be null when X"
-
-In a comment, the cue is an explanation that tells the reader how to read the code rather than why the code is that way.
-
-In naming, any of the following is a cue:
-
-- Several similar names concentrated in one region
-- A qualifier added only to tell two names apart
-- A name that resolves only through its use site
-
-Sketch the fix one structural level up instead of refining the workaround. Each naming cue asks whether the design expresses the distinction that the name is carrying. Where it does not, a rename is the symptom-layer fix.
-
-## Snapshot reasoning
-
-The cue is placement, classification, or existence justified by any of the following:
-
-- Who currently calls the thing
-- What they pass
-- Which inputs occur
-- The code's present shape
-
-Test: why can the cited state be taken as given? That it is the current state is not an answer. Where no reason holds, rederive the judgment from what the thing itself guarantees, or move the constraint to the use site that imposes it.
-
-## False analogy
-
-The cue is a construct, such as a lock, a guard, or a retry, copied from code that looks similar.
-
-Test: does the reason that the construct had at its source hold at the destination? Remove the construct where the reason does not hold. Where the reason is not known, report the construct and leave the code untouched.
-
-## Over-documentation
-
-This check has no cue, and every comment in focus is a candidate.
-
-Test by removal: take the comment out and name what the reader of the code then lacks. An answer names a contract or a why that the code does not show. That the comment is accurate is not an answer.
-
-Delete what has no answer. Where the answer covers only part of a comment, keep that part and drop the rest.
-
-## Redundant statement
-
-The cue is a comment that paraphrases the function name, the type signature, or the code next to it.
-
-Delete, or rewrite at the level of what callers can rely on.
+### Redundant statement
 
 A short doc summary that reads as redundant with the name passes where it states the intent or the scope that the name leaves open.
 
-## Unsolicited clarification
+### Unsolicited clarification
 
-Any of the following is a cue:
+A negation or a prohibition written as its own sentence earns its place only where its benefit to the reader is substantial. Where deleting a qualifier would make the claim false, the qualifier stays, or the claim is reworded to the scope that it can carry.
 
-- A comment answering an objection that nobody raised, such as `// This is intentional` or `// Not a bug: we need this because...`
-- A comment negating an alternative that nothing in the code suggests, such as `// no retry here`
-- A comment stating what the code does not handle, where nothing in the code suggests that it would
-- A comment that only forbids the opposite of what a neighboring comment requires
+### Staleness surface
 
-Test by deletion: take the comment out and name the question that the reader would then have, such as a surprise left unexplained or a contract that the code does not show. A comment that answers one passes. Delete the clarification that answers none.
+Where code that repeats a definition from elsewhere has to stay, the fix can make a change at the source either reach this place or fail visibly. An example of the first is deriving the value from the source. An example of the second is an exhaustive match that stops compiling when a case is added.
 
-A negation or prohibition written as its own sentence earns its place only when its benefit to the reader is substantial enough to justify it.
+### Needless backward compatibility
 
-## Staleness surface
+Where the request did not keep an old interface that sits beside its replacement, the fix replaces it and migrates the callers. Where it cannot be determined whether the request kept it, leave the interface and report it.
 
-In a comment, the cue is an enumeration, whether written as a list or as "A, B, or C." A routine change elsewhere can falsify it without touching the comment's file.
+### False analogy
 
-In code, the cue is a constant or a branch that repeats what another module defines. A change to that module does not reach it.
+Where the reason behind what is established is not known, such as the reason that a copied construct had at its source, report the construct or the wording and leave the code untouched.
 
-For a comment, restate one abstraction level up, or delete when the code is clear without it. For code, the fixes vary with the case, and each makes a change at the source reach this place or fail visibly.
+### Silent contradiction
 
-## Silent contradiction
+If the code might be wrong instead of the comment, report the conflict and leave both sides untouched.
 
-The comment says X. The code does Y. Detection requires reading the annotated code, not skimming it: verify each claim.
+### Caller-bound framing
 
-If the text is stale, then fix or delete it. If the code might be wrong instead, then that is a bug: report the conflict and leave both sides untouched.
+A bare caller reference such as "Used by X" can remain while the structure work that removes it is deferred. Elaborating on how the caller behaves or what it passes turns a caller fact into an intrinsic property and crosses the boundary.
 
-## Silent fallback
+### Session leak
 
-Any of the following is a cue:
+Where the element or the comment marks a property of the code that surprises a fresh reader, the fix can replace it with a direct statement of the property instead of deleting it.
 
-- A default returned on input that must never occur
-- A caught-and-ignored error
-- A substituted null or empty value
+### Salience leak
 
-If the invariant must hold, then assert the violation instead of hiding it.
+Where one case has dedicated code that neighboring cases do not have, the case can sometimes be absorbed into the general one.
 
-## Session leak
+### Context-bound statement
 
-Any of the following is a cue:
+Where the context in which the comment was written is not known, leave the comment untouched, because a rewording replaces the writer's meaning with the auditor's guess. Report the comment and the meaning taken from the code and the comment, for someone who holds the context to compare.
 
-- A comment citing a file or an agreement that neither the repository nor a public source resolves
-- Negation phrasing in a comment, such as "not X" or "rather than"
-- The content of an instruction restated as a fact about the code
-- An element that exists only because the session raised it, such as a guard for a case that nothing in scope requires
+### Version-bound description
 
-Test each claim and each element: would someone who never sat in the session write it? Delete what fails. If the code has a surprising property, then state the property directly.
+Where removing the qualifier leaves nothing that distinguishes the thing, two elements compete for one name, and the design has not decided between them. The fix is that decision. The superseded element is usually a vestige to delete.
 
-A comment naming the rejected alternative earns its place only where a fresh reader would expect that alternative. It also has to say why the choice was made.
+### Unmarked coinage
 
-## Salience leak
+A concept that keeps needing a coined label usually wants a declaration of its own. Judge the concept under the Structural naming principle before replacing the label.
 
-No phrasing marks this failure. The cue is disproportion, and any of the following is one:
+### Unclear reference
 
-- A comment on the case that the session raised and none on its neighbors
-- A helper extracted for that one case
-- A parameter or branch covering only the dimension that was discussed
+Each reference carries some risk of a failed lookup, so a passage with many references warrants testing each one.
 
-Compare what each part received against the region as a whole. Adjust the emphasis, or absorb the special case back into the general one.
+### Packed phrase
 
-## Context-bound statement
+Where a name does not unpack to a readable length, the concept that it names is suspect before the name is. Judge the concept under the Structural naming principle before renaming.
 
-No phrasing marks this failure, and the code alone seldom shows whether the failure is present. Any of the following is a cue:
+### Culture-bound phrase
 
-- A comment stating a constraint or a prohibition without limit, where the reader cannot recover its reason or the scope that was meant
-- A comment stating a verdict as a general fact, where neither the code nor the comment states the conditions
-- A comment whose reading is not obvious, where neither the code nor the nearby comments settle how it was meant
-
-Where the context in which the comment was written is known, reword the comment or delete it.
-
-Where that context is not known, leave the comment untouched, because a rewording would replace the writer's meaning with the auditor's guess. Report the comment and the meaning taken from the code and the comment, for someone who holds the context to compare.
-
-## Version-bound description
-
-The cue is an identifier carrying a qualifier that means something only against the old version, such as `newParser`, `parserV2`, or `legacyHandler`. The same qualifier can appear in a comment, such as "the refactored path."
-
-Remove the qualifier and name the thing by what it is. If nothing distinguishing remains, then two elements are competing for one name, and the design has not decided between them. The fix is that decision, and the superseded element is usually a vestige to delete.
-
-## Unsolicited history
-
-The cue is a comment narrating what the change replaced, such as `// renamed from Z` or `// previously returned Y`.
-
-Delete the narration and keep the description of the current state. Version control holds the history.
-
-## Exposed internals
-
-Any of the following is a cue:
-
-- A doc comment on a public surface naming types, mechanisms, or steps that its reader cannot see
-- A public symbol named for its internal representation or mechanism
-
-Rewrite in terms visible from outside, or delete. Rename a symbol by what it promises.
-
-A mechanism deliberately fixed as a promise passes. "Binary search" in a doc commits the function to O(log n), and naming it is the commitment.
-
-## Caller-bound framing
-
-Any of the following is a cue:
-
-- A symbol named for the caller that happens to use it
-- A doc comment describing the thing in the caller's domain, use case, or terminology
-
-Restate the description as a contract with the thing as its subject. For a name, inspect the structure before renaming.
-
-The bare caller reference is a borderline case, not a clean pass. "Used by X" and "Assumes callers validated the input" strictly fall under this antipattern. Such a comment may remain because the refactoring is unfinished or is not worth its cost, so it need not be fixed at once. Keep it, and read it as a signal that structure work was deferred. Where the thing is meant to serve only that one caller, the boundary is what needs fixing rather than the description. Elaborating on how X behaves or what it passes crosses the boundary and turns a caller-specific fact into an intrinsic property.
-
-## Sibling mismatch
-
-Any of the following is a cue:
-
-- Naming convention, argument order, or layout departing from the sibling set
-- A change applied to one unit while its siblings keep the old form
-
-Read the siblings before judging one member. Conform, or report the mismatch when the material genuinely does not fit.
-
-## Overlong block
-
-The cue is a function or block too large for easy comprehension.
-
-Ask the content question first: does everything in it earn its place? Split only afterward. Splitting content that should have been dropped is wasted work.
-
-## Split focus
-
-In code, any of the following is a cue:
-
-- Orchestration and low-level manipulation in one body
-- A type that has accumulated a second responsibility
-- A module that can be described only by listing its contents
-- A name that needs "and"
-
-In comment prose, the cue is a connector joining clauses that each carry their own thought, such as an em dash, a semicolon, or "which also." A connective that itself states how the clauses relate, such as "because" or "but," is not this cue: what it states is content. A split made there anyway is complete only when the resulting sentences still state the relation.
-
-Split along the roles. Where the current structure gives them no clean seam, recompose the region instead of cutting the body where it stands.
-
-## Unmarked coinage
-
-Any of the following is a cue:
-
-- A comment using a term in backticks that names no symbol
-- A compound label that the reader cannot follow to any declaration
-
-Search the repository before judging. A term that appears in comments, and that the repository neither declares nor defines, is likely a previous session's coinage, not established vocabulary. Replace it with a plain description or the real symbol, and do not propagate the coined term. A concept that keeps needing a coined label usually wants a declaration of its own.
-
-## Catch-all name
-
-The cue is a general-purpose word as the name of a type, function, field, or module, such as "layer," "element," "component," "manager," or "handler."
-
-Test: does the name distinguish this concept from its neighbors? Treat the name as a symptom first, a case that the Structural naming principle governs.
-
-## Stripped term
-
-The cue is an identifier that drops the qualifier of the concept that it names. Examples are a `budget` field that holds a retry budget and a `table` parameter that takes a staging table. The same shortening can appear in a comment.
-
-Restore the full term at every surface that a reader meets without the enclosing scope in view. A local variable inside that scope can carry less.
-
-## Packed phrase
-
-The cue is a name or a comment phrase whose words have to be reread to determine how they relate. An identifier stacking three nouns and a qualifier is the usual form.
-
-Unpack it. A name that will not unpack to a readable length is naming more than one thing.
-
-## Unstated relation
-
-In a comment, any of the following is a cue:
-
-- A parenthesis after a term with no stated relation between the two
-- A defined name in parentheses without the kind of thing that it names
-- An example placed beside the rule that it illustrates, with no label marking it as an example
-- An enumeration that does not show whether it lists every member or only some
-- A list where the text that introduces it does not state what it enumerates
-
-State the relation in words, or label the status, marking a partial enumeration as examples.
-
-## Unclear reference
-
-In a comment, any of the following is a cue:
-
-- A demonstrative or a pronoun used in place of a name
-- A noun phrase presented as already known, such as "the items"
-- A reference that locates its target by its place in the file, such as "the call above"
-- A point stated again in wording that differs from the comment that stated it first
-
-Test each reference by naming the target that the reader would reach. It fails where the target is far back, or where more than one candidate fits it. Each reference carries some risk of a failed lookup, so many references in one passage increase that risk.
-
-Name the target in place of the reference. Where a point returns, repeat the wording that first stated it.
-
-## Culture-bound phrase
-
-In a comment, any of the following is a cue:
-
-- A verb of physical action with an abstract noun as its subject or object
-- An inanimate subject given will, speech, or feeling
-- An idiom of general English
-- Comments in one region using words from one figurative system
-
-A term of figurative origin that the domain has established, such as "thread" or "pipeline," resolves as an established term of the domain and passes. So does a phrase that resolves as a code symbol of the repository. A subject such as a function, a type, or a rule taking a verb of stating or requiring is established technical usage and also passes. Replace the rest with the direct statement of the operation or the fact.
+An inanimate subject passes where the wording is established technical usage, such as a function, a type, or a rule taking a verb of stating or requiring. So does a phrase that resolves as a code symbol of the repository.

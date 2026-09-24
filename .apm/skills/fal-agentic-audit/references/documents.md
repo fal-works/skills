@@ -1,286 +1,126 @@
-# Checks for documents
+# Cues and judgment notes for documents
+
+This file holds the cues and the judgment notes for Markdown documents and other prose written for future readers. The `fal-agentic-audit` skill states how to use them.
+
+## Cues
+
+A cue marks where to suspect an antipattern. Each cue ends by naming the antipatterns to suspect. The `fal-agentic-vocabulary` skill decides whether the suspicion holds. The material for that judgment is the definition of the antipattern and the rest of the section that holds it, including the principle's test and the paragraph on its overapplication. Where the antipattern has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
+
+### Phrasing
+
+- Negation or comparison phrasing, such as "not X," "rather than," "instead of," or "this does not mean." Suspect "unsolicited clarification," "session leak," and "unsolicited history."
+- A passage that defends a claim or a choice against a doubt or an objection, such as "this is intentional." Suspect "unsolicited clarification" and "session leak."
+- A caveat, a concession, or an edge-case note beside a claim. Suspect "unsolicited clarification."
+- A prohibition. Suspect "unsolicited clarification" and "context-bound statement."
+- A statement of what is out of scope. Suspect "unsolicited clarification" and "context-bound statement."
+- Narration of what the change replaced, such as "previously," "renamed from Z," or "now uses X instead of Y." Suspect "unsolicited history."
+- A qualifier that depends on the old version, such as "the new pipeline," "the refactored module," or "the current approach." Suspect "version-bound description."
+- An opening line that echoes its heading. Suspect "redundant statement."
+- A passage that explains how to read the document rather than explaining its subject. Suspect "wrong-layer patch."
+- A justification that cites the current state of the subject or of the document's outline as its reason. Suspect "snapshot reasoning."
+- Wording that claims sameness, such as "the same as," "likewise," or "a kind of." Suspect "false analogy."
+- A conclusion that cites a rule or an earlier decision without stating why it was established. Suspect "false analogy."
+- A connector that joins clauses without stating how they relate, such as an em dash, a semicolon, or "which also." Suspect "split focus" and "unstated relation."
+- A verb of physical action with an abstract noun as its subject or object. Suspect "culture-bound phrase."
+- An inanimate subject given will, speech, or feeling. Suspect "culture-bound phrase."
+- An idiom of general English. Suspect "culture-bound phrase."
+- Successive sentences drawing words from one figurative system. Suspect "culture-bound phrase."
 
-These are the checks for Markdown documents and other prose written for future readers. The `fal-agentic-audit` skill states how to run them.
+### Enumerations, references, and terms
 
-## Under-scoped change
+- A list or an enumeration, in list notation or inline, such as "A, B, or C" or "A, B, and C." Ask what the surrounding text says it lists, whether other plausible items could also belong, and whether the wording presents a complete set or examples. Suspect "unabstracted detail," "staleness surface," and "unstated relation."
+- A parenthesis after a term, such as `X (Y)`, whose relation to the term is not stated. Suspect "unstated relation."
+- A defined name in parentheses without the kind of thing that it names. Suspect "unstated relation."
+- An example sentence in body prose with no label marking it as an example. Suspect "unstated relation."
+- A concrete value or identifier, such as a count, a path, a line number, a version, or a date. Suspect "staleness surface."
+- A reference that locates its target by position, such as "the items above." Suspect "unclear reference" and "staleness surface."
+- A demonstrative, a pronoun, or a noun phrase presented as already known, such as "the items," standing in place of a name. Suspect "unclear reference."
+- A point stated again, in the same or in different wording. Suspect "redundant statement" and "unclear reference."
+- A fact stated at the place that covers its subject and again elsewhere. Suspect "redundant statement" and "misplacement."
+- A reference that neither the repository nor a public source resolves, such as "as discussed," "as agreed," or a cross-reference into a document that has since been reorganized. Suspect "vestige" and "session leak."
+- A term in backticks that the repository neither declares nor defines. Search the repository first. Suspect "unmarked coinage."
+- A compound label that the repository does not define. Search the repository first. Suspect "unmarked coinage."
+- A phrase that has to be reread to determine how its words relate. Suspect "packed phrase."
+- A general-purpose word serving as the document's fixed term for one concept, such as "layer," "element," or "component." Suspect "catch-all name."
+- A defined term appearing without its qualifier. Suspect "stripped term."
+- A second term for a concept that the document has already named. Suspect "sibling mismatch" and "vestige."
 
-Any of the following is an addition placed where the old outline allowed insertion rather than where the content belongs:
+### Structure
 
-- A spec that accumulated clauses one requirement at a time
-- A description modified sentence by sentence as behavior changed
+- A paragraph or a list item of roughly 500 or more characters of Latin-script text, or of fewer characters in a denser script. Suspect "overlong block."
+- A paragraph that changes role midway. Suspect "split focus."
+- A list whose items are of different kinds. Suspect "split focus."
+- A heading that needs "and" to cover its body. Suspect "split focus."
+- A document serving two roles, such as a tutorial that also serves as a reference. Suspect "split focus."
+- A document holding material of another genre, such as a README with changelog entries. Suspect "misplacement."
+- Worked examples or per-item explanation in an overview document that has a detail layer. Suspect "misplacement" and "unabstracted detail."
+- A section that grew by clauses or sentences added one at a time, such as a spec with one clause per requirement. Suspect "under-scoped change."
+- A document that is addressed to readers outside a boundary and names mechanisms or types that those readers cannot see. Suspect "exposed internals."
+- A shared subject described in one consumer's vocabulary. Suspect "caller-bound framing."
+- A general capability described as the procedure of one use case. Suspect "caller-bound framing."
 
-The fix is reshaping the affected sections, not a better insertion.
+### Units questioned or compared
 
-## Vestige
+A word or a form does not mark these cues. Each is found by examining the units that the cue names, as the cue states.
 
-Any of the following is a cue:
+- A section that runs longer than its sibling sections. Read the siblings first. Suspect "unabstracted detail," "sibling mismatch," and "salience leak."
+- A list item several times the length of the items around it. Suspect "sibling mismatch."
+- Density, tone, vocabulary, language, or structure departing from the sibling sections or documents. Read the siblings first. Suspect "sibling mismatch."
+- A change applied to one unit whose siblings keep the old form. Suspect "sibling mismatch" and "under-scoped change."
+- A point given more room, more emphasis, or a narrower example than its place in the section warrants. An exception given more room than its rule is one form. Compare what each point received with the section as a whole. Suspect "salience leak."
+- A claim that nothing in scope supports, such as the content of an instruction restated as a fact. Ask what in scope motivates it. Suspect "session leak."
+- A rule, a decision, or a verdict stated without limit or conditions. Ask whether a reader can recover its scope from the document, taking any stated reason into account. Suspect "context-bound statement."
+- A statement whose reading is not obvious, where nothing nearby settles how it was meant. Suspect "context-bound statement."
+- A fact in a section. Ask what the fact is about, and whether the heading of the section covers that subject. Suspect "misplacement" and "under-scoped change."
+- A section and its heading. Ask whether the content would have been written if the heading did not call for it. Suspect "wrong-layer patch."
+- A section that overlaps what another document states. Search beyond the document under edit. Suspect "unintegrated addition."
+- A classification or a vocabulary parallel to the one in use. Search beyond the document under edit. Suspect "unintegrated addition."
+- A section that describes a design. Compare what it describes with the current design. Suspect "vestige."
+- A term for a component or a concept of the subject. Compare it with the name that the current code or design gives to the same thing. Suspect "vestige."
+- A criterion applied to an artifact. Compare that artifact with the one for which the criterion was set. Suspect "false analogy."
+- A description of a thing, whether that thing is adjacent or elsewhere. Find the thing and verify each claim. Suspect "silent contradiction."
+- Every passage in focus, and every part of one. Suspect "over-documentation."
 
-- A section still describing a retired architecture
-- A cross-reference into a reorganized document
-- Terminology retained from a previous version's vocabulary
+## Judgment notes
 
-Update to the current design, or delete.
+The `fal-agentic-vocabulary` skill decides whether a suspected antipattern holds and what the fix is. The notes here cover only what that skill does not settle. Examples are what to do when the judgment cannot be made, a fix that the auditor might not think of, a weighting that the definition does not carry, and a case that this medium handles in its own way.
 
-## Unintegrated addition
+### Redundant statement
 
-Any of the following is a cue:
+An opening line that reads as an echo of its heading passes where it states the scope that the heading leaves open. Where a copy is deleted and a reader at its place still needs the fact, the fix leaves a reference to the place that keeps it.
 
-- A new section overlapping what another document already states
-- A classification or vocabulary parallel to the one in use
+### Unsolicited clarification
 
-Relate the addition to the existing structure, or merge it.
+A negation or a prohibition written as its own sentence earns its place only where its benefit to the reader is substantial. Where deleting a qualifier would make the claim false, the qualifier stays, or the claim is reworded to the scope that it can carry.
 
-Sections that model different concepts might look duplicated and still need to diverge freely. The check aims at the addition that was never judged.
+### Wrong-layer patch
 
-## Misplacement
+When a shared template defines the structure, a section written to fill one of its headings is conforming.
 
-The cue is a fact in a section that covers a different subject.
+### False analogy
 
-A fact stated in only one place can still be in the wrong one. The check runs at document scale too. A document that has departed from its genre holds material that belongs in another document. A README that has accumulated changelog entries is the usual form.
+Where the reason behind what is established is not known, report the passage and leave it untouched.
 
-Move the fact to the place that covers its subject.
+### Silent contradiction
 
-## Unabstracted detail
+If the described thing might be wrong instead of the description, report the conflict and leave both sides untouched.
 
-Any of the following is a cue:
+### Session leak
 
-- An enumeration, whether written as a list or as "A, B, or C"
-- An overview section that runs longer than its siblings because it holds material belonging to the detail layer
+Where the passage marks a property of the subject that surprises a fresh reader, the fix can replace it with a direct statement of the property instead of deleting it.
 
-An enumeration is suspected of being detail below the scope's level. The question is whether that level calls for the items themselves, or only for what they have in common.
+### Context-bound statement
 
-Restate the detail at the level of the place where it sits. What the restatement drops is often unnecessary.
+Where the context in which the statement was made is not known, leave the statement untouched, because a rewording replaces the writer's meaning with the auditor's guess. Report the statement and the meaning taken from the document, for someone who holds the context to compare.
 
-## Wrong-layer patch
+### Unclear reference
 
-The cue is a long explanation compensating for structure. It tells the reader how to read the thing rather than why the thing is the way it is.
+Each reference carries some risk of a failed lookup, so a passage with many references warrants testing each one.
 
-Padding is the other form: a section written only because the heading exists.
+### Catch-all name
 
-Sketch the restructure that would make the prose unnecessary instead of refining the compensating text. Delete the padding or revise the headings.
+The replacement term is used everywhere that the document names the concept.
 
-When a shared template defines the structure, filling its sections is conforming, not padding.
+### Culture-bound phrase
 
-## Snapshot reasoning
-
-Any of the following is a cue:
-
-- A classification or a boundary kept because the current outline has it
-- The subject's present state offered as the reason to keep the current description
-
-Test: why can the cited state be taken as given? That it is the current state is not an answer. Where no reason holds, rederive the judgment from the purpose of the document and from what its subject guarantees.
-
-## False analogy
-
-Any of the following is a cue:
-
-- A conclusion that cites what is established, such as a rule or an earlier decision, and does not state why that was established
-- Wording that claims sameness, such as "the same as," "likewise," or "a kind of"
-- A criterion applied to an artifact other than the one for which it was set
-
-Test: does the reason behind what is established hold where the text applies it? Where the reason holds, state it. Where it does not, rederive the conclusion from the case. Where the reason is not known, report the passage and leave it untouched.
-
-## Over-documentation
-
-This check has no cue, and every passage in focus is a candidate.
-
-Test by removal: take the passage out and name what the reader then lacks. An answer names something that the subject does not show on its own. That the passage is true, relevant, or well written is not an answer.
-
-Delete what has no answer. Where the answer covers only part of a passage, keep that part and drop the rest.
-
-## Redundant statement
-
-Any of the following is a cue:
-
-- The same fact at the place that covers its subject and again downstream
-- Earlier prose of the same document rephrased
-
-Keep the statement at the place that covers its subject, delete the copies, and reference that place where a pointer is needed.
-
-An opening line that reads as an echo of its heading passes where it states the scope that the heading leaves open.
-
-## Unsolicited clarification
-
-Any of the following is a cue when the statement that it accompanies is accurate without it:
-
-- A concession
-- An edge-case note
-- A "this does not mean..."
-- A negation of an alternative, such as "A, not B" or "A rather than B"
-- A statement of what is out of scope
-- A justification of a claim or a choice that nobody questioned
-- A prohibition that only inverts the rule beside it
-
-Test by deletion: if the claim reads as meant without it, then delete the clarification. If removing it leaves standing a misreading or a question that the reader would have, then the clarification passes. If the claim turns false, then the qualifier is load-bearing: keep it, or reword the claim to the scope that the claim can honestly carry.
-
-A negation or prohibition written as its own sentence earns its place only when its benefit to the reader is substantial enough to justify it.
-
-## Staleness surface
-
-Any of the following is a cue:
-
-- A line count
-- A version number
-- An enumeration, whether written as a list or as "A, B, or C"
-
-Restate one abstraction level up, or delete when the document is clear without it.
-
-## Silent contradiction
-
-The description disagrees with the thing that it describes. The described thing is not adjacent: find it and read it.
-
-If the description is stale, then fix or delete it. If the thing might be wrong instead, then report the conflict and leave both sides untouched.
-
-## Session leak
-
-Any of the following is a cue:
-
-- A reference that neither the repository nor a public source resolves
-- Comparison and negation phrasing, such as "not X," "instead of," or "rather than"
-- The content of an instruction restated as a fact about the subject, even with no marker like "as agreed"
-
-Test each claim: would someone who never sat in the session still write it? Delete what fails. If the current state has a surprising property, then state the property directly.
-
-Comparison phrasing also marks legitimate least-surprise documentation. Keep the alternative only when a fresh reader would expect it, and state why the choice was made.
-
-## Salience leak
-
-No phrasing marks this failure. The cue is disproportion, and any of the following is one:
-
-- An exception given more room than its rule
-- An example narrower than the point that it illustrates
-
-Compare each point's emphasis to the section as a whole. Adjust the emphasis or remove the excess.
-
-## Context-bound statement
-
-No phrasing marks this failure, and the document alone seldom shows whether the failure is present. Any of the following is a cue:
-
-- A rule, a decision, or a prohibition worded without limit, where the reader cannot recover its reason or the scope that was meant
-- A verdict stated as a general fact, where the document states neither the question nor the conditions
-- An expression whose reading is not obvious, where nothing nearby settles how it was meant
-
-Where the context in which the statement was made is known, reword the statement or delete it.
-
-Where that context is not known, leave the statement untouched, because a rewording would replace the writer's meaning with the auditor's guess. Report the statement and the meaning taken from the document, for someone who holds the context to compare.
-
-## Version-bound description
-
-The cue is a qualifier that depends on the old version, such as "the new pipeline," "the refactored module," or "the current approach."
-
-Remove the qualifier. If what remains is unclear, then the description itself is the problem.
-
-A document whose purpose is to record a decision or event is outside this check.
-
-## Unsolicited history
-
-The cue is narration of what the change replaced, such as "now uses X instead of Y," "renamed from Z," or "previously."
-
-Delete the narration and keep the description of the current state.
-
-A document whose purpose is to record a decision or event is outside this check.
-
-## Exposed internals
-
-The cue is a document addressed to readers outside a boundary, naming mechanisms or types that those readers cannot see.
-
-Rewrite in terms visible from the reader's position.
-
-An internal fact deliberately fixed as a promise passes: stating it is the commitment.
-
-## Caller-bound framing
-
-Any of the following is a cue:
-
-- A document describing a shared subject in one consumer's vocabulary
-- A general capability described as the procedure of one use case
-
-Restate the description with the shared subject as its subject, in terms that every reader of the document can follow.
-
-## Sibling mismatch
-
-Any of the following is a cue:
-
-- Density, tone, vocabulary, language, or structure departing from sibling sections and documents
-- A second term for a concept that the document has already named
-
-Skim the siblings before editing one document. Mismatch is a corpus-level symptom that a single-file read cannot catch. Calibrate toward the corpus.
-
-Calibration is not minimization.
-
-## Overlong block
-
-The cue is size: roughly 500 characters of Latin-script text in a paragraph or list item, and fewer in denser scripts.
-
-Judge each suspect by role, not by size alone. The content question comes first: does everything in it earn its place? A split follows only when the focus has genuinely split.
-
-## Split focus
-
-In a sentence, the cue is a connector joining clauses that each carry their own thought: an em dash, a semicolon, or "which also." In a paragraph, the cue is a role change midway. In a list, the cue is items of different kinds under the sentence that introduces them. In a section, the cue is a heading that needs "and" to cover its body. At document scale, the cue is a document serving two roles, such as a tutorial that also serves as a reference.
-
-Split at the role boundary. Where no existing break falls on it, recompose the region instead of cutting at the nearest seam.
-
-A colon that introduces detail after a label passes. A connective that itself states how the clauses relate, such as "because" or "but," also passes: the relation that it states is content. A split made there anyway is complete only when the resulting sentences still state the relation.
-
-## Unmarked coinage
-
-Any of the following is a cue:
-
-- A natural-looking compound label that no document defines
-- Capitalization suggesting a defined term that no document defines
-
-Search the repository for a definition before judging. A term that the repository uses and nowhere defines is likely a previous session's coinage, not established vocabulary. Replace it with a plain description or the real symbol, and do not propagate the coined term. Where the concept genuinely recurs in the document, define it at first use instead.
-
-## Catch-all name
-
-The cue is a general-purpose word serving as a document's fixed term for one specific concept, such as "layer," "element," or "component."
-
-Test: does the term distinguish this concept from its neighbors? Replace it with a word specific enough to name that concept and no other. Use the replacement everywhere that the document names the concept.
-
-## Stripped term
-
-The cue is a defined term appearing without its qualifier at a later mention, such as "retry budget" shortened to "budget" or "staging table" to "table."
-
-Restore the full term wherever the surrounding text has not already fixed the referent.
-
-## Packed phrase
-
-The cue is having to reread a phrase to determine how its words relate.
-
-Unpack into a longer phrase that lets the reader recover the relationship.
-
-## Unstated relation
-
-Any of the following is a cue:
-
-- A parenthesis after a term, such as `X (Y)`, with no stated relation between the two
-- A defined name in parentheses without the kind of thing that it names
-- An example sentence placed in body prose with no label marking it as an example
-- An enumeration, such as "A, B, or C," that does not show whether it lists every member or only some
-- A list where neither the sentence that introduces it nor the heading above it states what it enumerates
-
-State the relation in words, or label the status, marking a partial enumeration as examples.
-
-## Unclear reference
-
-Any of the following is a cue:
-
-- A demonstrative or a pronoun used in place of a name
-- A noun phrase presented as already known, such as "the items"
-- A reference that locates its target by its place in the text, such as "the items above"
-- A point stated again in wording that differs from the first statement
-
-Test each reference by naming the target that the reader would reach. It fails where the target is far back, or where more than one candidate fits it. Each reference carries some risk of a failed lookup, so many references in one passage increase that risk.
-
-Name the target in place of the reference. Where a point returns, repeat the wording that first stated it.
-
-## Culture-bound phrase
-
-Any of the following is a cue:
-
-- A verb of physical action with an abstract noun as its subject or object
-- An inanimate subject given will, speech, or feeling
-- An idiom of general English
-- Successive sentences using words from one figurative system
-
-A term of figurative origin that the domain has established, such as "thread" or "pipeline," resolves as an established term of the domain and passes. A subject such as a document, a section, or a rule taking a verb of stating or requiring is established technical usage and also passes. Replace the rest with the direct statement of the operation or the fact.
+An inanimate subject passes where the wording is established technical usage, such as a document, a section, or a rule taking a verb of stating or requiring.
