@@ -1,6 +1,6 @@
 ---
 name: fal-design
-description: Principles for software design decisions in any general-purpose programming language. Useful when a task involves structural decisions about code, such as planning an approach, adding capabilities, restructuring, or modifying abstractions. Also useful in changes that look simple but affect structure. Counters the LLM tendency to patch minimally rather than redesign coherently.
+description: Deprecated. Use `fal-agentic-vocabulary` instead.
 ---
 
 # Design
