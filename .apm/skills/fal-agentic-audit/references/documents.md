@@ -22,7 +22,7 @@ A cue marks where to suspect an antipattern. Each cue ends by naming the antipat
 - A conclusion that cites a rule or an earlier decision without stating why it was established. Suspect "false analogy."
 - A connector that joins clauses without stating how they relate, such as an em dash, a semicolon, or "which also." Suspect "split focus" and "unstated relation."
 - A verb of physical action with an abstract noun as its subject or object. Suspect "culture-bound phrase."
-- An inanimate subject given will, speech, or feeling. Suspect "culture-bound phrase."
+- An inanimate subject given will, speech, feeling, or cognition, such as a cache that "remembers" a value or a module that "knows" its callers. Suspect "culture-bound phrase."
 - An idiom of general English. Suspect "culture-bound phrase."
 - Successive sentences drawing words from one figurative system. Suspect "culture-bound phrase."
 
@@ -31,6 +31,7 @@ A cue marks where to suspect an antipattern. Each cue ends by naming the antipat
 - A list or an enumeration, in list notation or inline, such as "A, B, or C" or "A, B, and C." Ask what the surrounding text says it lists, whether other plausible items could also belong, and whether the wording presents a complete set or examples. Suspect "unabstracted detail," "staleness surface," and "unstated relation."
 - A parenthesis after a term, such as `X (Y)`, whose relation to the term is not stated. Suspect "unstated relation."
 - A defined name in parentheses without the kind of thing that it names. Suspect "unstated relation."
+- A condition, an exception, or a limit that a claim depends on, placed in parentheses, such as "returns X (when the cache is enabled)." Suspect "unstated relation."
 - An example sentence in body prose with no label marking it as an example. Suspect "unstated relation."
 - A concrete value or identifier, such as a count, a path, a line number, a version, or a date. Suspect "staleness surface."
 - A reference that locates its target by position, such as "the items above." Suspect "unclear reference" and "staleness surface."

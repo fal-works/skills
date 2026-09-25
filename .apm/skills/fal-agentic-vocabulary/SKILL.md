@@ -53,6 +53,7 @@ Applying the principle too little is the more frequent failure. The principle ca
 - A statement that carries what the reader genuinely lacks, however short the text would be without it
 - A qualifier that would make the statement false if removed
 - A sentence that adds no new fact but prevents the "unstated relation" antipattern by stating a relation or a status where the reader needs it
+- A repeated noun or a helper word, such as "that" or "then," that fixes how a phrase is read
 
 ### Principle of Unit focus
 
@@ -244,11 +245,11 @@ The **"stripped term"** antipattern drops the qualifier from a defined term at a
 
 The **"packed phrase"** antipattern condenses an expression until the reader can no longer recover how its words relate. Each word can resolve on its own, and what the condensation drops is the relation between them.
 
-The **"unstated relation"** antipattern relies on form to convey a relation or status that the intended reader's context and conventions do not establish. Such forms include juxtaposition, parentheses, and position in prose.
+The **"unstated relation"** antipattern relies on form to convey a relation or status that the intended reader's context and conventions do not establish. Such forms include juxtaposition, parentheses, and position in prose. Form that presents as supplementary the information that a claim depends on is also this failure.
 
 The **"unclear reference"** antipattern refers to something elsewhere in the text as though the reader already had it in view. A point restated in different wording is such a reference when the reader cannot recognize it as the same point. The writer holds the whole text at once, while the reader has only what the words identify. The target is reachable only where the wording, the distance, and the number of candidates leave one reading. A short reference is not itself a failure when the reader can determine what it means at that point.
 
-The **"culture-bound phrase"** antipattern is wording that resolves only through its language's figurative and idiomatic conventions. Those conventions are not a namespace that every reader holds. The meaning does not survive translation or reach readers whose native language differs. A reader of the original language recovers the meaning, and the wording therefore passes a check that asks only for a referent. Personification is one form. Another is a figurative chain, where successive sentences use words from one figurative system. A figurative term established in the domain resolves through that domain's vocabulary and is not this failure.
+The **"culture-bound phrase"** antipattern is wording that resolves only through its language's figurative and idiomatic conventions. Those conventions are not a namespace that every reader holds. The meaning does not survive translation or reach readers whose native language differs. A reader of the original language recovers the meaning, and the wording therefore passes a check that asks only for a referent. Even for that reader, the wording can leave unclear which operation or fact it stands for. Personification is one form. Another is a figurative chain, where successive sentences use words from one figurative system. A figurative term established in the domain resolves through that domain's vocabulary and is not this failure.
 
 ### Principle of Structural naming
 
