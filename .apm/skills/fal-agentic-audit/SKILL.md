@@ -25,7 +25,7 @@ Whoever held the session is subject to the defensive bias toward keeping the wor
 
 ### 1. Set the scope and the focus
 
-Scope starts with the files that a just-finished change touched or the files that the user names. It follows relevant relationships beyond them as the cues require. Preexisting text is in scope, not only the text that the current change touched.
+Scope starts with the files that a just-finished change touched or the files that the user names. It includes related material needed to judge the work. Preexisting text is in scope, not only the text that the current change touched.
 
 Within that scope, the regions do not carry equal risk. A change in hand puts the risk in the changed text and in the seams where it meets what was already there. A reading of the change alone misses the seam risk. A defect that the user points to is the starting point of the pass and not its scope, because text that shows one antipattern usually shows others. Take its neighbors with it. Without a change or a defect that the user points to, this step sets no focus. The end-to-end read of step 2 shows where to look.
 
@@ -33,15 +33,17 @@ Within that scope, the regions do not carry equal risk. A change in hand puts th
 
 Placement and duplication are invisible line by line.
 
-Work file by file, except where a cue compares a unit with a set, such as its siblings. Those cues say so. Read what they compare against before deciding any one file.
+Work file by file. Where a judgment depends on a unit's relationship to other units, read those units before making the judgment.
 
-### 3. Suspect at cues, and judge by the definitions
+### 3. Examine the work and judge by the definitions
 
 Read the reference file that the scope calls for. When the change touched both media, read both reference files.
 
-The auditor starts from what the reading observes. The cues are arranged by what can be observed, so consult them whenever the reading meets such a feature, in no fixed order. Reading alone does not meet every cue. Some are found only by questioning a unit or comparing it with others, as each such cue states, so take up those questions and comparisons as part of the pass.
+Use the vocabulary's principles to decide what to examine in the work and its relationships. Form questions and comparisons from those principles, including where no listed cue applies.
 
-A cue is not yet a finding. It is a reason to suspect the antipatterns that it names, not a ground for concluding that any of them holds. Whether one holds is judged against the `fal-agentic-vocabulary` skill, as the reference files state, and the judgment sometimes has nothing in reach to settle it. Concerns can also pull against each other over the same text. The tension is in the concerns themselves, and which concern governs the case is the same judgment.
+Cues help locate possible failures and identify antipatterns to suspect. Consult them as relevant features appear, in no fixed order. Also carry out the questions and comparisons that the cues call for, because reading alone does not reveal every cue.
+
+Judge each suspected failure against the vocabulary's definitions and the relevant judgment notes. A cue alone does not establish a finding. The available evidence sometimes cannot settle the judgment. Concerns can also conflict over the same text, so judge which concern governs the case.
 
 Unless the "Authority and reporting" section limits the pass to reporting, fix what the judgment confirms. Fix structure before judging the names and the explanations that depend on it, because a structural fix invalidates a judgment made on the old structure.
 
@@ -57,7 +59,7 @@ One failure is the audit's own doing: preserving the content while keeping the e
 
 This skill fixes the problems that it finds. It deletes, trims, moves, and rewrites on its own judgment. When the request excludes edits, such as by asking only for a report, a list, or an evaluation, limit the pass to reporting. The words "audit" and "review" alone do not exclude edits.
 
-Report the findings, whether the pass fixed them or proposes the fix. A finding carries four things: where it is, which antipattern holds, which cue led to it, and what the pass did about it or proposes to do. Also state how the pass was narrowed in scope, because a pass that narrows silently reads as one that covered everything.
+Report the findings, whether the pass fixed them or proposes the fix. For each finding, state its location, the observed problem, and the fix made or proposed. Where a vocabulary concept applies, explain why it applies. Also state how the pass was narrowed in scope, because a pass that narrows silently reads as one that covered everything.
 
 ## Editing discipline
 
