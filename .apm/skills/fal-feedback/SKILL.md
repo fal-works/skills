@@ -13,7 +13,7 @@ The primary purpose is to describe the failure so that the maintainer can judge 
 
 The reader maintains the `fal-*` skills and knows their texts well. They know nothing else: not this project, not its codebase, not this session, not the conversation that exposed the failure. Two consequences follow.
 
-**Self-contained narration.** The session is the subject matter here, so recounting what happened in it is content, not context leakage. But the account must not presuppose access to anything outside the report. Do not point to the conversation, to project files, or to commits as load-bearing references; restate inside the report whatever the reader needs.
+**Self-contained narration.** The session is the subject matter here, so recounting what happened in it is content, not a "session leak" antipattern. But the account must not presuppose access to anything outside the report. Do not point to the conversation, to project files, or to commits as load-bearing references; restate inside the report whatever the reader needs.
 
 **Generalized background.** The skills apply to any project, so project specifics are noise to their maintainer. Describe the code and the task in terms of roles and structure, at the level of generality where the failure would recur in another project.
 
@@ -33,7 +33,7 @@ The material is usually already in the session: the failing outputs, the user's 
 
 - **Preconditions.** Which `fal-*` skills were in context, and whether they were read before the failing output was produced. This separates two different diagnoses: a rule that was read but did not act, and a skill that was never loaded. The maintainer cannot recover this information from anywhere else.
 - **The failure.** What was attempted, what came out, and what was wrong with it, case by case. Where a correction exists, show before and after. When the user's own words define the judgment, quote them verbatim; a ruling restated in your words loses exactly the nuance the maintainer needs.
-- **The skill text held against the failure.** Reread the relevant skill and check each case against its current text. Quote the exact passages, with section numbers, so the maintainer can locate them in the current text.
+- **The skill text held against the failure.** Reread the relevant skill and check each case against its current text. Quote the exact passages, with the section heading or number of each, so the maintainer can locate them in the current text.
   - The finding takes one of a few shapes, and naming the shape is most of the analysis: an existing rule already forbids this, a rule covers it but reads too narrowly to fire here, two rules pull in opposite directions on the same fact, or no rule speaks to it.
   - When the current text already forbids the failure, say so plainly; the main cause is then non-compliance, and the maintainer should know that a text revision alone will not fully prevent recurrence.
 - **Cause hypotheses, marked as such.** Why the skill failed to prevent the failure is worth conjecturing, but keep the boundary visible between what was observed in the session and what you infer.
@@ -60,4 +60,4 @@ Save to the current directory unless the user names a location, under a descript
 ### Content
 
 - Write in the language of the session unless the user specifies one. Quoted skill text stays in its original language. When the report is Japanese, `/fal-write-ja` applies to it.
-- The report is documentation, so `/fal-write-docs` applies in full. In particular, let the material shape the structure. An analysis of one failure across many cases, a report built around one improvement proposal, and a log of many small corrections are all valid shapes. Pick whichever fits what actually happened, and drop any of the elements above that the material does not support rather than padding a section to have it.
+- The report is documentation, so `/fal-agentic-vocabulary` applies in full. In particular, let the material shape the structure. An analysis of one failure across many cases, a report built around one improvement proposal, and a log of many small corrections are all valid shapes. Pick whichever fits what actually happened, and drop any of the elements above that the material does not support rather than padding a section to have it.
