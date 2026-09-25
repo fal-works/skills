@@ -1,0 +1,199 @@
+# The model that the fal-agentic-vocabulary and fal-agentic-audit skills are based on. What may enter: see metamodel.md.
+
+biases:
+  - anchoring bias
+  - local bias
+  - additive bias
+  - contextual bias
+  - compression bias
+  - defensive bias
+
+principles:
+  - name: Necessity
+    looks_mainly_at: within
+
+  - name: Unit focus
+    looks_mainly_at: within
+
+  - name: Placement
+    looks_mainly_at: above
+
+  - name: Structural fix
+    looks_mainly_at: above
+
+  - name: Redesign
+    looks_mainly_at: above
+    specializes: Structural fix
+
+  - name: Examined assumptions
+    looks_mainly_at: above
+
+  - name: Applicability
+    looks_mainly_at: above
+
+  - name: Sibling consistency
+    looks_mainly_at: beside
+
+  - name: Discovery
+    looks_mainly_at: beside
+
+  - name: Visible conflict
+    looks_mainly_at: beside
+
+  - name: Reader's position
+    looks_mainly_at: outside
+
+  - name: Contract
+    looks_mainly_at: outside
+    specializes: Reader's position
+
+  - name: Session-blind
+    looks_mainly_at: outside
+    specializes: Reader's position
+
+  - name: Version-blind
+    looks_mainly_at: outside
+    specializes: Session-blind
+
+  - name: Words that resolve
+    looks_mainly_at: outside
+    specializes: Reader's position
+
+  - name: Structural naming
+    looks_mainly_at: outside
+    composes: [Structural fix, Contract, Words that resolve]
+
+antipatterns:
+  - name: over-documentation
+    generated_by: [additive bias]
+    prevented_by: [Necessity]
+
+  - name: redundant statement
+    specializes: over-documentation
+    generated_by: [additive bias]
+    prevented_by: [Necessity]
+
+  - name: unsolicited clarification
+    specializes: over-documentation
+    generated_by: [additive bias, defensive bias]
+    prevented_by: [Necessity]
+
+  - name: staleness surface
+    generated_by: [anchoring bias, additive bias]
+    prevented_by: [Necessity, Placement]
+
+  - name: overlong block
+    generated_by: [additive bias, anchoring bias]
+    prevented_by: [Necessity, Unit focus, Placement]
+
+  - name: split focus
+    generated_by: [anchoring bias, compression bias]
+    prevented_by: [Unit focus]
+
+  - name: misplacement
+    generated_by: [local bias, anchoring bias]
+    prevented_by: [Placement]
+
+  - name: unabstracted detail
+    specializes: misplacement
+    generated_by: [anchoring bias, additive bias]
+    prevented_by: [Placement]
+
+  - name: wrong-layer patch
+    generated_by: [local bias, anchoring bias]
+    prevented_by: [Structural fix]
+
+  - name: under-scoped change
+    specializes: wrong-layer patch
+    generated_by: [anchoring bias, local bias, defensive bias]
+    prevented_by: [Redesign]
+
+  - name: vestige
+    specializes: under-scoped change
+    generated_by: [local bias, anchoring bias, defensive bias]
+    prevented_by: [Redesign]
+
+  - name: needless backward compatibility
+    specializes: under-scoped change
+    generated_by: [defensive bias, anchoring bias]
+    prevented_by: [Redesign]
+
+  - name: snapshot reasoning
+    generated_by: [anchoring bias]
+    prevented_by: [Examined assumptions]
+
+  - name: false analogy
+    generated_by: [anchoring bias]
+    prevented_by: [Applicability]
+
+  - name: sibling mismatch
+    generated_by: [local bias]
+    prevented_by: [Sibling consistency]
+
+  - name: unintegrated addition
+    generated_by: [local bias, additive bias]
+    prevented_by: [Discovery, Redesign]
+
+  - name: silent fallback
+    generated_by: [defensive bias]
+    prevented_by: [Visible conflict]
+
+  - name: silent contradiction
+    generated_by: [local bias]
+    prevented_by: [Visible conflict]
+
+  - name: exposed internals
+    generated_by: [contextual bias]
+    prevented_by: [Contract]
+
+  - name: caller-bound framing
+    generated_by: [contextual bias]
+    prevented_by: [Contract]
+
+  - name: session leak
+    generated_by: [contextual bias]
+    prevented_by: [Session-blind]
+
+  - name: salience leak
+    generated_by: [contextual bias]
+    prevented_by: [Session-blind]
+
+  - name: context-bound statement
+    generated_by: [contextual bias]
+    prevented_by: [Session-blind]
+
+  - name: version-bound description
+    generated_by: [contextual bias]
+    prevented_by: [Version-blind]
+
+  - name: unsolicited history
+    generated_by: [additive bias, contextual bias]
+    prevented_by: [Version-blind, Necessity]
+
+  - name: unmarked coinage
+    generated_by: [contextual bias, compression bias]
+    prevented_by: [Words that resolve]
+
+  - name: catch-all name
+    generated_by: [contextual bias]
+    prevented_by: [Words that resolve]
+
+  - name: stripped term
+    generated_by: [compression bias]
+    prevented_by: [Words that resolve]
+
+  - name: packed phrase
+    generated_by: [compression bias]
+    prevented_by: [Words that resolve]
+
+  - name: unstated relation
+    generated_by: [compression bias, contextual bias]
+    prevented_by: [Words that resolve]
+
+  - name: unclear reference
+    generated_by: [contextual bias]
+    prevented_by: [Words that resolve]
+
+  - name: culture-bound phrase
+    generated_by: [contextual bias]
+    prevented_by: [Words that resolve]
