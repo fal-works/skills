@@ -4,10 +4,9 @@ A general-purpose [APM](https://microsoft.github.io/apm/) package for software d
 
 ## Contents
 
-- [fal-design](.apm/skills/fal-design/SKILL.md): Principles for software design decisions. Counters the tendency to patch rather than redesign.
-- [fal-write-docs](.apm/skills/fal-write-docs/SKILL.md): Principles for writing documentation and comments.
-- [fal-improve-docs](.apm/skills/fal-improve-docs/SKILL.md): Audit-and-fix pass for existing documentation and comments. Companion to fal-write-docs.
-- [fal-write-ja](.apm/skills/fal-write-ja/SKILL.md): Principles for writing natural Japanese, in documentation and elsewhere. Companion to fal-write-docs.
+- [fal-agentic-vocabulary](.apm/skills/fal-agentic-vocabulary/SKILL.md): Named principles and antipatterns for the artifacts of agent work, such as documentation, comments, code, and software design decisions.
+- [fal-agentic-audit](.apm/skills/fal-agentic-audit/SKILL.md): Audit-and-fix pass for a finished change, covering documentation, comments, and code structure. Companion to fal-agentic-vocabulary.
+- [fal-write-ja](.apm/skills/fal-write-ja/SKILL.md): Principles for writing high-quality Japanese, in documentation and elsewhere. Companion to fal-agentic-vocabulary.
 - [fal-improve-ja](.apm/skills/fal-improve-ja/SKILL.md): Audit-and-fix pass for existing Japanese prose. Companion to fal-write-ja.
 - [fal-feedback](.apm/skills/fal-feedback/SKILL.md): Report a failure of another `fal-*` skill, for use as input when revising it.
 
@@ -21,7 +20,7 @@ apm install fal-works/skills
 To install a single skill:
 
 ```sh
-apm install fal-works/skills --path .apm/skills/fal-write-docs
+apm install fal-works/skills --path .apm/skills/fal-agentic-vocabulary
 ```
 
 ## Triggering
