@@ -13,7 +13,7 @@ The cues and the judgment notes are in [code and comments](./references/code.md)
 
 ## Set up a fresh context
 
-By default, the auditor has the writer's knowledge rather than the reader's. The prose in scope therefore deserves stricter judgment than a first impression suggests. When practical, run the audit in a new session or subagent whose input contains only this skill, the `fal-agentic-vocabulary` skill, and the files in scope.
+By default, the auditor has the writer's knowledge rather than the reader's. The prose in scope therefore deserves stricter judgment than a first impression suggests. When practical, run the audit in a new session or subagent that has no access to the session in which the change was made.
 
 The fresh context still needs the change itself: which files and regions it touched, and what it did to them. Step 1 determines the focus of the pass from that description. A diff is sufficient. The reasons, the discussion, the rejected alternatives, and the wording of the instructions do not belong in that description. Passing them restores the writer's knowledge that the fresh context exists to exclude.
 
@@ -33,7 +33,7 @@ Within that scope, the regions do not have equal risk. Where there is a change t
 
 Placement and duplication are judged by comparing a unit with related units, and those units can be anywhere in the file.
 
-Work file by file. Where a judgment depends on a unit's relationship to other units, read those units before making the judgment.
+Where a judgment depends on a unit's relationship to other units, read those units before making the judgment.
 
 ### 3. Examine the work and judge by the definitions
 
