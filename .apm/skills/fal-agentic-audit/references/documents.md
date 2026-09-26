@@ -4,7 +4,7 @@ This file holds the cues and the judgment notes for Markdown documents and other
 
 ## Cues
 
-A cue marks where to suspect an antipattern or where to apply a principle. Each cue ends by naming the antipatterns to suspect or the principle to apply. The `fal-agentic-vocabulary` skill decides whether a suspected failure holds. The material for that judgment is the section that holds the antipattern or the principle, including the principle's test and the paragraph on its overapplication. Where the antipattern or the principle has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
+A cue marks where to suspect an antipattern or where to apply a principle. Each cue ends by naming the antipatterns to suspect or the principles to apply. The `fal-agentic-vocabulary` skill decides whether a suspected failure holds. The material for that judgment is the section that holds the antipattern or the principle, including the principle's test and the paragraph on its overapplication. Where the antipattern or the principle has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
 
 ### Phrasing
 
@@ -72,6 +72,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A change applied to one unit whose siblings keep the old form. Suspect "sibling mismatch" and "under-scoped change."
 - A point given more room, more emphasis, or a narrower example than its place in the section warrants. An exception given more room than its rule is one form. Compare what each point received with the section as a whole. Suspect "salience leak."
 - A claim that nothing in scope supports, such as the content of an instruction restated as a fact. Ask what in scope motivates it. Suspect "session leak."
+- A claim about how a reader or a process will behave, or about what a fix or a safeguard will prevent. Ask whether its grounds support it as firmly as it is stated, and, where it is inferred, whether the text says so. Apply the Examined assumptions and Words that resolve principles.
 - A rule, a decision, or a verdict stated without limit or conditions. Ask whether a reader can recover its scope from the document, taking any stated reason into account. Suspect "context-bound statement."
 - A statement whose reading is not obvious, where nothing nearby settles how it was meant. Suspect "context-bound statement."
 - A fact in a section. Ask what the fact is about, and whether the heading of the section covers that subject. Suspect "misplacement" and "under-scoped change."
@@ -81,7 +82,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A section that describes a design. Compare what it describes with the current design. Suspect "vestige."
 - A term for a component or a concept of the subject. Compare it with the name that the current code or design gives to the same thing. Suspect "vestige."
 - A criterion applied to an artifact. Compare that artifact with the one for which the criterion was set. Suspect "false analogy."
-- A description of a thing, whether that thing is adjacent or elsewhere. Find the thing and verify each claim. Suspect "silent contradiction."
+- A claim about a thing, such as what it states, contains, or covers, whether that thing is adjacent or elsewhere. Find the thing and verify each claim. Verify an absence claim across its full scope. Suspect "silent contradiction."
 - Every passage in focus, and every part of one. Suspect "over-documentation."
 
 ## Judgment notes

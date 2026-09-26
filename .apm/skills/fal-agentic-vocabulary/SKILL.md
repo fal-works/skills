@@ -231,7 +231,7 @@ The **"unsolicited history"** antipattern does the opposite. It narrates the cha
 
 Words that resolve asks that every term and phrase reach a meaning that the reader already has access to. A meaning is accessible when the reader can reach it through a namespace that the reader already holds, without asking the writer. For the reader of a project's artifacts, such namespaces include the code symbols of the repository, the established terms of the domain, and the terms explicitly defined in the project's tracked documents.
 
-The requirement extends beyond single terms to phrases, where the reader must be able to recover the relationship between the words. It also extends past the phrase, to the relation between adjacent elements and to the status that a statement or an enumeration holds, such as rule or example.
+The requirement extends beyond single terms to phrases, where the reader must be able to recover the relationship between the words. It also extends past the phrase, to the relation between adjacent elements and to the status that a statement or an enumeration holds. For example, the reader can tell whether a statement is a rule or an example, and whether it is a checked fact or an inference.
 
 The test is whether the reader can recover every meaning, relation, and status without asking the writer.
 

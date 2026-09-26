@@ -9,7 +9,7 @@ This skill is an audit-and-fix pass over a finished change: code structure, code
 
 The `fal-agentic-vocabulary` skill defines the concepts: the named principles and the antipatterns. Read that skill first. This skill assumes its definitions and adds two things: the cues that mark where a finished artifact calls for suspecting an antipattern or applying a principle, and judgment notes that cover what the definitions do not settle, such as what to do when the judgment cannot be made.
 
-The cues and the judgment notes live in [code and comments](./references/code.md) and [documents](./references/documents.md), one file per medium. Each file lists the cues by what the auditor observes, and each cue names the antipatterns to suspect or the principle to apply.
+The cues and the judgment notes live in [code and comments](./references/code.md) and [documents](./references/documents.md), one file per medium. Each file lists the cues by what the auditor observes, and each cue names the antipatterns to suspect or the principles to apply.
 
 ## Set up a fresh context
 
@@ -41,7 +41,7 @@ Read the reference file that the scope calls for. When the change touched both m
 
 Use the vocabulary's principles to decide what to examine in the work and its relationships. Form questions and comparisons from those principles, including where no listed cue applies.
 
-Cues help locate possible failures and identify the antipatterns to suspect or the principle to apply. Consult them as relevant features appear, in no fixed order. Also carry out the questions and comparisons that the cues call for, because reading alone does not reveal every cue.
+Cues help locate possible failures and identify the antipatterns to suspect or the principles to apply. Consult them as relevant features appear, in no fixed order. Also carry out the questions and comparisons that the cues call for, because reading alone does not reveal every cue.
 
 Judge each suspected failure against the vocabulary's definitions and the relevant judgment notes. A cue alone does not establish a finding. The available evidence sometimes cannot settle the judgment. Concerns can also conflict over the same text, so judge which concern governs the case.
 

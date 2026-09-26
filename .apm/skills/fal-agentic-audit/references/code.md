@@ -4,7 +4,7 @@ This file holds the cues and the judgment notes for code structure, code comment
 
 ## Cues
 
-A cue marks where to suspect an antipattern or where to apply a principle. Each cue ends by naming the antipatterns to suspect or the principle to apply. The `fal-agentic-vocabulary` skill decides whether a suspected failure holds. The material for that judgment is the section that holds the antipattern or the principle, including the principle's test and the paragraph on its overapplication. Where the antipattern or the principle has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
+A cue marks where to suspect an antipattern or where to apply a principle. Each cue ends by naming the antipatterns to suspect or the principles to apply. The `fal-agentic-vocabulary` skill decides whether a suspected failure holds. The material for that judgment is the section that holds the antipattern or the principle, including the principle's test and the paragraph on its overapplication. Where the antipattern or the principle has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
 
 ### Comment phrasing
 
@@ -80,6 +80,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A change applied to one unit whose siblings keep the old form. Suspect "sibling mismatch" and "under-scoped change."
 - Explanation or code devoted to one case, such as a comment, a helper, a parameter, or a branch, where neighboring cases receive less or none. Compare what each case received with the region as a whole. Suspect "salience leak."
 - An element or a claim that nothing in scope requires or supports, such as a helper, a type, or a parameter that nothing uses. Ask what in scope motivates it. Suspect "session leak" and "vestige."
+- A comment that claims an effect of the code that depends on conditions outside the code, such as load or user behavior. Ask whether its grounds support it as firmly as it is stated, and, where it is inferred, whether the comment says so. Apply the Examined assumptions and Words that resolve principles.
 - A rule or a verdict stated without limit or conditions. Ask whether a reader can recover its scope from the code and comment, taking any stated reason into account. Suspect "context-bound statement."
 - A comment whose reading is not obvious, where neither the code nor the nearby comments settle how it was meant. Suspect "context-bound statement."
 - A function or a block. Ask what subject its logic is about, judging by the data that it reads and writes, and whether the module that holds it covers that subject. Suspect "misplacement."
@@ -90,7 +91,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A specialization of an existing general type defined as though unrelated. Suspect "unintegrated addition."
 - A construct that also appears in code that looks similar, such as a guard, a lock, a retry, or a cache. Suspect "false analogy."
 - A name at its declaration. Ask whether a reader who has not seen its use sites can tell what it names. Suspect "caller-bound framing" and "wrong-layer patch."
-- A comment that states what the code does or guarantees. Read the code and verify each claim. Suspect "silent contradiction."
+- A comment that states what code does or guarantees, whether that code is adjacent or elsewhere. Read the code and verify each claim. Verify an absence claim across its full scope. Suspect "silent contradiction."
 - Every comment in focus, and every part of one. Suspect "over-documentation."
 
 ## Judgment notes
