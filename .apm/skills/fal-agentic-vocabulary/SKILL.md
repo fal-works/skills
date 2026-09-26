@@ -229,9 +229,9 @@ The requirement extends beyond single terms to phrases, where the reader must be
 
 The test is whether the reader can recover every meaning, relation, and status without asking the writer.
 
-Two practices keep terms resolvable. A concept that recurs often enough within one document to want a name resolves after it is defined at first use. However, a name intended to persist beyond the document is a design decision that belongs to the user.
+A definition alone does not show that a term resolves, because the reader must still be able to follow the definition to a meaning. Once the term resolves, the Defined terms principle governs whether the definition is needed and whether the name and the definition are well made.
 
-Conversely, an unfamiliar term already in the repository is worth checking for a definition before it is adopted. In a document, a term is defined where a passage states what it means. Any other appearance is a use, and a prominent use, such as a heading or a section topic, is still a use. That existing text uses a term is a weak reason to adopt the term. This is because the term is often an earlier session's coinage that further use establishes as vocabulary.
+An unfamiliar term already in the repository is worth checking for a definition before it is adopted. In a document, a term is defined where a passage states what it means. Any other appearance is a use, and a prominent use, such as a heading or a section topic, is still a use. That existing text uses a term is a weak reason to adopt the term. This is because the term is often an earlier session's coinage that further use establishes as vocabulary.
 
 For relations and statuses, the default is to use short connective phrases or labels. Examples follow the general statement that they illustrate and are marked as examples. The sentence that introduces or contains an enumeration states what is being listed. It also shows whether the writer intends to list all members or give examples.
 
@@ -239,7 +239,7 @@ In code, a concept that only a general-purpose word names is usually one whose c
 
 The **"unmarked coinage"** antipattern is a term that the reader cannot follow to any referent. It usually arrives in one of two ways: a private label from the session enters the output, or condensing an expression produces a compound that the writer can understand only because they already know the meaning. Typography can strengthen the impression that the term has a referent, because backticks suggest a code symbol and capitalization suggests a defined term. However, the failure lies in the term rather than the markup.
 
-The **"catch-all name"** antipattern makes a general-purpose word the fixed name of one specific concept. The name then resolves only to the word's broad everyday sense, and the reader cannot distinguish it from its neighbors. Using such a word in its plain generic sense, where context fixes the referent, is not this failure.
+The **"catch-all name"** antipattern makes a general-purpose word the fixed name of one specific concept, where the name causes either of two harms. In one, the name conveys only the word's broad everyday sense, and the reader cannot recover the needed distinction from the name and the context where it is used. In the other, the document also needs the word's everyday sense within the scope of the name, and a use in that sense collides with the name. A definition lets the reader look up the referent, but it repairs neither harm. A general-purpose word used only in its everyday sense, where context fixes the referent, is not this failure.
 
 The **"stripped term"** antipattern drops the qualifier from a defined term at a later mention, leaving a bare word that resolves only to its everyday sense. The full term belongs wherever it names its concept, and shortening is safe only where context has already fixed the referent.
 
@@ -260,6 +260,19 @@ Structural naming asks that a name be treated as a claim about the structure rat
 3. The name does not identify its referent, a case that the Words that resolve principle governs. It is either too broad, named the "catch-all name" antipattern, or opaque, named the "unmarked coinage" antipattern.
 
 In code, causes 1 and 2 come first, and a simple rename rarely suffices. In documentation, the surface fix at cause 3 is often enough.
+
+### Principle of Defined terms
+
+Defined terms asks that a term be defined when the reader needs a distinction that its wording and context do not establish. The definition states that distinction accurately within a scope that the reader can recognize. Its value is weighed against the effort of learning and consulting it, and against any restriction that it places on using the term in its everyday sense. Recurrence alone does not establish the need for a definition.
+
+Four questions decide a definition. A later answer can reopen an earlier one. For example, a narrower scope under question 4 can make a definition worth its cost under question 1.
+
+1. **Is a definition needed?** A definition that explains an established term earns its place where the reader lacks the term and needs it. Before the document stipulates a meaning of its own, ordinary wording is tried. Examples are a qualifier that states what the thing belongs to, such as "detection candidate" for "candidate," and a relation written out where the concept is used. A term of several words needs a definition only for the part of its meaning that its words and their relation do not already give. The test is removal: take the definition out, read each use, and name what the reader then loses.
+2. **Does the name fit?** A term that the domain establishes or the project defines for the same concept comes first. A new name fits where it lets the reader infer roughly what the concept is about. A compound is readable only where its head already resolves at the point of use. A general-purpose word as the name is judged by the definition of the "catch-all name" antipattern.
+3. **Does the definition fix the distinction?** The definition states, in concepts that the reader already has, what sets the concept apart from the neighbors that the reader could confuse it with. It is neither broader nor narrower than the intended concept. The test is to check it against a case that belongs and against a similar case that does not.
+4. **Is the scope visible, and do the uses follow it?** The reader can tell where the definition applies. Within that scope, replacing the term with its definition at each use leaves the meaning of each sentence unchanged. A scope beyond the document is a design decision that belongs to the user.
+
+The principle can be overapplied by rejecting a needed definition on the ground that the name alone is roughly readable. A name suggests what a concept is about, but it does not settle the boundary. Another overapplication requires the cases used under question 3 to appear in the definition.
 
 ## Companion skills
 

@@ -4,7 +4,7 @@ This file holds the cues and the judgment notes for Markdown documents and other
 
 ## Cues
 
-A cue marks where to suspect an antipattern. Each cue ends by naming the antipatterns to suspect. The `fal-agentic-vocabulary` skill decides whether the suspicion holds. The material for that judgment is the definition of the antipattern and the rest of the section that holds it, including the principle's test and the paragraph on its overapplication. Where the antipattern has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
+A cue marks where to suspect an antipattern or where to apply a principle. Each cue ends by naming the antipatterns to suspect or the principle to apply. The `fal-agentic-vocabulary` skill decides whether a suspected failure holds. The material for that judgment is the section that holds the antipattern or the principle, including the principle's test and the paragraph on its overapplication. Where the antipattern or the principle has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
 
 ### Phrasing
 
@@ -43,6 +43,7 @@ A cue marks where to suspect an antipattern. Each cue ends by naming the antipat
 - A compound label that the repository does not define. Search the repository first. Suspect "unmarked coinage."
 - A phrase that has to be reread to determine how its words relate. Suspect "packed phrase."
 - A general-purpose word serving as the document's fixed term for one concept, such as "layer," "element," or "component." Suspect "catch-all name."
+- A passage that states what a term means, such as an entry in a terms section or a sentence of the form "below, this is called X." Apply the Defined terms principle.
 - A defined term appearing without its qualifier. Suspect "stripped term."
 - A second term for a concept that the document has already named. Suspect "sibling mismatch" and "vestige."
 
@@ -84,7 +85,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 
 ## Judgment notes
 
-The `fal-agentic-vocabulary` skill decides whether a suspected antipattern holds and what the fix is. The notes here cover only what that skill does not settle. Examples are what to do when the judgment cannot be made, a fix that the auditor might not think of, a weighting that the definition does not carry, and a case that this medium handles in its own way.
+The `fal-agentic-vocabulary` skill decides whether a suspected failure holds and what the fix is. The notes here cover only what that skill does not settle. Examples are what to do when the judgment cannot be made, a fix that the auditor might not think of, a weighting that the definition does not carry, and a case that this medium handles in its own way.
 
 ### Redundant statement
 
@@ -125,3 +126,7 @@ The replacement term is used everywhere that the document names the concept.
 ### Culture-bound phrase
 
 An inanimate subject passes where the wording is established technical usage, such as a document, a section, or a rule taking a verb of stating or requiring.
+
+### Principle of Defined terms
+
+Judging that a definition is too broad or too narrow needs a ground for the intended boundary, such as a specification, the purpose of the document, or a consistent use of the term in the document. Where no ground settles the boundary, report the definition and leave it untouched. Where a use departs from the definition and it is unclear which one is wrong, report both and leave them untouched.

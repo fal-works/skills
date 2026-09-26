@@ -63,6 +63,10 @@ principles:
     looks_mainly_at: outside
     composes: [Structural fix, Contract, Words that resolve]
 
+  - name: Defined terms
+    looks_mainly_at: outside
+    composes: [Necessity, Discovery, Words that resolve]
+
 antipatterns:
   - name: over-documentation
     generated_by: [additive bias]
