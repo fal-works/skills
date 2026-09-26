@@ -42,7 +42,7 @@ The **"over-documentation"** antipattern is content, in a document or a comment,
 
 The **"redundant statement"** antipattern restates what the artifact already says, and the copy becomes inaccurate as the original changes. Two passages are copies when either one would answer the same question for the same reader. Sharing a subject does not make two passages copies.
 
-The **"unsolicited clarification"** antipattern guards against a misreading, an objection, or a doubt, none of which the reader would otherwise have. Its forms include a justification, a negation of an alternative, a statement of what is out of scope, a caveat, and a concession. The clarification introduces what it is meant to prevent.
+The **"unsolicited clarification"** antipattern guards against a misreading, an objection, or a doubt, none of which the reader would otherwise have. Its forms include a justification, a negation of an alternative, a contrast with a neighboring concept, a statement of what is out of scope, a caveat, and a concession. The clarification introduces what it is meant to prevent.
 
 The **"staleness surface"** antipattern is content that a routine change can silently falsify. Where the same point can be made one abstraction level up, that form remains accurate after the change.
 
@@ -275,10 +275,10 @@ Four questions decide a definition. A later answer can reopen an earlier one. Fo
 
 1. **Is a definition needed?** A definition that explains an established term earns its place where the reader lacks the term and needs it. Before the document stipulates a meaning of its own, ordinary wording is tried. Examples are a qualifier that states what the thing belongs to, such as "detection candidate" for "candidate," and a relation written out where the concept is used. A term of several words needs a definition only for the part of its meaning that its words and their relation do not already give. The test is removal: take the definition out, read each use, and name what the reader then loses.
 2. **Does the name fit?** A term that the domain establishes or the project defines for the same concept comes first. A new name fits where it lets the reader infer roughly what the concept is about. A compound is readable only where its head already resolves at the point of use. A general-purpose word as the name is judged by the definition of the "catch-all name" antipattern.
-3. **Does the definition fix the distinction?** The definition states, in concepts that the reader already has, what sets the concept apart from the neighbors that the reader could confuse it with. It is neither broader nor narrower than the intended concept. The test is to check it against a case that belongs and against a similar case that does not.
+3. **Does the definition fix the distinction?** The definition states what the concept is, in concepts that the reader already has, precisely enough that a neighboring concept does not fit it. It is neither broader nor narrower than the intended concept. The test is to check it against a case that belongs and against a similar case that does not.
 4. **Is the scope visible, and do the uses follow it?** The reader can tell where the definition applies. Within that scope, replacing the term with its definition at each use leaves the meaning of each sentence unchanged. A scope beyond the document is a design decision that belongs to the user.
 
-The principle can be overapplied by rejecting a needed definition on the ground that the name alone is roughly readable. A name suggests what a concept is about, but it does not settle the boundary. Another overapplication requires the cases used under question 3 to appear in the definition.
+The principle can be overapplied by rejecting a needed definition on the ground that the name alone is roughly readable. A name suggests what a concept is about, but it does not settle the boundary. Another overapplication requires the cases or the neighbors used under question 3 to appear in the definition.
 
 ## Companion skills
 
