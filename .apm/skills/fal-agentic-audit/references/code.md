@@ -26,7 +26,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A doc comment on a public surface naming types, mechanisms, or steps that its reader cannot see. Suspect "exposed internals" and "unabstracted detail."
 - A doc comment on a declaration that details one of its members, such as a type doc describing the behavior of one field. Suspect "unabstracted detail."
 - A connector that joins clauses without stating how they relate, such as an em dash, a semicolon, or "which also." Suspect "split focus" and "unstated relation."
-- A verb of physical action with an abstract noun as its subject or object. Suspect "culture-bound phrase."
+- A verb whose primary sense describes a body or a physical object, such as its action, posture, dwelling, or movement, with an abstract or inanimate noun as its subject or object, such as a value that "lives" in a cache. Suspect "culture-bound phrase."
 - An inanimate subject given will, speech, feeling, or cognition, such as a cache that "remembers" a value or a module that "knows" its callers. Suspect "culture-bound phrase."
 - An idiom of general English. Suspect "culture-bound phrase."
 - Comments in one region drawing words from one figurative system. Suspect "culture-bound phrase."
@@ -156,7 +156,7 @@ Where a name does not unpack to a readable length, the concept that it names is 
 
 ### Culture-bound phrase
 
-An inanimate subject passes where the wording is established technical usage, such as a function, a type, or a rule taking a verb of stating or requiring. So does a phrase that resolves as a code symbol of the repository.
+For a phrase that a cue marks as a suspected culture-bound phrase, state the operation, state, or relation that the phrase means without reusing its wording. Then compare that statement with the original. Where the statement names the operation, state, or relation more directly and keeps the meaning, it replaces the original, as "is written in" replaces "sits in." Frequent use in English technical prose is not a reason to keep the original. Where the statement is no more direct, as for a function that "returns" a value, the original stays. A phrase that resolves as a code symbol of the repository passes.
 
 ### Principle of Defined terms
 

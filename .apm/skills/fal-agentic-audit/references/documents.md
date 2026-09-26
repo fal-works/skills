@@ -22,7 +22,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - Wording that claims sameness, such as "the same as," "likewise," or "a kind of." Suspect "false analogy."
 - A conclusion that cites a rule or an earlier decision without stating why it was established. Suspect "false analogy."
 - A connector that joins clauses without stating how they relate, such as an em dash, a semicolon, or "which also." Suspect "split focus" and "unstated relation."
-- A verb of physical action with an abstract noun as its subject or object. Suspect "culture-bound phrase."
+- A verb whose primary sense describes a body or a physical object, such as its action, posture, dwelling, or movement, with an abstract or inanimate noun as its subject or object, such as information that "sits" in a file. Suspect "culture-bound phrase."
 - An inanimate subject given will, speech, feeling, or cognition, such as a cache that "remembers" a value or a module that "knows" its callers. Suspect "culture-bound phrase."
 - An idiom of general English. Suspect "culture-bound phrase."
 - Successive sentences drawing words from one figurative system. Suspect "culture-bound phrase."
@@ -127,7 +127,7 @@ The replacement term is used everywhere that the document names the concept.
 
 ### Culture-bound phrase
 
-An inanimate subject passes where the wording is established technical usage, such as a document, a section, or a rule taking a verb of stating or requiring.
+For a phrase that a cue marks as a suspected culture-bound phrase, state the operation, state, or relation that the phrase means without reusing its wording. Then compare that statement with the original. Where the statement names the operation, state, or relation more directly and keeps the meaning, it replaces the original, as "is written in" replaces "sits in." Frequent use in English technical prose is not a reason to keep the original. Where the statement is no more direct, as for a document that "states" a rule, the original stays.
 
 ### Principle of Defined terms
 
