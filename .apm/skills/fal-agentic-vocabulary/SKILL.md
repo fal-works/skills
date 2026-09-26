@@ -159,7 +159,9 @@ The principle can be overapplied by condensing text to match sparser siblings in
 
 Discovery asks that what already exists be found first, and that the addition be related to it. The search extends beyond the unit under edit. This is because an existing type for the same concept usually lives in another module. An existing statement of the same fact usually lives in another document.
 
-The test is to name what the addition relates to: the element that it extends, specializes, replaces, or deliberately sits beside. When the addition can name none of these, the writer has usually not searched.
+The test is to name what the addition relates to: the element that it extends, specializes, replaces, is merged into, or deliberately sits beside. When the addition can name none of these, the writer has usually not searched.
+
+During the work, the signal is a plan or a proposal stated only as adding something. Such a statement does not show whether the relation that the test asks for has been decided.
 
 Without a relation between the existing element and the addition, improvements never propagate from one to the other. Readers are left to determine for themselves how the two relate.
 
