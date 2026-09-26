@@ -18,16 +18,24 @@ Principle --> Principle : specializes / composes
 
 ## Nodes
 
-**Bias**: a default of LLM-generated output that generates antipatterns.
+### Bias
 
-**Antipattern**: a named failure that a bias generates.
+A bias is a default of LLM-generated output that generates antipatterns.
 
-**Principle**: a norm that counters the biases. It need not prevent an antipattern directly.
+### Antipattern
+
+An antipattern is a named failure that a bias generates.
 
 The model excludes the following:
 
 - Failures that have no name, which are described in the prose of the principle that prevents them.
 - Failures from overapplying a principle, which are described in the prose of that principle.
+
+Antipatterns do not partition failures. Each names what it takes as the problem, and one case can fall under several. Comparing an antipattern with its neighbors serves to make that problem clear, not to draw a boundary.
+
+### Principle
+
+A principle is a norm that counters the biases. It need not prevent an antipattern directly.
 
 ## Attributes
 

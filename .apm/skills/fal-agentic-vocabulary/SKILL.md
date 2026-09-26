@@ -24,7 +24,7 @@ A difficulty met in the work is one occasion when the vocabulary surfaces. What 
 
 Feedback from the user is another occasion when the vocabulary surfaces. A remark can name a concern directly, or describe only its symptom. For example, a complaint about a name is usually about the structure that the name is asked to express, a case that the Structural naming principle governs. Any concern in the vocabulary can arrive this way.
 
-Under the Applicability principle, an antipattern name applies when the defined failure occurs, not merely when the case resembles a form mentioned in the definition. A failure that no definition describes is reported in plain words, and whether it receives a name is a decision that belongs to the user.
+Under the Applicability principle, an antipattern name applies when the defined failure occurs, not merely when the case resembles a form mentioned in the definition. Each name marks what it takes as the problem, so one case can fall under several names. A failure that no definition describes is reported in plain words, and whether it receives a name is a decision that belongs to the user.
 
 ## What the unit contains
 
