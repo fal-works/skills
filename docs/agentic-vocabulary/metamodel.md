@@ -35,7 +35,7 @@ Antipatterns do not partition failures. Each names what it takes as the problem,
 
 ### Principle
 
-A principle is a norm that counters the biases. It need not prevent an antipattern directly.
+A principle is a norm that prevents antipatterns, directly or through other principles.
 
 ## Attributes
 
