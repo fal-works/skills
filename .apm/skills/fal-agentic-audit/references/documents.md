@@ -1,10 +1,10 @@
 # Cues and judgment notes for documents
 
-This file holds the cues and the judgment notes for Markdown documents and other prose written for future readers. The `fal-agentic-audit` skill states how to use them.
+This file contains the cues and the judgment notes for Markdown documents and other prose written for future readers. The `fal-agentic-audit` skill states how to use them.
 
 ## Cues
 
-A cue marks where to suspect an antipattern or where to apply a principle. Each cue ends by naming the antipatterns to suspect or the principles to apply. The `fal-agentic-vocabulary` skill decides whether a suspected failure holds. The material for that judgment is the section that holds the antipattern or the principle, including the principle's test and the paragraph on its overapplication. Where the antipattern or the principle has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
+A cue marks where to suspect an antipattern or where to apply a principle. Each cue ends by naming the antipatterns to suspect or the principles to apply. Use the definitions in the `fal-agentic-vocabulary` skill to determine whether the suspected failure occurs. The material for that judgment is the section that defines the antipattern or the principle, including the principle's test and the paragraph on its overapplication. Where the antipattern or the principle has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
 
 ### Phrasing
 
@@ -15,7 +15,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A statement of what is out of scope. Suspect "unsolicited clarification" and "context-bound statement."
 - Narration of what the change replaced, such as "previously," "renamed from Z," or "now uses X instead of Y." Suspect "unsolicited history."
 - A qualifier that depends on the old version, such as "the new pipeline," "the refactored module," or "the current approach." Suspect "version-bound description."
-- An opening line that echoes its heading. Suspect "redundant statement."
+- An opening line that repeats its heading. Suspect "redundant statement."
 - A passage that explains how to read the document rather than explaining its subject. Suspect "wrong-layer patch."
 - A justification that cites the current state of the subject or of the document's outline as its reason. Suspect "snapshot reasoning" and "unwarranted condition."
 - A condition stated for adopting or rejecting something, such as "only where," "unless," or "whenever X, Y is unnecessary." Suspect "unwarranted condition."
@@ -25,7 +25,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A verb whose primary sense describes a body or a physical object, such as its action, posture, dwelling, or movement, with an abstract or inanimate noun as its subject or object, such as information that "sits" in a file. Suspect "culture-bound phrase."
 - An inanimate subject given will, speech, feeling, or cognition, such as a cache that "remembers" a value or a module that "knows" its callers. Suspect "culture-bound phrase."
 - An idiom of general English. Suspect "culture-bound phrase."
-- Successive sentences drawing words from one figurative system. Suspect "culture-bound phrase."
+- Successive sentences using words from the same figurative system. Suspect "culture-bound phrase."
 
 ### Enumerations, references, and terms
 
@@ -36,7 +36,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - An example sentence in body prose with no label marking it as an example. Suspect "unstated relation."
 - A concrete value or identifier, such as a count, a path, a line number, a version, or a date. Suspect "staleness surface."
 - A reference that locates its target by position, such as "the items above." Suspect "unclear reference" and "staleness surface."
-- A demonstrative, a pronoun, or a noun phrase presented as already known, such as "the items," standing in place of a name. Suspect "unclear reference."
+- A demonstrative, a pronoun, or a noun phrase presented as already known, such as "the items," used in place of a name. Suspect "unclear reference."
 - A point stated again, in the same or in different wording. Suspect "redundant statement" and "unclear reference."
 - A fact stated at the place that covers its subject and again elsewhere. Suspect "redundant statement" and "misplacement."
 - A reference that neither the repository nor a public source resolves, such as "as discussed," "as agreed," or a cross-reference into a document that has since been reorganized. Suspect "vestige" and "session leak."
@@ -55,9 +55,9 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A list whose items are of different kinds. Suspect "split focus."
 - A heading that needs "and" to cover its body. Suspect "split focus."
 - A document serving two roles, such as a tutorial that also serves as a reference. Suspect "split focus."
-- A document holding material of another genre, such as a README with changelog entries. Suspect "misplacement."
+- A document containing material of another genre, such as a README with changelog entries. Suspect "misplacement."
 - Worked examples or per-item explanation in an overview document that has a detail layer. Suspect "misplacement" and "unabstracted detail."
-- A section that grew by clauses or sentences added one at a time, such as a spec with one clause per requirement. Suspect "under-scoped change."
+- A section that was extended by clauses or sentences added one at a time, such as a spec with one clause per requirement. Suspect "under-scoped change."
 - A document that is addressed to readers outside a boundary and names mechanisms or types that those readers cannot see. Suspect "exposed internals."
 - A shared subject described in one consumer's vocabulary. Suspect "caller-bound framing."
 - A general capability described as the procedure of one use case. Suspect "caller-bound framing."
@@ -66,17 +66,17 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 
 A word or a form does not mark these cues. Each is found by examining the units that the cue names, as the cue states.
 
-- A section that runs longer than its sibling sections. Read the siblings first. Suspect "unabstracted detail," "sibling mismatch," and "salience leak."
+- A section that is longer than its sibling sections. Read the siblings first. Suspect "unabstracted detail," "sibling mismatch," and "salience leak."
 - A list item several times the length of the items around it. Suspect "sibling mismatch."
 - Density, tone, vocabulary, language, or structure departing from the sibling sections or documents. Read the siblings first. Suspect "sibling mismatch."
 - A change applied to one unit whose siblings keep the old form. Suspect "sibling mismatch" and "under-scoped change."
-- A point given more room, more emphasis, or a narrower example than its place in the section warrants. An exception given more room than its rule is one form. Compare what each point received with the section as a whole. Suspect "salience leak."
+- A point given more text, more emphasis, or a narrower example than its place in the section warrants. An exception given more text than its rule is one form. Compare what each point received with the section as a whole. Suspect "salience leak."
 - A claim that nothing in scope supports, such as the content of an instruction restated as a fact. Ask what in scope motivates it. Suspect "session leak."
-- A claim about how a reader or a process will behave, or about what a fix or a safeguard will prevent. Ask whether its grounds support it as firmly as it is stated, and, where it is inferred, whether the text says so. Apply the Examined assumptions and Words that resolve principles.
-- A rule, a decision, or a verdict stated without limit or conditions. Ask whether a reader can recover its scope from the document, taking any stated reason into account. Suspect "context-bound statement."
+- A claim about how a reader or a process will behave, or about what a fix or a safeguard will prevent. Ask whether the available evidence justifies the degree of certainty that the claim expresses, and, where it is inferred, whether the text says so. Apply the Examined assumptions and Words that resolve principles.
+- A rule, a decision, or a verdict stated without limit or conditions. Ask whether a reader can determine its scope from the document, considering any stated reason. Suspect "context-bound statement."
 - A statement whose reading is not obvious, where nothing nearby settles how it was meant. Suspect "context-bound statement."
 - A fact in a section. Ask what the fact is about, and whether the heading of the section covers that subject. Suspect "misplacement" and "under-scoped change."
-- A section and its heading. Ask whether the content would have been written if the heading did not call for it. Suspect "wrong-layer patch."
+- A section and its heading. Ask whether the content would have been written if the heading did not require it. Suspect "wrong-layer patch."
 - A section that overlaps what another document states. Search beyond the document under edit. Suspect "unintegrated addition."
 - A classification or a vocabulary parallel to the one in use. Search beyond the document under edit. Suspect "unintegrated addition."
 - A section that describes a design. Compare what it describes with the current design. Suspect "vestige."
@@ -87,15 +87,15 @@ A word or a form does not mark these cues. Each is found by examining the units 
 
 ## Judgment notes
 
-The `fal-agentic-vocabulary` skill decides whether a suspected failure holds and what the fix is. The notes here cover only what that skill does not settle. Examples are what to do when the judgment cannot be made, a fix that the auditor might not think of, a weighting that the definition does not carry, and a case that this medium handles in its own way.
+Use the definitions in the `fal-agentic-vocabulary` skill to determine whether a suspected failure occurs and what the fix is. The notes here cover only what those definitions do not determine. Examples are what to do when the judgment cannot be made, a fix that the auditor might not think of, a priority between concerns that the definition does not state, and a case that this medium handles in its own way.
 
 ### Redundant statement
 
-An opening line that reads as an echo of its heading passes where it states the scope that the heading leaves open. Where a copy is deleted and a reader at its place still needs the fact, the fix leaves a reference to the place that keeps it.
+An opening line that reads as a repetition of its heading passes where it states the scope that the heading does not state. Where a copy is deleted and a reader at its place still needs the fact, the fix leaves a reference to the place that states it.
 
 ### Unsolicited clarification
 
-A negation or a prohibition written as its own sentence earns its place only where its benefit to the reader is substantial. Where deleting a qualifier would make the claim false, the qualifier stays, or the claim is reworded to the scope that it can carry.
+A negation or a prohibition written as its own sentence is worth its cost only where its benefit to the reader is substantial. Where deleting a qualifier would make the claim false, the qualifier stays, or the claim is reworded to the scope in which it is true.
 
 ### Wrong-layer patch
 
@@ -103,23 +103,23 @@ When a shared template defines the structure, a section written to fill one of i
 
 ### False analogy
 
-Where the reason behind what is established is not known, report the passage and leave it untouched.
+Where the reason for what is established is not known, report the passage and leave it unchanged.
 
 ### Silent contradiction
 
-If the described thing might be wrong instead of the description, report the conflict and leave both sides untouched.
+If the described thing might be wrong instead of the description, report the conflict and leave both sides unchanged.
 
 ### Session leak
 
-Where the passage marks a property of the subject that surprises a fresh reader, the fix can replace it with a direct statement of the property instead of deleting it.
+Where the passage indicates a property of the subject that surprises a fresh reader, the fix can replace it with a direct statement of the property instead of deleting it.
 
 ### Context-bound statement
 
-Where the context in which the statement was made is not known, leave the statement untouched, because a rewording replaces the writer's meaning with the auditor's guess. Report the statement and the meaning taken from the document, for someone who holds the context to compare.
+Where the context in which the statement was made is not known, leave the statement unchanged, because a rewording replaces the writer's meaning with the auditor's guess. Report the statement and the meaning taken from the document, for someone who knows the context to compare.
 
 ### Unclear reference
 
-Each reference carries some risk of a failed lookup, so a passage with many references warrants testing each one.
+Each reference has some risk of a failed lookup, so a passage with many references warrants testing each one.
 
 ### Catch-all name
 
@@ -131,4 +131,4 @@ For a phrase that a cue marks as a suspected culture-bound phrase, state the ope
 
 ### Principle of Defined terms
 
-Judging that a definition is too broad or too narrow needs a ground for the intended boundary, such as a specification, the purpose of the document, or a consistent use of the term in the document. Where no ground settles the boundary, report the definition and leave it untouched. Where a use departs from the definition and it is unclear which one is wrong, report both and leave them untouched.
+Judging that a definition is too broad or too narrow needs a basis for the intended boundary, such as a specification, the purpose of the document, or a consistent use of the term in the document. Where no basis determines the boundary, report the definition and leave it unchanged. Where a use departs from the definition and it is unclear which one is wrong, report both and leave them unchanged.

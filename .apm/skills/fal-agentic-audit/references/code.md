@@ -1,10 +1,10 @@
 # Cues and judgment notes for code and comments
 
-This file holds the cues and the judgment notes for code structure, code comments, and doc comments. The `fal-agentic-audit` skill states how to use them.
+This file contains the cues and the judgment notes for code structure, code comments, and doc comments. The `fal-agentic-audit` skill states how to use them.
 
 ## Cues
 
-A cue marks where to suspect an antipattern or where to apply a principle. Each cue ends by naming the antipatterns to suspect or the principles to apply. The `fal-agentic-vocabulary` skill decides whether a suspected failure holds. The material for that judgment is the section that holds the antipattern or the principle, including the principle's test and the paragraph on its overapplication. Where the antipattern or the principle has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
+A cue marks where to suspect an antipattern or where to apply a principle. Each cue ends by naming the antipatterns to suspect or the principles to apply. Use the definitions in the `fal-agentic-vocabulary` skill to determine whether the suspected failure occurs. The material for that judgment is the section that defines the antipattern or the principle, including the principle's test and the paragraph on its overapplication. Where the antipattern or the principle has an entry under "Judgment notes" in this file, that entry is part of the material. Where a cue says to do something, such as to read, to search, or to compare, that work is part of finding the cue.
 
 ### Comment phrasing
 
@@ -29,7 +29,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A verb whose primary sense describes a body or a physical object, such as its action, posture, dwelling, or movement, with an abstract or inanimate noun as its subject or object, such as a value that "lives" in a cache. Suspect "culture-bound phrase."
 - An inanimate subject given will, speech, feeling, or cognition, such as a cache that "remembers" a value or a module that "knows" its callers. Suspect "culture-bound phrase."
 - An idiom of general English. Suspect "culture-bound phrase."
-- Comments in one region drawing words from one figurative system. Suspect "culture-bound phrase."
+- Comments in one region using words from the same figurative system. Suspect "culture-bound phrase."
 
 ### Enumerations, references, and terms in comments
 
@@ -40,22 +40,22 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - An example placed beside the rule that it illustrates, with no label marking it as an example. Suspect "unstated relation."
 - A concrete value or identifier, such as a count, a path, a line number, a version, or a date. Suspect "staleness surface."
 - A reference that locates its target by position, such as "the call above." Suspect "unclear reference" and "staleness surface."
-- A demonstrative, a pronoun, or a noun phrase presented as already known, such as "the items," standing in place of a name. Suspect "unclear reference."
+- A demonstrative, a pronoun, or a noun phrase presented as already known, such as "the items," used in place of a name. Suspect "unclear reference."
 - A point stated again, in the same or in different wording. Suspect "redundant statement" and "unclear reference."
 - A reference that neither the repository nor a public source resolves, such as "as discussed" or "as agreed." Suspect "vestige" and "session leak."
 - A term in backticks that names no symbol. Search the repository first. Suspect "unmarked coinage."
-- A compound label that leads to no declaration. Search the repository first. Suspect "unmarked coinage."
+- A compound label that matches no declaration. Search the repository first. Suspect "unmarked coinage."
 - A phrase that has to be reread to determine how its words relate. Suspect "packed phrase."
-- A bare general word for a qualified concept, such as "budget" for a retry budget. Suspect "stripped term."
+- An unqualified general word for a qualified concept, such as "budget" for a retry budget. Suspect "stripped term."
 - A comment that states what a term means, such as "below, the state after the flush is called settled." Apply the Defined terms principle.
 
 ### Names
 
 - A qualifier that refers to a previous version, such as `newParser`, `parserV2`, or `legacyHandler`. Suspect "version-bound description" and "needless backward compatibility."
-- An identifier that has to be reread to determine how its words relate, such as one stacking three nouns and a qualifier. Suspect "packed phrase."
-- An identifier that is a bare general word, such as a `budget` field that holds a retry budget or a type named `Handler`. Suspect "stripped term," and suspect "catch-all name" as a case that the Structural naming principle governs.
+- An identifier that has to be reread to determine how its words relate, such as one combining three nouns and a qualifier. Suspect "packed phrase."
+- An identifier that is an unqualified general word, such as a `budget` field that stores a retry budget or a type named `Handler`. Suspect "stripped term," and suspect "catch-all name" as a case to which the Structural naming principle applies.
 - Several similar names in one region. Suspect "wrong-layer patch," as the first of the causes that the Structural naming principle lists.
-- A qualifier that only tells two names apart. Suspect "wrong-layer patch," as the first of the causes that the Structural naming principle lists.
+- A qualifier that only distinguishes two names. Suspect "wrong-layer patch," as the first of the causes that the Structural naming principle lists.
 - A symbol named for its caller. Suspect "caller-bound framing," as the second of the causes that the Structural naming principle lists.
 - A public symbol named for its representation or mechanism. Suspect "exposed internals," as the second of the causes that the Structural naming principle lists.
 - A name that needs "and." Suspect "split focus."
@@ -64,8 +64,8 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 
 - A function or a block too large to understand in one reading. Suspect "overlong block."
 - A body that mixes orchestration with low-level manipulation. Suspect "split focus."
-- A caller that reaches into another module's internals. Suspect "misplacement."
-- A flag or a special case that the change in hand inserted into the existing structure. Suspect "under-scoped change."
+- A caller that accesses another module's internals. Suspect "misplacement."
+- A flag or a special case that the current change inserted into the existing structure. Suspect "under-scoped change."
 - A change that only adds, leaving every existing element in place. Suspect "under-scoped change."
 - Entry points or wrappers multiplied per use site. Suspect "under-scoped change."
 - The old interface kept beside its replacement, such as an alias, a deprecated wrapper, a parameter kept so that callers do not break, or both paths behind a flag. Suspect "needless backward compatibility."
@@ -80,12 +80,12 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A change applied to one unit whose siblings keep the old form. Suspect "sibling mismatch" and "under-scoped change."
 - Explanation or code devoted to one case, such as a comment, a helper, a parameter, or a branch, where neighboring cases receive less or none. Compare what each case received with the region as a whole. Suspect "salience leak."
 - An element or a claim that nothing in scope requires or supports, such as a helper, a type, or a parameter that nothing uses. Ask what in scope motivates it. Suspect "session leak" and "vestige."
-- A comment that claims an effect of the code that depends on conditions outside the code, such as load or user behavior. Ask whether its grounds support it as firmly as it is stated, and, where it is inferred, whether the comment says so. Apply the Examined assumptions and Words that resolve principles.
-- A rule or a verdict stated without limit or conditions. Ask whether a reader can recover its scope from the code and comment, taking any stated reason into account. Suspect "context-bound statement."
+- A comment that claims an effect of the code that depends on conditions outside the code, such as load or user behavior. Ask whether the available evidence justifies the degree of certainty that the comment expresses, and, where it is inferred, whether the comment says so. Apply the Examined assumptions and Words that resolve principles.
+- A rule or a verdict stated without limit or conditions. Ask whether a reader can determine its scope from the code and comment, considering any stated reason. Suspect "context-bound statement."
 - A comment whose reading is not obvious, where neither the code nor the nearby comments settle how it was meant. Suspect "context-bound statement."
-- A function or a block. Ask what subject its logic is about, judging by the data that it reads and writes, and whether the module that holds it covers that subject. Suspect "misplacement."
+- A function or a block. Ask what subject its logic is about, judging by the data that it reads and writes, and whether the module that contains it covers that subject. Suspect "misplacement."
 - A code element, such as a constant or a branch, that repeats a definition from elsewhere. Suspect "staleness surface" and "misplacement."
-- A constraint that the code enforces, such as a validation or an assertion. Ask which party guarantees or imposes it, and whether the enforcement sits with that party. Suspect "misplacement" and "under-scoped change."
+- A constraint that the code enforces, such as a validation or an assertion. Ask which party guarantees or imposes it, and whether the enforcement is in that party's code. Suspect "misplacement" and "under-scoped change."
 - A unit of code, such as a function, a block, a type, or a module. Ask what its parts do and how they relate to one another. Suspect "split focus" and "misplacement."
 - A new code element, such as a function, type, or module, that overlaps an existing element in responsibility or in the cases that it enumerates. Search beyond the module under edit. Suspect "unintegrated addition" and "under-scoped change."
 - A specialization of an existing general type defined as though unrelated. Suspect "unintegrated addition."
@@ -96,63 +96,63 @@ A word or a form does not mark these cues. Each is found by examining the units 
 
 ## Judgment notes
 
-The `fal-agentic-vocabulary` skill decides whether a suspected failure holds and what the fix is. The notes here cover only what that skill does not settle. Examples are what to do when the judgment cannot be made, a fix that the auditor might not think of, a weighting that the definition does not carry, and a case that this medium handles in its own way.
+Use the definitions in the `fal-agentic-vocabulary` skill to determine whether a suspected failure occurs and what the fix is. The notes here cover only what those definitions do not determine. Examples are what to do when the judgment cannot be made, a fix that the auditor might not think of, a priority between concerns that the definition does not state, and a case that this medium handles in its own way.
 
 ### Redundant statement
 
-A short doc summary that reads as redundant with the name passes where it states the intent or the scope that the name leaves open.
+A short doc summary that reads as redundant with the name passes where it states the intent or the scope that the name does not state.
 
 ### Unsolicited clarification
 
-A negation or a prohibition written as its own sentence earns its place only where its benefit to the reader is substantial. Where deleting a qualifier would make the claim false, the qualifier stays, or the claim is reworded to the scope that it can carry.
+A negation or a prohibition written as its own sentence is worth its cost only where its benefit to the reader is substantial. Where deleting a qualifier would make the claim false, the qualifier stays, or the claim is reworded to the scope in which it is true.
 
 ### Staleness surface
 
-Where code that repeats a definition from elsewhere has to stay, the fix can make a change at the source either reach this place or fail visibly. An example of the first is deriving the value from the source. An example of the second is an exhaustive match that stops compiling when a case is added.
+Where code that repeats a definition from elsewhere has to stay, the fix can make a change at the source either take effect at this place or fail visibly. An example of the first is deriving the value from the source. An example of the second is an exhaustive match that stops compiling when a case is added.
 
 ### Needless backward compatibility
 
-Where the request did not keep an old interface that sits beside its replacement, the fix replaces it and migrates the callers. Where it cannot be determined whether the request kept it, leave the interface and report it.
+Where the request did not require keeping an old interface that remains beside its replacement, the fix replaces it and migrates the callers. Where it cannot be determined whether the request required keeping it, leave the interface and report it.
 
 ### False analogy
 
-Where the reason behind what is established is not known, such as the reason that a copied construct had at its source, report the construct or the wording and leave the code untouched.
+Where the reason for what is established is not known, such as the reason that a copied construct had at its source, report the construct or the wording and leave the code unchanged.
 
 ### Silent contradiction
 
-If the code might be wrong instead of the comment, report the conflict and leave both sides untouched.
+If the code might be wrong instead of the comment, report the conflict and leave both sides unchanged.
 
 ### Caller-bound framing
 
-A bare caller reference such as "Used by X" can remain while the structure work that removes it is deferred. Elaborating on how the caller behaves or what it passes turns a caller fact into an intrinsic property and crosses the boundary.
+A reference that only names the caller, such as "Used by X," can remain while the structure work that removes it is deferred. Elaborating on how the caller behaves or what it passes turns a caller fact into an intrinsic property and violates the boundary.
 
 ### Session leak
 
-Where the element or the comment marks a property of the code that surprises a fresh reader, the fix can replace it with a direct statement of the property instead of deleting it.
+Where the element or the comment indicates a property of the code that surprises a fresh reader, the fix can replace it with a direct statement of the property instead of deleting it.
 
 ### Salience leak
 
-Where one case has dedicated code that neighboring cases do not have, the case can sometimes be absorbed into the general one.
+Where one case has dedicated code that neighboring cases do not have, the case can sometimes be handled as part of the general one.
 
 ### Context-bound statement
 
-Where the context in which the comment was written is not known, leave the comment untouched, because a rewording replaces the writer's meaning with the auditor's guess. Report the comment and the meaning taken from the code and the comment, for someone who holds the context to compare.
+Where the context in which the comment was written is not known, leave the comment unchanged, because a rewording replaces the writer's meaning with the auditor's guess. Report the comment and the meaning taken from the code and the comment, for someone who knows the context to compare.
 
 ### Version-bound description
 
-Where removing the qualifier leaves nothing that distinguishes the thing, two elements compete for one name, and the design has not decided between them. The fix is that decision. The superseded element is usually a vestige to delete.
+Where removing the qualifier leaves nothing that distinguishes the thing, two elements are candidates for one name, and which of them the name refers to has not been decided. The fix is to make that decision. The superseded element is usually a vestige to delete.
 
 ### Unmarked coinage
 
-A concept that keeps needing a coined label usually wants a declaration of its own. Judge the concept under the Structural naming principle before replacing the label.
+A concept that keeps needing a coined label usually needs a declaration of its own. Judge the concept under the Structural naming principle before replacing the label.
 
 ### Unclear reference
 
-Each reference carries some risk of a failed lookup, so a passage with many references warrants testing each one.
+Each reference has some risk of a failed lookup, so a passage with many references warrants testing each one.
 
 ### Packed phrase
 
-Where a name does not unpack to a readable length, the concept that it names is suspect before the name is. Judge the concept under the Structural naming principle before renaming.
+Where a name cannot be expanded into a phrase of readable length, the concept that it names is suspect before the name is. Judge the concept under the Structural naming principle before renaming.
 
 ### Culture-bound phrase
 
@@ -160,4 +160,4 @@ For a phrase that a cue marks as a suspected culture-bound phrase, state the ope
 
 ### Principle of Defined terms
 
-Judging that a definition is too broad or too narrow needs a ground for the intended boundary, such as the code that the term describes or a specification. Where no ground settles the boundary, report the definition and leave it untouched. Where a use departs from the definition and it is unclear which one is wrong, report both and leave them untouched.
+Judging that a definition is too broad or too narrow needs a basis for the intended boundary, such as the code that the term describes or a specification. Where no basis determines the boundary, report the definition and leave it unchanged. Where a use departs from the definition and it is unclear which one is wrong, report both and leave them unchanged.
