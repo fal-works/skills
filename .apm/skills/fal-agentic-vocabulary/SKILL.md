@@ -115,15 +115,21 @@ When the change called for replacement, the **"needless backward compatibility"*
 
 ### Principle of Examined assumptions
 
-Examined assumptions asks that a judgment take the current state as given only where there is a reason to do so. What a judgment takes as given is its assumption. Such judgments include those about placement, classification, naming, scope, and whether something should exist. The current state includes who uses a thing, what the existing text says, and how the existing structure divides its subject. The current state is what has accumulated so far, and much of it is neither guaranteed nor decided.
+Examined assumptions asks that a judgment take something as given only where there is a reason to do so. What a judgment takes as given is its assumption. Such judgments include those about placement, classification, naming, scope, and whether something should exist. Examples of an assumption are the current state and a consideration's role as a condition for the conclusion.
 
-The test is to name what the judgment takes as given, and then to state why it can be taken as given. That it is the current state is not a reason. Examples of a reason are a contract, an invariant, and readers who rely on a shared form.
+The current state includes who uses a thing, what the existing text says, and how the existing structure divides its subject. The current state is what has accumulated so far, and much of it is neither guaranteed nor decided.
+
+A judgment that treats a consideration as a necessary or sufficient condition for its conclusion assumes that the consideration can have that role. A consideration can be true and relevant without being such a condition. A consideration has that role only where the purpose or the constraints of the work justify its use in that role, and those constraints include the criteria that the work has established.
+
+The test is to name what the judgment takes as given, and then to state why it can be taken as given. That it is the current state is not a reason. Neither is that a critique raised the consideration or that the consideration is easy to check. Examples of a reason are a contract, an invariant, and readers who rely on a shared form.
 
 Where structure and content conflict, the same test decides which of the two is adjusted. Where the structure can be taken as given, the unit conforms, a case that the Sibling consistency principle governs. Where it cannot, the structure is revised, a case that the Structural fix principle governs.
 
 A judgment that fails the test shows in its result. For example, a judgment about placement results in the "misplacement" antipattern. A judgment about a name or a description results in the "caller-bound framing" antipattern, and a judgment about the scope of an edit results in the "under-scoped change" antipattern.
 
 The **"snapshot reasoning"** antipattern is a judgment that takes the current state as fixed, although that state can change. Examples of such a state are who calls a thing, what references it, which inputs occur, and how a document under review is currently divided. The work itself can change the state, and so can a later change that the result has to survive. In the clearest case, work on a thing takes the current form of that same thing as its ground.
+
+The **"unwarranted condition"** antipattern treats a consideration as a necessary or sufficient condition for the conclusion of a judgment. In this failure, neither the purpose nor the constraints of the work justify using the consideration in that role. One cause is a visible fact about the existing structure. Examples are where a piece of information is written and whether another item already covers a case. The existing structure then over-determines the judgment, and the fact is used as a condition that nothing warrants. Where the "snapshot reasoning" antipattern treats a fact as fixed, this antipattern treats a fact as a condition, however stable the fact is.
 
 ### Principle of Applicability
 

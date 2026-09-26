@@ -126,6 +126,10 @@ antipatterns:
     generated_by: [anchoring bias]
     prevented_by: [Examined assumptions]
 
+  - name: unwarranted condition
+    generated_by: [anchoring bias]
+    prevented_by: [Examined assumptions]
+
   - name: false analogy
     generated_by: [anchoring bias]
     prevented_by: [Applicability]
