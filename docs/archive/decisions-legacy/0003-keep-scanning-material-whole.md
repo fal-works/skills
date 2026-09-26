@@ -1,6 +1,7 @@
 ---
-status: accepted
-date: 2026-07-17
+status: deprecated
+created: 2026-07-17
+updated: 2026-09-27
 ---
 
 # Keep scanning material whole
