@@ -94,43 +94,43 @@ Use the definitions in the `fal-agentic-vocabulary` skill to determine whether a
 - A priority between concerns that the definition does not state
 - A case that this medium handles in its own way
 
-### Redundant statement
+### The "redundant statement" antipattern
 
 An opening line that reads as a repetition of its heading passes where it states the scope that the heading does not state. Where a copy is deleted and a reader at its place still needs the fact, the fix leaves a reference to the place that states it.
 
-### Unsolicited clarification
+### The "unsolicited clarification" antipattern
 
 A negation or a prohibition written as its own sentence is worth its cost only where its benefit to the reader is substantial. Where deleting a qualifier would make the claim false, the qualifier stays, or the claim is reworded to the scope in which it is true.
 
-### Wrong-layer patch
+### The "wrong-layer patch" antipattern
 
 When a shared template defines the structure, a section written to fill one of its headings is conforming.
 
-### False analogy
+### The "false analogy" antipattern
 
 Where the reason for what is established is not known, report the passage and leave it unchanged.
 
-### Silent contradiction
+### The "silent contradiction" antipattern
 
 If the described thing might be wrong instead of the description, report the conflict and leave both sides unchanged.
 
-### Session leak
+### The "session leak" antipattern
 
 Where the passage indicates a property of the subject that surprises a fresh reader, the fix can replace it with a direct statement of the property instead of deleting it.
 
-### Context-bound statement
+### The "context-bound statement" antipattern
 
 Where the context in which the statement was made is not known, leave the statement unchanged, because a rewording replaces the writer's meaning with the auditor's guess. Report the statement and the meaning taken from the document, for someone who knows the context to compare.
 
-### Unclear reference
+### The "unclear reference" antipattern
 
 Each reference has some risk of a failed lookup, so a passage with many references warrants testing each one.
 
-### Catch-all name
+### The "catch-all name" antipattern
 
 The replacement term is used everywhere that the document names the concept.
 
-### Culture-bound phrase
+### The "culture-bound phrase" antipattern
 
 For a phrase that a cue marks as a suspected culture-bound phrase, state the operation, state, or relation that the phrase means without reusing its wording. Then compare that statement with the original. Where the statement names the operation, state, or relation more directly and keeps the meaning, it replaces the original, as "is written in" replaces "sits in." Frequent use in English technical prose is not a reason to keep the original. Where the statement is no more direct, as for a document that "states" a rule, the original stays.
 

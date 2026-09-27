@@ -103,63 +103,63 @@ Use the definitions in the `fal-agentic-vocabulary` skill to determine whether a
 - A priority between concerns that the definition does not state
 - A case that this medium handles in its own way
 
-### Redundant statement
+### The "redundant statement" antipattern
 
 A short doc summary that reads as redundant with the name passes where it states the intent or the scope that the name does not state.
 
-### Unsolicited clarification
+### The "unsolicited clarification" antipattern
 
 A negation or a prohibition written as its own sentence is worth its cost only where its benefit to the reader is substantial. Where deleting a qualifier would make the claim false, the qualifier stays, or the claim is reworded to the scope in which it is true.
 
-### Staleness surface
+### The "staleness surface" antipattern
 
 Where code that repeats a definition from elsewhere has to stay, the fix can make a change at the source either take effect at this place or fail visibly. An example of the first is deriving the value from the source. An example of the second is an exhaustive match that stops compiling when a case is added.
 
-### Needless backward compatibility
+### The "needless backward compatibility" antipattern
 
 Where the request did not require keeping an old interface that remains beside its replacement, the fix replaces it and migrates the callers. Where it cannot be determined whether the request required keeping it, leave the interface and report it.
 
-### False analogy
+### The "false analogy" antipattern
 
 Where the reason for what is established is not known, such as the reason that a copied construct had at its source, report the construct or the wording and leave the code unchanged.
 
-### Silent contradiction
+### The "silent contradiction" antipattern
 
 If the code might be wrong instead of the comment, report the conflict and leave both sides unchanged.
 
-### Caller-bound framing
+### The "caller-bound framing" antipattern
 
 A reference that only names the caller, such as "Used by X," can remain while the structure work that removes it is deferred. Elaborating on how the caller behaves or what it passes turns a caller fact into an intrinsic property and violates the boundary.
 
-### Session leak
+### The "session leak" antipattern
 
 Where the element or the comment indicates a property of the code that surprises a fresh reader, the fix can replace it with a direct statement of the property instead of deleting it.
 
-### Salience leak
+### The "salience leak" antipattern
 
 Where one case has dedicated code that neighboring cases do not have, the case can sometimes be handled as part of the general one.
 
-### Context-bound statement
+### The "context-bound statement" antipattern
 
 Where the context in which the comment was written is not known, leave the comment unchanged, because a rewording replaces the writer's meaning with the auditor's guess. Report the comment and the meaning taken from the code and the comment, for someone who knows the context to compare.
 
-### Version-bound description
+### The "version-bound description" antipattern
 
 Where removing the qualifier leaves nothing that distinguishes the thing, two elements are candidates for one name, and which of them the name refers to has not been decided. The fix is to make that decision. The superseded element usually falls under the "vestige" antipattern and is deleted.
 
-### Unmarked coinage
+### The "unmarked coinage" antipattern
 
 A concept that keeps needing a coined label usually needs a declaration of its own. Judge the concept under the Structural naming principle before replacing the label.
 
-### Unclear reference
+### The "unclear reference" antipattern
 
 Each reference has some risk of a failed lookup, so a passage with many references warrants testing each one.
 
-### Packed phrase
+### The "packed phrase" antipattern
 
 Where a name cannot be expanded into a phrase of readable length, the concept that it names is suspect before the name is. Judge the concept under the Structural naming principle before renaming.
 
-### Culture-bound phrase
+### The "culture-bound phrase" antipattern
 
 For a phrase that a cue marks as a suspected culture-bound phrase, state the operation, state, or relation that the phrase means without reusing its wording. Then compare that statement with the original. Where the statement names the operation, state, or relation more directly and keeps the meaning, it replaces the original, as "is written in" replaces "sits in." Frequent use in English technical prose is not a reason to keep the original. Where the statement is no more direct, as for a function that "returns" a value, the original stays. A phrase that resolves as a code symbol of the repository passes.
 
