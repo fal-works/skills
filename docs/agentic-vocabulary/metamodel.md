@@ -30,6 +30,7 @@ The model excludes the following:
 
 - Failures that have no name, which are described in the prose of the principle that prevents them.
 - Failures from overapplying a principle, which are described in the prose of that principle.
+- Failures specific to one natural language, which are covered by a skill for that language, such as `fal-write-ja` for Japanese.
 
 Antipatterns do not partition failures. Each names what it takes as the problem, and one case can fall under several. Comparing an antipattern with its neighbors serves to make that problem clear, not to draw a boundary.
 
@@ -59,3 +60,20 @@ A `generates` or `prevents` edge holds for the antipattern as a whole, or for on
 **specializes**: the specific node covers a subset of the cases that the general node covers.
 
 **composes**: a principle combines the listed principles.
+
+## Names
+
+Where the field has an established term with the same meaning as a node, that term is used as the node's name, because an LLM knows the term from training and can interpret it even when the definition is no longer in its context.
+
+A principle name and an antipattern name are each a phrase that can appear in the prose of the skills in the form `the X principle` or `the "x" antipattern`.
+
+The quality of a name is judged from four aspects:
+
+- Polarity and indication. An antipattern name alone shows that it is a defect. A principle name alone lets the reader infer roughly what the principle covers.
+- Collision. The name does not conflict with an established meaning in the field.
+- Domain fit. A name that evokes only code or only documentation is used only for a concept specific to that domain. The "silent fallback" antipattern is specific to code, so its name can be too.
+- Mutual distinction. The name remains distinguishable from its neighbors after the context is compressed.
+
+One concept has one name. An antipattern that occurs in both code and documentation has a single name that covers any unit, such as a paragraph or a function.
+
+English names are canonical, and the definitions are in the vocabulary skill. The Japanese skills use the English names untranslated.

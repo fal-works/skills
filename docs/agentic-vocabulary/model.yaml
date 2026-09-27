@@ -1,4 +1,5 @@
 # The model that the fal-agentic-vocabulary and fal-agentic-audit skills are based on. What may enter: see metamodel.md.
+# Keep this file in sync with the skill text.
 
 biases:
   - anchoring bias
