@@ -46,8 +46,8 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A term in backticks that names no symbol. Search the repository first. Suspect "unmarked coinage."
 - A compound label that matches no declaration. Search the repository first. Suspect "unmarked coinage."
 - A phrase that has to be reread to determine how its words relate. Suspect "packed phrase."
-- An unqualified general word for a qualified concept, such as "budget" for a retry budget. Suspect "stripped term."
 - A comment that states what a term means, such as "below, the state after the flush is called settled." Apply the Defined terms principle.
+- An unqualified general word for a qualified concept, such as "budget" for a retry budget. Suspect "stripped term."
 
 ### Names
 

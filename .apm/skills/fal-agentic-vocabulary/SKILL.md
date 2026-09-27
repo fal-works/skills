@@ -32,7 +32,7 @@ Under the Applicability principle, an antipattern name applies when the defined 
 
 Necessity requires that anything added be worth its cost. The cost is the reader's attention now and the project's maintenance later. The default is to leave it out. Content is worth its cost when the reader needs it and cannot get it from what is already there. That content is true, relevant, or not yet said does not make it worth its cost. In documentation, such content is most often a contract or an explanation of a reason that is not obvious.
 
-The test is removal: take the content out, and name what the reader then loses.
+The test is to remove the content and to name what the reader then loses.
 
 Brevity comes from removing what is not worth its cost, not condensing it.
 
@@ -53,7 +53,7 @@ Applying the principle too little is the more frequent failure. The principle ca
 - A statement that gives what the reader genuinely lacks, however short the text would be without it
 - A qualifier that would make the statement false if removed
 - A sentence that adds no new fact but prevents the "unstated relation" antipattern by stating a relation or a status where the reader needs it
-- A repeated noun or a helper word, such as "that" or "then," that determines how a phrase is read
+- A repeated noun or a function word that determines how a phrase is read
 
 ### Principle of Unit focus
 
@@ -79,13 +79,15 @@ The test is to name what the unit is about, and then to name what the place cove
 
 The place that covers a unit's subject also determines an abstraction level. A module header states its responsibilities, a function doc states its contract, and a type doc states its role. Detail about a smaller thing belongs in the smaller scope, next to that thing. Orientation material belongs where a newcomer looks first.
 
-In documentation, where a document set is split into overview and detail, such as a skill file and its references or a README and `docs/`, each kind of material already has an assigned place. Worked examples and per-item explanations belong to the detail layer.
+In documentation, where a document set is split into overview and detail, each kind of material already has an assigned place. Worked examples and per-item explanations belong to the detail layer.
 
 The same matching applies in code. Logic belongs where its subject is implemented, and a caller that has to access another module's internals indicates a boundary defined in the wrong place. When responsibilities share a location, the question is whether they share a subject or only a place: responsibilities placed together accidentally appear to be placed together deliberately.
 
 The subject of a constraint is whoever guarantees it. A rule that the module itself guarantees belongs in its own types. By contrast, a rule that only one use site imposes belongs in that use site's layer, stated with that use site as its subject.
 
-The **"misplacement"** antipattern is a unit that is not in the place that covers its subject, at the abstraction level of that place. The urge to repeat a caveat "to be safe" is usually this antipattern: the caveat is outside the place that covers its subject, or two scopes overlap.
+An urge to repeat a caveat "to be safe" usually means that the caveat is outside the place that covers its subject, or that two scopes overlap.
+
+The **"misplacement"** antipattern is a unit that is not in the place that covers its subject, at the abstraction level of that place.
 
 The **"unabstracted detail"** antipattern is a misplacement by abstraction level. The unit's subject is part of what the place covers, but the unit states it in finer detail than the level of that place.
 
@@ -183,9 +185,9 @@ The **"silent contradiction"** antipattern is an unreported disagreement between
 
 Reader's position requires that output start from what the reader can see rather than from what the writer knows. The first judgment is who the reader is and what they already have, because everything that follows is judged from that position. The writer has three things that the reader does not, and each affects the output in its own way:
 
-- **Boundary.** The writer sees internals and current callers. The reader has only what the boundary exposes. The Contract principle addresses this concern.
-- **Session.** The writer has instructions, discussion, and the previous version. The reader has none of it. The Session-blind principle addresses this concern.
-- **Namespace.** The writer knows the referent and can interpret an imprecise term correctly. The reader can understand only terms that resolve in a public namespace. The Words that resolve principle addresses this concern.
+- Boundary: The writer sees internals and current callers. The reader has only what the boundary exposes. The Contract principle addresses this concern.
+- Session: The writer has instructions, discussion, and the previous version. The reader has none of it. The Session-blind principle addresses this concern.
+- Namespace: The writer knows the referent and can interpret an imprecise term correctly. The reader can understand only terms that resolve in a public namespace. The Words that resolve principle addresses this concern.
 
 A symbol name and a doc comment are addressed to the same reader, and the same three concerns apply to both.
 
@@ -275,10 +277,10 @@ Defined terms requires that a term be defined when the reader needs a distinctio
 
 A definition is judged by four questions. A later answer can change an earlier one. For example, a narrower scope under question 4 can make a definition worth its cost under question 1.
 
-1. **Is a definition needed?** A definition that explains an established term is worth its cost where the reader lacks the term and needs it. Before the document stipulates a meaning of its own, ordinary wording is tried. Examples are a qualifier that states what the thing belongs to, such as "detection candidate" for "candidate," and a relation written out where the concept is used. A term of several words needs a definition only for the part of its meaning that its words and their relation do not already state. The test is removal: take the definition out, read each use, and name what the reader then loses.
-2. **Does the name fit?** A term that the domain establishes or the project defines for the same concept is preferred. A new name fits where it lets the reader infer roughly what the concept is about. A compound is readable only where its head already resolves at the point of use. A general-purpose word as the name is judged by the definition of the "catch-all name" antipattern.
-3. **Does the definition establish the distinction?** The definition states what the concept is, in concepts that the reader already has, precisely enough that a neighboring concept does not match it. It is neither broader nor narrower than the intended concept. The test is to check it against a case that belongs and against a similar case that does not.
-4. **Is the scope visible, and do the uses follow it?** The reader can tell where the definition applies. Within that scope, replacing the term with its definition at each use leaves the meaning of each sentence unchanged. A scope beyond the document is a design decision that the user makes.
+1. Is a definition needed? A definition that explains an established term is worth its cost where the reader lacks the term and needs it. Before the document stipulates a meaning of its own, ordinary wording is tried. Examples are a qualifier that states what the thing belongs to and a relation written out where the concept is used. A term of several words needs a definition only for the part of its meaning that its words and their relation do not already state. The test is to remove the definition, to read each use, and to name what the reader then loses.
+2. Does the name fit? A term that the domain establishes or the project defines for the same concept is preferred. A new name fits where it lets the reader infer roughly what the concept is about. A compound is readable only where its head already resolves at the point of use. A general-purpose word as the name is judged by the definition of the "catch-all name" antipattern.
+3. Does the definition establish the distinction? The definition states what the concept is, in concepts that the reader already has, precisely enough that a neighboring concept does not match it. It is neither broader nor narrower than the intended concept. The test is to check it against a case that belongs and against a similar case that does not.
+4. Is the scope visible, and do the uses follow it? The reader can tell where the definition applies. Within that scope, replacing the term with its definition at each use leaves the meaning of each sentence unchanged. A scope beyond the document is a design decision that the user makes.
 
 The principle can be overapplied by rejecting a needed definition because the name alone is roughly readable. A name suggests what a concept is about, but it does not determine the boundary. Another overapplication requires the cases or the neighbors used under question 3 to appear in the definition.
 
