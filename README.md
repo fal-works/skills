@@ -8,6 +8,7 @@ A general-purpose [APM](https://microsoft.github.io/apm/) package for software d
 - [fal-agentic-audit](.apm/skills/fal-agentic-audit/SKILL.md): Audit-and-fix pass for a finished change, covering documentation, comments, and code structure. Companion to fal-agentic-vocabulary.
 - [fal-write-ja](.apm/skills/fal-write-ja/SKILL.md): Principles for writing high-quality Japanese, in documentation and elsewhere. Companion to fal-agentic-vocabulary.
 - [fal-improve-ja](.apm/skills/fal-improve-ja/SKILL.md): Audit-and-fix pass for existing Japanese prose. Companion to fal-write-ja.
+- [fal-itemized-human-review](.apm/skills/fal-itemized-human-review/SKILL.md): Temporary HTML page on which the user reviews a text artifact item by item, with a decision and a note for each item.
 - [fal-feedback](.apm/skills/fal-feedback/SKILL.md): Report a failure of another `fal-*` skill, for use as input when revising it.
 
 ## Install
