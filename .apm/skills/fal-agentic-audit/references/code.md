@@ -26,7 +26,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A doc comment on a public surface naming types, mechanisms, or steps that its reader cannot see. Suspect "exposed internals" and "unabstracted detail."
 - A doc comment on a declaration that details one of its members, such as a type doc describing the behavior of one field. Suspect "unabstracted detail."
 - A connector that joins clauses without stating how they relate, such as an em dash, a semicolon, or "which also." Suspect "split focus" and "unstated relation."
-- A verb whose primary sense describes a body or a physical object, such as its action, posture, dwelling, or movement, with an abstract or inanimate noun as its subject or object, such as a value that "lives" in a cache. Suspect "culture-bound phrase."
+- A verb whose primary sense describes a body or a physical object, used with an abstract or inanimate noun as its subject or object, such as a value that "lives" in a cache. Examples are verbs of acting, holding a posture, living in a place, and moving. Suspect "culture-bound phrase."
 - An inanimate subject given will, speech, feeling, or cognition, such as a cache that "remembers" a value or a module that "knows" its callers. Suspect "culture-bound phrase."
 - An idiom of general English. Suspect "culture-bound phrase."
 - Comments in one region using words from the same figurative system. Suspect "culture-bound phrase."
@@ -96,7 +96,12 @@ A word or a form does not mark these cues. Each is found by examining the units 
 
 ## Judgment notes
 
-Use the definitions in the `fal-agentic-vocabulary` skill to determine whether a suspected failure occurs and what the fix is. The notes here cover only what those definitions do not determine. Examples are what to do when the judgment cannot be made, a fix that the auditor might not think of, a priority between concerns that the definition does not state, and a case that this medium handles in its own way.
+Use the definitions in the `fal-agentic-vocabulary` skill to determine whether a suspected failure occurs and what the fix is. The notes here cover only what those definitions do not determine. Examples of what the notes cover are the following:
+
+- What to do when the judgment cannot be made
+- A fix that the auditor might not think of
+- A priority between concerns that the definition does not state
+- A case that this medium handles in its own way
 
 ### Redundant statement
 
@@ -140,7 +145,7 @@ Where the context in which the comment was written is not known, leave the comme
 
 ### Version-bound description
 
-Where removing the qualifier leaves nothing that distinguishes the thing, two elements are candidates for one name, and which of them the name refers to has not been decided. The fix is to make that decision. The superseded element is usually a vestige to delete.
+Where removing the qualifier leaves nothing that distinguishes the thing, two elements are candidates for one name, and which of them the name refers to has not been decided. The fix is to make that decision. The superseded element usually falls under the "vestige" antipattern and is deleted.
 
 ### Unmarked coinage
 

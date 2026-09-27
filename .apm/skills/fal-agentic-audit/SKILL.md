@@ -7,7 +7,7 @@ description: Audit and fix a finished change against the fal-agentic-vocabulary 
 
 This skill is an audit-and-fix pass over a finished change: code structure, code comments, doc comments, and Markdown documents.
 
-The `fal-agentic-vocabulary` skill defines the concepts: the named principles and the antipatterns. Read that skill first. This skill assumes its definitions and adds two things: the cues that mark where to suspect an antipattern or where to apply a principle in a finished artifact, and judgment notes that cover what the definitions do not settle, such as what to do when the judgment cannot be made.
+The `fal-agentic-vocabulary` skill defines the concepts: the named principles and the antipatterns. Read that skill first. This skill assumes its definitions and adds two things. The first is the cues that mark where to suspect an antipattern or where to apply a principle in a finished artifact. The second is judgment notes that cover what the definitions do not settle, such as what to do when the judgment cannot be made.
 
 The cues and the judgment notes are in [code and comments](./references/code.md) and [documents](./references/documents.md), one file per medium. Each file lists the cues by what the auditor observes, and each cue names the antipatterns to suspect or the principles to apply.
 
@@ -31,7 +31,7 @@ Within that scope, the regions do not have equal risk. Where there is a change t
 
 ### 2. Read each file end-to-end
 
-Placement and duplication are judged by comparing a unit with related units, and those units can be anywhere in the file.
+Judgments about placement and duplication compare a unit with related units, and those units can be anywhere in the file.
 
 Where a judgment depends on a unit's relationship to other units, read those units before making the judgment.
 
@@ -51,7 +51,7 @@ Unless the "Authority and reporting" section limits the pass to reporting, fix w
 
 The edits are themselves a change and can have the failures that any change can have, so audit what the audit wrote. The scope of this pass is the audit's own edits and what they invalidate, not the files again. A deletion writes nothing, but it makes the text before it and the text after it adjacent. Read both again from the reader's position.
 
-Where a fix changed structure, text that already passed under the old structure has to be judged again, and the new structure can show new cues. A name that the old structure explains and a description of the part that moved are examples.
+Where a fix changed structure, text that already passed under the old structure has to be judged again. The new structure can also show new cues. A name that the old structure explains and a description of the part that moved are examples.
 
 One failure is caused by the audit itself: preserving the content while keeping the edit small condenses an existing unit instead of rebuilding it. This failure is the "under-scoped change" antipattern with the audit's own edit as the change.
 

@@ -36,7 +36,7 @@ The test is to remove the content and to name what the reader then loses.
 
 Brevity comes from removing what is not worth its cost, not condensing it.
 
-Being asked to make something clearer does not justify an addition. When the text already states the point, an addition more often obscures the point than clarifies it, and the first remedy is rewriting what is there.
+Being asked to make something clearer does not justify an addition. When the text already states the point, an addition more often obscures the point than clarifies it. The first remedy is then rewriting what is there.
 
 The **"over-documentation"** antipattern is content, in a document or a comment, that is not worth its cost. Two of its forms have names of their own: the "redundant statement" antipattern and the "unsolicited clarification" antipattern.
 
@@ -81,7 +81,7 @@ The place that covers a unit's subject also determines an abstraction level. A m
 
 In documentation, where a document set is split into overview and detail, each kind of material already has an assigned place. Worked examples and per-item explanations belong to the detail layer.
 
-The same matching applies in code. Logic belongs where its subject is implemented, and a caller that has to access another module's internals indicates a boundary defined in the wrong place. When responsibilities share a location, the question is whether they share a subject or only a place: responsibilities placed together accidentally appear to be placed together deliberately.
+The same matching applies in code. Logic belongs where its subject is implemented, and a caller that has to access another module's internals indicates a boundary defined in the wrong place. When responsibilities share a location, the question is whether they share a subject or only a place. The question matters because responsibilities placed together accidentally appear to be placed together deliberately.
 
 The subject of a constraint is whoever guarantees it. A rule that the module itself guarantees belongs in its own types. By contrast, a rule that only one use site imposes belongs in that use site's layer, stated with that use site as its subject.
 
@@ -89,7 +89,7 @@ An urge to repeat a caveat "to be safe" usually means that the caveat is outside
 
 The **"misplacement"** antipattern is a unit that is not in the place that covers its subject, at the abstraction level of that place.
 
-The **"unabstracted detail"** antipattern is a misplacement by abstraction level. The unit's subject is part of what the place covers, but the unit states it in finer detail than the level of that place.
+The **"unabstracted detail"** antipattern specializes the "misplacement" antipattern to a mismatch in abstraction level. The unit's subject is part of what the place covers, but the unit states it in finer detail than the level of that place.
 
 ### Principle of Structural fix
 
@@ -97,7 +97,7 @@ Structural fix requires that a difficulty be traced to its cause before it is ad
 
 The test is to ask what would have to be different one level up for the difficulty to disappear. A concrete answer is a hypothesis to check rather than a conclusion.
 
-The **"wrong-layer patch"** antipattern works at the symptom layer and leaves the structural cause unaddressed. Each of the following substitutes for the structural fix: filling an empty section with text so that every heading has a paragraph, adding a run-time check for a state that the types could have excluded, and writing prose to compensate for a structural awkwardness.
+The **"wrong-layer patch"** antipattern works at the symptom layer and leaves the structural cause unaddressed. Work of this kind substitutes for the structural fix. One example is filling an empty section with text so that every heading has a paragraph. Others are adding a run-time check for a state that the types could have excluded, and writing prose to compensate for a structural awkwardness.
 
 ### Principle of Redesign
 
@@ -111,9 +111,9 @@ During the work, the signal is the urge to make the content fit the structure th
 
 The **"under-scoped change"** antipattern is a change whose extent is determined by the old structure rather than by the changed assumptions. It specializes the "wrong-layer patch" antipattern: here the symptom layer is the part already under edit. Its most frequent form is an insertion into the unchanged structure: adding a flag, wrapping with a condition, or inserting a special case.
 
-The **"vestige"** antipattern is a remnant, such as dead code, superseded structure, or an assumption that no longer applies, that the current design has made unnecessary. It is an under-scoped change seen from its result: some edit omitted the deletions that the design required, and that edit need not be the current change. "Vestigial" means superseded, not merely unexercised: code that nothing reaches today still belongs when the design has a reason for it.
+The **"vestige"** antipattern is a remnant, such as dead code, superseded structure, or an assumption that no longer applies, that the current design has made unnecessary. It specializes the "under-scoped change" antipattern and describes that failure by its result. The remnant exists because some edit omitted the deletions that the design required, and that edit need not be the current change. "Vestigial" means superseded, not merely unexercised: code that nothing reaches today still belongs when the design has a reason for it.
 
-When the change required replacement, the **"needless backward compatibility"** antipattern keeps the old interface alongside the new one. It is an under-scoped change made deliberately: where a vestige remains because it was overlooked, here the old interface is kept deliberately. The trigger is the writer's own thought that the callers must not break, substituting for a decision that was not made. The user decides whether the old interface is kept. Where the user requests the change and does not ask to keep the old interface, the old interface is removed.
+When the change required replacement, the **"needless backward compatibility"** antipattern keeps the old interface alongside the new one. It specializes the "under-scoped change" antipattern to the case where the old structure is kept deliberately. In the "vestige" antipattern, by contrast, the remnant is overlooked. The trigger is the writer's own thought that the callers must not break, substituting for a decision that was not made. The user decides whether the old interface is kept. Where the user requests the change and does not ask to keep the old interface, the old interface is removed.
 
 ### Principle of Examined assumptions
 
@@ -121,7 +121,7 @@ Examined assumptions requires that a judgment take something as given only where
 
 The current state includes who uses a thing, what the existing text says, and how the existing structure divides its subject. The current state is what has accumulated so far, and much of it is neither guaranteed nor decided.
 
-A judgment that treats a consideration as a necessary or sufficient condition for its conclusion assumes that the consideration can have that role. A consideration can be true and relevant without being such a condition. A consideration has that role only where the purpose or the constraints of the work justify its use in that role, and those constraints include the criteria that the work has established.
+A judgment that treats a consideration as a necessary or sufficient condition for its conclusion assumes that the consideration can have that role. A consideration can be true and relevant without being such a condition. A consideration has that role only where the purpose or the constraints of the work justify its use in that role. Those constraints include the criteria that the work has established.
 
 The test is to name what the judgment takes as given, and then to state why it can be taken as given. That it is the current state is not a reason. Neither is that a critique raised the consideration or that the consideration is easy to check. Examples of a reason are a contract, an invariant, and readers who rely on a shared form.
 
@@ -227,7 +227,7 @@ Version-blind requires that the current state be described by a writer who never
 
 Two failures take opposite forms, and writing as though the old version had never existed prevents both.
 
-The **"version-bound description"** antipattern describes the current state relative to a previous one, as though the reader shares that previous version. Such a description is not empty, which is why it tends to remain after review: the change is still vivid to the writer, and even a fresh audit can rate the comparison informative. The failure affects the reader, because a reader who is not reading for history wants the current state alone.
+The **"version-bound description"** antipattern describes the current state relative to a previous one, as though the reader shares that previous version. Such a description is not empty, so it tends to remain after review. The writer keeps it because the change is still vivid, and even a fresh audit can keep it because the comparison seems informative. The failure affects the reader, because a reader who is not reading for history wants the current state alone.
 
 The **"unsolicited history"** antipattern does the opposite. It narrates the change for a reader assumed not to know it: what replaced what, what a thing used to be called. It is typically well-intentioned. It also fails the Necessity principle, because the added history is not worth its cost.
 
@@ -247,7 +247,7 @@ For relations and statuses, the default is to use short connective phrases or la
 
 In code, a concept that only a general-purpose word names is usually one whose contract or abstraction level is not yet defined. The Structural naming principle applies to this case.
 
-The **"unmarked coinage"** antipattern is a term for which the reader cannot find any referent. It usually appears in one of two ways: a private label from the session is written into the output, or condensing an expression produces a compound that the writer can understand only because they already know the meaning. Typography can strengthen the impression that the term has a referent, because backticks suggest a code symbol and capitalization suggests a defined term. However, the failure is in the term rather than the markup.
+The **"unmarked coinage"** antipattern is a term for which the reader cannot find any referent. It usually appears in one of two ways. In one, a private label from the session is written into the output. In the other, condensing an expression produces a compound that the writer can understand only because they already know the meaning. Typography can strengthen the impression that the term has a referent, because backticks suggest a code symbol and capitalization suggests a defined term. However, the failure is in the term rather than the markup.
 
 The **"catch-all name"** antipattern makes a general-purpose word the fixed name of one specific concept, where the name causes either of two problems. In one, the name conveys only the word's broad everyday sense, and the reader cannot determine the needed distinction from the name and the context where it is used. In the other, the document also needs the word's everyday sense within the scope of the name, and a use in that sense conflicts with the name. A definition lets the reader look up the referent, but it solves neither problem. A general-purpose word used only in its everyday sense, where context determines the referent, is not this failure.
 
