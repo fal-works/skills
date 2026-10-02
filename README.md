@@ -28,6 +28,13 @@ apm install fal-works/skills --path .apm/skills/fal-agentic-vocabulary
 
 Each skill's `description` states what the skill is useful for, not when to trigger it. How eagerly a skill should trigger, and in which contexts, varies by user, model, and project. Set those conditions yourself in your `CLAUDE.md` or `AGENTS.md`.
 
-## Design decisions
+The audit skills are an example. If you want finished work to be audited, state when. For example:
 
-Structural decisions about this skill collection are recorded as ADRs in [docs/decisions](docs/decisions/).
+```markdown
+Before reporting a change as complete, apply the `fal-agentic-audit` skill to it.
+```
+
+## Design documents
+
+- [docs/decisions](docs/decisions/): ADRs that record structural decisions about this skill collection.
+- [docs/agentic-vocabulary](docs/agentic-vocabulary/): The model that `fal-agentic-vocabulary` and `fal-agentic-audit` are based on, and the rules for editing those skills.
