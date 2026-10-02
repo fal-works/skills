@@ -11,3 +11,4 @@ Which documents to read depends on the work:
 
 - A change to the model, or to the content or the structure of either skill: `authoring.md`, `metamodel.md`, and `model.yaml`.
 - Any change to the text of either skill, including a check of its wording: `style.md`.
+- A reference, in any other skill, to a name that the vocabulary skill defines: the "Names" section of `style.md`.

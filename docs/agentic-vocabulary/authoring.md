@@ -52,7 +52,7 @@ An antipattern definition is one paragraph. The paragraph contains only the defi
 
 ## Structure of the audit skill's reference files
 
-The audit skill has one reference file per medium, `code.md` and `documents.md`. Each file has two sections, "Cues" and "Judgment notes."
+The audit skill has one reference file per medium, `code.md` and `documents.md`. Each file has two sections, "Cues" and "Judgment notes." The "Cues" section is organized by cue, not by antipattern, because one observed feature is a cue for several antipatterns.
 
 - Neither file refers to the other, so that the auditor of one medium reads nothing about the other.
 - The cues of each medium are written for that medium and cover every antipattern that appears in it. An antipattern is left out of one medium's cues only when the concept is specific to the other medium.

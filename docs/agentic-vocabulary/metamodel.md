@@ -63,6 +63,8 @@ A `generates` or `prevents` edge holds for the antipattern as a whole, or for on
 
 ## Names
 
+The name of a principle or an antipattern is the means of recalling it in a context that is long or has been compressed. The name lets the agent and the user refer to the node during the work, tends to remain after compression, and identifies the definition to reread.
+
 Where the field has an established term with the same meaning as a node, that term is used as the node's name, because an LLM knows the term from training and can interpret it even when the definition is no longer in its context.
 
 A principle name and an antipattern name are each a phrase that can appear in the prose of the skills in the form `the X principle` or `the "x" antipattern`.
