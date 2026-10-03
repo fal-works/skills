@@ -21,6 +21,8 @@ Some antipatterns concern the session, such as "session leak" and "salience leak
 
 That reviewer is subject to the defensive bias toward keeping the work as it was written. For them, a reported finding is a hypothesis to check, as a cue is for the auditor in step 3. A finding whose explanation is wrong can still indicate a real problem. A reason for rejecting a finding is itself a claim, and it is verified before the finding is rejected.
 
+A fix that the fresh auditor made or proposed is a hypothesis separate from its finding. The fresh auditor wrote it without knowing what the writer meant, so the reviewer compares what the fix states with that meaning before accepting it.
+
 ## Run the audit
 
 ### 1. Set the scope and the focus
@@ -59,7 +61,7 @@ One failure is caused by the audit itself: preserving the content while keeping 
 
 This skill covers both auditing and fixing. When the request excludes edits, such as by asking only for a report, a list, or an evaluation, limit the pass to reporting. Otherwise, fix the confirmed problems by deleting, shortening, moving, or rewriting as the judgment requires. The words "audit" and "review" alone do not exclude edits.
 
-Report the findings, whether the pass fixed them or proposes the fix. For each finding, state its location, the observed problem, and the fix made or proposed. Where a vocabulary concept applies, explain why it applies. Also state how the pass was narrowed in scope, because a pass whose scope was narrowed without a statement reads as one that covered everything.
+Report the findings, whether the pass fixed them or proposes the fix. For each finding, state its location, the observed problem, and the fix made or proposed. Where a vocabulary concept applies, explain why it applies. Where a fix changes what the text states, say so with the fix, because the reader of the report otherwise takes the fix as a change of wording alone. Also state how the pass was narrowed in scope, because a pass whose scope was narrowed without a statement reads as one that covered everything.
 
 ## Editing discipline
 
@@ -67,7 +69,8 @@ Report the findings, whether the pass fixed them or proposes the fix. For each f
 - What is limited is the scope of the pass, not the size of a fix. Where a fix requires the unit to be rebuilt, rebuild it.
 - Because of the additive bias, the auditor tends to fix a problem by adding text, which is often not the best fix. Before adding text, consider whether rewriting the existing text fixes the problem.
 - Because of the defensive bias, the auditor avoids judging a passage unnecessary. The auditor can also make that judgment and then rewrite the passage instead of removing it. Where the audit finds a passage unnecessary, remove it.
-- Before a replacement becomes final, compare it with the original: everything the original stated is kept unless a finding requires the change. A split counts as a replacement, with its pieces read in place of the original. The usual losses are an omitted qualifier and an omitted relation between clauses. An omitted qualifier leaves a noun phrase stating a broader claim than the original did.
+- Before a replacement becomes final, compare it with the original in both directions: everything the original stated is kept, and nothing is stated that the original did not state, unless a finding requires the change. A split counts as a replacement, with its pieces read in place of the original. The usual losses are an omitted qualifier and an omitted relation between clauses. An omitted qualifier leaves a noun phrase stating a broader claim than the original did.
+- A replacement written to make a statement clearer tends to state what the original did not state, because the more specific statement reads as the clearer one. The usual forms are a permission that becomes an instruction, several permitted options that become one, and an example that becomes a rule. A finding that the original is unclear does not by itself require such a change.
 - A replacement keeps the original's notation unless a finding requires the change.
 - A restructure preserves behavior unless a finding requires the change, as a "silent fallback" finding does.
 - A comment-only edit does not always leave behavior unchanged. Type-bearing dialects, such as JSDoc types and Python type comments, are read by static analysis, and a Markdown edit can break links and anchors. Check what the edit could have broken.

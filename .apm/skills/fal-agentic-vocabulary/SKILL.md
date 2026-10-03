@@ -307,6 +307,8 @@ The **"unclear reference"** antipattern refers to something elsewhere in the tex
 
 The **"culture-bound phrase"** antipattern is wording that resolves only through its language's figurative and idiomatic conventions. Those conventions are not a namespace that every reader has. Translation does not preserve the meaning, and readers whose native language differs do not understand it. A reader of the original language understands the meaning, and the wording therefore passes a check that requires only a referent. Even for that reader, the wording can leave unclear which operation or fact it means. Such wording typically uses a word outside its primary sense. Personification is one form. Another is a figurative chain, where successive sentences use words from one figurative system. A figurative term established in the domain resolves through that domain's vocabulary and is not this failure.
 
+The principle can be overapplied by treating a statement that covers much, or that leaves much to the reader, as a statement that does not resolve. Such a statement resolves where the reader can tell what it covers and what it leaves open. A statement that covers more than the writer has grounds to claim, or that leaves open what its purpose needs settled, has a defect of content, not of wording.
+
 ### Principle of Structural naming
 
 Structural naming requires that a name be treated as a claim about the structure rather than as a label to swap. A name states what a concept provides to its scope, and it also has to distinguish that concept from the ones beside it. A bad name is a symptom of one of three causes, worth suspecting in this order:
