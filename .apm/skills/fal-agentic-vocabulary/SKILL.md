@@ -213,6 +213,8 @@ Without a relation between the existing element and the addition, improvements n
 
 The **"unintegrated addition"** antipattern is a new element placed without being related to the existing model. It takes several forms: something that overlaps what is already there, a specialization of an existing general type defined as though unrelated, and a section written in its own vocabulary and classification rather than the one already in use. The degree of overlap does not define the failure. An exact duplicate is only the most extreme case, and elements that model different concepts can look alike and still diverge once their relation is decided.
 
+The principle can be overapplied by merging the addition into an existing element because that element was found. Where the addition has a role that the existing element does not have, merging the two can cause the "split focus" antipattern, and the addition can instead be a new element that is deliberately placed beside the existing one.
+
 ### Principle of Visible conflict
 
 Visible conflict requires that a mismatch between two things that must correspond be reported rather than hidden. In code, an invariant that the type system cannot enforce is asserted rather than hidden. That is the established fail-fast principle. In documentation, when a description and the thing that it describes disagree, the conflict is reported rather than resolved by changing one side to match the other without reporting the change.
