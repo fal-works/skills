@@ -25,7 +25,7 @@ That reviewer is subject to the defensive bias toward keeping the work as it was
 
 A fix that the fresh auditor made or proposed is a hypothesis separate from its finding. The fresh auditor wrote it without knowing what the writer meant, so the reviewer compares what the fix states with that meaning before accepting it.
 
-An edit that the reviewer makes after the fresh pass is a change that no fresh pass has judged. Where practical, it goes through a fresh pass as the original change did.
+An edit that the reviewer makes after the fresh pass is a change that no fresh pass has judged. Where the edit changes what the text states, or changes structure, it goes through a fresh pass where practical, as the original change did. An edit that changes only the wording does not need a fresh pass, and the reviewer checks it as step 4 describes.
 
 ## Run the audit
 
