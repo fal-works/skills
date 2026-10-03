@@ -32,7 +32,7 @@ Under the Applicability principle, an antipattern name applies when the defined 
 
 Necessity requires that anything added be worth its cost. The cost is the reader's attention now and the project's maintenance later. The default is to leave it out. Content is worth its cost when the reader needs it and cannot get it from what is already there. That content is true, relevant, or not yet said does not make it worth its cost. In documentation, such content is most often a contract or an explanation of a reason that is not obvious.
 
-The test is to remove the content and to name what the reader then loses.
+The test is to name what the reader needs the content for, given what the unit is for. That the reader would lose something without the content does not show a need.
 
 Brevity comes from removing what is not worth its cost, not condensing it.
 

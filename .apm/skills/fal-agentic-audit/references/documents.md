@@ -68,7 +68,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 
 A word or a form does not mark these cues. Each is found by examining the units that the cue names, as the cue states.
 
-- A section that is longer than its sibling sections. Read the siblings first. Suspect "unabstracted detail," "sibling mismatch," and "salience leak."
+- A section that is longer than its sibling sections. Read the siblings first. Suspect "unabstracted detail," "sibling mismatch," "salience leak," and "over-documentation."
 - A list item several times the length of the items around it. Suspect "sibling mismatch."
 - Density, tone, vocabulary, language, or structure departing from the sibling sections or documents. Read the siblings first. Suspect "sibling mismatch."
 - A change applied to one unit whose siblings keep the old form. Suspect "sibling mismatch" and "under-scoped change."
@@ -77,7 +77,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A factual claim about a class of things, how often something happens, what causes something, what does not exist or does not happen, how a reader or a process will behave, or what a fix or a safeguard will prevent. Ask whether the available evidence justifies the scope and the certainty that a reader takes from the wording, and, where the claim is inferred, whether the text says so. Suspect "overclaim," and apply the Words that resolve principle.
 - A rule, a decision, or a verdict stated without limit or conditions. Ask whether a reader can determine its scope from the document, considering any stated reason. Suspect "context-bound statement."
 - A statement whose reading is not obvious, where nothing nearby settles how it was meant. Suspect "context-bound statement."
-- A document. Ask what its reader does with it, and whether each passage serves that use. Suspect "off-purpose content."
+- A document or a section. Ask what its reader does with it, and whether each passage serves that use. Suspect "off-purpose content."
 - A fact in a section. Ask what the fact is about, and whether the heading of the section covers that subject. Suspect "misplacement" and "under-scoped change."
 - A section and its heading. Ask whether the content would have been written if the heading did not require it. Suspect "wrong-layer patch."
 - A section that overlaps what another document states. Search beyond the document under edit. Suspect "unintegrated addition."
@@ -88,7 +88,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A plan or a proposal. Ask what it treats as settled, such as a premise, a scope, or a choice between alternatives, and whether the user might dispute it. Ask then whether the text presents it as a decision. Suspect "silent decision."
 - A plan or a proposal that asks the user to approve separate items. Ask whether the items depend on a premise that none of them states, and whether each item needs the user's judgment. Suspect "silent decision" and "offloaded decision."
 - A claim about a thing, such as what it states, contains, or covers, whether that thing is adjacent or elsewhere. Find the thing and verify each claim. Verify an absence claim across its full scope. Suspect "silent contradiction."
-- Every passage in focus, and every part of one. Suspect "over-documentation."
+- The passages of a document or a section. Ask which would be removed first if the whole had to be shorter, and continue in that order until a removal would change what the reader does with the document. Suspect "over-documentation."
 
 ## Judgment notes
 
