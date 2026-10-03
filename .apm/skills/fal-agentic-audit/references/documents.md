@@ -74,7 +74,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A change applied to one unit whose siblings keep the old form. Suspect "sibling mismatch" and "under-scoped change."
 - A point given more text, more emphasis, or a narrower example than its place in the section warrants. An exception given more text than its rule is one form. Compare what each point received with the section as a whole. Suspect "salience leak."
 - A claim that nothing in scope supports, such as the content of an instruction restated as a fact. Ask what in scope motivates it. Suspect "session leak."
-- A claim about how a reader or a process will behave, or about what a fix or a safeguard will prevent. Ask whether the available evidence justifies the degree of certainty that the claim expresses, and, where it is inferred, whether the text says so. Apply the Examined assumptions and Words that resolve principles.
+- A factual claim about a class of things, how often something happens, what causes something, what does not exist or does not happen, how a reader or a process will behave, or what a fix or a safeguard will prevent. Ask whether the available evidence justifies the scope and the certainty that a reader takes from the wording, and, where the claim is inferred, whether the text says so. Suspect "overclaim," and apply the Words that resolve principle.
 - A rule, a decision, or a verdict stated without limit or conditions. Ask whether a reader can determine its scope from the document, considering any stated reason. Suspect "context-bound statement."
 - A statement whose reading is not obvious, where nothing nearby settles how it was meant. Suspect "context-bound statement."
 - A document. Ask what its reader does with it, and whether each passage serves that use. Suspect "off-purpose content."
@@ -110,6 +110,10 @@ A negation or a prohibition written as its own sentence is worth its cost only w
 ### The "wrong-layer patch" antipattern
 
 When a shared template defines the structure, a section written to fill one of its headings is conforming.
+
+### The "overclaim" antipattern
+
+Where the material in scope settles what the grounds support, reword the statement to claim no more than that. Where it does not, leave the statement unchanged and report it, because a weakened statement can claim less than the writer had established.
 
 ### The "false analogy" antipattern
 

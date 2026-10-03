@@ -32,6 +32,10 @@ principles:
   - name: Examined assumptions
     looks_mainly_at: above
 
+  - name: Calibrated claims
+    looks_mainly_at: above
+    specializes: Examined assumptions
+
   - name: Applicability
     looks_mainly_at: above
 
@@ -140,6 +144,10 @@ antipatterns:
   - name: unwarranted condition
     generated_by: [anchoring bias]
     prevented_by: [Examined assumptions]
+
+  - name: overclaim
+    generated_by: [compression bias, contextual bias]
+    prevented_by: [Calibrated claims]
 
   - name: false analogy
     generated_by: [anchoring bias]

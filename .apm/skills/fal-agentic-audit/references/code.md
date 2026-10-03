@@ -81,7 +81,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A change applied to one unit whose siblings keep the old form. Suspect "sibling mismatch" and "under-scoped change."
 - Explanation or code devoted to one case, such as a comment, a helper, a parameter, or a branch, where neighboring cases receive less or none. Compare what each case received with the region as a whole. Suspect "salience leak."
 - An element or a claim that nothing in scope requires or supports, such as a helper, a type, or a parameter that nothing uses. Ask what in scope motivates it. Suspect "session leak" and "vestige."
-- A comment that claims an effect of the code that depends on conditions outside the code, such as load or user behavior. Ask whether the available evidence justifies the degree of certainty that the comment expresses, and, where it is inferred, whether the comment says so. Apply the Examined assumptions and Words that resolve principles.
+- A comment that makes a factual claim about a class of things, how often something happens, what causes something, what does not exist or does not happen, or an effect of the code that depends on conditions outside the code, such as load or user behavior. Ask whether the available evidence justifies the scope and the certainty that a reader takes from the wording, and, where the claim is inferred, whether the comment says so. Suspect "overclaim," and apply the Words that resolve principle.
 - A rule or a verdict stated without limit or conditions. Ask whether a reader can determine its scope from the code and comment, considering any stated reason. Suspect "context-bound statement."
 - A comment whose reading is not obvious, where neither the code nor the nearby comments settle how it was meant. Suspect "context-bound statement."
 - A function or a block. Ask what subject its logic is about, judging by the data that it reads and writes, and whether the module that contains it covers that subject. Suspect "misplacement."
@@ -120,6 +120,10 @@ Where code that repeats a definition from elsewhere has to stay, the fix can mak
 ### The "needless backward compatibility" antipattern
 
 Where the request did not require keeping an old interface that remains beside its replacement, the fix replaces it and migrates the callers. Where it cannot be determined whether the request required keeping it, leave the interface and report it.
+
+### The "overclaim" antipattern
+
+Where the material in scope settles what the grounds support, reword the statement to claim no more than that. Where it does not, leave the statement unchanged and report it, because a weakened statement can claim less than the writer had established.
 
 ### The "false analogy" antipattern
 

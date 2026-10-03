@@ -151,6 +151,22 @@ The **"snapshot reasoning"** antipattern is a judgment that takes the current st
 
 The **"unwarranted condition"** antipattern treats a consideration as a necessary or sufficient condition for the conclusion of a judgment. In this failure, neither the purpose nor the constraints of the work justify using the consideration in that role. One cause is a visible fact about the existing structure. Examples are where a piece of information is written and whether another item already covers a case. The existing structure then over-determines the judgment, and the fact is used as a condition that nothing warrants. Where the "snapshot reasoning" antipattern treats a fact as fixed, this antipattern treats a fact as a condition, however stable the fact is.
 
+### Principle of Calibrated claims
+
+Calibrated claims requires that a statement claim no more than the writer's grounds support, wherever the difference affects what the reader does with the statement. It specializes the Examined assumptions principle to the judgment that a statement expresses. What that judgment takes as given is the part of the claim that the grounds do not establish. Examples of grounds are what the writer observed or checked, what a source states, and what the writer inferred from these.
+
+What a statement claims is what its reader takes it to claim. The reader has only the wording, and usually takes a statement without a qualifier to hold in every case that the wording covers, and to be established. A writer often settles neither how strong a claim the grounds support nor how strong a claim the wording makes.
+
+The test is to name the grounds, and then to read the statement as holding in every case that its wording covers and as established. The statement passes where the grounds support that reading. It also passes where the reader would do the same with the claim that the grounds do support, as with a generalization whose exceptions do not affect the reader's use of it.
+
+A word that limits the scope or the certainty of a statement is part of the claim, not a caveat added to it.
+
+The occasions for the test are the kinds of statement in which the reader's reading tends to exceed the grounds. They include a statement about a class of things, a statement of how often something happens, a statement that one thing causes another, a statement that something does not exist or does not happen, and a prediction of how a person or a system will behave.
+
+The **"overclaim"** antipattern is a statement that its reader takes to claim more than the writer's grounds support, in scope or in certainty, where the difference affects what the reader does with the statement. Its forms include what holds in some cases stated as holding in all, a tendency stated as a rule, and an inference stated as an established fact. The remedy is wording that states the claim that the grounds support, and a single word that limits the scope or the certainty is often enough. Where what the reader does with the statement needs the stronger claim, the remedy is to obtain the grounds for it.
+
+The principle can be overapplied by weakening a statement that the grounds support as written, or by qualifying statements alike without regard to their grounds. A statement weakened in either way tells the reader less than the writer knows, and the reader has to establish again what the writer had already established. Where every statement carries a qualifier, the reader also cannot tell which statements are uncertain.
+
 ### Principle of Applicability
 
 Applicability requires that what is already established be applied to a case according to the reason for which it was established. Examples of what is established are a rule, a decision, a criterion, and a named concept. Neither the wording of what is established nor the appearance of the case determines which cases it covers.
@@ -307,7 +323,7 @@ The **"unclear reference"** antipattern refers to something elsewhere in the tex
 
 The **"culture-bound phrase"** antipattern is wording that resolves only through its language's figurative and idiomatic conventions. Those conventions are not a namespace that every reader has. Translation does not preserve the meaning, and readers whose native language differs do not understand it. A reader of the original language understands the meaning, and the wording therefore passes a check that requires only a referent. Even for that reader, the wording can leave unclear which operation or fact it means. Such wording typically uses a word outside its primary sense. Personification is one form. Another is a figurative chain, where successive sentences use words from one figurative system. A figurative term established in the domain resolves through that domain's vocabulary and is not this failure.
 
-The principle can be overapplied by treating a statement that covers much, or that leaves much to the reader, as a statement that does not resolve. Such a statement resolves where the reader can tell what it covers and what it leaves open. A statement that covers more than the writer has grounds to claim, or that leaves open what its purpose needs settled, has a defect of content, not of wording.
+The principle can be overapplied by treating a statement that covers much, or that leaves much to the reader, as a statement that does not resolve. Such a statement resolves where the reader can tell what it covers and what it leaves open. A statement that leaves open what its purpose needs settled has a defect of content, not of wording. So does a statement that covers more than the writer has grounds to claim, a case to which the Calibrated claims principle applies.
 
 ### Principle of Structural naming
 
