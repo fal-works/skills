@@ -17,11 +17,15 @@ By default, the auditor has the writer's knowledge rather than the reader's. The
 
 The fresh context still needs the change itself: which files and regions it touched, and what it did to them. Step 1 determines the focus of the pass from that description. A diff is sufficient. The reasons, the discussion, the rejected alternatives, and the wording of the instructions do not belong in that description. Passing them restores the writer's knowledge that the fresh context exists to exclude.
 
-Some antipatterns concern the session, such as "session leak" and "salience leak." Only an auditor who has access to the session context can recognize an instruction restated or the case that the session raised. A fresh auditor has a counterpart of each: the question of why the artifact says this at all. It arises at a reference that nothing resolves, an element that nothing in scope motivates, and emphasis that the material itself does not explain. Neither auditor detects every leak, so someone who has access to the session context reviews what the fresh pass reports.
+Some antipatterns concern the session, such as "session leak" and "salience leak." Only an auditor who has access to the session context can recognize an instruction restated or the case that the session raised. A fresh auditor has a counterpart of each: the question of why the artifact says this at all. It arises at a reference that nothing resolves, an element that nothing in scope motivates, and emphasis that the material itself does not explain.
+
+Neither auditor detects every leak, so someone who has access to the session context judges the scope by these antipatterns and reviews what the fresh pass reports. A fresh pass that reports no such finding has not shown that the scope is free of them.
 
 That reviewer is subject to the defensive bias toward keeping the work as it was written. For them, a reported finding is a hypothesis to check, as a cue is for the auditor in step 3. A finding whose explanation is wrong can still indicate a real problem. A reason for rejecting a finding is itself a claim, and it is verified before the finding is rejected.
 
 A fix that the fresh auditor made or proposed is a hypothesis separate from its finding. The fresh auditor wrote it without knowing what the writer meant, so the reviewer compares what the fix states with that meaning before accepting it.
+
+An edit that the reviewer makes after the fresh pass is a change that no fresh pass has judged. Where practical, it goes through a fresh pass as the original change did.
 
 ## Run the audit
 

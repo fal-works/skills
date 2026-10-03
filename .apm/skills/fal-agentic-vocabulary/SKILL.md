@@ -275,6 +275,8 @@ The test is whether a writer who gained the same understanding without this sess
 
 The session is not only what is visible in the conversation. A line of reasoning that occurred only in the writer's own thinking counts too.
 
+During the work, the signal is that the units of the work correspond to the points that the session raised, such as a passage or a special case for each concern that was discussed. Such a correspondence does not show whether the session or the understanding selected the units, so the test applies to each of them.
+
 Mentioning a rejected alternative always looks justifiable from inside the session. It is worth its cost only when a fresh reader would expect that alternative and the choice needs explaining. The test is whether a reader who has never heard of the alternative benefits from being told about it.
 
 The **"session leak"** antipattern is a trace of the session in the output: an instruction restated, a rejected alternative mentioned, and a pointer to something that exists only for this session.
@@ -352,4 +354,4 @@ The principle can be overapplied by rejecting a needed definition because the na
 
 Japanese has failure modes beyond what the preceding sections cover. The `fal-write-ja` skill addresses these failure modes. Whenever the output is Japanese, that skill applies together with this one.
 
-Having applied these concepts while writing does not make checking the finished work redundant. Believing otherwise is itself a self-evaluation from the writer's position, which is the failure that the Reader's position principle addresses. The `fal-agentic-audit` skill supplies that separate process.
+Having applied these concepts while writing does not make checking the finished work redundant. Believing otherwise is itself a self-evaluation from the writer's position, which is the failure that the Reader's position principle addresses. The `fal-agentic-audit` skill supplies that separate process, including what the writer passes to an auditor in another context and what the writer does with its report.
