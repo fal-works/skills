@@ -5,7 +5,7 @@ description: Write a feedback report on a failure of a fal-* skill, addressed to
 
 # Feedback Report
 
-When a `fal-*` skill was in context and the output still fell short, the failure is evidence about the skill. This skill turns that evidence into a report for the maintainer of the `fal-*` skills, who will use it as input when revising them. The whole job is to generate one Markdown file and save it; there is no submission step.
+When a `fal-*` skill was in context and the output still fell short, the failure is evidence about the skill. This skill turns that evidence into a report for the maintainer of the `fal-*` skills, who will use it as input when revising them. The whole job is to write the report as a Markdown file and save it; there is no submission step.
 
 The primary purpose is to describe the failure so that the maintainer can judge it independently. Analysis of causes and proposals for revision are welcome additions, but they stay secondary: a report whose failure description is thin cannot be salvaged by a strong proposal, because the maintainer has nothing to check the proposal against.
 
@@ -27,13 +27,15 @@ The exception is a session whose own task was editing the `fal-*` skills. There 
 
 ## What the report establishes
 
-One report covers one failure. Two failures are distinct when their cause hypotheses and their corrections are independent, even if they surfaced in the same session; give each its own report. When the user's request points at a specific failure, cover that one alone. When a related failure seems worth including, ask the user before widening the scope.
+The maintainer judges and resolves each report as a unit, so a report covers what has to be judged together. That whole is the failure that the report describes. Two things that went wrong are one failure when describing one requires the material of the other, as when an output had a defect and a later review did not report it. Otherwise they are separate failures and each gets its own report, as with unrelated defects in different outputs of the same session.
+
+When the user's request points at a specific failure, cover that one alone. When a related failure seems worth including, ask the user before widening the scope.
 
 The material is usually already in the session: the failing outputs, the user's corrections, and the discussion around them. Collect the cases from there before writing.
 
 - **Preconditions.** Which `fal-*` skills were in context, and whether they were read before the failing output was produced. This separates two different diagnoses: a rule that was read but did not act, and a skill that was never loaded. The maintainer cannot recover this information from anywhere else.
 - **The failure.** What was attempted, what came out, and what was wrong with it, case by case. Where a correction exists, show before and after. When the user's own words define the judgment, quote them verbatim; a ruling restated in your words loses exactly the nuance the maintainer needs.
-- **The skill text held against the failure.** Reread the relevant skill and check each case against its current text. Quote the exact passages, with the section heading or number of each, so the maintainer can locate them in the current text.
+- **The skill text held against the failure.** Reread each relevant skill and check each case against its current text. Quote the exact passages, with the section heading or number of each, so the maintainer can locate them in the current text.
   - The finding takes one of a few shapes, and naming the shape is most of the analysis: an existing rule already forbids this, a rule covers it but reads too narrowly to fire here, two rules pull in opposite directions on the same fact, or no rule speaks to it.
   - When the current text already forbids the failure, say so plainly; the main cause is then non-compliance, and the maintainer should know that a text revision alone will not fully prevent recurrence.
 - **Cause hypotheses, marked as such.** Why the skill failed to prevent the failure is worth conjecturing, but keep the boundary visible between what was observed in the session and what you infer.
@@ -55,7 +57,7 @@ date: YYYY-MM-DD
 
 The `description` is fixed text. Set only `date`, to the session's date.
 
-Save to the current directory unless the user names a location, under a descriptive kebab-case filename that names the skill concerned and the topic.
+Save to the current directory unless the user names a location, under a descriptive kebab-case filename that names the skill or skills concerned and the topic.
 
 ### Content
 
