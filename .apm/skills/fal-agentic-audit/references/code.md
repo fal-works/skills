@@ -27,7 +27,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A doc comment on a public surface naming types, mechanisms, or steps that its reader cannot see. Suspect "exposed internals" and "unabstracted detail."
 - A doc comment on a declaration that details one of its members, such as a type doc describing the behavior of one field. Suspect "unabstracted detail."
 - A connector that joins clauses without stating how they relate, such as an em dash, a semicolon, or "which also." Suspect "split focus" and "unstated relation."
-- A verb whose primary sense describes a body or a physical object, used with an abstract or inanimate noun as its subject or object, such as a value that "lives" in a cache. Examples are verbs of acting, holding a posture, living in a place, and moving. Suspect "culture-bound phrase."
+- A verb whose primary sense describes a body or a physical object, used with an abstract or inanimate noun as its subject or object, such as a request that "carries" a user ID. Examples are verbs of acting, holding a posture, living in a place, and moving. Suspect "culture-bound phrase."
 - An inanimate subject given will, speech, feeling, or cognition, such as a cache that "remembers" a value or a module that "knows" its callers. Suspect "culture-bound phrase."
 - An idiom of general English. Suspect "culture-bound phrase."
 - Comments in one region using words from the same figurative system. Suspect "culture-bound phrase."
