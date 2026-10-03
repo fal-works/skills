@@ -22,6 +22,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A justification that cites who currently calls the thing, which inputs occur, or the present shape or placement of the code. Suspect "snapshot reasoning" and "unwarranted condition."
 - A comment stating a condition for adopting or rejecting a design choice, such as "extract this only once a second caller exists" or "no check here, because X already validates the input." Suspect "unwarranted condition."
 - Wording that claims sameness, such as "same as X" or "as in X." Suspect "false analogy."
+- A comment that records an undecided matter or asks its reader a question, such as a TODO that asks which behavior is intended. Suspect "untracked question," "offloaded decision," and "off-purpose content."
 - A comment on an optional field stating that the value is present under some condition, such as "should never be null when X." Suspect "wrong-layer patch."
 - A doc comment on a public surface naming types, mechanisms, or steps that its reader cannot see. Suspect "exposed internals" and "unabstracted detail."
 - A doc comment on a declaration that details one of its members, such as a type doc describing the behavior of one field. Suspect "unabstracted detail."
@@ -90,6 +91,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A new code element, such as a function, type, or module, that overlaps an existing element in responsibility or in the cases that it enumerates. Search beyond the module under edit. Suspect "unintegrated addition" and "under-scoped change."
 - A specialization of an existing general type defined as though unrelated. Suspect "unintegrated addition."
 - A construct that also appears in code that looks similar, such as a guard, a lock, a retry, or a cache. Suspect "false analogy."
+- A choice in the change that the user might dispute, such as an added dependency, a behavior changed beyond what the change needs, or a narrowed scope. Suspect "silent decision."
 - A name at its declaration. Ask whether a reader who has not seen its use sites can tell what it names. Suspect "caller-bound framing" and "wrong-layer patch."
 - A comment that states what code does or guarantees, whether that code is adjacent or elsewhere. Read the code and verify each claim. Verify an absence claim across its full scope. Suspect "silent contradiction."
 - Every comment in focus, and every part of one. Suspect "over-documentation."
@@ -122,6 +124,14 @@ Where the request did not require keeping an old interface that remains beside i
 ### The "false analogy" antipattern
 
 Where the reason for what is established is not known, such as the reason that a copied construct had at its source, report the construct or the wording and leave the code unchanged.
+
+### The "silent decision" antipattern
+
+Whether the choice was presented to the user is not visible in the code. Report the choice for someone who has access to the session context to check. A comment added to the code is not the fix.
+
+### The "untracked question" antipattern
+
+The comment can be the only record of the matter, so deleting it is not by itself a fix. Where the repository has no place that tracks open questions, report the matter and leave the comment unchanged.
 
 ### The "silent contradiction" antipattern
 

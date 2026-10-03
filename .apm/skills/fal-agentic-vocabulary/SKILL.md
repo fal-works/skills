@@ -14,7 +14,7 @@ Six biases of LLM-generated output cause the failures named here. Each bias is a
 - **Additive bias.** Generating costs the writer almost nothing. Reading and maintaining are costly. The writer adds material without the selection, reuse, and reduction that should precede an addition.
 - **Contextual bias.** The writer writes from the working context without rebuilding the content for a reader who does not share that context. What the context made prominent is written even where the reader does not need it. What the context made obvious is treated as known to the reader.
 - **Compression bias.** The writer pursues brevity by condensing the expression rather than by selecting what to keep.
-- **Defensive bias.** The writer avoids breaking, removing, omitting, and admitting error in favor of adding, keeping, accepting without reporting, and defending in advance.
+- **Defensive bias.** The writer avoids breaking, removing, omitting, and admitting error in favor of adding, keeping, accepting without reporting, and defending in advance. The writer also avoids making a decision that can prove wrong, in favor of deferring it or leaving it to someone else.
 
 Each principle has a section of its own. The section states the principle and what it requires of the writer, together with a test where the principle has one. Each antipattern is defined in the section of the principle that primarily prevents it, and other sections refer to it by name.
 
@@ -71,6 +71,22 @@ The principle can be overapplied by splitting what belongs together. A connectiv
 
 ## What determines the unit
 
+### Principle of Purpose
+
+Purpose requires that what a unit is for be identified before the unit is written or changed, and that what is then written serve it. The purpose is identified from what is stated or from the kind of unit, not from what the unit currently includes. For a document, this is what its reader does with it. For a module, it is what the module is responsible for. A smaller unit, such as a section or a function, has a purpose of the same kind.
+
+What a unit is for can be stated by the unit itself, by the structure that contains it, or by the user. In most cases, nothing states it, and the kind of unit then indicates a typical purpose. For example, a plan, a specification, a record of a decision, and a record of open questions each exist for a different use. Identifying the purpose in this way is ordinarily a brief judgment that needs neither confirmation nor a written statement.
+
+A purpose inferred from what the unit currently includes justifies all of it. Each addition then becomes part of what the purpose is inferred from, so such a purpose excludes nothing.
+
+Where neither a statement nor the kind of unit identifies the purpose, the purpose is a design decision that the user makes, and the writer proposes one. A purpose decided in this way is stated in the unit, because a later writer has no other access to it.
+
+The test is to name what the unit is for, on grounds other than what the unit currently includes, and then to state how the content under judgment serves it.
+
+Where no existing unit is for the content, and the content is still worth its cost under the Necessity principle, the writer proposes a new unit or a change to the structure, or reports the content to the user. The urge to place such content in the unit under edit is the signal that the Redesign principle describes.
+
+The **"off-purpose content"** antipattern is content that does not serve what its unit is for. The content can be true, and it can match the subject of the unit. Its usual cause is that the unit was under edit when the content arose. A reader does not look for content of that kind in the unit, so the content can remain unread. Content that is worth its cost belongs in a unit that exists for it.
+
 ### Principle of Placement
 
 Placement requires that a unit be in the place that covers its subject, at the abstraction level of that place. A unit is about something, and a place covers something. For example, a comment covers the declaration that it is attached to, a section covers its topic, and a module covers its responsibility. A unit outside the place that covers its subject fails in two ways. The change that falsifies the unit happens elsewhere, so nothing prompts its update. The reader looks for the unit elsewhere, or takes it as a property of the place where it is.
@@ -86,6 +102,8 @@ The same matching applies in code. Logic belongs where its subject is implemente
 The subject of a constraint is whoever guarantees it. A rule that the module itself guarantees belongs in its own types. By contrast, a rule that only one use site imposes belongs in that use site's layer, stated with that use site as its subject.
 
 An urge to repeat a caveat "to be safe" usually means that the caveat is outside the place that covers its subject, or that two scopes overlap.
+
+A unit whose subject matches the place can still fail to serve what the place is for, a case to which the Purpose principle applies.
 
 The **"misplacement"** antipattern is a unit that is not in the place that covers its subject, at the abstraction level of that place.
 
@@ -142,6 +160,32 @@ The test is to state the reason, and then to show that the reason applies to the
 A case can resemble the established wording, or resemble a case that is already covered. Either resemblance is weak evidence that the reason applies. The writer describes the case while reading the established wording, so the description adopts that wording. The case is therefore first described without the established wording.
 
 The **"false analogy"** antipattern applies what is established to a case because the case resembles the established wording or a case already covered, without checking that the reason applies there. What is established can be correct and exactly quoted, so nothing in the text shows the error.
+
+### Principle of Focused review
+
+Focused review requires that what the writer presents for the user's review be everything that needs the user's judgment and nothing else. The user's attention for review is limited. A matter that needs the user's judgment and is not presented is not reviewed. A matter that does not need it takes attention from those that do.
+
+The work has to settle matters such as a choice between designs, the scope of a change, and a premise that the rest of the work depends on. A matter needs the user's judgment in two cases. In one, the writer has made a decision that the user might dispute. In the other, the decision needs something that only the user has. No other decision is presented to the user.
+
+The writer makes a decision wherever the writer has what the decision needs. This includes a decision that the user has the authority to make. For such a decision, the writer decides what to propose, and the artifact states the proposal as its content, not as an open question. Writing the proposal does not replace the user's approval, and the user can reject or change the proposal when reviewing the artifact.
+
+Where the decision needs something that only the user has, such as information, a preference, or a priority, and the work needs the decision now, the writer asks the user for it.
+
+Where the work does not yet need such a decision, the matter remains an open question. An open question is kept in a place where open questions are tracked, meaning a place that the user consults to learn what is undecided. The question is asked when the work needs the decision.
+
+That a decision is written somewhere in the artifact does not mean that the user reviews it. Whether the user reads it as a decision depends on how and where the writer states it. Where the user is the reader of the artifact, as with a plan or a proposal, the place is the artifact. Where the artifact is written for other readers, the writer states the decision when reporting the work to the user. What that artifact says about the decision is judged for its own readers, a case to which the Necessity and Session-blind principles apply.
+
+The test is to ask whether the decision needs anything that only the user has. Where it needs nothing of that kind and the user might dispute the decision, the test is then whether the user would read it as a decision without searching for it. For a matter that remains undecided, the test is whether it is in a place where open questions are tracked.
+
+A premise that several decisions depend on can itself be a decision that the user might dispute, so a proposal states such a premise together with those decisions. Where a proposal is divided into separate questions, a premise that the questions share tends to be stated in none of them.
+
+The **"silent decision"** antipattern settles a matter that the user might dispute, without the user reading it as a decision. The decision can be stated nowhere, as with an assumed premise or a scope narrowed without a statement. It can also be stated where the user does not read it as a decision, such as a decision written as an established fact or inside the description of something else.
+
+The **"untracked question"** antipattern is a matter that remains undecided and is not in a place where open questions are tracked. Its forms include a note in a unit that exists for something else, to which the "off-purpose content" antipattern also applies, and a matter mentioned in the conversation among other content. Nothing prompts a decision on such a matter when the work needs it, and the user may not have read it where it was written. The matter can then remain undecided.
+
+The **"offloaded decision"** antipattern leaves to the user a decision although the writer has what the decision needs. The writer does this by asking the user directly or by adding the matter to a record of open questions. A question that leaves to the user a part of the work that the writer can do is the same failure. Its forms include a list of open questions without a recommendation, a question that the writer's own investigation could answer, and a proposal divided into separate questions, each of which asks only for approval.
+
+The principle can be overapplied by asking the user for a decision before the work needs it.
 
 ## What is already there
 

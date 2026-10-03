@@ -43,7 +43,7 @@ A principle is a norm that prevents antipatterns, directly or through other prin
 **looks_mainly_at**: the place where the principle's judgment starts, among the places that hold its material.
 
 - `within`: the unit being written.
-- `above`: what determines the unit, meaning the place that holds it and the grounds for judgments about it, such as an assumption or an established rule.
+- `above`: what determines the unit, meaning its purpose, the place that holds it, and the grounds for judgments about it, such as an assumption or an established rule.
 - `beside`: its siblings, and what already exists.
 - `outside`: the reader's position, meaning what the reader can see and already knows.
 

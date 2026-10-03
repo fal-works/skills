@@ -21,6 +21,8 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A condition stated for adopting or rejecting something, such as "only where," "unless," or "whenever X, Y is unnecessary." Suspect "unwarranted condition."
 - Wording that claims sameness, such as "the same as," "likewise," or "a kind of." Suspect "false analogy."
 - A conclusion that cites a rule or an earlier decision without stating why it was established. Suspect "false analogy."
+- A statement that a matter is undecided, deferred, or to be decided later. Suspect "untracked question," "offloaded decision," and "off-purpose content."
+- A question addressed to the reader, or options presented with none chosen. Suspect "offloaded decision" and "untracked question."
 - A connector that joins clauses without stating how they relate, such as an em dash, a semicolon, or "which also." Suspect "split focus" and "unstated relation."
 - A verb whose primary sense describes a body or a physical object, used with an abstract or inanimate noun as its subject or object, such as information that "sits" in a file. Examples are verbs of acting, holding a posture, living in a place, and moving. Suspect "culture-bound phrase."
 - An inanimate subject given will, speech, feeling, or cognition, such as a cache that "remembers" a value or a module that "knows" its callers. Suspect "culture-bound phrase."
@@ -55,7 +57,7 @@ A cue marks where to suspect an antipattern or where to apply a principle. Each 
 - A list whose items are of different kinds. Suspect "split focus."
 - A heading that needs "and" to cover its body. Suspect "split focus."
 - A document serving two roles, such as a tutorial that also serves as a reference. Suspect "split focus."
-- A document containing material of another genre, such as a README with changelog entries. Suspect "misplacement."
+- A document containing material of another genre, such as a README with changelog entries. Suspect "off-purpose content" and "misplacement."
 - Worked examples or per-item explanation in an overview document that has a detail layer. Suspect "misplacement" and "unabstracted detail."
 - A section that was extended by clauses or sentences added one at a time, such as a spec with one clause per requirement. Suspect "under-scoped change."
 - A document that is addressed to readers outside a boundary and names mechanisms or types that those readers cannot see. Suspect "exposed internals."
@@ -75,6 +77,7 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A claim about how a reader or a process will behave, or about what a fix or a safeguard will prevent. Ask whether the available evidence justifies the degree of certainty that the claim expresses, and, where it is inferred, whether the text says so. Apply the Examined assumptions and Words that resolve principles.
 - A rule, a decision, or a verdict stated without limit or conditions. Ask whether a reader can determine its scope from the document, considering any stated reason. Suspect "context-bound statement."
 - A statement whose reading is not obvious, where nothing nearby settles how it was meant. Suspect "context-bound statement."
+- A document. Ask what its reader does with it, and whether each passage serves that use. Suspect "off-purpose content."
 - A fact in a section. Ask what the fact is about, and whether the heading of the section covers that subject. Suspect "misplacement" and "under-scoped change."
 - A section and its heading. Ask whether the content would have been written if the heading did not require it. Suspect "wrong-layer patch."
 - A section that overlaps what another document states. Search beyond the document under edit. Suspect "unintegrated addition."
@@ -82,6 +85,8 @@ A word or a form does not mark these cues. Each is found by examining the units 
 - A section that describes a design. Compare what it describes with the current design. Suspect "vestige."
 - A term for a component or a concept of the subject. Compare it with the name that the current code or design gives to the same thing. Suspect "vestige."
 - A criterion applied to an artifact. Compare that artifact with the one for which the criterion was set. Suspect "false analogy."
+- A plan or a proposal. Ask what it treats as settled, such as a premise, a scope, or a choice between alternatives, and whether the user might dispute it. Ask then whether the text presents it as a decision. Suspect "silent decision."
+- A plan or a proposal that asks the user to approve separate items. Ask whether the items depend on a premise that none of them states, and whether each item needs the user's judgment. Suspect "silent decision" and "offloaded decision."
 - A claim about a thing, such as what it states, contains, or covers, whether that thing is adjacent or elsewhere. Find the thing and verify each claim. Verify an absence claim across its full scope. Suspect "silent contradiction."
 - Every passage in focus, and every part of one. Suspect "over-documentation."
 
@@ -109,6 +114,14 @@ When a shared template defines the structure, a section written to fill one of i
 ### The "false analogy" antipattern
 
 Where the reason for what is established is not known, report the passage and leave it unchanged.
+
+### The "silent decision" antipattern
+
+Where the document is written for readers other than the user, whether the decision was presented to the user elsewhere, such as in the conversation, is not visible in the document. Report the decision for someone who has access to the session context to check.
+
+### The "untracked question" antipattern
+
+The note can be the only record of the matter, so deleting it is not by itself a fix. Where the repository has no place that tracks open questions, report the matter and leave the note unchanged.
 
 ### The "silent contradiction" antipattern
 
